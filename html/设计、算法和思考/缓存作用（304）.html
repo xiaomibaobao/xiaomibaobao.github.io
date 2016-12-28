@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li class="active"><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0缓存作用（304）">缓存作用（304）</a></li><li><a href="#t1请求流程">请求流程</a></li><li><a href="#t2通过最后修改时间来判断缓存是否可用">通过最后修改时间来判断缓存是否可用</a></li><li><a href="#t3最后修改时间存在问题">最后修改时间存在问题</a></li><li><a href="#t4ETag">ETag</a></li><li><a href="#t5如何干脆不发请求">如何干脆不发请求</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t0&#x7F13;&#x5B58;&#x4F5C;&#x7528;&#xFF08;304&#xFF09;">&#x7F13;&#x5B58;&#x4F5C;&#x7528;&#xFF08;304&#xFF09; <a href="#t0&#x7F13;&#x5B58;&#x4F5C;&#x7528;&#xFF08;304&#xFF09;"> # </a></h2>
+<ul>
+<li>&#x51CF;&#x5C11;&#x4E86;&#x5197;&#x4F59;&#x7684;<code>&#x6570;&#x636E;&#x4F20;&#x8F93;</code>&#xFF0C;&#x8282;&#x7701;&#x4E86;&#x7F51;&#x8D39;&#x3002;</li>
+<li>&#x51CF;&#x5C11;&#x4E86;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8D1F;&#x62C5;&#xFF0C; &#x5927;&#x5927;&#x63D0;&#x9AD8;&#x4E86;&#x7F51;&#x7AD9;&#x7684;<code>&#x6027;&#x80FD;</code></li>
+<li>&#x52A0;&#x5FEB;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;&#x52A0;&#x8F7D;&#x7F51;&#x9875;&#x7684;<code>&#x901F;&#x5EA6;</code></li>
+</ul>
+<h2 id="t1&#x8BF7;&#x6C42;&#x6D41;&#x7A0B;">&#x8BF7;&#x6C42;&#x6D41;&#x7A0B; <a href="#t1&#x8BF7;&#x6C42;&#x6D41;&#x7A0B;"> # </a></h2>
+<p><img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/cachestart.png" class="img-responsive">
+<img src="http://7xjf2l.com2.z0.glb.qiniucdn.com/cachecontrol.png" class="img-responsive"> </p>
+<h2 id="t2&#x901A;&#x8FC7;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x6765;&#x5224;&#x65AD;&#x7F13;&#x5B58;&#x662F;&#x5426;&#x53EF;&#x7528;">&#x901A;&#x8FC7;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x6765;&#x5224;&#x65AD;&#x7F13;&#x5B58;&#x662F;&#x5426;&#x53EF;&#x7528; <a href="#t2&#x901A;&#x8FC7;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x6765;&#x5224;&#x65AD;&#x7F13;&#x5B58;&#x662F;&#x5426;&#x53EF;&#x7528;"> # </a></h2>
+<ol>
+<li>Last-Modified&#xFF1A;&#x54CD;&#x5E94;&#x65F6;&#x544A;&#x8BC9;&#x5BA2;&#x6237;&#x7AEF;&#x6B64;&#x8D44;&#x6E90;&#x7684;<code>&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;</code></li>
+<li><code>If-Modified-Since</code>&#xFF1A;&#x5F53;&#x8D44;&#x6E90;&#x8FC7;&#x671F;&#x65F6;&#xFF08;&#x4F7F;&#x7528;Cache-Control&#x6807;&#x8BC6;&#x7684;max-age&#xFF09;&#xFF0C;&#x53D1;&#x73B0;&#x8D44;&#x6E90;&#x5177;&#x6709;<em>Last-Modified</em>&#x58F0;&#x660E;&#xFF0C;&#x5219;&#x518D;&#x6B21;&#x5411;&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;&#x65F6;&#x5E26;&#x4E0A;&#x5934;<em>If-Modified-Since</em>&#x3002;</li>
+<li>&#x670D;&#x52A1;&#x5668;&#x6536;&#x5230;&#x8BF7;&#x6C42;&#x540E;&#x53D1;&#x73B0;&#x6709;&#x5934;<em>If-Modified-Since</em>&#x5219;&#x4E0E;&#x88AB;&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#x7684;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x8FDB;&#x884C;&#x6BD4;&#x5BF9;&#x3002;&#x82E5;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x8F83;&#x65B0;&#xFF0C;&#x8BF4;&#x660E;&#x8D44;&#x6E90;&#x53C8;&#x88AB;&#x6539;&#x52A8;&#x8FC7;&#xFF0C;&#x5219;<code>&#x54CD;&#x5E94;&#x6700;&#x65B0;&#x7684;&#x8D44;&#x6E90;</code>&#x5185;&#x5BB9;&#x5E76;&#x8FD4;&#x56DE;200&#x72B6;&#x6001;&#x7801;&#xFF1B;</li>
+<li>&#x82E5;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x548C;<em>If-Modified-Since</em>&#x4E00;&#x6837;&#xFF0C;&#x8BF4;&#x660E;&#x8D44;&#x6E90;&#x6CA1;&#x6709;&#x4FEE;&#x6539;&#xFF0C;&#x5219;&#x54CD;&#x5E94;304&#x8868;&#x793A;<code>&#x672A;&#x66F4;&#x65B0;</code>&#xFF0C;&#x544A;&#x77E5;&#x6D4F;&#x89C8;&#x5668;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;&#x6240;&#x4FDD;&#x5B58;&#x7684;&#x7F13;&#x5B58;&#x6587;&#x4EF6;&#x3002;</li>
+</ol>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> matchHandle =  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">filename,req,res</span>)</span>{
+    <span class="hljs-keyword">var</span> lastModified  = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(req.headers[<span class="hljs-string">&apos;if-modified-since&apos;</span>]);<span class="hljs-comment">//&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;</span>
+    fs.stat(filename,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,stat</span>)</span>{
+        <span class="hljs-comment">//&#x5411;&#x4E0B;&#x53D6;&#x6574;</span>
+        <span class="hljs-keyword">if</span>(stat.mtime.getTime()-lastModified.getTime()&lt;=<span class="hljs-number">1000</span>){
+            res.statusCode = <span class="hljs-number">304</span>;
+            res.end(<span class="hljs-string">&apos;&apos;</span>);
+        }<span class="hljs-keyword">else</span>{
+            res.setHeader(<span class="hljs-string">&apos;Last-Modified&apos;</span>,stat.mtime.toGMTString());<span class="hljs-comment">//&#x4E0A;&#x6B21;&#x4FEE;&#x6539;&#x65F6;&#x95F4;, &#x53EA;&#x53D1;header</span>
+            res.writeHead(<span class="hljs-number">200</span>,<span class="hljs-string">&apos;OK&apos;</span>);
+            fs.createReadStream(filename).pipe(res);
+        }
+    });
+}
+</code></pre>
+<h2 id="t3&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x5B58;&#x5728;&#x95EE;&#x9898;">&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x5B58;&#x5728;&#x95EE;&#x9898; <a href="#t3&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x5B58;&#x5728;&#x95EE;&#x9898;"> # </a></h2>
+<ol>
+<li>&#x67D0;&#x4E9B;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x80FD;&#x7CBE;&#x786E;&#x5F97;&#x5230;&#x6587;&#x4EF6;&#x7684;<code>&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;</code>&#xFF0C; &#x8FD9;&#x6837;&#x5C31;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x6765;&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x66F4;&#x65B0;&#x4E86;&#x3002;</li>
+<li>&#x67D0;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x4FEE;&#x6539;&#x975E;&#x5E38;&#x9891;&#x7E41;&#xFF0C;&#x5728;&#x79D2;&#x4EE5;&#x4E0B;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x8FDB;&#x884C;&#x4FEE;&#x6539;. Last-Modified&#x53EA;&#x80FD;<code>&#x7CBE;&#x786E;&#x5230;&#x79D2;</code>&#x3002;</li>
+<li>&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x6539;&#x53D8;&#x4E86;&#xFF0C;&#x4F46;&#x662F;<code>&#x5185;&#x5BB9;&#x5E76;&#x672A;&#x6539;&#x53D8;</code>&#x3002; &#x6211;&#x4EEC;&#x4E0D;&#x5E0C;&#x671B;&#x5BA2;&#x6237;&#x7AEF;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x4E86;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x540C;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4F4D;&#x4E8E;&#x591A;&#x4E2A;<code>CDN</code>&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x65F6;&#x5019;&#x5185;&#x5BB9;&#x867D;&#x7136;&#x4E00;&#x6837;&#xFF0C;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x4E0D;&#x4E00;&#x6837;&#x3002;</li>
+</ol>
+<h2 id="t4ETag">ETag <a href="#t4ETag"> # </a></h2>
+<p>ETag&#x662F;&#x5B9E;&#x4F53;&#x6807;&#x7B7E;&#x7684;&#x7F29;&#x5199;&#xFF0C;&#x6839;&#x636E;&#x5B9E;&#x4F53;&#x5185;&#x5BB9;&#x751F;&#x6210;&#x7684;&#x4E00;&#x6BB5;<code>hash</code>&#x5B57;&#x7B26;&#x4E32;,&#x53EF;&#x4EE5;&#x6807;&#x8BC6;&#x8D44;&#x6E90;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5F53;&#x8D44;&#x6E90;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x65F6;&#xFF0C;ETag&#x4E5F;&#x968F;&#x4E4B;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;
+ETag&#x662F;Web&#x670D;&#x52A1;&#x7AEF;&#x4EA7;&#x751F;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x53D1;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x5BA2;&#x6237;&#x7AEF;&#x3002;</p>
+<ol>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x60F3;&#x5224;&#x65AD;&#x7F13;&#x5B58;&#x662F;&#x5426;&#x53EF;&#x7528;&#x53EF;&#x4EE5;&#x5148;&#x83B7;&#x53D6;&#x7F13;&#x5B58;&#x4E2D;&#x6587;&#x6863;&#x7684;<em>ETag</em>&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;<em>If-None-Match</em>&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x7ED9;Web&#x670D;&#x52A1;&#x5668;&#x8BE2;&#x95EE;&#x6B64;&#x7F13;&#x5B58;&#x662F;&#x5426;&#x53EF;&#x7528;&#x3002;</li>
+<li>&#x670D;&#x52A1;&#x5668;&#x6536;&#x5230;&#x8BF7;&#x6C42;&#xFF0C;&#x5C06;&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E2D;&#x6B64;&#x6587;&#x4EF6;&#x7684;<em>ETag</em>,&#x8DDF;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x7684;<em>If-None-Match</em>&#x76F8;&#x6BD4;&#x8F83;,&#x5982;&#x679C;&#x503C;&#x662F;&#x4E00;&#x6837;&#x7684;,&#x8BF4;&#x660E;&#x7F13;&#x5B58;&#x8FD8;&#x662F;&#x6700;&#x65B0;&#x7684;,Web&#x670D;&#x52A1;&#x5668;&#x5C06;&#x53D1;&#x9001;<em>304 Not Modified</em>&#x54CD;&#x5E94;&#x7801;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x8868;&#x793A;&#x7F13;&#x5B58;&#x672A;&#x4FEE;&#x6539;&#x8FC7;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4E0D;&#x4E00;&#x6837;&#x5219;Web&#x670D;&#x52A1;&#x5668;&#x5C06;&#x53D1;&#x9001;&#x8BE5;&#x6587;&#x6863;&#x7684;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x5BA2;&#x6237;&#x7AEF;</li>
+</ol>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> eTagHandle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">filename,req,res</span>)</span>{
+    fs.readFile(filename,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,content</span>)</span>{
+        <span class="hljs-keyword">var</span> hash = getHash(content);
+        <span class="hljs-keyword">var</span> noneMatch = req.headers[<span class="hljs-string">&apos;if-none-match&apos;</span>];
+        <span class="hljs-keyword">if</span>(hash == noneMatch){
+            res.writeHead(<span class="hljs-number">304</span>,<span class="hljs-string">&apos;Not Modified&apos;</span>);
+            res.end();
+        }<span class="hljs-keyword">else</span>{
+            res.setHeader(<span class="hljs-string">&apos;ETag&apos;</span>,hash);
+            res.writeHead(<span class="hljs-number">200</span>,<span class="hljs-string">&apos;OK&apos;</span>);
+            res.end(content);
+        }
+    })
+}
+</code></pre>
+<h2 id="t5&#x5982;&#x4F55;&#x5E72;&#x8106;&#x4E0D;&#x53D1;&#x8BF7;&#x6C42;">&#x5982;&#x4F55;&#x5E72;&#x8106;&#x4E0D;&#x53D1;&#x8BF7;&#x6C42; <a href="#t5&#x5982;&#x4F55;&#x5E72;&#x8106;&#x4E0D;&#x53D1;&#x8BF7;&#x6C42;"> # </a></h2>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5C06;&#x6587;&#x4EF6;&#x7F13;&#x5B58;&#x5230;Cache&#x76EE;&#x5F55;&#xFF0C;&#x7B2C;&#x4E8C;&#x6B21;&#x8BF7;&#x6C42;&#x65F6;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5148;&#x68C0;&#x67E5;Cache&#x76EE;&#x5F55;&#x4E0B;&#x662F;&#x5426;&#x542B;&#x6709;&#x8BE5;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6709;&#xFF0C;&#x5E76;&#x4E14;&#x8FD8;&#x6CA1;&#x5230;<strong>Expires</strong>&#x8BBE;&#x7F6E;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5373;&#x6587;&#x4EF6;&#x8FD8;&#x6CA1;&#x6709;&#x8FC7;&#x671F;&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x6D4F;&#x89C8;&#x5668;&#x5C06;&#x76F4;&#x63A5;&#x4ECE;<strong>Cache</strong>&#x76EE;&#x5F55;&#x4E2D;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x518D;&#x53D1;&#x9001;&#x8BF7;&#x6C42;</p>
+<ul>
+<li><strong>Expires</strong>&#x662F;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x6D88;&#x606F;&#x5934;&#x5B57;&#x6BB5;&#xFF0C;&#x5728;&#x54CD;&#x5E94;<em>http</em>&#x8BF7;&#x6C42;&#x65F6;&#x544A;&#x8BC9;&#x6D4F;&#x89C8;&#x5668;&#x5728;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x524D;&#x6D4F;&#x89C8;&#x5668;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4ECE;&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x65E0;&#x9700;&#x518D;&#x6B21;&#x8BF7;&#x6C42;</li>
+<li><strong>Cache-Control</strong>&#x4E0E;<strong>Expires</strong>&#x7684;&#x4F5C;&#x7528;&#x4E00;&#x81F4;&#xFF0C;&#x90FD;&#x662F;&#x6307;&#x660E;&#x5F53;&#x524D;&#x8D44;&#x6E90;&#x7684;&#x6709;&#x6548;&#x671F;&#xFF0C;&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x5426;&#x76F4;&#x63A5;&#x4ECE;&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;&#x53D6;&#x6570;&#x636E;&#x8FD8;&#x662F;&#x91CD;&#x65B0;&#x53D1;&#x8BF7;&#x6C42;&#x5230;&#x670D;&#x52A1;&#x5668;&#x53D6;&#x6570;&#x636E;,&#x5982;&#x679C;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x5176;&#x4F18;&#x5148;&#x7EA7;&#x9AD8;&#x4E8E;<strong>Expires</strong><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> expireHandler = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">filename,req,res</span>)</span>{
+  fs.readFile(filename,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,content</span>)</span>{
+      <span class="hljs-keyword">var</span> expires = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime()+<span class="hljs-number">6000</span>*<span class="hljs-number">1000</span>);<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x7F13;&#x5B58;&#x65F6;&#x95F4;&#x4E3A;10&#x79D2;</span>
+      res.setHeader(<span class="hljs-string">&apos;Expires&apos;</span>,expires.toUTCString());<span class="hljs-comment">//&#x7F13;&#x5B58;&#x8FC7;&#x671F;&#x7684;&#x65F6;&#x95F4;&#xFF08;&#x7EDD;&#x5BF9;&#x65F6;&#x95F4;&#xFF09;</span>
+      res.setHeader(<span class="hljs-string">&apos;Cache-Control&apos;</span>,<span class="hljs-string">&apos;max-age=60&apos;</span>);<span class="hljs-comment">//&#x591A;&#x957F;&#x65F6;&#x95F4;&#x540E;&#x8FC7;&#x671F;(&#x5355;&#x4F4D;&#x662F;&#x79D2;)&#xFF0C;&#x8FC7;&#x671F;&#x524D;&#x4E0D;&#x53D1;&#x8BF7;&#x6C42; 60&#x79D2;&#x4E4B;&#x540E;&#x7F13;&#x5B58;&#x8FC7;&#x671F;&#xFF08;&#x76F8;&#x5BF9;&#x65F6;&#x95F4;&#xFF09;</span>
+      res.writeHead(<span class="hljs-number">200</span>,<span class="hljs-string">&apos;OK&apos;</span>);
+      res.end(content);
+  })
+}
+</code></pre>
+</li>
+</ul>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

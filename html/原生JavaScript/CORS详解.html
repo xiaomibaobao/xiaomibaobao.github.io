@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li class="active"><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0CORS详解">CORS详解</a><ul><li><a href="#t10、关于CORS">0、关于CORS</a></li><li><a href="#t21、典型场景">1、典型场景</a><ul><li><a href="#t31.1、简单请求">1.1、简单请求</a></li><li><a href="#t41.2、预请求">1.2、预请求</a></li><li><a href="#t51.3、带凭证的请求">1.3、带凭证的请求</a></li></ul></li><li><a href="#t62、HTTP响应头">2、HTTP响应头</a><ul><li><a href="#t72.1、 后端HTTP响应头">2.1、 后端HTTP响应头</a></li><li><a href="#t82.2、 浏览器发出跨域请求的响应头">2.2、 浏览器发出跨域请求的响应头</a></li></ul></li><li><a href="#t93、参考资料">3、参考资料</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0CORS&#x8BE6;&#x89E3;">CORS&#x8BE6;&#x89E3; <a href="#t0CORS&#x8BE6;&#x89E3;"> # </a></h1>
+<h2 id="t10&#x3001;&#x5173;&#x4E8E;CORS">0&#x3001;&#x5173;&#x4E8E;CORS <a href="#t10&#x3001;&#x5173;&#x4E8E;CORS"> # </a></h2>
+<p>&#x8BF4;&#x5230;CORS&#xFF0C;&#x5C31;&#x4E0D;&#x5F97;&#x4E0D;&#x5148;&#x4E86;&#x89E3;&#x8DE8;&#x7AD9;HTTP&#x8BF7;&#x6C42;&#xFF08;Cross-site HTTP request&#xFF09;&#x3002;</p>
+<p>&#x8DE8;&#x57DF;HTTP&#x8BF7;&#x6C42;&#x662F;&#x6307;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x6240;&#x5728;&#x57DF;&#x4E0D;&#x540C;&#x4E8E;&#x8BE5;&#x8BF7;&#x6C42;&#x6240;&#x6307;&#x5411;&#x8D44;&#x6E90;&#x6240;&#x5728;&#x7684;&#x57DF;&#x7684;HTTP&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x6B63;&#x5982;&#x5927;&#x5BB6;&#x6240;&#x77E5;&#xFF0C;&#x51FA;&#x4E8E;&#x5B89;&#x5168;&#x8003;&#x8651;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x9650;&#x5236;&#x811A;&#x672C;&#x4E2D;&#x53D1;&#x8D77;&#x7684;&#x8DE8;&#x7AD9;&#x8BF7;&#x6C42;&#x3002;&#x4F7F;&#x7528;XMLHttpRequest&#x53D1;&#x8D77;HTTP&#x8BF7;&#x6C42;&#x5FC5;&#x987B;&#x9075;&#x5B88;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x3002; &#x5177;&#x4F53;&#x800C;&#x8A00;&#xFF0C;Web &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x80FD;&#x4E14;&#x53EA;&#x80FD;&#x4F7F;&#x7528; XMLHttpRequest &#x5BF9;&#x8C61;&#x5411;&#x5176;&#x52A0;&#x8F7D;&#x7684;&#x6E90;&#x57DF;&#x540D;&#x53D1;&#x8D77; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x800C;&#x4E0D;&#x80FD;&#x5411;&#x4EFB;&#x4F55;&#x5176;&#x5B83;&#x57DF;&#x540D;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x7531;&#x4E8E;Web&#x5E94;&#x7528;&#x6280;&#x672F;&#x8D8A;&#x6765;&#x8D8A;&#x4E30;&#x5BCC;&#xFF0C;&#x6211;&#x4EEC;&#x975E;&#x5E38;&#x6E34;&#x671B;&#x5728;&#x4E0D;&#x4E22;&#x5931;&#x5B89;&#x5168;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x80FD;&#x591F;&#x5B9E;&#x73B0;&#x8DE8;&#x7AD9;&#x8BF7;&#x6C42;&#x3002;&#x7279;&#x522B;&#x662F;&#x73B0;&#x5728;&#x7684;Web&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#xFF0C;&#x4E00;&#x822C;&#x662F;HTML+REST API&#x3002;&#x5728;&#x4E4B;&#x524D;&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x91C7;&#x7528;jsonp&#x6765;&#x53D1;&#x8D77;&#x8DE8;&#x7AD9;&#x8BF7;&#x6C42;&#xFF0C;&#x8FD9;&#x5176;&#x5B9E;&#x662F;&#x5229;&#x7528;&#x4E86;html&#x6807;&#x7B7E;&#x7684;&#x7279;&#x70B9;&#x3002;</p>
+<p>W3C&#x7684;Web&#x5E94;&#x7528;&#x5DE5;&#x4F5C;&#x7EC4;&#x63A8;&#x8350;&#x4E86;&#x4E00;&#x79CD;&#x65B0;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x5373;&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;&#xFF08;Cross-Origin Resource Sharing&#xFF09;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5F53;&#x524D;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x7684;CORS&#x3002; </p>
+<p>CORS&#x7684;&#x6838;&#x5FC3;&#xFF0C;&#x5C31;&#x662F;&#x8BA9;&#x670D;&#x52A1;&#x5668;&#x6765;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;&#x8BBF;&#x95EE;&#x3002;</p>
+<h2 id="t21&#x3001;&#x5178;&#x578B;&#x573A;&#x666F;">1&#x3001;&#x5178;&#x578B;&#x573A;&#x666F; <a href="#t21&#x3001;&#x5178;&#x578B;&#x573A;&#x666F;"> # </a></h2>
+<h3 id="t31.1&#x3001;&#x7B80;&#x5355;&#x8BF7;&#x6C42;">1.1&#x3001;&#x7B80;&#x5355;&#x8BF7;&#x6C42; <a href="#t31.1&#x3001;&#x7B80;&#x5355;&#x8BF7;&#x6C42;"> # </a></h3>
+<p>&#x4EC0;&#x4E48;&#x662F;&#x7B80;&#x5355;&#x8BF7;&#x6C42;&#xFF1F;&#x5168;&#x90E8;&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x6761;&#x4EF6;&#x7684;&#x8BF7;&#x6C42;&#x53EF;&#x4EE5;&#x79F0;&#x4E4B;&#x4E3A;&#x7B80;&#x5355;&#x8BF7;&#x6C42;&#xFF1A;</p>
+<ol>
+<li>&#x53EA;&#x4F7F;&#x7528;GET&#x3001;HEAD&#x6216;&#x8005;POST&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x679C;&#x662F;POST&#xFF0C;&#x5219;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF08;Content-Type&#xFF09;&#x53EA;&#x80FD;&#x662F;<code>application/x-www-form-urlencodeed</code>&#x3001;<code>multipart/form-data</code>&#x3001;<code>text/plain</code>&#x4E2D;&#x7684;&#x4E00;&#x79CD;&#x3002;</li>
+<li>&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#xFF08;&#x5982;x-token&#xFF09;</li>
+</ol>
+<p>&#x6309;&#x7167;&#x8FD9;&#x4E2A;&#x89C4;&#x5219;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x7684;&#x80FD;&#x5B9E;&#x73B0;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x7684;&#x60C5;&#x51B5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>Server&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-pi">&apos;use strict&apos;</span>;
+
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>);
+<span class="hljs-keyword">var</span> server = http.createServer((req, res) =&gt; {
+  <span class="hljs-comment">//&#x4E4B;&#x540E;&#x8BBE;&#x7F6E;&#x4E86;Access-Control-Allow-Origin&#xFF0C;&#x624D;&#x4F1A;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;</span>
+  res.setHeader(<span class="hljs-string">&apos;Access-Control-Allow-Origin&apos;</span>, <span class="hljs-string">&apos;*&apos;</span>);
+  res.write(<span class="hljs-string">&apos;abc&apos;</span>);
+  res.end();
+});
+
+server.listen(<span class="hljs-number">10000</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;started.&apos;</span>);
+});
+</code></pre>
+<p>Client&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
+xhr.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">if</span>(xhr.readyState === XMLHttpRequest.DONE){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Result&#xFF1A;&apos;</span>, xhr.responseText);
+  }
+}
+
+<span class="hljs-comment">//&#x573A;&#x666F;&#x4E00;&#xFF1A;GET&#x8BF7;&#x6C42;&#xFF0C;&#x4E0D;&#x9700;&#x8981;Header&#xFF0C;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;</span>
+xhr.open(<span class="hljs-string">&apos;GET&apos;</span>, <span class="hljs-string">&apos;http://localhost:10000/&apos;</span>, <span class="hljs-literal">true</span>);
+xhr.send();
+
+<span class="hljs-comment">//&#x573A;&#x666F;&#x4E8C;&#xFF1A; POST&#x8BF7;&#x6C42;&#xFF0C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x4E3A;&#x6307;&#x5B9A;Header&#xFF08;&#x4E0D;&#x8BBE;&#x7F6E;content-type&#x4E5F;&#x53EF;&#xFF09;&#xFF0C;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;</span>
+xhr.open(<span class="hljs-string">&apos;POST&apos;</span>, <span class="hljs-string">&apos;http://localhost:10000/&apos;</span>, <span class="hljs-literal">true</span>);
+<span class="hljs-comment">//&#x6B64;&#x5904;value&#x5FC5;&#x987B;&#x662F;text/plain&#x6216;&#x8005;application/x-www-form-urlencoded&#x6216;&#x8005;multipart/form-data&#x3002;</span>
+<span class="hljs-comment">//&#x6B64;&#x5904;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x8BBE;&#x7F6E;</span>
+xhr.setRequestHeader(<span class="hljs-string">&apos;Content-Type&apos;</span>, <span class="hljs-string">&apos;text/plain&apos;</span>);
+xhr.send();
+
+<span class="hljs-comment">//&#x573A;&#x666F;&#x4E09;&#xFF1A;DELETE&#x8BF7;&#x6C42;&#xFF08;&#x4E0D;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;&#xFF09;</span>
+xhr.open(<span class="hljs-string">&apos;DELETE&apos;</span>, <span class="hljs-string">&apos;http://localhost:10000/&apos;</span>, <span class="hljs-literal">true</span>);
+xhr.send();
+
+<span class="hljs-comment">//&#x573A;&#x666F;&#x56DB;&#xFF1A;POST&#x8BF7;&#x6C42;&#xFF0C;&#x6709;&#x81EA;&#x5B9A;&#x4E49;Header&#xFF08;&#x4E0D;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;&#xFF09;</span>
+xhr.open(<span class="hljs-string">&apos;POST&apos;</span>, <span class="hljs-string">&apos;http://localhost:10000/&apos;</span>, <span class="hljs-literal">true</span>);
+xhr.setRequestHeader(<span class="hljs-string">&apos;x-token&apos;</span>, <span class="hljs-string">&apos;a&apos;</span>);
+xhr.send();
+</code></pre>
+<h3 id="t41.2&#x3001;&#x9884;&#x8BF7;&#x6C42;">1.2&#x3001;&#x9884;&#x8BF7;&#x6C42; <a href="#t41.2&#x3001;&#x9884;&#x8BF7;&#x6C42;"> # </a></h3>
+<p>&#x4E0D;&#x540C;&#x4E8E;&#x7B80;&#x5355;&#x8BF7;&#x6C42;&#xFF0C;&#x9884;&#x8BF7;&#x6C42;&#x8981;&#x6C42;&#x5FC5;&#x987B;&#x5148;&#x53D1;&#x9001;&#x4E00;&#x4E2A;OPTIONS&#x8BF7;&#x6C42;&#x7ED9;&#x7AD9;&#x70B9;&#xFF0C;&#x6765;&#x67E5;&#x660E;&#x8BE5;&#x7AD9;&#x70B9;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x539F;&#x56E0;&#x662F;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x8DE8;&#x7AD9;&#x8BF7;&#x6C42;&#x53EF;&#x80FD;&#x5BF9;&#x76EE;&#x7684;&#x7AD9;&#x70B9;&#x7684;&#x6570;&#x636E;&#x9020;&#x6210;&#x7684;&#x635F;&#x574F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x4EFB;&#x4E00;&#x6761;&#x4EF6;&#xFF0C;&#x5219;&#x4F1A;&#x4EA7;&#x751F;&#x9884;&#x8BF7;&#x6C42;&#xFF1A;</p>
+<ol>
+<li>&#x8BF7;&#x6C42;&#x4EE5;GET&#x3001;HEAD&#x3001;POST&#x4E4B;&#x5916;&#x7684;&#x65B9;&#x6CD5;&#x53D1;&#x8D77;&#x3002;&#x6216;&#x8005;&#xFF0C;&#x4F7F;&#x7528;POST&#xFF0C;&#x4F46;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E3A;<code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code> &#x6216;&#x8005; <code>text/plain</code> &#x4EE5;&#x5916;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;&#xFF08;&#x6CE8;&#xFF1A;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x53EA;&#x6709;text/plain&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x53D1;&#x8D77;&#x9884;&#x8BF7;&#x6C42;&#xFF09;&#x3002;</li>
+<li>&#x4F7F;&#x7528;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x8BF7;&#x6C42;&#x5934;&#x3002;</li>
+</ol>
+<p>&#x6309;&#x7167;&#x5982;&#x4E0A;&#x89C4;&#x5219;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x5217;&#x4E3E;&#x51E0;&#x4E2A;&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF1A;</p>
+<p>Server&#x7AEF;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-pi">&apos;use strict&apos;</span>;
+
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>);
+<span class="hljs-keyword">var</span> server = http.createServer((req, res) =&gt; {
+  <span class="hljs-comment">//&#x4E4B;&#x540E;&#x8BBE;&#x7F6E;&#x4E86;Access-Control-Allow-Origin&#xFF0C;&#x624D;&#x4F1A;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;</span>
+  res.setHeader(<span class="hljs-string">&apos;Access-Control-Allow-Origin&apos;</span>, <span class="hljs-string">&apos;*&apos;</span>);
+  res.setHeader(<span class="hljs-string">&apos;Access-Control-Allow-Methods&apos;</span>, <span class="hljs-string">&apos;POST, DELETE, GET&apos;</span>);
+  res.setHeader(<span class="hljs-string">&apos;Access-Control-Allow-Headers&apos;</span>, <span class="hljs-string">&apos;x-token&apos;</span>);
+  <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x9884;&#x8BF7;&#x6C42;&#x7F13;&#x5B58;1&#x5929;&#xFF0C;1&#x5929;&#x5185;&#x518D;&#x6B21;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x4EE5;&#x8DF3;&#x8FC7;&#x9884;&#x8BF7;&#x6C42;</span>
+  <span class="hljs-comment">//&#x6B64;&#x529F;&#x80FD;&#x9700;&#x8981;&#x5BA2;&#x6237;&#x7AEF;&#x7F13;&#x5B58;&#x652F;&#x6301;&#xFF0C;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x7981;&#x7528;&#x7F13;&#x5B58;&#xFF0C;&#x90A3;&#x4E48;&#x6BCF;&#x6B21;&#x90FD;&#x4F1A;&#x9884;&#x8BF7;&#x6C42;</span>
+  res.setHeader(<span class="hljs-string">&apos;Access-Control-Max-Age&apos;</span>, <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>); 
+  res.write(<span class="hljs-string">&apos;abc&apos;</span>);
+  res.end();
+});
+
+server.listen(<span class="hljs-number">10000</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;started.&apos;</span>);
+});
+</code></pre>
+<p>Client&#x7AEF;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
+xhr.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">if</span>(xhr.readyState === XMLHttpRequest.DONE){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Result&#xFF1A;&apos;</span>, xhr.responseText);
+  }
+}
+
+<span class="hljs-comment">//&#x573A;&#x666F;&#x4E00;&#xFF1A;DELETE&#x8BF7;&#x6C42;&#xFF0C;&#x53D1;&#x9001;OPTIONS&#xFF0C;&#x5339;&#x914D;&#xFF0C;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;</span>
+xhr.open(<span class="hljs-string">&apos;DELETE&apos;</span>, <span class="hljs-string">&apos;http://localhost:10000/&apos;</span>, <span class="hljs-literal">true</span>);
+xhr.send();
+
+<span class="hljs-comment">//&#x573A;&#x666F;&#x4E8C;&#xFF1A;PUT&#x8BF7;&#x6C42;&#xFF0C;&#x53D1;&#x9001;OPTIONS&#xFF0C;&#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;</span>
+xhr.open(<span class="hljs-string">&apos;PUT&apos;</span>, <span class="hljs-string">&apos;http://localhost:10000/&apos;</span>, <span class="hljs-literal">true</span>);
+xhr.send();
+
+<span class="hljs-comment">//&#x573A;&#x666F;&#x4E09;&#xFF1A;DELETE&#x8BF7;&#x6C42;&#x5339;&#x914D;&#xFF0C;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;Header&#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;</span>
+xhr.open(<span class="hljs-string">&apos;DELETE&apos;</span>, <span class="hljs-string">&apos;http://localhost:10000/&apos;</span>, <span class="hljs-literal">true</span>);
+xhr.setRequestHeader(<span class="hljs-string">&apos;x-token1&apos;</span>, <span class="hljs-string">&apos;aa&apos;</span>);
+xhr.send();
+
+<span class="hljs-comment">//&#x573A;&#x666F;&#x56DB;&#xFF1A;POST&#x8BF7;&#x6C42;&#xFF0C;&#x5339;&#x914D;&#x7684;&#x81EA;&#x5B9A;&#x4E49;Header&#xFF0C;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;</span>
+xhr.open(<span class="hljs-string">&apos;POST&apos;</span>, <span class="hljs-string">&apos;http://localhost:10000/&apos;</span>, <span class="hljs-literal">true</span>);
+xhr.setRequestHeader(<span class="hljs-string">&apos;x-token&apos;</span>, <span class="hljs-string">&apos;a&apos;</span>);
+xhr.send();
+</code></pre>
+<h3 id="t51.3&#x3001;&#x5E26;&#x51ED;&#x8BC1;&#x7684;&#x8BF7;&#x6C42;">1.3&#x3001;&#x5E26;&#x51ED;&#x8BC1;&#x7684;&#x8BF7;&#x6C42; <a href="#t51.3&#x3001;&#x5E26;&#x51ED;&#x8BC1;&#x7684;&#x8BF7;&#x6C42;"> # </a></h3>
+<p>&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x5BF9;&#x4E8E;&#x8DE8;&#x7AD9;&#x8BF7;&#x6C42;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x4E0D;&#x4F1A;&#x53D1;&#x9001;&#x51ED;&#x8BC1;&#xFF08;HTTP Cookies&#x548C;&#x9A8C;&#x8BC1;&#x4FE1;&#x606F;&#xFF09;&#x7684;&#x3002;&#x5982;&#x679C;&#x8981;&#x53D1;&#x9001;&#x5E26;&#x51ED;&#x8BC1;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7ED9;XMLHttpRequest&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x5C5E;&#x6027;<code>withCredentials = true</code>&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C31;&#x5141;&#x8BB8;&#x53D1;&#x9001;&#x51ED;&#x8BC1;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x5E26;&#x51ED;&#x8BC1;&#x7684;&#x8BF7;&#x6C42;&#x53EF;&#x80FD;&#x662F;&#x7B80;&#x5355;&#x8BF7;&#x6C42;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4F1A;&#x6709;&#x9884;&#x8BF7;&#x6C42;&#x3002;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;&#xFF0C;&#x4F1A;&#x5148;&#x5224;&#x65AD;&#x7B80;&#x5355;&#x8BF7;&#x6C42;&#x548C;&#x9884;&#x8BF7;&#x6C42;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x7136;&#x540E;&#x8FD8;&#x4F1A;&#x5E26;&#x4E0A;&#x5E26;&#x51ED;&#x8BC1;&#x7684;&#x8BF7;&#x6C42;&#x81EA;&#x5DF1;&#x7684;&#x89C4;&#x5219;&#x3002;</p>
+<p>&#x5728;&#x5E26;&#x51ED;&#x8BC1;&#x7684;&#x8BF7;&#x6C42;&#x4E2D;&#xFF0C;&#x540E;&#x7AEF;&#x7684;&#x54CD;&#x5E94;&#x5FC5;&#x987B;&#x5305;&#x542B;Header<code>Access-Control-Allow-Credentials=true</code>&#xFF0C;&#x540C;&#x65F6;Header <code>Access-Control-Allow-Origin</code>&#xFF0C;&#x4E0D;&#x80FD;&#x518D;&#x4F7F;&#x7528;*&#x53F7;&#x8FD9;&#x79CD;&#x5339;&#x914D;&#x7B26;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x670D;&#x52A1;&#x7AEF;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-pi">&apos;use strict&apos;</span>;
+
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>);
+<span class="hljs-keyword">var</span> server = http.createServer((req, res) =&gt; {
+  <span class="hljs-comment">//&#x8981;&#x5904;&#x7406;&#x5E26;&#x51ED;&#x8BC1;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x6B64;Header&#x4E0D;&#x80FD;&#x4F7F;&#x7528;*&#x3002;</span>
+  res.setHeader(<span class="hljs-string">&apos;Access-Control-Allow-Origin&apos;</span>, <span class="hljs-string">&apos;http://10.16.85.170:8000&apos;</span>);
+  res.setHeader(<span class="hljs-string">&apos;Access-Control-Allow-Methods&apos;</span>, <span class="hljs-string">&apos;POST, DELETE, GET&apos;</span>);
+  res.setHeader(<span class="hljs-string">&apos;Access-Control-Allow-Headers&apos;</span>, <span class="hljs-string">&apos;x-token&apos;</span>);
+  res.setHeader(<span class="hljs-string">&apos;Access-Control-Max-Age&apos;</span>, <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>); 
+  <span class="hljs-comment">//&#x53EA;&#x6709;&#x8BBE;&#x7F6E;&#x4E86;&#x8BE5;Header&#xFF0C;&#x624D;&#x5141;&#x8BB8;&#x5E26;&#x51ED;&#x8BC1;&#x7684;&#x8BF7;&#x6C42;&#x3002;</span>
+  res.setHeader(<span class="hljs-string">&apos;Access-Control-Allow-Credentials&apos;</span>, <span class="hljs-literal">true</span>);
+  res.write(<span class="hljs-string">&apos;abc&apos;</span>);
+  res.end();
+});
+
+server.listen(<span class="hljs-number">10000</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;started.&apos;</span>);
+});
+</code></pre>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
+xhr.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">if</span>(xhr.readyState === XMLHttpRequest.DONE){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Result&#xFF1A;&apos;</span>, xhr.responseText);
+  }
+}
+<span class="hljs-comment">//&#x4F18;&#x5148;&#x6EE1;&#x8DB3;&#x9884;&#x8BF7;&#x6C42;&#xFF0C;&#x7136;&#x540E;&#x6EE1;&#x8DB3;&#x51ED;&#x8BC1;&#x8BF7;&#x6C42;&#xFF0C;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;&#x3002;</span>
+xhr.open(<span class="hljs-string">&apos;POST&apos;</span>, <span class="hljs-string">&apos;http://localhost:10000/&apos;</span>, <span class="hljs-literal">true</span>);
+xhr.withCredentials = <span class="hljs-literal">true</span>;
+xhr.setRequestHeader(<span class="hljs-string">&apos;x-token&apos;</span>, <span class="hljs-string">&apos;a&apos;</span>);
+xhr.send();
+</code></pre>
+<h2 id="t62&#x3001;HTTP&#x54CD;&#x5E94;&#x5934;">2&#x3001;HTTP&#x54CD;&#x5E94;&#x5934; <a href="#t62&#x3001;HTTP&#x54CD;&#x5E94;&#x5934;"> # </a></h2>
+<h3 id="t72.1&#x3001; &#x540E;&#x7AEF;HTTP&#x54CD;&#x5E94;&#x5934;">2.1&#x3001; &#x540E;&#x7AEF;HTTP&#x54CD;&#x5E94;&#x5934; <a href="#t72.1&#x3001; &#x540E;&#x7AEF;HTTP&#x54CD;&#x5E94;&#x5934;"> # </a></h3>
+<p>&#x6B64;&#x5904;&#x5217;&#x4E3E;&#x540E;&#x7AEF;&#x6709;&#x5173;CORS&#x7684;&#x54CD;&#x5E94;&#x5934;&#xFF1A;</p>
+<ol>
+<li>Access-Control-Allow-Origin&#xFF1A; <origin> | *  &#x5141;&#x8BB8;&#x7684;&#x57DF;&#x540D;</origin></li>
+<li>Access-Control-Expose-Headers: <headers> &#x5141;&#x8BB8;&#x7684;&#x767D;&#x540D;&#x5355;Header&#xFF0C;&#x591A;&#x4E2A;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;</headers></li>
+<li>Access-Control-Max-Age: <delta-seconds>  &#x9884;&#x8BF7;&#x6C42;&#x7F13;&#x5B58;&#x65F6;&#x95F4;&#xFF0C;&#x5355;&#x4F4D;&#x79D2;</delta-seconds></li>
+<li>Access-Control-Allow-Credentials: true | false  &#x662F;&#x5426;&#x5141;&#x8BB8;&#x5E26;&#x51ED;&#x8BC1;&#x7684;&#x8BF7;&#x6C42;</li>
+<li>Access-Control-Allow-Methods: <methods> &#x5141;&#x8BB8;&#x7684;&#x8BF7;&#x6C42;&#x7C7B;&#x578B;&#xFF0C;&#x591A;&#x4E2A;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;</methods></li>
+<li>Access-Control-Allow-Headers: <headers> &#x5728;&#x5B9E;&#x9645;&#x8BF7;&#x6C42;&#x4E2D;&#xFF0C;&#x5141;&#x8BB8;&#x7684;&#x81EA;&#x5B9A;&#x4E49;header&#xFF0C;&#x591A;&#x4E2A;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;</headers></li>
+</ol>
+<h3 id="t82.2&#x3001; &#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x51FA;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x5934;">2.2&#x3001; &#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x51FA;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x5934; <a href="#t82.2&#x3001; &#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x51FA;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x5934;"> # </a></h3>
+<p>&#x6B64;&#x5904;&#x5217;&#x4E3E;&#x51FA;&#x6D4F;&#x89C8;&#x5668;&#x5728;&#x53D1;&#x9001;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x4F1A;&#x5E26;&#x4E0A;&#x7684;&#x54CD;&#x5E94;&#x5934;&#xFF1A;</p>
+<ol>
+<li>Origin: <origin> &#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8BF7;&#x6C42;&#x6765;&#x81EA;&#x54EA;&#x91CC;&#xFF0C;&#x4EC5;&#x4EC5;&#x662F;&#x670D;&#x52A1;&#x5668;&#x540D;&#xFF0C;&#x4E0D;&#x5305;&#x542B;&#x8DEF;&#x5F84;&#x3002;</origin></li>
+<li>Access-Control-Request-Method: <method> &#x9884;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#x5B9E;&#x9645;&#x7684;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;</method></li>
+<li>Access-Control-Request-Headers: <headers> &#x9884;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5B9E;&#x9645;&#x8BF7;&#x6C42;&#x6240;&#x643A;&#x5E26;&#x7684;&#x81EA;&#x5B9A;&#x4E49;Header</headers></li>
+</ol>
+<h2 id="t93&#x3001;&#x53C2;&#x8003;&#x8D44;&#x6599;">3&#x3001;&#x53C2;&#x8003;&#x8D44;&#x6599; <a href="#t93&#x3001;&#x53C2;&#x8003;&#x8D44;&#x6599;"> # </a></h2>
+<ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Preflighted_requests">MDN HTTP access control (CORS)</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS">MDN HTTP&#x8BBF;&#x95EE;&#x63A7;&#x5236;(CORS)</a></li>
+</ol>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

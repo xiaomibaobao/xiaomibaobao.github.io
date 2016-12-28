@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li class="active"><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0React课堂笔记第十讲（编码规范）">React课堂笔记第十讲（编码规范）</a><ul><li><a href="#t1目录">目录</a></li><li><a href="#t2Basic Rules">Basic Rules</a></li><li><a href="#t3Class vs React.createClass vs stateless">Class vs React.createClass vs stateless</a></li><li><a href="#t4Naming">Naming</a></li><li><a href="#t5Declaration">Declaration</a></li><li><a href="#t6Alignment">Alignment</a></li><li><a href="#t7Quotes">Quotes</a></li><li><a href="#t8Spacing">Spacing</a></li><li><a href="#t9Props">Props</a></li><li><a href="#t10Parentheses">Parentheses</a></li><li><a href="#t11Tags">Tags</a></li><li><a href="#t12Methods">Methods</a></li><li><a href="#t13Ordering">Ordering</a></li><li><a href="#t14isMounted">isMounted</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0React&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#x7B2C;&#x5341;&#x8BB2;&#xFF08;&#x7F16;&#x7801;&#x89C4;&#x8303;&#xFF09;">React&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#x7B2C;&#x5341;&#x8BB2;&#xFF08;&#x7F16;&#x7801;&#x89C4;&#x8303;&#xFF09; <a href="#t0React&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#x7B2C;&#x5341;&#x8BB2;&#xFF08;&#x7F16;&#x7801;&#x89C4;&#x8303;&#xFF09;"> # </a></h1>
+<p>Airbnb React/JSX Style Guide</p>
+<p> <em>A mostly reasonable approach to React and JSX</em></p>
+<h2 id="t1&#x76EE;&#x5F55;">&#x76EE;&#x5F55; <a href="#t1&#x76EE;&#x5F55;"> # </a></h2>
+<ol>
+<li><a href="#basic-rules">Basic Rules</a></li>
+<li><a href="#class-vs-reactcreateclass-vs-stateless">Class vs <code>React.createClass</code> vs stateless</a></li>
+<li><a href="#naming">Naming</a></li>
+<li><a href="#declaration">Declaration</a></li>
+<li><a href="#alignment">Alignment</a></li>
+<li><a href="#quotes">Quotes</a></li>
+<li><a href="#spacing">Spacing</a></li>
+<li><a href="#props">Props</a></li>
+<li><a href="#parentheses">Parentheses</a></li>
+<li><a href="#tags">Tags</a></li>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#ordering">Ordering</a></li>
+<li><a href="#ismounted"><code>isMounted</code></a></li>
+</ol>
+<h2 id="t2Basic Rules">Basic Rules <a href="#t2Basic Rules"> # </a></h2>
+<ul>
+<li>Only include one React component per file.<ul>
+<li>However, multiple <a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">Stateless, or Pure, Components</a> are allowed per file. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless"><code>react/no-multi-comp</code></a>.</li>
+</ul>
+</li>
+<li>Always use JSX syntax.</li>
+<li>Do not use <code>React.createElement</code> unless you&apos;re initializing the app from a file that is not JSX.</li>
+</ul>
+<h2 id="t3Class vs React.createClass vs stateless">Class vs React.createClass vs stateless <a href="#t3Class vs React.createClass vs stateless"> # </a></h2>
+<ul>
+<li><p>If you have internal state and/or refs, prefer <code>class extends React.Component</code> over <code>React.createClass</code> unless you have a very good reason to use mixins. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md"><code>react/prefer-es6-class</code></a> <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md"><code>react/prefer-stateless-function</code></a></p>
+<pre><code class="lang-jsx">// bad
+const Listing = React.createClass({
+  // ...
+  render() {
+    return <div>{this.state.hello}</div>;
+  }
+});
+
+// good
+class Listing extends React.Component {
+  // ...
+  render() {
+    return <div>{this.state.hello}</div>;
+  }
+}
+</code></pre>
+<p>And if you don&apos;t have state or refs, prefer normal functions (not arrow functions) over classes:</p>
+<pre><code class="lang-jsx">// bad
+class Listing extends React.Component {
+  render() {
+    return <div>{this.props.hello}</div>;
+  }
+}
+
+// bad (relying on function name inference is discouraged)
+const Listing = ({ hello }) =&gt; (
+  <div>{hello}</div>
+);
+
+// good
+function Listing({ hello }) {
+  return <div>{hello}</div>;
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="t4Naming">Naming <a href="#t4Naming"> # </a></h2>
+<ul>
+<li><strong>Extensions</strong>: Use <code>.jsx</code> extension for React components.</li>
+<li><strong>Filename</strong>: Use PascalCase for filenames. E.g., <code>ReservationCard.jsx</code>.</li>
+<li><p><strong>Reference Naming</strong>: Use PascalCase for React components and camelCase for their instances. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md"><code>react/jsx-pascal-case</code></a></p>
+<pre><code class="lang-jsx">// bad
+import reservationCard from &apos;./ReservationCard&apos;;
+
+// good
+import ReservationCard from &apos;./ReservationCard&apos;;
+
+// bad
+const ReservationItem = <reservationcard>;
+
+// good
+const reservationItem = <reservationcard>;
+</reservationcard></reservationcard></code></pre>
+</li>
+<li><p><strong>Component Naming</strong>: Use the filename as the component name. For example, <code>ReservationCard.jsx</code> should have a reference name of <code>ReservationCard</code>. However, for root components of a directory, use <code>index.jsx</code> as the filename and use the directory name as the component name:</p>
+<pre><code class="lang-jsx">// bad
+import Footer from &apos;./Footer/Footer&apos;;
+
+// bad
+import Footer from &apos;./Footer/index&apos;;
+
+// good
+import Footer from &apos;./Footer&apos;;
+</code></pre>
+</li>
+</ul>
+<h2 id="t5Declaration">Declaration <a href="#t5Declaration"> # </a></h2>
+<ul>
+<li><p>Do not use <code>displayName</code> for naming components. Instead, name the component by reference.</p>
+<pre><code class="lang-jsx">// bad
+export default React.createClass({
+  displayName: &apos;ReservationCard&apos;,
+  // stuff goes here
+});
+
+// good
+export default class ReservationCard extends React.Component {
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="t6Alignment">Alignment <a href="#t6Alignment"> # </a></h2>
+<ul>
+<li><p>Follow these alignment styles for JSX syntax. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md"><code>react/jsx-closing-bracket-location</code></a></p>
+<pre><code class="lang-jsx">// bad
+<foo superlongparam="bar" anothersuperlongparam="baz">
+
+// good
+<foo superlongparam="bar" anothersuperlongparam="baz">
+
+// if props fit in one line then keep it on the same line
+<foo bar="bar">
+
+// children get indented normally
+<foo superlongparam="bar" anothersuperlongparam="baz">
+  <quux>
+</quux></foo>
+</foo></foo></foo></code></pre>
+</li>
+</ul>
+<h2 id="t7Quotes">Quotes <a href="#t7Quotes"> # </a></h2>
+<ul>
+<li><p>Always use double quotes (<code>&quot;</code>) for JSX attributes, but single quotes for all other JS. eslint: <a href="http://eslint.org/docs/rules/jsx-quotes"><code>jsx-quotes</code></a></p>
+<blockquote>
+<p>Why? JSX attributes <a href="http://eslint.org/docs/rules/jsx-quotes">can&apos;t contain escaped quotes</a>, so double quotes make conjunctions like <code>&quot;don&apos;t&quot;</code> easier to type.
+Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.</p>
+</blockquote>
+<pre><code class="lang-jsx">// bad
+<foo bar="bar">
+
+// good
+<foo bar="bar">
+
+// bad
+<foo style="{{" left:="" "20px"="" }}="">
+
+// good
+<foo style="{{" left:="" '20px'="" }}="">
+</foo></foo></foo></foo></code></pre>
+</li>
+</ul>
+<h2 id="t8Spacing">Spacing <a href="#t8Spacing"> # </a></h2>
+<ul>
+<li><p>Always include a single space in your self-closing tag.</p>
+<pre><code class="lang-jsx">// bad
+<foo>
+
+// very bad
+<foo>
+
+// bad
+<foo>
+
+// good
+<foo>
+</foo></foo></foo></foo></code></pre>
+</li>
+<li><p>Do not pad JSX curly braces with spaces. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md"><code>react/jsx-curly-spacing</code></a></p>
+<pre><code class="lang-jsx">// bad
+<foo bar="{" baz="" }="">
+
+// good
+<foo bar="{baz}">
+</foo></foo></code></pre>
+</li>
+</ul>
+<h2 id="t9Props">Props <a href="#t9Props"> # </a></h2>
+<ul>
+<li><p>Always use camelCase for prop names.</p>
+<pre><code class="lang-jsx">// bad
+<foo username="hello" phone_number="{12345678}">
+
+// good
+<foo username="hello" phonenumber="{12345678}">
+</foo></foo></code></pre>
+</li>
+<li><p>Omit the value of the prop when it is explicitly <code>true</code>. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md"><code>react/jsx-boolean-value</code></a></p>
+<pre><code class="lang-jsx">// bad
+<foo hidden="{true}">
+
+// good
+<foo hidden>
+</foo></foo></code></pre>
+</li>
+<li><p>Always include an <code>alt</code> prop on <code>&lt;img&gt;</code> tags. If the image is presentational, <code>alt</code> can be an empty string or the <code>&lt;img&gt;</code> must have <code>role=&quot;presentation&quot;</code>. eslint: <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md"><code>jsx-a11y/img-has-alt</code></a></p>
+<pre><code class="lang-jsx">// bad
+<img src="../../hello.jpg">
+
+// good
+<img src="../../hello.jpg" alt="Me waving hello">
+
+// good
+<img src="../../hello.jpg" alt="">
+
+// good
+<img src="../../hello.jpg" role="presentation">
+</code></pre>
+</li>
+<li><p>Do not use words like &quot;image&quot;, &quot;photo&quot;, or &quot;picture&quot; in <code>&lt;img&gt;</code> <code>alt</code> props. eslint: <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md"><code>jsx-a11y/img-redundant-alt</code></a></p>
+<blockquote>
+<p>Why? Screenreaders already announce <code>img</code> elements as images, so there is no need to include this information in the alt text.</p>
+</blockquote>
+<pre><code class="lang-jsx">// bad
+<img src="../../hello.jpg" alt="Picture of me waving hello">
+
+// good
+<img src="../../hello.jpg" alt="Me waving hello">
+</code></pre>
+</li>
+<li><p>Use only valid, non-abstract <a href="https://www.w3.org/TR/wai-aria/roles#role_definitions">ARIA roles</a>. eslint: <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md"><code>jsx-a11y/aria-role</code></a></p>
+<pre><code class="lang-jsx">// bad - not an ARIA role
+<div role="datepicker">
+
+// bad - abstract ARIA role
+<div role="range">
+
+// good
+<div role="button">
+</div></div></div></code></pre>
+</li>
+<li><p>Do not use <code>accessKey</code> on elements. eslint: <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md"><code>jsx-a11y/no-access-key</code></a></p>
+<blockquote>
+<p>Why? Inconsistencies between keyboard shortcuts and keyboard commands used by people using screenreaders and keyboards complicate accessibility.</p>
+</blockquote>
+<pre><code class="lang-jsx">// bad
+<div accesskey="h">
+
+// good
+<div>
+</div></div></code></pre>
+</li>
+</ul>
+<h2 id="t10Parentheses">Parentheses <a href="#t10Parentheses"> # </a></h2>
+<ul>
+<li><p>Wrap JSX tags in parentheses when they span more than one line. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md"><code>react/wrap-multilines</code></a></p>
+<pre><code class="lang-jsx">// bad
+render() {
+  return <mycomponent classname="long body" foo="bar">
+           <mychild>
+         </mychild></mycomponent>;
+}
+
+// good
+render() {
+  return (
+    <mycomponent classname="long body" foo="bar">
+      <mychild>
+    </mychild></mycomponent>
+  );
+}
+
+// good, when single line
+render() {
+  const body = <div>hello</div>;
+  return <mycomponent>{body}</mycomponent>;
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="t11Tags">Tags <a href="#t11Tags"> # </a></h2>
+<ul>
+<li><p>Always self-close tags that have no children. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md"><code>react/self-closing-comp</code></a></p>
+<pre><code class="lang-jsx">// bad
+<foo classname="stuff"></foo>
+
+// good
+<foo classname="stuff">
+</foo></code></pre>
+</li>
+<li><p>If your component has multi-line properties, close its tag on a new line. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md"><code>react/jsx-closing-bracket-location</code></a></p>
+<pre><code class="lang-jsx">// bad
+<foo bar="bar" baz="baz">
+
+// good
+<foo bar="bar" baz="baz">
+</foo></foo></code></pre>
+</li>
+</ul>
+<h2 id="t12Methods">Methods <a href="#t12Methods"> # </a></h2>
+<ul>
+<li><p>Use arrow functions to close over local variables.</p>
+<pre><code class="lang-jsx">function ItemList(props) {
+  return (
+    <ul>
+      {props.items.map((item, index) =&gt; (
+        <item key="{item.key}" onclick="{()" ==""> doSomethingWith(item.name, index)}
+        /&gt;
+      ))}
+    </item></ul>
+  );
+}
+</code></pre>
+</li>
+<li><p>Bind event handlers for the render method in the constructor. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md"><code>react/jsx-no-bind</code></a></p>
+<blockquote>
+<p>Why? A bind call in the render path creates a brand new function on every single render.</p>
+</blockquote>
+<pre><code class="lang-jsx">// bad
+class extends React.Component {
+  onClickDiv() {
+    // do stuff
+  }
+
+  render() {
+    return <div onclick="{this.onClickDiv.bind(this)}">
+  }
+}
+
+// good
+class extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickDiv = this.onClickDiv.bind(this);
+  }
+
+  onClickDiv() {
+    // do stuff
+  }
+
+  render() {
+    return <div onclick="{this.onClickDiv}">
+  }
+}
+</div></div></code></pre>
+</li>
+<li><p>Do not use underscore prefix for internal methods of a React component.</p>
+<pre><code class="lang-jsx">// bad
+React.createClass({
+  _onClickSubmit() {
+    // do stuff
+  },
+
+  // other stuff
+});
+
+// good
+class extends React.Component {
+  onClickSubmit() {
+    // do stuff
+  }
+
+  // other stuff
+}
+</code></pre>
+</li>
+<li><p>Be sure to return a value in your <code>render</code> methods. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/pull/502"><code>require-render-return</code></a></p>
+<pre><code class="lang-jsx">// bad
+render() {
+  (<div>);
+}
+
+// good
+render() {
+  return (<div>);
+}
+</div></div></code></pre>
+</li>
+</ul>
+<h2 id="t13Ordering">Ordering <a href="#t13Ordering"> # </a></h2>
+<ul>
+<li><p>Ordering for <code>class extends React.Component</code>:</p>
+</li>
+<li><p>optional <code>static</code> methods</p>
+</li>
+<li><code>constructor</code></li>
+<li><code>getChildContext</code></li>
+<li><code>componentWillMount</code></li>
+<li><code>componentDidMount</code></li>
+<li><code>componentWillReceiveProps</code></li>
+<li><code>shouldComponentUpdate</code></li>
+<li><code>componentWillUpdate</code></li>
+<li><code>componentDidUpdate</code></li>
+<li><code>componentWillUnmount</code></li>
+<li><em>clickHandlers or eventHandlers</em> like <code>onClickSubmit()</code> or <code>onChangeDescription()</code></li>
+<li><em>getter methods for <code>render</code></em> like <code>getSelectReason()</code> or <code>getFooterContent()</code></li>
+<li><em>Optional render methods</em> like <code>renderNavigation()</code> or <code>renderProfilePicture()</code></li>
+<li><p><code>render</code></p>
+</li>
+<li><p>How to define <code>propTypes</code>, <code>defaultProps</code>, <code>contextTypes</code>, etc...</p>
+<pre><code class="lang-jsx">import React, { PropTypes } from &apos;react&apos;;
+
+const propTypes = {
+  id: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
+  text: PropTypes.string,
+};
+
+const defaultProps = {
+  text: &apos;Hello World&apos;,
+};
+
+class Link extends React.Component {
+  static methodsAreOk() {
+    return true;
+  }
+
+  render() {
+    return <a href="{this.props.url}" data-id="{this.props.id}">{this.props.text}</a>
+  }
+}
+
+Link.propTypes = propTypes;
+Link.defaultProps = defaultProps;
+
+export default Link;
+</code></pre>
+</li>
+<li><p>Ordering for <code>React.createClass</code>: eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md"><code>react/sort-comp</code></a></p>
+</li>
+<li><p><code>displayName</code></p>
+</li>
+<li><code>propTypes</code></li>
+<li><code>contextTypes</code></li>
+<li><code>childContextTypes</code></li>
+<li><code>mixins</code></li>
+<li><code>statics</code></li>
+<li><code>defaultProps</code></li>
+<li><code>getDefaultProps</code></li>
+<li><code>getInitialState</code></li>
+<li><code>getChildContext</code></li>
+<li><code>componentWillMount</code></li>
+<li><code>componentDidMount</code></li>
+<li><code>componentWillReceiveProps</code></li>
+<li><code>shouldComponentUpdate</code></li>
+<li><code>componentWillUpdate</code></li>
+<li><code>componentDidUpdate</code></li>
+<li><code>componentWillUnmount</code></li>
+<li><em>clickHandlers or eventHandlers</em> like <code>onClickSubmit()</code> or <code>onChangeDescription()</code></li>
+<li><em>getter methods for <code>render</code></em> like <code>getSelectReason()</code> or <code>getFooterContent()</code></li>
+<li><em>Optional render methods</em> like <code>renderNavigation()</code> or <code>renderProfilePicture()</code></li>
+<li><code>render</code></li>
+</ul>
+<h2 id="t14isMounted">isMounted <a href="#t14isMounted"> # </a></h2>
+<ul>
+<li><p>Do not use <code>isMounted</code>. eslint: <a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md"><code>react/no-is-mounted</code></a></p>
+<blockquote>
+<p>Why? <a href="https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html"><code>isMounted</code> is an anti-pattern</a>, is not available when using ES6 classes, and is on its way to being officially deprecated.</p>
+</blockquote>
+</li>
+</ul>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

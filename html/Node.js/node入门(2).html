@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li class="active"><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0fs模块">fs模块</a></li><li><a href="#t1流">流</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <p>#node&#x5165;&#x95E8;(2)</p>
+<h3 id="t0fs&#x6A21;&#x5757;">fs&#x6A21;&#x5757; <a href="#t0fs&#x6A21;&#x5757;"> # </a></h3>
+<blockquote>
+<p>fs&#x6A21;&#x5757;&#x662F;&#x6211;&#x4EEC;node&#x4E2D;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#xFF0C;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x4E5F;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x6240;&#x4EE5;&#x5355;&#x72EC;&#x6765;&#x8BF4;&#xFF0C;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x5747;&#x6709;&#x5F02;&#x6B65;&#x548C;&#x540C;&#x6B65;&#x7248;&#x672C;&#xFF0C;&#x4F8B;&#x5982;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;&#x51FD;&#x6570;&#x6709;&#x5F02;&#x6B65;&#x7684; fs.readFile() &#x548C;&#x540C;&#x6B65;&#x7684; fs.readFileSync()&#x3002;
+&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF1A;&#x5F02;&#x6B65;&#x7684;&#x65B9;&#x6CD5;&#x51FD;&#x6570;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5305;&#x542B;&#x4E86;&#x9519;&#x8BEF;&#x4FE1;&#x606F;(error)&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5F3A;&#x5236;&#x4E3A;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x3002;</p>
+</blockquote>
+<ol>
+<li>&#x901A;&#x8FC7;&#x5F02;&#x6B65;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x83B7;&#x53D6;&#x6570;&#x636E;<pre><code>var fs = require(&apos;fs&apos;);//&#x540C;&#x6B65;&#x65B9;&#x548C;&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x5E38;&#x540C;&#x65F6;&#x51FA;&#x73B0;,&#x51FA;&#x6765;&#x7684;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x9ED8;&#x8BA4;&#x662F;buffer&#xFF0C;&#x4ED6;&#x662F;&#x5168;&#x90E8;&#x8BFB;&#x5230;&#x7F13;&#x5B58;&#x5185;&#xFF0C;&#x4E0D;&#x80FD;&#x8BFB;&#x53D6;&#x6BD4;&#x5185;&#x5B58;&#x5927;&#x7684;&#x6587;&#x4EF6;
+//&#x5F02;&#x6B65;&#x65B9;&#x5F0F;&#x662F;&#x901A;&#x8FC7;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6765;&#x83B7;&#x53D6;&#x6570;&#x636E;,&#x5F02;&#x6B65;&#x8C01;&#x5148;&#x6267;&#x884C;&#x5B8C;&#x770B;&#x8C01;&#x5148;&#x8FD4;&#x56DE;&#x6570;&#x636E;
+//param1 &#x9519;&#x8BEF;&#x5BF9;&#x8C61; param2:&#x83B7;&#x53D6;&#x7684;&#x6570;&#x636E;&#x9ED8;&#x8BA4;&#x4E5F;&#x662F;buffer&#x7C7B;&#x578B;,&#x6307;&#x5B9A;&#x7F16;&#x7801;&#x683C;&#x5F0F;&#x548C;&#x9ED8;&#x8BA4;&#x7684;flag
+var person = {};
+fs.readFile(&apos;./name.txt&apos;,&apos;utf8&apos;,function (err,data) {
+ person.name = data;
+ out();//&#x56E0;&#x4E3A;&#x4E0D;&#x77E5;&#x9053;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7B97;&#x62FF;&#x5B8C;&#x4E86;&#xFF0C;&#x53EA;&#x80FD;&#x5199;&#x5165;&#x540E;&#x5C31;&#x8C03;&#x4E00;&#x4E0B;&#x65B9;&#x6CD5;
+});
+fs.readFile(&apos;./age.txt&apos;,&apos;utf8&apos;, function (err,data) {
+ person.age = data;
+ out()
+});
+function out(){
+ if(Object.keys(person).length==2)//&#x83B7;&#x5F97;person&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x957F;&#x5EA6;,&#x83B7;&#x53D6;&#x6570;&#x636E;&#x7684;&#x901F;&#x5EA6;&#x662F;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x6700;&#x4E45;&#x7684;&#x90A3;&#x4E2A;&#x65F6;&#x95F4;
+ console.log(person);
+}//&#x89E3;&#x51B3;&#x5F02;&#x6B65;&#x7684;&#x95EE;&#x9898;&#x5C31;&#x7528;&#x8BA1;&#x6570;&#x5668;,&#x4E5F;&#x53EF;&#x4EE5;&#x7528;promise&#x6765;&#x89E3;&#x51B3;&#x3002;
+</code></pre></li>
+<li>&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF1A;<pre><code>fs.writeFileSync(&apos;./hello.txt&apos;,&quot;&#x73E0;&#x5CF0;&quot;,{flag:&apos;w&apos;});//path&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728; &#x4F1A;&#x5E2E;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#xFF0C;data &#x8981;&#x5199;&#x5165;&#x7684;&#x6570;&#x636E; &#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x548C;buffer&#x683C;&#x5F0F;&#xFF0C;w&#x4EE3;&#x8868;&#x7684;&#x662F;&#x6211;&#x4EEC;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x8981;&#x505A;&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x5199;&#x5165;&#xFF0C;{flag:&apos;a&apos;}&#x7B49;&#x540C;&#x4E8E;appendFile
+fs.appendFileSync(&apos;./hello.txt&apos;,&quot;&#x5C0F;&#x7C73;&quot;);
+//return O_TRUNC &#x622A;&#x65AD; | O_CREAT &#x521B;&#x5EFA; | O_WRONLY &#x53EA;&#x5199;
+</code></pre></li>
+<li>&#x540C;&#x6B65;&#x7684;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x76EE;&#x5F55;<pre><code>function makeP(path){
+ var arr = path.split(&apos;/&apos;);//&#x5C06;path&#x4EE5;/&#x7684;&#x65B9;&#x5F0F;&#x5206;&#x5272;&#x5F00;
+ for(var i = 1; i&lt;=arr.length;i++){//&#x5728;&#x539F;&#x6570;&#x7EC4;&#x91CC;&#xFF0C;&#x4E0D;&#x505C;&#x7684;&#x53D6;&#x76F8;&#x5BF9;&#x5E94;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x52A0;&#x5165;/
+    var curDir =  arr.slice(0,i).join(&apos;/&apos;);
+    var flag = fs.existsSync(curDir);//&#x6211;&#x4EEC;&#x5728;&#x521B;&#x5EFA;&#x76EE;&#x5F55;&#x4E4B;&#x524D;&#xFF0C;&#x8981;&#x5148;&#x67E5;&#x770B;curDir&#x662F;&#x5426;&#x5B58;&#x5728;
+     if(!flag){
+         fs.mkdirSync(curDir);//&#x521B;&#x5EFA;&#x76EE;&#x5F55;
+     }
+ }
+};
+makeP(&apos;a/b/c/d&apos;);//&#x5FC5;&#x987B;&#x8981;&#x4FDD;&#x8BC1;&#x4E0A;&#x4E00;&#x76EE;&#x5F55;&#x6709;&#x4E86;&#x624D;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x76EE;&#x5F55;
+</code></pre></li>
+<li>&#x8BFB;&#x53D6;&#x548C;&#x64CD;&#x4F5C;&#x76EE;&#x5F55;&#x4EE5;&#x53CA;&#x5220;&#x9664;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x76EE;&#x5F55;<pre><code>var curArr = fs.readdirSync(&apos;./dir&apos;);
+console.log(curArr);
+curArr.forEach(function (item) {//&#x8BFB;&#x53D6;&#x76EE;&#x5F55;&#x540E;&#x8981;&#x64CD;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;&#x7684;&#x5230;&#x76EE;&#x5F55;&#x540E;&#x5148;&#x67E5;&#x770B;&#x76EE;&#x5F55;&#x662F;&#x6587;&#x4EF6;&#x5939;&#x8FD8;&#x662F;&#x6587;&#x4EF6;
+ //&#x5224;&#x65AD;&#x76EE;&#x5F55;&#x7684;&#x72B6;&#x6001;&#x8981;&#x7528;&#x5168;&#x76EE;&#x5F55;
+ var stat = fs.statSync(&apos;./dir/&apos;+item);//stat&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x72B6;&#x6001; &#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x5224;&#x65AD;&#x662F;&#x6587;&#x4EF6;&#x8FD8;&#x662F;&#x6587;&#x4EF6;&#x5939;//&#x5220;&#x9664;&#x7684;&#x65F6;&#x5019;&#x53EA;&#x80FD;&#x5220;&#x9664;&#x7A7A;&#x6587;&#x4EF6;&#x5939;
+ if(stat.isDirectory()){//isDirectory()
+     console.log(&apos;./dir/&apos;+item+&quot;&#x662F;&#x6587;&#x4EF6;&#x5939;&quot;);
+     fs.rmdirSync(&apos;./dir/&apos;+item);//&#x5220;&#x9664;&#x76EE;&#x5F55;
+ }
+ if(stat.isFile()){//isFile()
+     console.log(&apos;./dir/&apos;+item+&quot;&#x662F;&#x6587;&#x4EF6;&quot;);
+     fs.unlinkSync(&apos;./dir/&apos;+item); //&#x5220;&#x9664;&#x6587;&#x4EF6;
+ }
+});
+</code></pre></li>
+<li>&#x76D1;&#x542C;&#x6587;&#x4EF6;<pre><code>var fs = require(&apos;fs&apos;);
+fs.watchFile(&apos;./4.dir.js&apos;, function (cur,old) {
+ console.log(cur)
+})
+</code></pre></li>
+<li><p>&#x62F7;&#x8D1D;&#x6587;&#x4EF6;</p>
+<pre><code>var fs = require(&apos;fs&apos;);
+//source&#x539F;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;
+//target&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x5730;&#x5740;
+function copy(source,target){//&#x540C;&#x6B65;&#x7684;copy&#x65B9;&#x6CD5;
+ var data = fs.readFileSync(source,&apos;utf8&apos;);
+ //&#x5199;&#x6570;&#x636E;&#x628A;&#x90FD;&#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x5199;&#x5165;
+ fs.writeFileSync(target,data);
+}
+//&#x5F02;&#x6B65;&#x7684;copy&#x65B9;&#x6CD5;
+function copy(source,target){
+ //&#x5F02;&#x6B65;&#x7684;&#x8BFB;&#x53D6;&#x901A;&#x8FC7;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;data&#x8BFB;&#x5230;&#x7684;&#x6570;&#x636E;
+ fs.readFile(source, function (err,data) {
+     if(!err){
+         //&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#xFF0C;&#x5199;&#x5165;&#x5230;&#x6587;&#x4EF6;&#x4E2D;&#x5C06;data&#x6570;&#x636E;
+         fs.writeFile(target,data, function (err, data) {
+         });
+     }
+ });
+}
+copy(&apos;./hello.png&apos;,&apos;./b.png&apos;);
+</code></pre></li>
+<li><p>path&#x6A21;&#x5757; &#x5904;&#x7406;&#x8DEF;&#x5F84;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;
+```
+var path = require(&apos;path&apos;);
+//1.path.join&#x65B9;&#x6CD5;
+console.log(path.join(&apos;a&apos;,&apos;b&apos;,&apos;..&apos;));
+//&#x4F1A;&#x628A;&#x4E24;&#x4E2A;&#x8DEF;&#x5F84;&#x62FC;&#x63A5;&#x8D77;&#x6765;&#xFF0C;&#x4EE5;&#x81EA;&#x5DF1;&#x7CFB;&#x7EDF;&#x7684;&#x5206;&#x9694;&#x7B26;
+//1.&#x652F;&#x6301;&#x591A;&#x4E2A;&#x8FDE;&#x63A5;
+//2.&#x652F;&#x6301;&#x4E0A;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;
+//<strong>dirname &#x5F53;&#x524D;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x540D;&#x5B57;
+console.log(path.join(</strong>dirname,&apos;..&apos;,&apos;a.js&apos;));
+//require.resolve();
+//path.resolve&#x89E3;&#x6790;&#x8DEF;&#x5F84;
+console.log(path.resolve(&apos;..&apos;,&apos;a.js/&apos;));
+//1.&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x5199;&#x4F1A;&#x4EE5;&#x5F53;&#x524D;&#x7684;&#x76EE;&#x5F55;&#x505A;&#x89E3;&#x6790;
+//2.&#x53EA;&#x5199;/&#x4F1A;&#x56DE;&#x5230;&#x6839;&#x76EE;&#x5F55;
+//3.&#x652F;&#x6301;..
+//4.&#x4E0D;&#x4F1A;&#x4FDD;&#x7559;&#x6700;&#x540E;&#x4E00;&#x4E2A;/
+//&#x5C06;&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x8DEF;&#x5F84;&#x8F6C;&#x6362;&#x6210;&#x6807;&#x51C6;&#x8DEF;&#x5F84;
+var format = path.normalize(&apos;a////c////d///..//e/&apos;);
+console.log(format);
+//&#x9ED8;&#x8BA4;&#x591A;&#x4E2A;/&#x4F1A;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A;/
+//&#x6700;&#x540E;&#x4E00;&#x4E2A;/&#x4F1A;&#x4FDD;&#x7559;
+//&#x4E24;&#x4E2A;&#x70B9;&#x4F1A;&#x53D8;&#x6210;&#x4E0A;&#x4E00;&#x7EA7;&#x76EE;&#x5F55;</p>
+</li>
+</ol>
+<p>//path.basename&#x83B7;&#x5F97;&#x6587;&#x4EF6;&#x7684;&#x57FA;&#x672C;&#x540D;&#x5B57;
+//&#x540E;&#x9762;&#x5199;&#x4E0A;&#x5339;&#x914D;&#x51FA;&#x6765;&#x7684;&#x5F53;&#x524D;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x540E;&#x7F00;
+//&#x62FF;&#x53BB;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x5B57; &#x5728;&#x62FF;&#x53BB;&#x53E6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x540E;&#x7F00;&#xFF0C;&#x751F;&#x6210;&#x65B0;&#x7684;&#x6587;&#x4EF6;
+console.log(path.basename(&apos;a.js&apos;,&apos;.js&apos;));
+//path.extname
+console.log(path.extname(&apos;b.png&apos;));
+console.log(path.basename(&apos;a.js&apos;,&apos;.js&apos;)+path.extname(&apos;b.png&apos;));</p>
+<p>console.log(path.sep);//&#x83B7;&#x5F97;&#x76EE;&#x5F55;&#x5206;&#x5272;&#x7B26;</p>
+<p>console.log(path.delimiter); //&#x83B7;&#x53D6;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x5206;&#x9694;&#x7B26; mac&#x662F;&#x5192;&#x53F7;&#xFF0C;//&#x53EF;&#x4EE5;&#x533A;&#x5206;&#x662F;mac&#x8FD8;&#x662F;windows
+```</p>
+<h3 id="t1&#x6D41;">&#x6D41; <a href="#t1&#x6D41;"> # </a></h3>
+<p>&#x6D41;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x7684;&#xFF0C; &#x6709;&#x8D77;&#x70B9;&#x548C;&#x7EC8;&#x70B9;&#x7684;&#x5B57;&#x8282;&#x4F20;&#x8F93;&#x624B;&#x6BB5;&#x3002;
+&#x4E0D;&#x5173;&#x5FC3;&#x6587;&#x4EF6;&#x7684;&#x6574;&#x4F53;&#x5185;&#x5BB9;&#xFF0C;&#x53EA;&#x5173;&#x6CE8;&#x662F;&#x5426;&#x4ECE;&#x6587;&#x4EF6;&#x8BFB;&#x5230;&#x4E86;&#x6570;&#x636E;&#xFF0C;&#x4EE5;&#x53CA;&#x8BFB;&#x5230;&#x6570;&#x636E;&#x4E4B;&#x540E;&#x7684;&#x5904;&#x7406;&#xFF0C;
+&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x63A5;&#x53E3;&#xFF0C;</p>
+<ol>
+<li>&#x53EF;&#x8BFB;&#x6D41;
+ stream.Readable&#x6765;&#x5C06;&#x5BF9;&#x8C61;&#x6570;&#x636E;&#x90FD;&#x8DA3;&#x5473;&#x6D41;&#x6570;&#x636E;&#xFF0C;createReadStream&#x7EE7;&#x627F;&#x4E86;readable&#x63A5;&#x53E3;
+ var rs=fs.createReadStream(&apos;./1.txt&apos;);
+ &#x4E8B;&#x4EF6;&#xFF1A;
+ &#x5F53;&#x6211;&#x4EEC;&#x7528;on&#x76D1;&#x542C;data&#x4E8B;&#x4EF6;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x4E0D;&#x505C;&#x8BFB;&#x53D6;&#xFF0C;&#x6BCF;&#x6B21;&#x5927;&#x5C0F;64k&#xFF1B;
+ on&#x8FD8;&#x53EF;&#x4EE5;&#x76D1;&#x542C;error&#x548C;end&#x3002;
+ &#x53C2;&#x6570;&#x4E00;&#xFF1A;path
+ &#x53C2;&#x6570;&#x4E8C;&#xFF0C;options<ul>
+<li><code>flags</code>&#xFF1A;&#x9ED8;&#x8BA4;&#x4E3A;r&#xFF0C;&#x662F;&#x6807;&#x793A;&#xFF0C;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x540E;&#x8981;&#x5E72;&#x4EC0;&#x4E48;&#x3002;</li>
+<li><code>encoding</code>&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;null&#xFF0C;&#x8BFB;&#x53D6;&#x5230;&#x7684;&#x6570;&#x636E;&#x4E3A;<strong>Buffer</strong>&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A;utf-8 ;&#x5F53;&#x6307;&#x5B9A;&#x7F16;&#x7801;&#x540E;&#xFF0C;highWaterMark&#x5927;&#x5C0F;&#x8981;&#x6BD4;&#x5F53;&#x524D;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x8282;&#x6570;&#x5927;&#x3002;</li>
+<li><code>start</code> <code>end</code>&#xFF1A;&#x4ECE;start&#x5F00;&#x59CB;&#x8BFB;&#x53D6;&#x5230;end&#x7ED3;&#x675F;&#xFF0C;&#x5305;&#x62EC;end&#x3002;</li>
+<li><code>highWaterMark</code>&#x6BCF;&#x6B21;&#x5904;&#x7406;&#x7684;buffer&#x5B57;&#x8282;&#x3002;
+&#x65B9;&#x6CD5;&#xFF1A;</li>
+</ul>
+</li>
+<li>rs.setEncoding(&apos;utf8&apos;) &#x8BBE;&#x7F6E;&#x7F16;&#x7801;</li>
+<li>rs.pause() &#xFF0C;&#x6682;&#x505C;&#x8BFB;&#x53D6;&#x3002;</li>
+<li><p>rs.resume()&#xFF0C;&#x6062;&#x590D;&#x8BFB;&#x53D6;</p>
+</li>
+<li><p>&#x53EF;&#x5199;&#x6D41;
+stream.Writable
+ &#x53C2;&#x6570;&#x4E00;&#xFF1A;path
+ &#x53C2;&#x6570;&#x4E8C;&#xFF0C;options</p>
+<ul>
+<li><code>flags</code>&#xFF1A;&#x9ED8;&#x8BA4;&#x4E3A;w&#xFF0C;</li>
+<li><code>encoding</code>&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;utf8&#xFF0C;&#x5C06;buffer&#x8F6C;&#x4E3A;utf8</li>
+<li><code>start</code> <code>end</code>&#xFF1A;&#x4ECE;start&#x5F00;&#x59CB;&#x8BFB;&#x53D6;&#x5230;end&#x7ED3;&#x675F;&#xFF0C;&#x5305;&#x62EC;end&#x3002;</li>
+<li><code>highWaterMark</code>&#x6BCF;&#x6B21;&#x5904;&#x7406;&#x7684;&#x5B57;&#x8282;&#x3002;&#x9ED8;&#x8BA4;&#x662F;16*1024=16384,16k
+&#x65B9;&#x6CD5;&#xFF1A;</li>
+</ul>
+</li>
+<li>ws.write( )&#x53EA;&#x80FD;&#x653E;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;buffer
+  chunk&#xFF0C;&#x8981;&#x5199;&#x5165;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x540E;&#x9762;&#x662F;&#x53EF;&#x9009;&#x7684;encoding&#x548C;callback</li>
+<li>ws.end(),&#x5173;&#x95ED;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x4E00;&#x53E3;&#x6C14;&#x628A;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5199;&#x5165;&#x5230;&#x6587;&#x4EF6;&#x5185;&#xFF0C;&#x628A;end&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x4E5F;&#x5199;&#x5165;&#x5230;&#x5185;&#x5BB9;&#x4E2D;&#x3002;</li>
+<li>drain&#x662F;&#x62BD;&#x5E72;&#x7684;&#x610F;&#x601D;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x8BFB;&#x53D6;64k&#xFF0C;&#x6BCF;&#x6B21;&#x5199;&#x5165;16k&#xFF0C;&#x5F53;16k&#x7A7A;&#x4E86;&#x7684;&#x65F6;&#x5019;drain&#x65B9;&#x6CD5;&#x3002;&#x5373;&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#x5230;&#x7F13;&#x5B58;&#x533A;&#xFF0C;&#x8981;&#x5148;&#x8BF7;&#x7A7A;&#x7F13;&#x5B58;&#x533A;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8BFB;&#x53D6;&#x3002;</li>
+<li><p>console.log(ws.write(&apos;sth.&apos;));//&#x8FD4;&#x56DE;&#x503C;&#x4E3A;true&#x7684;&#x65F6;&#x5019;&#x8868;&#x793A;&#x7F13;&#x5B58;&#x533A;&#x57DF;&#x8FD8;&#x6CA1;&#x6709;&#x6EE1;</p>
+</li>
+<li><p>pipe&#xFF08;&#xFF09;&#x5C06;&#x6570;&#x636E;&#x7684;&#x6EDE;&#x7559;&#x91CF;&#x9650;&#x5236;&#x5728;&#x4E00;&#x4E2A;&#x53EF;&#x63A5;&#x53D7;&#x7684;&#x6C34;&#x5E73;&#xFF0C;&#x4EE5;&#x4F7F;&#x4E0D;&#x540C;&#x901F;&#x5EA6;&#x7684;&#x6765;&#x6E90;&#x548C;&#x76EE;&#x6807;&#x5B8C;&#x5168;&#x4E0D;
+pipe&#x5C31;&#x662F;&#x8FDE;&#x63A5;&#x6211;&#x4EEC;&#x53EF;&#x8BFB;&#x6D41;&#x548C;&#x53EF;&#x5199;&#x6D41;&#x7684;&#x4E00;&#x4E2A;&#x7BA1;&#x9053;&#xFF0C;
+rs.pipe(ws),&#x5F02;&#x6B65;&#x65B9;&#x6CD5;</p>
+</li>
+<li><p>//querystring &#x7528;&#x6765;&#x89E3;&#x6790;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x7684; &#x6838;&#x5FC3;&#x6A21;&#x5757;
+var querystring = require(&apos;querystring&apos;);
+//&#x624B;&#x52A8;&#x8BBE;&#x7F6E;&#x5206;&#x9694;&#x7B26; param1&#x662F;&#x8981;&#x89E3;&#x6790;&#x7684;&#x5B57;&#x7B26;&#x4E32;  param2 &#x6BCF;&#x4E00;&#x7EC4;&#x5185;&#x5BB9;&#x7684;&#x5206;&#x9694;&#x7B26; &#x952E;&#x503C;&#x5206;&#x9694;&#x7B26;
+//&#x89E3;&#x6790;&#x6210;&#x5BF9;&#x8C61;
+var obj = querystring.parse(&apos;username==123&amp;&amp;password==321&apos;,&apos;&amp;&amp;&apos;,&apos;==&apos;);
+//&#x5C06;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x6210;&#x5B57;&#x7B26;&#x4E32;
+var str = querystring.stringify({ username: &apos;123&apos;, password: &apos;321&apos; },&apos;*&apos;,&apos;@&apos;);
+console.log(str);</p>
+</li>
+</ol>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li class="active"><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0数组详谈">数组详谈</a><ul><li><a href="#t11.数组方法 通用 es5 es6">1.数组方法 通用 es5 es6</a><ul><li><a href="#t21.1- 通用方法">1.1- 通用方法</a></li><li><a href="#t31.2 es5方法">1.2 es5方法</a></li></ul></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0&#x6570;&#x7EC4;&#x8BE6;&#x8C08;">&#x6570;&#x7EC4;&#x8BE6;&#x8C08; <a href="#t0&#x6570;&#x7EC4;&#x8BE6;&#x8C08;"> # </a></h1>
+<h3 id="t11.&#x6570;&#x7EC4;&#x65B9;&#x6CD5; &#x901A;&#x7528; es5 es6">1.&#x6570;&#x7EC4;&#x65B9;&#x6CD5; &#x901A;&#x7528; es5 es6 <a href="#t11.&#x6570;&#x7EC4;&#x65B9;&#x6CD5; &#x901A;&#x7528; es5 es6"> # </a></h3>
+<h5 id="t21.1- &#x901A;&#x7528;&#x65B9;&#x6CD5;">1.1- &#x901A;&#x7528;&#x65B9;&#x6CD5; <a href="#t21.1- &#x901A;&#x7528;&#x65B9;&#x6CD5;"> # </a></h5>
+<blockquote>
+<p>&#x539F;&#x6570;&#x7EC4;&#x53D1;&#x751F;&#x4E86;&#x6539;&#x53D8;&#x3002;</p>
+<ul>
+<li>push&#xFF08;&#xFF09;&#x5F80;&#x6570;&#x7EC4;&#x672B;&#x5C3E;&#x4E2D;&#x6DFB;&#x52A0;&#x5185;&#x5BB9;&#x3002;&#x53C2;&#x6570;&#xFF1A;&#x5373;&#x6DFB;&#x52A0;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x6DFB;&#x52A0;&#x5B8C;&#x6210;<code>&#x4E4B;&#x540E;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x3002;</code></li>
+<li>unshift&#xFF08;&#xFF09;&#x5C06;&#x5185;&#x5BB9;&#x6DFB;&#x52A0;&#x5230;&#x6570;&#x7EC4;&#x7684;&#x9996;&#x4F4D;&#xFF0C;&#x53C2;&#x6570;&#x662F;&#x6DFB;&#x52A0;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x6DFB;&#x52A0;&#x5185;&#x5BB9;&#x540E;&#xFF0C;<code>&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x3002;</code></li>
+<li>pop&#xFF08;&#xFF09;&#x628A;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x540E;&#x4E00;&#x9879;&#x5220;&#x9664;&#x3002;&#x65E0;&#x53C2;&#x6570;&#x3002;&#x8FD4;&#x56DE;&#x503C;&#x662F;<code>&#x5220;&#x9664;&#x7684;&#x5185;&#x5BB9;&#x3002;</code></li>
+<li>shift&#xFF08;&#xFF09;&#x5220;&#x9664;&#x6570;&#x7EC4;&#x7684;&#x7B2C;&#x4E00;&#x9879;&#x5185;&#x5BB9;&#xFF0C;&#x65E0;&#x53C2;&#x6570;&#xFF0C;&#x3002;&#x3002;&#x3002;&#x3002;&#x662F;<code>&#x5220;&#x9664;&#x7684;&#x5185;&#x5BB9;&#x3002;</code>
+ &#x539F;&#x751F;&#x7684;&#x5F80;&#x6570;&#x7EC4;&#x672B;&#x5C3E;&#x6DFB;&#x52A0;&#x4E00;&#x9879;&#x5185;&#x5BB9;&#x548C;&#x5220;&#x9664;&#x6700;&#x540E;&#x4E00;&#x9879;&#x5185;&#x5BB9;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</li>
+<li>&#x589E;&#x52A0;&#xFF1A; ary[ary.length]=5//&#x5047;&#x5982;ary.length=5&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x9879;&#x7684;&#x7D22;&#x5F15;&#x5C31;&#x662F;length&#x3002;</li>
+<li>&#x5220;&#x9664;&#xFF1A;ary.length--.,</li>
+<li>splice(n),&#x4ECE;&#x7D22;&#x5F15;n&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5305;&#x62EC;n&#xFF0C;&#x4E00;&#x76F4;&#x5220;&#x9664;&#x5230;&#x6700;&#x540E;&#x3002;</li>
+<li>splice&#xFF08;n,m&#xFF09;&#x4ECE;&#x7D22;&#x5F15;N&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4ECE;n&#x5F00;&#x59CB;&#x5220;&#x9664;m&#x4E2A;&#x5185;&#x5BB9;&#x3002;&#x8FD4;&#x56DE;&#x503C;&#x90FD;&#x662F;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x4E0D;&#x5305;&#x62EC;n&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x4ECE;0&#x5F00;&#x59CB;&#x5220;&#x9664;&#x4E00;&#x9879;&#x3002;</li>
+<li>splice&#xFF08;n,m,x&#xFF09;&#x4ECE;&#x7D22;&#x5F15;n&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4ECE;n&#x5F00;&#x59CB;&#x5220;&#x9664;m&#x4E2A;&#x5185;&#x5BB9;&#xFF0C;&#x7528;x&#xFF08;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x9879;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x9879;&#xFF09;&#x7684;&#x5185;&#x5BB9;<code>&#x66FF;&#x6362;</code>&#x5220;&#x9664;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6DFB;&#x52A0;&#x5230;&#x5220;&#x9664;&#x7684;&#x5185;&#x5BB9;&#x7684;&#x524D;&#x9762;&#x3002;&#x7279;&#x522B;&#x662F;&#x7B2C;&#x4E8C;&#x4E2A;&#x662F;&#x53C2;&#x6570;&#x662F;0&#x7684;&#x65F6;&#x5019;&#x3002;&#x3002;<br> splice&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x503C;&#x662F;<code>&#x5220;&#x9664;&#x540E;&#x7684;&#x5185;&#x5BB9;&#xFF0C;</code></li>
+<li>reverse&#xFF08;&#xFF09;&#xFF0C;&#x5C06;&#x6570;&#x7EC4;&#x5012;&#x7740;&#x6392;&#x5217;&#x3002;&#x8FD4;&#x56DE;&#x503C;&#x662F;<code>&#x5012;&#x7740;&#x6392;&#x5217;&#x540E;&#x7684;&#x65B0;&#x6570;&#x7EC4;&#x3002;</code></li>
+<li>sort&#xFF08;&#xFF09;,&#x8FD4;&#x56DE;&#x503C;&#x662F;<code>&#x6392;&#x5E8F;&#x597D;&#x4E4B;&#x540E;&#x7684;&#x6570;&#x7EC4;</code><pre><code>arr.sort()//&#x9ED8;&#x8BA4;&#x4ECE;&#x5C0F;&#x5230;&#x5927;&#x6392;&#x5217;&#x3002;&#x53EA;&#x9002;&#x7528;10&#x4EE5;&#x5185;&#x6570;&#x5B57;&#x7684;&#x6570;&#x7EC4;&#xFF1B;&#x4ED6;&#x4EEC;&#x53EA;&#x6309;&#x6570;&#x7EC4;&#x4E2D;&#x6570;&#x5B57;&#x9996;&#x4E2A;&#x6570;&#x5B57;&#x6392;&#x5E8F;&#x3002;
+  arr.sort(-1)//&#x82E5;&#x4F20;&#x5165;&#x7684;&#x503C;&#xFF08;&#x53EF;&#x4EE5;&#x662F;&#x51FD;&#x6570;&#xFF09;&#x5C0F;&#x4E8E;&#x96F6;&#xFF0C;&#x5219;&#x987A;&#x5E8F;&#x6392;&#x5217;&#xFF0C;&#x5373;&#x4E0D;&#x52A8;&#x3002;
+  arr.sort(1)//&#x53CD;&#x4E4B;&#xFF0C;&#x5982;&#x679C;&#x5927;&#x4E8E;0&#xFF0C;&#x5219;&#x76F8;&#x5F53;&#x4E8E;reverse
+  arr.sort(function(a,b){return a-b})//&#x4ECE;&#x5C0F;&#x5230;&#x5927;&#xFF0C;&#x82E5;return b-a&#x662F;&#x4ECE;&#x5927;&#x5230;&#x5C0F;&#x3002;&#x53EF;&#x7528;&#x4E8E;&#x5927;&#x4E8E;10&#x7684;&#x6570;&#x7EC4;&#x6392;&#x5E8F;&#x3002;
+</code></pre><h5 id="t31.2 es5&#x65B9;&#x6CD5;">1.2 es5&#x65B9;&#x6CD5; <a href="#t31.2 es5&#x65B9;&#x6CD5;"> # </a></h5>
+</li>
+<li>forEach (js v1.6)   map (js v1.6)&#xFF1A;&#x7528;&#x6765;&#x904D;&#x5386;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x9879;&#x7684;&#xFF0C;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF08;&#x53EF;&#x4EE5;&#x6709;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;item&#x3001;index&#x3001;input&#xFF09;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x503C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E0A;&#x4E0B;&#x6587;&#xFF08;this&#xFF09;&#x3002;map&#x662F;&#x652F;&#x6301;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#xFF0C;&#x5728;&#x533F;&#x540D;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;return&#x7684;&#x662F;&#x5565;&#xFF0C;&#x90FD;&#x76F8;&#x5F53;&#x4E8E;&#x628A;&#x5F53;&#x524D;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x8FD9;&#x4E00;&#x9879;&#x6539;&#x53D8;&#x4E3A;&#x5565;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x539F;&#x6570;&#x7EC4;&#x88AB;&#x201C;&#x6620;&#x5C04;&#x201D;&#x6210;&#x5BF9;&#x5E94;&#x65B0;&#x6570;&#x7EC4;&#x3002;
+&#x517C;&#x5BB9;&#x5C01;&#x88C5;&#x5982;&#x4E0B;&#xFF1A;<pre><code>Array.prototype.myForEach = function myForEach() {
+      var callback = arguments[0], context = arguments[1] || window;
+      if (typeof callback !== &quot;function&quot;) {return; }
+      if (&quot;forEach&quot; in Array.prototype) {
+          this.forEach(callback, context);
+          return;
+      }
+      //-&gt;IE6~8
+      for (var i = 0, len = this.length; i &lt; len; i++) {
+          callback.call(context, this[i], i, this);
+      }
+  };
+  Array.prototype.myMap = function myForEach() {
+      var callback = arguments[0], context = arguments[1] || window;
+      if (typeof callback !== &quot;function&quot;) {
+          return;
+      }
+      if (&quot;map&quot; in Array.prototype) {
+          return this.map(callback, context);
+      }
+      //-&gt;IE6~8
+      //-&gt;&#x9700;&#x8981;&#x539F;&#x6765;&#x7684;&#x6570;&#x7EC4;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;,&#x6240;&#x4EE5;&#x9700;&#x8981;&#x628A;&#x539F;&#x6765;&#x7684;&#x6570;&#x636E;&#x514B;&#x9686;&#x4E00;&#x4EFD;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x7684;
+      var _this = this.slice(0);
+      for (var i = 0, len = _this.length; i &lt; len; i++) {
+          //-&gt;&#x63A5;&#x6536;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6BCF;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;,&#x7528;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x628A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5F53;&#x524D;&#x9879;&#x8FDB;&#x884C;&#x66FF;&#x6362;(&#x539F;&#x6765;&#x6570;&#x7EC4;&#x4E0D;&#x80FD;&#x6539;&#x53D8;)
+          _this[i] = callback.call(context, _this[i], i, _this);
+      }
+      return _this;
+  };
+</code></pre></li>
+<li>filter&#x4E3A;&#x201C;&#x8FC7;&#x6EE4;&#x201D;&#x3001;&#x201C;&#x7B5B;&#x9009;&#x201D;&#x4E4B;&#x610F;&#x3002;&#x6307;&#x6570;&#x7EC4;filter&#x540E;&#xFF0C;&#x8FD4;&#x56DE;<code>&#x8FC7;&#x6EE4;&#x540E;&#x7684;&#x65B0;&#x6570;&#x7EC4;</code>&#x3002;&#x7528;&#x6CD5;&#x8DDF;map&#x6781;&#x4E3A;&#x76F8;&#x4F3C;&#xFF1A;</li>
+<li>somesome&#x610F;&#x6307;&#x201C;&#x67D0;&#x4E9B;&#x201D;&#xFF0C;&#x6307;&#x662F;&#x5426;&#x201C;&#x67D0;&#x4E9B;&#x9879;&#x201D;&#x5408;&#x4E4E;&#x6761;&#x4EF6;&#x3002;&#x4E0D;&#x8DB3;&#x5728;&#x4E8E;&#xFF0C;some&#x53EA;&#x6709;&#x6709;true&#x5373;&#x8FD4;&#x56DE;&#x4E0D;&#x518D;&#x6267;&#x884C;&#x4E86;&#x3002;</li>
+<li>&#x4E0E;every&#x7B97;&#x662F;&#x597D;&#x57FA;&#x53CB;&#xFF0C;every&#x8868;&#x793A;&#x662F;&#x5426;&#x201C;&#x6BCF;&#x4E00;&#x9879;&#x201D;&#x90FD;&#x8981;&#x9760;&#x8C31;&#x3002;</li>
+</ul>
+</blockquote>
+<ul>
+<li>indexOf,lastIndexOf<pre><code>var data = [2, 5, 7, 3, 5];
+console.log(data.indexOf(5, &quot;x&quot;)); // 1 (&quot;x&quot;&#x88AB;&#x5FFD;&#x7565;)
+console.log(data.indexOf(5, &quot;3&quot;)); // 4 (&#x4ECE;3&#x53F7;&#x4F4D;&#x5F00;&#x59CB;&#x641C;&#x7D22;)
+console.log(data.indexOf(4)); // -1 (&#x672A;&#x627E;&#x5230;)
+console.log(data.indexOf(&quot;5&quot;)); // -1 (&#x672A;&#x627E;&#x5230;&#xFF0C;&#x56E0;&#x4E3A;5 !== &quot;5&quot;)
+</code></pre></li>
+<li>reduce,reduceRight  :<code>array.reduce(callback[, initialValue])</code>&#x8FED;&#x4EE3;&#xFF0C;callback&#x51FD;&#x6570;&#x63A5;&#x53D7;4&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x4E4B;&#x524D;&#x503C;&#x3001;&#x5F53;&#x524D;&#x503C;&#x3001;&#x7D22;&#x5F15;&#x503C;&#x4EE5;&#x53CA;&#x6570;&#x7EC4;&#x672C;&#x8EAB;&#x3002;initialValue&#x53C2;&#x6570;&#x53EF;&#x9009;&#xFF0C;&#x8868;&#x793A;&#x521D;&#x59CB;&#x503C;&#x3002;&#x82E5;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x5F53;&#x4F5C;&#x6700;&#x521D;&#x4F7F;&#x7528;&#x7684;previous&#x503C;&#xFF1B;&#x5982;&#x679C;&#x7F3A;&#x7701;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4F5C;&#x4E3A;previous&#x521D;&#x59CB;&#x503C;&#xFF0C;&#x540C;&#x65F6;current&#x5F80;&#x540E;&#x6392;&#x4E00;&#x4F4D;&#xFF0C;&#x76F8;&#x6BD4;&#x6709;initialValue&#x503C;&#x5C11;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x3002;
+```
+var sum = [1, 2, 3, 4].reduce(function (previous, current, index, array) {
+return previous + current;
+});</li>
+</ul>
+<p>console.log(sum); // 10
+// &#x521D;&#x59CB;&#x8BBE;&#x7F6E;
+previous = initialValue = 1, current = 2</p>
+<p>// &#x7B2C;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;
+previous = (1 + 2) =  3, current = 3</p>
+<p>// &#x7B2C;&#x4E8C;&#x6B21;&#x8FED;&#x4EE3;
+previous = (3 + 3) =  6, current = 4</p>
+<p>// &#x7B2C;&#x4E09;&#x6B21;&#x8FED;&#x4EE3;
+previous = (6 + 4) =  10, current = undefined (&#x9000;&#x51FA;)</p>
+<pre><code>##### 1.3 es6
+### 2 &#x6570;&#x7EC4;&#x7B97;&#x6CD5;
+##### 21. &#x521D;&#x7EA7;&#x7B97;&#x6CD5;
+- &#x6C42;&#x6700;&#x5927;&#x503C;&#x548C;&#x6700;&#x5C0F;&#x503C;
+1&#xFF09;&#x601D;&#x60F3;1&#xFF1A;sort&#x601D;&#x60F3;
+2&#xFF09;&#x601D;&#x60F3;2&#xFF1A;&#x5047;&#x8BBE;&#x6CD5;
+3&#xFF09;&#x601D;&#x60F3;3&#xFF1A;Math&#x601D;&#x60F3;-eval
+4&#xFF09;&#x601D;&#x60F3;4&#xFF1A;Math&#x601D;&#x60F3;-apply
+- &#x56DE;&#x6587;&#x5224;&#x65AD;~~~
+</code></pre><pre><code>function palindrome(str) {//  &#x8FD8;&#x53EF;&#x4EE5;&#x7528;match
+    var reg=/[^0-9A-Za-z]/ig;
+    var before=str.replace(reg,function(){
+        return &apos;&apos;;
+    }).toLowerCase();
+    var after=str.replace(reg,function(){
+        return &apos;&apos;;
+    }).split(&apos;&apos;).reverse().join(&apos;&apos;).toLowerCase();
+    if(after==before){
+        return true;
+    }else{
+        return false;
+    }
+}
+console.log(palindrome(&quot;A man, a plan, a canal. Panama&quot;));//true
+console.log(palindrome(&quot;race car&quot;));//true
+</code></pre><pre><code>- &#x5224;&#x65AD;&#x53C2;&#x6570;&#x4E8C;&#x662F;&#x5426;&#x662F;&#x53C2;&#x6570;&#x4E00;&#x7684;&#x7ED3;&#x5C3E;
+</code></pre><pre><code>function confirmEnding(str, target) {
+    var reverseStr=str.split(&apos;&apos;).reverse().join(&apos;&apos;);
+    var reverseTarget=target.split(&apos;&apos;).reverse().join(&apos;&apos;);
+    var temp=reverseStr.substr(0,reverseTarget.length);
+    if(temp==reverseTarget){
+        return true;
+    }else{
+        return false;
+    }
+}
+confirmEnding(&quot;Bastian&quot;, &quot;an&quot;);
+</code></pre><pre><code>- &#x627E;&#x5230;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x5355;&#x4E2A;&#x503C;&#xFF0C;&#x5E76;&#x628A;&#x8BE5;&#x503C;&#x6240;&#x5728;&#x6570;&#x7EC4;&#x8FD4;&#x56DE;&#x3002;
+</code></pre><p>function MaxInArray(ary){
+        var longest=0;
+        ary.forEach(function(item,index,input){
+            if(item &amp;&amp; item&gt;longest){
+                longest=item;
+            }
+        });
+        return longest;
+    }
+function largestOfFour(arr) {
+        // You can do this!
+        var temp=[];
+        arr.forEach(function (item,index,iput) {
+            var num=MaxInArray(item);
+            temp.push(num);
+            item.flag=num;
+        });</p>
+<pre><code>    arr.forEach(function(item,index){
+        if(MaxInArray(temp)==item.flag){
+            arr=item;
+        }
+    });
+    return arr;
+}
+
+console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1008, 857, 1],[1000, 1009, 857, 1],[1000, 2000, 857, 66]]));//[1000, 2000, 857, 66]
+</code></pre><pre><code>- **&#x6570;&#x7EC4;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;**
+&#x6570;&#x7EC4;&#x7684;&#x6D45;&#x62F7;&#x8D1D;&#xFF1A;&#x6BD4;&#x5982;slice&#xFF08;0&#xFF09;,&#x904D;&#x5386;push&#x7B49;&#x3002;&#x4F46;&#x65E0;&#x6CD5;&#x5C06;&#x591A;&#x7EF4;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x503C;&#x6DF1;&#x5C42;&#x6B21;&#x62F7;&#x8D1D;&#x3002;
+&#x6DF1;&#x62F7;&#x8D1D;&#xFF1A;
+</code></pre><p>var arr=[[1,2],[1,[1,2,[1,2,[1,2,[1,2]]]]]];
+    function deepCopy(arr) {
+        var out = [];
+        for (var i=0;i&lt;arr.length; i++) {
+            if (arr[i] instanceof Array){
+                out[i] = deepCopy(arr[i]);
+            }
+            else out[i] = arr[i];
+        }
+        return out;
+    }</p>
+<pre><code>var arr2=deepCopy(arr);
+console.log(arr2);
+</code></pre><pre><code>##### 2.2&#x6570;&#x7EC4;&#x53BB;&#x91CD;
+ 1&#x5BF9;&#x8C61;&#x539F;&#x7406;&#x53BB;&#x91CD;&#xFF0C;&#x6839;&#x636E;&#x5BF9;&#x8C61;&#x952E;&#x7684;&#x552F;&#x4E00;&#x6027;&#x3002;
+</code></pre><p>var arr=[1.4,5,5,7,8];//&#x5229;&#x7528;&#x5BF9;&#x8C61;&#x539F;&#x7406;&#x53BB;&#x91CD;&#x3002;&#x5728;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#x952E;&#x662F;&#x552F;&#x4E00;&#x7684;&#x3002;
+    var obj={},result=[];
+    for(var i=0;i&lt;arr.length;i++){
+        obj[arr[i]]=arr[i];
+    }
+    for (var key in obj){
+        result.push(obj[key]);
+    }
+    console.log(result);</p>
+<pre><code> 2 &#x53CC;for&#x5FAA;&#x73AF;&#x53BB;&#x91CD;&#xFF0C;&#x57FA;&#x7840;&#x53BB;&#x91CD;&#x601D;&#x8DEF;&#x3002;
+</code></pre><p> var arr=[2,4,5,5,5];
+    for(var i=0;i&lt;arr.length;i++){
+        for(var j=i+1;j&lt;arr.length;j++){
+            if(arr[i]==arr[j]){
+                arr.splice(j,1);
+                j--;// &#x5C0F;&#x5FC3;&#x6570;&#x7EC4;&#x584C;&#x9677;&#x3002;
+            }
+        }
+    }
+    console.log(arr);</p>
+<pre><code>&#xFF13;&#x4E0E;&#x4E0A;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7565;&#x76F8;&#x4F3C;&#x7684;&#x6392;&#x5E8F;&#x540E;&#x53BB;&#x91CD;&#x3002;
+</code></pre><pre><code>arr.sort(function(a,b){
+        return a-b;
+    });
+for(var i=0;i&lt;arr.length;i++){
+    if(arr[i]==arr[i+1]){
+        arr.splice(i,1)
+        i--;
+    }
+}
+console.log(arr);
+</code></pre><pre><code>5 while&#x5FAA;&#x73AF;&#x53BB;&#x91CD;&#xFF0C;&#x4E2A;&#x4EBA;&#x6700;&#x559C;&#x6B22;&#xFF0C;&#x4E3A;&#x5565;&#xFF1F;&#x6D0B;&#x6C14;&#xFF01;
+</code></pre><p> var arr=[6,7,2,2,4,5,5,5],arr2=[],temp=null;
+    while(temp=arr.shift()){//shift &#x53D6;&#x5E76;&#x5220;&#x6BCF;&#x4E00;&#x9879;&#xFF0C;&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x4F7F;&#x7528;indexof&#x67E5;&#x91CD;&#x3002;
+        if(arr.indexOf(temp)==-1){
+            arr2.push(temp);
+        }
+    }
+    console.log(arr2);</p>
+<pre><code> &#x4E0E;&#x4E4B;&#x76F8;&#x4F3C;&#x7684;&#x4E00;&#x79CD;,&#x65B0;&#x5EFA;&#x6570;&#x7EC4;&#x5E76;&#x5224;&#x65AD;&#x65B0;&#x6570;&#x7EC4;&#x4E2D;&#x6709;&#x65E0;&#x8FD9;&#x4E00;&#x9879;&#x3002;
+</code></pre><p>var ary2=[];
+    for(var i=0; i&lt;ary.length; i++){
+        if(ary2.indexOf(ary[i])===-1){
+            ary2.push(ary[i])
+        }
+    }
+    console.log(ary2)</p>
+<pre><code>##### 2.3&#x6570;&#x7EC4;&#x6392;&#x5E8F;&#xFF1A;
+- &#x5927;&#x62DB; &#xFF0C;ary.sort&#xFF0C;&#x54C8;&#x54C8;&#x54C8;&#xFF1B;
+- &#x5192;&#x6CE1;&#xFF1A;
+</code></pre><p>function bubbleSort(ary,type){
+        for(var i=0; i<ary.length-1; i++){="" for(var="" j="0;" j<ary.length-1-i;="" j++){="" if(ary[j]="">ary[j+1]){
+                    var tmp=ary[j];
+                    ary[j]=ary[j+1];
+                    ary[j+1]=tmp;
+                }
+            }
+        }
+        return type===1?ary.reverse():ary;
+    }</ary.length-1;></p>
+<pre><code>- &#x5FEB;&#x901F;
+</code></pre><pre><code>function quickSort(ary){
+    //&#x4EC0;&#x4E48;&#x8BF7;&#x6B3E;&#x4E0D;&#x518D;&#x62C6;&#x5206; ary.length&lt;=1;
+    if(ary.length&lt;=1){
+        return ary;
+    }
+    var num=Math.floor(ary.length/2);//&#x4E2D;&#x95F4;&#x6570;&#x7684;&#x7D22;&#x5F15;&#xFF1B;
+    var numValue=ary.splice(num,1)[0]; //&#x4E2D;&#x95F4;&#x8FD9;&#x4E2A;&#x6570;&#x62FF;&#x51FA;&#x6765;&#xFF1B;
+    var left=[];
+    var right=[];
+    //&#x5FAA;&#x73AF;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x9879;&#xFF0C;&#x8DDF;numValue&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x6BD4;&#x4ED6;&#x5C0F;&#x7684;&#x653E;&#x5DE6;&#x8FB9;&#xFF1B;&#x6BD4;&#x4ED6;&#x5927;&#x7684;&#x653E;&#x53F3;&#x8FB9;&#xFF1B;
+    for(var i=0; i&lt;ary.length; i++){
+        if(ary[i]&lt;numValue){
+            left.push(ary[i]);
+        }else{
+            right.push(ary[i]);
+        }
+    }
+    return quickSort(left).concat([numValue],quickSort(right));
+}
+console.log(quickSort(ary))
+</code></pre><pre><code>- &#x63D2;&#x5165;&#x6392;&#x5E8F;
+</code></pre><p> function insertSort(ary){
+        var left=ary.splice(0,1);//&#x5DE6;&#x624B;&#x7684;&#x4E00;&#x5F20;&#x724C;&#xFF1B;
+        for(var i=0; i<ary.length; i++){="" 右手中的每张牌="" var="" cur="ary[i];" for(var="" j="left.length-1;">=0;){//&#x53F3;&#x624B;&#x4E2D;&#x7684;&#x6BCF;&#x5F20;&#x724C;&#xFF0C;&#x8DDF;&#x5DE6;&#x624B;&#x6700;&#x540E;&#x7684;&#x724C;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF1B;
+                if(cur&lt;left[j]){//&#x5982;&#x679C;&#x6BD4;&#x4ED6;&#x5C0F;&#x7684;&#x8BDD;&#xFF0C;&#x7EE7;&#x7EED;&#x5F80;&#x5DE6;&#x8FB9;&#x6BD4;&#x8F83;&#xFF1B;
+                    j--;
+                    if(j==-1){//&#x5982;&#x679C;&#x6BD4;&#x8F83;&#x5B8C;&#x5DE6;&#x624B;&#x7684;&#x6BCF;&#x5F20;&#x724C;&#xFF0C;&#x8FD8;&#x662F;&#x6BD4;&#x4ED6;&#x4EEC;&#x5C0F;&#x7684;&#x8BDD;
+                        left.unshift(cur);//&#x76F4;&#x63A5;&#x63D2;&#x5165;&#x5DE6;&#x624B;&#x6240;&#x6709;&#x724C;&#x7684;&#x6700;&#x524D;&#x9762;&#xFF1B;
+                    }
+                }else{//&#x5982;&#x679C;&#x6BD4;&#x4ED6;&#x5927;&#xFF0C;&#x63D2;&#x5165;&#x4ED6;&#x7684;&#x540E;&#x9762;&#x4E00;&#x5F20;&#x724C;&#x7684;&#x524D;&#x9762;&#xFF1B;&#x7ED3;&#x675F;&#x6B64;&#x6B21;&#x6BD4;&#x8F83;&#xFF1B;
+                    left.splice(j+1,0,cur);
+                    break;
+                }
+            }
+        }
+        return left;
+    }
+    console.log(insertSort(ary))
+```</ary.length;></p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

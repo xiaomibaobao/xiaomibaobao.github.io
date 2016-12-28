@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li class="active"><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0Express">Express</a><ul><li><a href="#t11.一个简单的 Express 路由">1.一个简单的 Express 路由</a></li></ul></li><li><a href="#t2{{name}}">{{name}}</a></li><li><a href="#t3{{age}}">{{age}}</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0Express">Express <a href="#t0Express"> # </a></h1>
+<blockquote>
+<ul>
+<li>Express&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x6D01;&#x3001;&#x7075;&#x6D3B;&#x7684;<code>node.js</code> Web&#x5E94;&#x7528;&#x5F00;&#x53D1;&#x6846;&#x67B6;, &#x5B83;&#x63D0;&#x4F9B;&#x4E00;&#x7CFB;&#x5217;&#x5F3A;&#x5927;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;<code>&#x6A21;&#x677F;&#x89E3;&#x6790;</code>&#x3001;<code>&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;</code>&#x3001;<code>&#x4E2D;&#x95F4;&#x4EF6;</code>&#x3001;<code>&#x8DEF;&#x7531;&#x63A7;&#x5236;</code>&#x7B49;&#x7B49;,&#x5E76;&#x4E14;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x63D2;&#x4EF6;&#x6216;&#x6574;&#x5408;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x6765;&#x5E2E;&#x52A9;&#x4F60;&#x521B;&#x5EFA;&#x5404;&#x79CD; Web&#x548C;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x5E94;&#x7528;,&#x662F;&#x76EE;&#x524D;&#x6700;&#x6D41;&#x884C;&#x7684;&#x57FA;&#x4E8E;Node.js&#x7684;Web&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;&#x5E76;&#x4E14;&#x652F;&#x6301;Ejs&#x3001;jade&#x7B49;&#x591A;&#x79CD;&#x6A21;&#x677F;&#xFF0C;&#x53EF;&#x4EE5;<code>&#x5FEB;&#x901F;&#x5730;&#x642D;&#x5EFA;</code>&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x5B8C;&#x6574;&#x529F;&#x80FD;&#x7684;&#x7F51;&#x7AD9;&#x3002;</li>
+<li>Express &#x4E0D;&#x5BF9; Node.js &#x5DF2;&#x6709;&#x7684;&#x7279;&#x6027;&#x8FDB;&#x884C;&#x4E8C;&#x6B21;&#x62BD;&#x8C61;&#xFF0C;&#x53EA;&#x662F;&#x5728;&#x5B83;&#x4E4B;&#x4E0A;&#x6269;&#x5C55;&#x4E86; Web &#x5E94;&#x7528;&#x6240;&#x9700;&#x7684;&#x57FA;&#x672C;&#x529F;&#x80FD;&#x3002;<h3 id="t11.&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; Express &#x8DEF;&#x7531;">1.&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; Express &#x8DEF;&#x7531; <a href="#t11.&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; Express &#x8DEF;&#x7531;"> # </a></h3>
+```
+var express = require(&apos;express&apos;);
+var app = express();</li>
+</ul>
+</blockquote>
+<p>// &#x6CA1;&#x6709;&#x6302;&#x8F7D;&#x8DEF;&#x5F84;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x5E94;&#x7528;&#x7684;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x90FD;&#x4F1A;&#x6267;&#x884C;&#x8BE5;&#x4E2D;&#x95F4;&#x4EF6;
+app.use(function (req, res, next) {
+  console.log(&apos;Time:&apos;, Date.now());
+  next();
+});</p>
+<p>// &#x6302;&#x8F7D;&#x81F3; /user/:id &#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x4EFB;&#x4F55;&#x6307;&#x5411; /user/:id &#x7684;&#x8BF7;&#x6C42;&#x90FD;&#x4F1A;&#x6267;&#x884C;&#x5B83;
+app.use(&apos;/user/:id&apos;, function (req, res, next) {
+  console.log(&apos;Request Type:&apos;, req.method);
+  next();
+});//&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;path&#x4E3A;&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x5F84;,&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4EE5;&#x53CA;&#x4EE5;&#x540E;&#x7684;&#x53C2;&#x6570;&#x4E3A;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x53C2;&#x6570;&#x4E3A;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;</p>
+<p>// &#x8DEF;&#x7531;&#x548C;&#x53E5;&#x67C4;&#x51FD;&#x6570;(&#x4E2D;&#x95F4;&#x4EF6;&#x7CFB;&#x7EDF;)&#xFF0C;&#x5904;&#x7406;&#x6307;&#x5411; /user/:id &#x7684; GET &#x8BF7;&#x6C42;&#xFF0C;&#x4F7F;&#x7528;app.all&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x6240;&#x6709;&#x7684;&#x5728;&#x540C;&#x4E00;URL&#x7684;&#x5404;&#x79CD;HTTP&#x8BF7;&#x6C42;&#x3002;
+app.get(&apos;/user/:id&apos;, function (req, res, next) {
+  res.send(&apos;USER&apos;)//&#x5982;&#x679C;&#x7531;send&#x548C;end&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x5219;&#x540E;&#x9762;&#x7684;&#x540C;&#x540D;&#x8DEF;&#x7531;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x3002;
+});
+app.get(&apos;/user/:id&apos;, function (req, res, next) {
+  res.send(&apos;1&apos;)
+});
+app.use(function(err, req, res, next) {//&#x9519;&#x8BEF;&#x5904;&#x7406;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x4FDD;&#x8BC1;&#x90FD;&#x5728;&#x5F62;&#x53C2;&#xFF0C;&#x5373;&#x4F7F;&#x4E0D;&#x9700;&#x8981; next &#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x5FC5;&#x987B;&#x5728;&#x5F62;&#x53C2;&#x4E2D;&#x58F0;&#x660E;&#x5B83;&#xFF0C;&#x5426;&#x5219;&#x4E2D;&#x95F4;&#x4EF6;&#x4F1A;&#x88AB;&#x8BC6;&#x522B;&#x4E3A;&#x4E00;&#x4E2A;&#x5E38;&#x89C4;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x4E0D;&#x80FD;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x3002;&#x4E00;&#x822C;&#x6709;next&#xFF08;err&#xFF09;&#x8C03;&#x7528;&#x3002;
+  console.error(err.stack);
+  res.status(500).send(&apos;Something broke!&apos;);
+});</p>
+<pre><code>### 2&#x4E2D;&#x95F4;&#x4EF6; &#x4EE5;&#x53CA;&#x5E38;&#x7528;&#x65B9;&#x6CD5;
+##### 1.1&#x4E2D;&#x95F4;&#x4EF6;
+&#x662F;&#x5904;&#x7406;HTTP&#x8BF7;&#x6C42;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6765;&#x5B8C;&#x6210;&#x5404;&#x79CD;&#x7279;&#x5B9A;&#x7684;&#x4EFB;&#x52A1; &#x6BD4;&#x5982;&#x68C0;&#x67E5;&#x7528;&#x6237;&#x662F;&#x5426;&#x767B;&#x5F55;&#x3001;&#x68C0;&#x6D4B;&#x7528;&#x6237;&#x662F;&#x5426;&#x6709;&#x6743;&#x9650;&#x8BBF;&#x95EE;&#x7B49;&#xFF0C;&#x5B83;&#x7684;&#x7279;&#x70B9;&#x662F;:
+
+&gt;+ &#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;&#x5904;&#x7406;&#x5B8C;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x53EF;&#x4EE5;&#x628A;&#x76F8;&#x5E94;&#x6570;&#x636E;&#x518D;&#x4F20;&#x9012;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;
+&gt;+ &#x4F5C;&#x4E3A;&#x4E2D;&#x95F4;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x8DEF;&#x7531;&#x53E5;&#x67C4;&#xFF0C;&#x4F7F;&#x5F97;&#x4E3A;&#x8DEF;&#x5F84;&#x5B9A;&#x4E49;&#x591A;&#x4E2A;&#x8DEF;&#x7531;&#x6210;&#x4E3A;&#x53EF;&#x80FD;&#x3002;
+&gt;+ &#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;next&#x53C2;&#x6570;,&#x8868;&#x793A;&#x63A5;&#x53D7;&#x5176;&#x4ED6;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x4E2D;&#x7684;next(),&#x8868;&#x793A;&#x5C06;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;
+&gt;+ &#x8FD8;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8DEF;&#x5F84;&#x6765;&#x533A;&#x5206;&#x8FDB;&#x884C;&#x8FD4;&#x56DE;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;
+&gt;&#x5177;&#x4F53;&#x4F8B;&#x5B50;&#x89C1;&#x4E0A;&#x6587;app.use
+
+##### 1.2 &#x83B7;&#x53D6;&#x53C2;&#x6570;&#x548C;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x548C;Params
+</code></pre><p>app.get(&apos;/&apos;,function(req,res){
+   res.end(&apos;&#x6B22;&#x8FCE;&#x6765;&#x5230;&#x9996;&#x9875;&apos;+req.host+&quot; &quot;+req.path);//req.host &#x8FD4;&#x56DE;&#x8BF7;&#x6C42;&#x5934;&#x91CC;&#x53D6;&#x7684;&#x4E3B;&#x673A;&#x540D;(&#x4E0D;&#x5305;&#x542B;&#x7AEF;&#x53E3;&#x53F7;),req.path &#x8FD4;&#x56DE;&#x8BF7;&#x6C42;&#x7684;URL&#x7684;&#x8DEF;&#x5F84;&#x540D;
+   //<a href="http://localhost:3000/?a=1&amp;b=2&amp;c=3">http://localhost:3000/?a=1&amp;b=2&amp;c=3</a>
+   res.send(req.query);
+   res.send(req.params.id+&quot; &quot;+req.params.name);//params&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x8BF7;&#x6C42;URL&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x503C;
+});</p>
+<pre><code>##### 1.3 send end
+&gt;+ end &#x53EA;&#x80FD;&#x4F20;&#x9012;string&#x6216;&#x8005;Buffer&#xFF0C;&#x5305;&#x62EC;JSON&#x5B57;&#x7B26;&#x4E32;&#x3002; 
+&gt;+ send&#x65B9;&#x6CD5;&#x5411;&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#x667A;&#x80FD;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E; &#x5E76;&#x5728;&#x8F93;&#x51FA;&#x54CD;&#x5E94;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x8BBE;&#x7F6E;&#xFF0C;&#x6BD4;&#x5982;HEAD&#x4FE1;&#x606F;&#x3001;HTTP&#x7F13;&#x5B58;&#x652F;&#x6301;&#x7B49;&#x7B49;&#x3002;
+&gt; 1. &#x5F53;&#x53C2;&#x6570;&#x4E3A;&#x4E00;&#x4E2A;String&#x65F6;&#xFF0C;Content-Type&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x4E3A;&quot;text/html&quot;&#x3002;
+&gt; 2. &#x5F53;&#x53C2;&#x6570;&#x4E3A;Array&#x6216;Object&#x65F6;&#xFF0C;Express&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;JSON
+&gt; 3. &#x5F53;&#x53C2;&#x6570;&#x4E3A;&#x4E00;&#x4E2A;Number&#x65F6;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x6761;&#x5728;&#x54CD;&#x5E94;&#x4F53;&#x91CC;&#xFF0C;Express&#x4F1A;&#x5E2E;&#x4F60;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x4F53;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;200&#x4F1A;&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&quot;OK&quot;
+
+##### 1.4 &#x7B80;&#x5355;&#x5C01;&#x88C5;&#x4E2D;&#x95F4;&#x4EF6;
+</code></pre><p>var url = require(&apos;url&apos;);
+var app = function(req,res){//&#x76D1;&#x542C;&#x51FD;&#x6570; &#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;
+    var method = req.method.toLowerCase();//&#x83B7;&#x53D6;&#x8BF7;&#x6C42;&#x7684;&#x65B9;&#x6CD5;
+    var urlObj = url.parse(req.url,true);
+    var pathname = urlObj.pathname;//&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x5F84;
+    //&#x83B7;&#x53D6;&#x4E3B;&#x673A;&#x540D;
+    req.hostname = req.headers[&apos;host&apos;].split(&apos;:&apos;)[0];
+    //&#x5F97;&#x5230;&#x8DEF;&#x5F84;&#x540D;
+    req.path = pathname;
+    //&#x53D6;&#x5F97;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x5BF9;&#x8C61;
+    req.query = urlObj.query;
+    var index =0;//&#x5B9A;&#x4E49;&#x5F53;&#x524D;&#x8FED;&#x4EE3;&#x7684;&#x8DEF;&#x7531;&#x7D22;&#x5F15;
+    function next(err){
+        if(index&gt;=app.router.length){
+            return res.end(&apos;Not Found&apos;);
+        }
+        var route = app.router[index++];//&#x53D6;&#x51FA;&#x5F53;&#x524D;&#x7684;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x9879;
+        var routeMethod = route.method;//&#x53D6;&#x51FA;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x9879;&#x65B9;&#x6CD5;&#x540D;
+        if(err){
+            //&#x4EA4;&#x7531;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x4E2D;&#x95F4;&#x4EF6;&#x6765;&#x5904;&#x7406;
+            if(routeMethod == &apos;all&apos; &amp;&amp; route.fn.length == 4){
+                route.fn(err,req,res,next);
+            }else{//&#x5982;&#x679C;&#x4E0D;&#x662F;&#x4E2D;&#x95F4;&#x4EF6;&#x6216;&#x8005; &#x4E0D;&#x662F;&#x9519;&#x8BEF; &#x5904;&#x7406;&#x4E2D;&#x95F4;&#x4EF6;
+                next(err);//&#x8DF3;&#x8FC7;&#x6B63;&#x5E38;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x548C;&#x8DEF;&#x7531;
+            }
+        }else{
+            if(routeMethod == &apos;all&apos;){//&#x8868;&#x793A;&#x4E2D;&#x95F4;&#x4EF6;&#x914D;&#x7F6E;
+                if(pathname == route.path || route.path == &apos;<em>&apos;){//&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x548C;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x7684;&#x8DEF;&#x5F84;&#x76F8;&#x540C;
+                    route.fn(req,res,next);//&#x6267;&#x884C;&#x6B64;&#x4E2D;&#x95F4;&#x4EF6;&#x51FD;&#x6570;
+                }else{
+                    next();
+                }
+            }else{
+                if(pathname == route.path || route.path == &apos;</em>&apos;){
+                    route.fn(req,res);
+                }else{
+                    next();
+                }
+            }
+        }
+    }
+    next();
+}</p>
+<p>app.router = [];//&#x91CC;&#x9762;&#x5B58;&#x653E;&#x7740;&#x6240;&#x6709;&#x7684;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x9879; {method,path,fn}
+function express(){
+    return app;
+};</p>
+<p>//&#x5FAA;&#x73AF;&#x6240;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x7ED9;app&#x589E;&#x52A0;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x540D;&#x540C;&#x540D;&#x7684;&#x5C5E;&#x6027;
+[&apos;get&apos;,&apos;post&apos;,&apos;put&apos;,&apos;delete&apos;,&apos;option&apos;,&apos;patch&apos;].forEach(function(method){
+    app[method] = function(path,fn){
+        //&#x8BF7;&#x6C42;&#x7684;&#x65B9;&#x6CD5; &#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x5F84; &#x548C;&#x76D1;&#x542C;&#x56DE;&#x8C03;&#x51FD;&#x6570;
+        app.router.push({method:method,path:path,fn:fn});
+    }
+});
+//&#x914D;&#x7F6E;&#x6240;&#x6709;&#x7684;&#x65B9;&#x6CD5;,&#x76F8;&#x540C;&#x7684;&#x8DEF;&#x5F84;&#x8FD4;&#x56DE;&#x76F8;&#x540C;&#x5185;&#x5BB9;
+app.all = function(path,fn){
+    [&apos;get&apos;,&apos;post&apos;,&apos;put&apos;,&apos;delete&apos;,&apos;option&apos;,&apos;patch&apos;].forEach(function(method){//&#x589E;&#x52A0;&#x8DEF;&#x7531;&#x914D;&#x7F6E;
+        app.router.push({method:method,path:path,fn:fn});
+    });
+}</p>
+<p>app.use = function(path,fn){
+    //&#x5982;&#x679C;&#x53EA;&#x4F20;&#x4E86;&#x4E2D;&#x95F4;&#x4EF6;&#x51FD;&#x6570;&#xFF0C;&#x6CA1;&#x6709;&#x4F20;&#x8DEF;&#x5F84;
+    if(typeof path ==&apos;function&apos;){
+        fn = path;
+        path = &apos;*&apos;;
+    }
+    app.router.push({method:&apos;all&apos;,path:path,fn:fn});
+}</p>
+<p>app.listen = function(port){
+    require(&apos;http&apos;).createServer(app).listen(port);
+}</p>
+<p>module.exports = express;</p>
+<pre><code>### 2 &#x6A21;&#x677F;
+&#x5728;nodejs&#x4E2D;&#x4F7F;&#x7528;express&#x6846;&#x67B6;&#xFF0C;&#x5B83;&#x9ED8;&#x8BA4;&#x7684;&#x662F;ejs&#x548C;jade&#x6E32;&#x67D3;&#x6A21;&#x677F;
+##### 2.1&#x4F7F;&#x7528;&#x6A21;&#x677F;
+&#x4EE5;ejs&#x4E3A;&#x4F8B;&#x5B50;&#xFF1A;
+</code></pre><p>app.set(&apos;view engine&apos;, &apos;ejs&apos;);//&#x6307;&#x5B9A;&#x6E32;&#x67D3;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x7684;&#x540E;&#x7F00;&#x540D;&#x4E3A;ejs
+app.set(&apos;views&apos;,path.join(<strong>dirname,&apos;views&apos;));
+//app.engine( &apos;.html&apos;, require( &apos;ejs&apos; ).</strong>express ); &#x6A21;&#x677F;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x540E;&#x7F00;&#x7684;&#x60C5;&#x51B5;//__express&#x662F;ejs&#x6A21;&#x5757;&#x7684;&#x4E00;&#x4E2A;&#x516C;&#x5171;&#x5C5E;&#x6027;&#xFF0C;&#x8868;&#x793A;&#x8981;&#x6E32;&#x67D3;&#x7684;&#x6587;&#x4EF6;&#x6269;&#x5C55;&#x540D;
+res.render(view, [locals], callback);//&#x53C2;&#x6570;view&#x5C31;&#x662F;&#x6A21;&#x677F;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5728;&#x6E32;&#x67D3;&#x6A21;&#x677F;&#x65F6;locals&#x53EF;&#x4E3A;&#x5176;&#x6A21;&#x677F;&#x4F20;&#x5165;&#x53D8;&#x91CF;&#x503C;&#xFF0C;callback&#x7528;&#x6765;&#x5904;&#x7406;&#x8FD4;&#x56DE;&#x7684;&#x6E32;&#x67D3;&#x540E;&#x7684;&#x5B57;&#x7B26;&#x4E32;</p>
+<pre><code>##### 2.2 &#x6A21;&#x677F;&#x539F;&#x7406;
+</code></pre><p>var tmpl = &apos;</p><h1 id="t2{{name}}">{{name}} <a href="#t2{{name}}"> # </a></h1><h1 id="t3{{age}}">{{age}} <a href="#t3{{age}}"> # </a></h1>&apos;;
+var data = {name:&apos;xiaomi&apos;,age:23};
+var html= tmpl.replace(/{{(\w+)}}/g,function(input,group){
+    return data[group];
+})
+console.log(html);<p></p>
+<pre><code>##### 2.3 &#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;&#xFF08;&#x4E5F;&#x53EB;&#x9759;&#x6001;&#x4E2D;&#x95F4;&#x8DEF;&#x7531;&#xFF09;
+express.static &#x662F; Express &#x552F;&#x4E00;&#x5185;&#x7F6E;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x3002;&#x5B83;&#x57FA;&#x4E8E; serve-static&#xFF0C;&#x8D1F;&#x8D23;&#x5728; Express &#x5E94;&#x7528;&#x4E2D;&#x63D0;&#x6258;&#x7BA1;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x3002;
+&#x8BBF;&#x95EE;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;express.static &#x4E2D;&#x95F4;&#x4EF6;&#x4F1A;&#x6839;&#x636E;&#x76EE;&#x5F55;&#x6DFB;&#x52A0;&#x7684;&#x987A;&#x5E8F;&#x67E5;&#x627E;&#x6240;&#x9700;&#x7684;&#x6587;&#x4EF6;&#x3002;
+&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4F7F;&#x7528;&#x4E86; express.static &#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x5176;&#x4E2D;&#x7684; options &#x5BF9;&#x8C61;&#x7ECF;&#x8FC7;&#x4E86;&#x7CBE;&#x5FC3;&#x7684;&#x8BBE;&#x8BA1;&#x3002;
+</code></pre><p>var options = {
+  dotfiles: &apos;ignore&apos;,
+  etag: false,
+  extensions: [&apos;htm&apos;, &apos;html&apos;],
+  index: false,
+  maxAge: &apos;1d&apos;,
+  redirect: false,
+  setHeaders: function (res, path, stat) {
+    res.set(&apos;x-timestamp&apos;, Date.now());
+  }
+}</p>
+<p>app.use(express.static(&apos;public&apos;, options));
+//&#x5982;&#x679C;&#x6CA1;&#x6709;options&#xFF1A;
+app.use(express.static(path.join(__dirname,&apos;public&apos;)));
+app.get(&apos;/hello&apos;,function(req,res){
+    res.send(&apos;hello&apos;);
+});
+app.listen(9090);</p>
+<pre><code>##### 2.4 &#x7B80;&#x5355;&#x5C01;&#x88C5;static
+</code></pre><p>function static(root){
+  return function(req,res,next){
+      //1. &#x5148;&#x53BB;&#x5224;&#x65AD;&#x4E00;&#x4E0B;&#x5BF9;&#x5E94;&#x7684;&#x8DEF;&#x5F84;&#x91CC;&#x6709;&#x6CA1;&#x6709;&#x6B64;&#x6587;&#x4EF6;&#xFF0C;&#x6709;&#x8BFB;&#x8FD4;&#x56DE;&#xFF0C;&#x6CA1;&#x6709;&#x8DF3;&#x8FC7;
+      // /index.html
+      var filename = path.join(root,req.path);
+      fs.exists(filename,function(exists){
+         res.setHeader(&apos;Content-Type&apos;,mime.lookup(filename));
+        if(exists){
+            fs.createReadStream(filename).pipe(res);
+        }else{
+            next();
+        }
+      })
+  }
+}</p>
+<pre><code>
+### 3redirect &#x91CD;&#x5B9A;&#x5411;
+##### 3.1 &#x7B80;&#x5355;&#x5C01;&#x88C5;redirect
+</code></pre><p>app.use(function(req,res,next){
+    res.redirect = function(url){
+        //&#x5982;&#x4F55;&#x63A7;&#x5236;&#x5BA2;&#x6237;&#x7AEF;&#x5411;&#x65B0;&#x7684;&#x670D;&#x52A1;url&#x53D1;&#x8BF7;&#x6C42;
+        res.statusCode = 302;//&#x63A7;&#x5236;&#x5BA2;&#x6237;&#x7AEF;&#x91CD;&#x5B9A;&#x5411;
+        res.setHeader(&apos;Location&apos;,url);//&#x8BBE;&#x7F6E;&#x91CD;&#x5B9A;&#x5411;&#x7684;URL&#x5730;&#x5740;
+        res.end(&apos;&apos;);
+    }
+    next();
+});</p>
+<pre><code>##### 3.2 redirect&#x5B9E;&#x8DF5;
+&#x5F53;&#x7528;&#x6237;&#x767B;&#x9646;&#x65F6;&#xFF0C;&#x6839;&#x636E;post&#x8BF7;&#x6C42;&#xFF0C;&#x5224;&#x65AD;&#x7528;&#x6237;&#x662F;&#x5426;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x8F93;&#x5165;&#x6B63;&#x786E;&#x5E76;&#x8FD4;&#x56DE;&#x76F8;&#x5E94;&#x9875;&#x9762;&#xFF1A;
+</code></pre><p>app.post(&apos;/login&apos;,function(req,res){
+   var user = req.body;
+   if(user.username == &apos;admin&apos; &amp;&amp; user.password == &apos;admin&apos;){
+        res.render(&apos;user&apos;,user);
+   }else{
+       res.redirect(&apos;back&apos;);
+   }
+});</p>
+<pre><code>
+</code></pre>
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

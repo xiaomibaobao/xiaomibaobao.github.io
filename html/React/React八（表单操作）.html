@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li class="active"><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0React第八讲课堂笔记（表单操作）">React第八讲课堂笔记（表单操作）</a><ul><li><a href="#t11. React表单组件和 html 的不同点">1. React表单组件和 html 的不同点</a></li><li><a href="#t22. 综合表达组件示例">2. 综合表达组件示例</a><ul><li><a href="#t3 请输入内容 "> 请输入内容 </a></li></ul></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0React&#x7B2C;&#x516B;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;&#x8868;&#x5355;&#x64CD;&#x4F5C;&#xFF09;">React&#x7B2C;&#x516B;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;&#x8868;&#x5355;&#x64CD;&#x4F5C;&#xFF09; <a href="#t0React&#x7B2C;&#x516B;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;&#x8868;&#x5355;&#x64CD;&#x4F5C;&#xFF09;"> # </a></h1>
+<h2 id="t11. React&#x8868;&#x5355;&#x7EC4;&#x4EF6;&#x548C; html &#x7684;&#x4E0D;&#x540C;&#x70B9;">1. React&#x8868;&#x5355;&#x7EC4;&#x4EF6;&#x548C; html &#x7684;&#x4E0D;&#x540C;&#x70B9; <a href="#t11. React&#x8868;&#x5355;&#x7EC4;&#x4EF6;&#x548C; html &#x7684;&#x4E0D;&#x540C;&#x70B9;"> # </a></h2>
+<ul>
+<li><code>value/checked</code> &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x540E;&#xFF0C;&#x7528;&#x6237;&#x8F93;&#x5165;&#x65E0;&#x6548;</li>
+<li><code>textarea</code> &#x7684;&#x503C;&#x8981;&#x8BBE;&#x7F6E;&#x5728; <code>value</code> &#x5C5E;&#x6027;</li>
+</ul>
+<pre><code>&lt;textarea name=&quot;description&quot; value=&quot;This is a description.&quot; /&gt;
+</code></pre><ul>
+<li><code>select</code> &#x7684; <code>value</code> &#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <code>option</code> &#x7684; <code>selected</code> &#x5C5E;&#x6027;</li>
+</ul>
+<pre><code>&lt;select multiple={true} value={[&apos;B&apos;, &apos;C&apos;]}&gt;
+   &lt;option value=&quot;A&quot;&gt;Apple&lt;/option&gt;
+   &lt;option value=&quot;B&quot;&gt;Banana&lt;/option&gt;
+   &lt;option value=&quot;C&quot;&gt;Cranberry&lt;/option&gt;
+ &lt;/select&gt;
+</code></pre><ul>
+<li><code>input/textarea</code> &#x7684; <code>onChange</code> &#x7528;&#x6237;&#x6BCF;&#x6B21;&#x8F93;&#x5165;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;&#xFF08;&#x5373;&#x4F7F;&#x4E0D;&#x5931;&#x53BB;&#x7126;&#x70B9;&#xFF09;</li>
+<li><code>radio/checkbox/option</code> &#x70B9;&#x51FB;&#x540E;&#x89E6;&#x53D1; <code>onChange</code></li>
+</ul>
+<h2 id="t22. &#x7EFC;&#x5408;&#x8868;&#x8FBE;&#x7EC4;&#x4EF6;&#x793A;&#x4F8B;">2. &#x7EFC;&#x5408;&#x8868;&#x8FBE;&#x7EC4;&#x4EF6;&#x793A;&#x4F8B; <a href="#t22. &#x7EFC;&#x5408;&#x8868;&#x8FBE;&#x7EC4;&#x4EF6;&#x793A;&#x4F8B;"> # </a></h2>
+<ol>
+<li>&#x5B9A;&#x4E49;&#x590D;&#x9009;&#x6846;&#x7EC4;&#x4EF6;Checkboxes
+```
+import React, { Component } from &apos;react&apos;;</li>
+</ol>
+<p>class Checkboxes extends Component {
+  render(){
+      return <span>
+          A
+          <input onchange="{this.props.handleCheck}" name="goodCheckbox" type="checkbox" value="A">
+          B
+          <input onchange="{this.props.handleCheck}" name="goodCheckbox" type="checkbox" value="B">
+          C
+          <input onchange="{this.props.handleCheck}" name="goodCheckbox" type="checkbox" value="C">
+      </span>
+  }
+}</p>
+<p>export default Checkboxes;</p>
+<pre><code>
+
+2. &#x5B9A;&#x4E49;&#x5355;&#x9009;&#x6846;&#x6309;&#x94AE;&#x7EC4;RadioButtons
+</code></pre><p>import React, { Component } from &apos;react&apos;;</p>
+<p>class RadioButtons extends Component {
+  saySomething(){
+      alert(&quot;&#x6211;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x68D2;&#x7684;&#x5355;&#x9009;&#x6846;&#x6309;&#x94AE;&#x7EC4;&quot;);
+  }
+  render(){
+      return <span>
+          A
+          <input onchange="{this.props.handleRadio}" name="goodRadio" type="radio" value="A">
+          B
+          <input onchange="{this.props.handleRadio}" name="goodRadio" type="radio" defaultchecked="" value="B">
+          C
+          <input onchange="{this.props.handleRadio}" name="goodRadio" type="radio" value="C">
+      </span>
+  }
+}</p>
+<p>export default RadioButtons;</p>
+<pre><code>
+3. FormApp&#x7EC4;&#x4EF6;&#x96C6;&#x6210;&#x4E24;&#x4E2A;&#x7EC4;&#x4EF6;&#x5E76;&#x5904;&#x7406;&#x8868;&#x5355;&#x903B;&#x8F91;
+</code></pre><p>&apos;use strict&apos;;</p>
+<p>import React, { Component } from &apos;react&apos;;
+import Checkboxes from &apos;./Checkboxes&apos;;
+import RadioButtons from &apos;./RadioButtons&apos;;</p>
+<p>class FormApp extends Component {</p>
+<p>  state = {
+      inputValue: &apos;&#x8BF7;&#x8F93;&#x5165;...&apos;,
+      selectValue: &apos;A&apos;,
+      radioValue:&apos;B&apos;,
+      checkValues:[],
+      textareaValue:&apos;&#x8BF7;&#x8F93;&#x5165;...&apos;
+  }</p>
+<p>  handleSubmit = (e) =&gt; {
+      e.preventDefault();</p>
+<pre><code>  let formData = {
+      input: this.refs.goodInput.value,
+      select: this.refs.goodSelect.value,
+      textarea: this.refs.goodTextarea.value,
+      radio: this.state.radioValue,
+      check: this.state.checkValues,
+  }
+
+  alert(&apos;&#x60A8;&#x5373;&#x5C06;&#x63D0;&#x4EA4;&#x8868;&#x5355;&apos;)
+  console.log(&apos;&#x4F60;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;&#x662F;:&apos;)
+  console.log(formData);
+</code></pre><p>  }</p>
+<p>  handleRadio = (e) =&gt; {
+      this.setState({
+          radioValue: e.target.value,
+      })
+  }</p>
+<p>  handleCheck = (e) =&gt; {
+      let checkValues = this.state.checkValues.slice();
+      let newVal = e.target.value;
+      let index = checkValues.indexOf(newVal);</p>
+<pre><code>  if( index == -1 ){
+      checkValues.push( newVal )
+  }else{
+      checkValues.splice(index,1);
+  }
+
+  this.setState({
+      checkValues: checkValues,
+  })
+</code></pre><p>  }</p>
+<p>  render(){
+      return <form onsubmit="{this.handleSubmit}">
+          <h3 id="t3 &#x8BF7;&#x8F93;&#x5165;&#x5185;&#x5BB9; "> &#x8BF7;&#x8F93;&#x5165;&#x5185;&#x5BB9;  <a href="#t3 &#x8BF7;&#x8F93;&#x5165;&#x5185;&#x5BB9; "> # </a></h3>
+          <input ref="goodInput" type="text" defaultvalue="{this.state.inputValue" }="">
+          <br></form></p>
+<pre><code>      &lt;h3&gt; &#x8BF7;&#x9009;&#x62E9; &lt;/h3&gt;
+      &lt;select defaultValue={ this.state.selectValue } ref=&quot;goodSelect&quot;&gt;
+          &lt;option value=&quot;A&quot;&gt;A&lt;/option&gt;
+          &lt;option value=&quot;B&quot;&gt;B&lt;/option&gt;
+          &lt;option value=&quot;C&quot;&gt;C&lt;/option&gt;
+          &lt;option value=&quot;D&quot;&gt;D&lt;/option&gt;
+          &lt;option value=&quot;E&quot;&gt;E&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;br/&gt;
+
+      &lt;h3&gt; &#x5355;&#x9879;&#x9009;&#x62E9; &lt;/h3&gt;
+      &lt;RadioButtons ref=&quot;goodRadio&quot; handleRadio={this.handleRadio} /&gt;
+      &lt;br/&gt;
+
+      &lt;h3&gt; &#x591A;&#x9009;&#x6309;&#x94AE; &lt;/h3&gt;
+      &lt;Checkboxes handleCheck={this.handleCheck} /&gt;
+      &lt;br/&gt;
+
+      &lt;h3&gt; &#x53CD;&#x9988;&#x5EFA;&#x8BAE; &lt;/h3&gt;
+      &lt;textarea defaultValue={this.state.textareaValue} ref=&quot;goodTextarea&quot;&gt;&lt;/textarea&gt;
+      &lt;br/&gt;
+
+      &lt;button type=&quot;submit&quot;&gt;&#x786E;&#x8BA4;&#x63D0;&#x4EA4;&lt;/button&gt;
+  &lt;/form&gt;
+</code></pre><p>  }
+}</p>
+<p>export default FormApp;</p>
+<p>```</p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

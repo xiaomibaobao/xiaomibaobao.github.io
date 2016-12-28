@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../index.html">React一（初识React）</a></li><li><a href="../../index.html">React七（组件嵌套）</a></li><li><a href="../../index.html">React三（数据流）</a></li><li><a href="../../index.html">React九（mixin）</a></li><li><a href="../../index.html">React二（JSX语法）</a></li><li><a href="../../index.html">React五（DOM操作）</a></li><li><a href="../../index.html">React八（表单操作）</a></li><li><a href="../../index.html">React六（事件）</a></li><li><a href="../../index.html">React十（编码规范）</a></li><li><a href="../../index.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../index.html">MongoDB</a></li><li><a href="../../index.html">node 1</a></li><li><a href="../../index.html">Node.js知识详解</a></li><li><a href="../../index.html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../index.html">AngularJS 2</a></li><li><a href="../../index.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../index.html">AJAX</a></li><li><a href="../../index.html">DOM</a></li><li><a href="../../index.html">ES6</a></li><li><a href="../../index.html">HTTP</a></li><li><a href="../../index.html">JS 基础知识拾遗</a></li><li><a href="../../index.html">Promise</a></li><li><a href="../../index.html">事件</a></li><li><a href="../../index.html">函数</a></li><li><a href="../../index.html">面向对象</a></li><li><a href="../../index.html">CORS详解</a></li><li><a href="../../index.html">数组详谈</a></li><li><a href="../../index.html">正则表达式</a></li><li><a href="../../index.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../index.html">学习Git</a></li><li><a href="../../index.html">性能优化待办事项</a></li><li><a href="../../index.html">性能优化点总结</a></li><li><a href="../../index.html">订阅发布模式详解</a></li><li><a href="../../index.html">BOM之 History对象</a></li><li><a href="../../index.html">BOM之window对象</a></li><li><a href="../../index.html">Web离线存储的几种方式</a></li><li><a href="../../index.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../index.html">Git</a></li><li><a href="../../index.html">Gulp</a></li><li><a href="../../index.html">HTTP缓存</a></li><li><a href="../../index.html">jade</a></li><li><a href="../../index.html">less</a></li><li><a href="../../index.html">webpack入门及实践</a></li><li><a href="../../index.html">Cookie & Session</a></li><li><a href="../../index.html">Express</a></li><li><a href="../../index.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../index.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0事件">事件</a><ul><li><a href="#t1事件绑定（事件监听）">事件绑定（事件监听）</a></li><li><a href="#t2事件对象">事件对象</a><ul><li><a href="#t31. 来源">1. 来源</a><ul><li><a href="#t42. 分类：">2. 分类：</a></li></ul></li></ul></li><li><a href="#t5DOM 0级事件">DOM 0级事件</a></li><li><a href="#t6DOM 2级事件">DOM 2级事件</a></li><li><a href="#t7IE下的DOM 2级事件及其兼容问题">IE下的DOM 2级事件及其兼容问题</a></li><li><a href="#t8事件传播（冒泡和捕获）">事件传播（冒泡和捕获）</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0&#x4E8B;&#x4EF6;">&#x4E8B;&#x4EF6; <a href="#t0&#x4E8B;&#x4EF6;"> # </a></h1>
+<p>&#x6807;&#x7B7E;&#xFF1A; javascript event DOM0&#x7EA7;&#x4E8B;&#x4EF6; DOM2&#x7EA7;&#x4E8B;&#x4EF6; IE&#x517C;&#x5BB9;&#x5904;&#x7406; &#x4E8B;&#x4EF6;&#x5192;&#x6CE1;</p>
+<blockquote>
+<p>&#x4E8B;&#x4EF6;&#x6307;&#x7684;&#x662F;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x5185;&#x5916;&#x53D1;&#x751F;&#x7684;&#x4E00;&#x4EF6;&#x4E8B;&#xFF0C;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x884C;&#x4E3A;&#x3002;
+    &#x6240;&#x4EE5;&#x5BF9;&#x4E8E;&#x4EFB;&#x4F55;&#x5143;&#x7D20;&#x6765;&#x8BF4;&#x4E0D;&#x7BA1;&#x662F;&#x5426;&#x7ED9;&#x5176;&#x7ED1;&#x5B9A;&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x8981;&#x5F53;&#x524D;&#x884C;&#x4E3A;&#x89E6;&#x53D1;&#xFF0C;&#x90A3;&#x4E48;&#x4E8B;&#x4EF6;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;&#x6D4F;&#x89C8;&#x5668;&#x611F;&#x77E5;&#xFF1B;</p>
+</blockquote>
+<hr>
+<h2 id="t1&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#xFF08;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#xFF09;">&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#xFF08;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#xFF09; <a href="#t1&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#xFF08;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#xFF09;"> # </a></h2>
+<p>&#x7ED9;&#x5143;&#x7D20;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5F53;&#x4E8B;&#x4EF6;<strong>&#x89E6;&#x53D1;</strong>&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x628A;<strong>&#x7ED1;&#x5B9A;</strong>&#x7684;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x3002;</p>
+<h2 id="t2&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;">&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61; <a href="#t2&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;"> # </a></h2>
+<h5 id="t31. &#x6765;&#x6E90;">1. &#x6765;&#x6E90; <a href="#t31. &#x6765;&#x6E90;"> # </a></h5>
+<pre><code>&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x76F8;&#x5173;&#x7ED1;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x88AB;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#xFF0C;&#x4E0D;&#x4EC5;&#x4EC5;&#x6267;&#x884C;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x8FD8;&#x4F1A;&#x9ED8;&#x8BA4;&#x7ED9;&#x6BCF;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x4F20;&#x9012;&#x4E00;&#x4E2A;**&#x53C2;&#x6570;&#x503C;**--&gt;&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;&#x3002;
+&#x4E8B;&#x4EF6;&#x6E90;`e.target`&#xFF1A;&#x5B58;&#x50A8;&#x5728;&#x65F6;&#x95F4;&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x7528;&#x6765;&#x6807;&#x8BC6;&#x4E8B;&#x4EF6;&#x662F;&#x7531;&#x54EA;&#x4E2A;&#x5143;&#x7D20;&#x53D1;&#x751F;&#x7684;
+</code></pre><h6 id="t42. &#x5206;&#x7C7B;&#xFF1A;">2. &#x5206;&#x7C7B;&#xFF1A; <a href="#t42. &#x5206;&#x7C7B;&#xFF1A;"> # </a></h6>
+<ul>
+<li>&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;MouseEvent\</li>
+<li>&#x5B83;&#x662F;MouseEevnt&#x7C7B;&#x7684;&#x4E00;&#x4E2A;<strong>&#x5B9E;&#x4F8B;</strong>&#x3002;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x5F53;&#x524D;&#x9F20;&#x6807;&#x672C;&#x6B21;&#x64CD;&#x4F5C;<strong>&#x76F8;&#x5173;&#x4FE1;&#x606F;</strong>&#x7684;&#x3002;
+  &#x5E38;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x6709;&#xFF1A;
+<code>e.clientX e.clientY</code>,&#x9F20;&#x6807;&#x8DDD;&#x79BB; &apos;&#x5F53;&#x524D;&#x5C4F;&#x5E55;&#x7A97;&#x53E3; &apos; &#x5DE6;&#x7AEF;&#x3001;&#x4E0A;&#x7AEF;&#x7684;&#x8DDD;&#x79BB;&#x3002;
+<code>e.type</code>:&#x5B58;&#x50A8;&#x7684;&#x662F;&#x5F53;&#x524D;&#x64CD;&#x4F5C;&#x7684;&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;&#xFF0C;--&gt;click&#xFF1B;</li>
+<li>&#x4EE5;&#x4E0B;&#x90FD;&#x6709;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#xFF1A;
+<code>e.pageX,e.pageY</code>,&#x5F53;&#x524D;&#x9F20;&#x6807;&#x64CD;&#x4F5C;&#x8FD9;&#x4E00;&#x70B9;&#x7684;&#x8DDD;&#x79BB;&#x2018;body&#x5DE6;&#x4E0A;&#x89D2;&#xFF08;&#x7B2C;&#x4E00;&#x5C4F;&#x5DE6;&#x4E0A;&#x89D2;&#xFF09;&#x2019;&#x7684;X/Y&#x8F74;&#x8DDD;&#x79BB;&#x3002;</li>
+<li><p>&#x952E;&#x76D8;&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;KeyboardEvent</p>
+<blockquote>
+<p>&#x5B83;&#x662F;KeyboardEvent&#x7C7B;&#x7684;&#x4E00;&#x4E2A;<strong>&#x5B9E;&#x4F8B;</strong>&#x3002;
+  &#x6700;&#x5E38;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x662F;<code>ev.keycode</code>---&gt;&#x5B58;&#x50A8;&#x7684;&#x662F;&#x6309;&#x4E0B;&#x952E;&#x7684;&#x7F16;&#x7801;&#x503C;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x952E;&#x76D8;&#x4E0A;&#x7684;&#x952E;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x7684;&#x56FA;&#x5B9A;&#x7F16;&#x7801;&#x503C;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E9B;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;keycode&#x503C;
+<code>Ctrl&#xFF1A;17</code>  <code>Alt:18</code>  <code>Space:32</code>   <code>enter:13</code> <code>backspace:8</code> <code>del:46</code>  <code>shift:16</code> <code>Alt+tab:9``f11:122,&#x5168;&#x5C4F;</code> <code>&#x5DE6;&#x4E0A;&#x53F3;&#x4E0B;37,38,39,40</code></p>
+</blockquote>
+</li>
+<li><p>&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;&#x7684;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x5904;&#x7406;&#xFF1A;</p>
+<blockquote>
+<p>&#x6807;&#x51C6;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;--&gt;&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;&#x662F;&#x4F5C;&#x4E3A;&#x5F62;&#x53C2;&#x81EA;&#x52A8;&#x4F20;&#x7ED9;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x51FD;&#x6570;&#x7684;&#x3002;ie&#x6D4F;&#x89C8;&#x5668;&#x4E2D;--&gt;&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;&#x4FDD;&#x5B58;&#x5728;window.event&#xFF1B;</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">if</span> (!ev) {<span class="hljs-comment">//-&gt;&#x8BF4;&#x660E;&#x6CA1;&#x6709;&#x4F20;&#x9012;ev&#x7684;&#x503C;,&#x5F53;&#x524D;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x662F;IE6~8,&#x6211;&#x4EEC;&#x628A;&#x4E00;&#x4E9B;&#x4E0D;&#x517C;&#x5BB9;&#x7684;&#x5C5E;&#x6027;&#x90FD;&#x6309;&#x7167;&#x6807;&#x51C6;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x5B9E;&#x73B0;&#x4E00;&#x904D;</span>
+    ev = <span class="hljs-built_in">window</span>.event;
+    ev.target = ev.srcElement;
+    ev.pageX = ev.clientX + (<span class="hljs-built_in">document</span>.documentElement.scrollLeft || <span class="hljs-built_in">document</span>.body.scrollLeft);
+    ev.pageY = ev.clientY + (<span class="hljs-built_in">document</span>.documentElement.scrollTop || <span class="hljs-built_in">document</span>.body.scrollTop);
+    ev.preventDefault = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        ev.returnValue = <span class="hljs-literal">false</span>;<span class="hljs-comment">//&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#xFF0C;&#x6BD4;&#x5982;&#x62D6;&#x62FD;&#x65F6;&#x9632;&#x6B62;&#x6D4F;&#x89C8;&#x5668;&#x8BEF;&#x4EE5;&#x4E3A;&#x8981;&#x9009;&#x4E2D;&#x6587;&#x5B57;&#x3002;</span>
+    };
+    ev.stopPropagation = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        ev.cancelBubble = <span class="hljs-literal">true</span>;<span class="hljs-comment">//&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x5192;&#x6CE1;</span>
+    };
+}
+</code></pre>
+<blockquote>
+<p>&#x53E6;&#xFF1A;&#x963B;&#x6B62;A&#x6807;&#x7B7E;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+</blockquote>
+<pre><code>1&#xFF09;&lt;a href=&quot;javascript:;&quot;&gt;123&lt;/a&gt;&#xFF1B;&lt;a href=&quot;javascript:false/true/null/undefined;&quot;&gt;123&lt;/a&gt;&#xFF1B;&#xFF1F;
+2&#xFF09;&#xFF0C;&lt;a href=&quot;javascript:void 0;&quot;&gt;123&lt;/a&gt;;  
+3&#xFF09;&#xFF0C;a&#x6807;&#x7B7E;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5148;&#x628A;click&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x81EA;&#x5DF1;&#x7684;&#x9ED8;&#x8BA4;&#x8DF3;&#x8F6C;&#xFF08;herf&#xFF09;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;return false&#x6765;&#x963B;&#x6B62;&#x6216;&#x8005;e.preventDefault,&#x6CE8;&#x610F;&#x517C;&#x5BB9;(ie-&gt;returnValue = false;)&#x3002;
+</code></pre><h2 id="t5DOM 0&#x7EA7;&#x4E8B;&#x4EF6;">DOM 0&#x7EA7;&#x4E8B;&#x4EF6; <a href="#t5DOM 0&#x7EA7;&#x4E8B;&#x4EF6;"> # </a></h2>
+<blockquote>
+<p>&#x7ED9;&#x5143;&#x7D20;&#x5BF9;&#x8C61;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#x8D4B;&#x4E00;&#x4E2A;&#x503C;&#xFF08;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x503C;&#xFF09;&#xFF1B;&#x5F53;&#x5143;&#x7D20;&#x7684;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x5C5E;&#x6027;&#x503C;(&#x53EF;&#x4EE5;&#x662F;&#x51FD;&#x6570;&#xFF09;&#xFF0C;&#x8BA9;&#x5176;&#x6267;&#x884C;&#x3002;
+0&#x7EA7;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x53EA;&#x80FD;&#x7ED9;&#x5143;&#x7D20;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x4E00;&#x6B21;&#x65B9;&#x6CD5;&#xFF0C;&#x7ED1;&#x5B9A;&#x591A;&#x6B21;&#xFF0C;&#x6700;&#x540E;&#x7ED1;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x4F1A;&#x5427;&#x524D;&#x9762;&#x6240;&#x6709;&#x7ED1;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x8986;&#x76D6;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-javascript"><span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{}   <span class="hljs-comment">//&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;HTML&#x7ED3;&#x6784;&#x3001;&#x56FE;&#x7247;&#x3001;&#x6587;&#x5B57;&#x7B49;&#x6240;&#x6709;&#x8D44;&#x6E90;&#x90FD;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#xFF0C;&#x624D;&#x4F1A;&#x89E6;&#x53D1;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x5728;&#x540C;&#x4E00;&#x9875;&#x9762;&#x4E2D;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x4E00;&#x6B21;&#x3002;</span>
+    <span class="hljs-comment">//&#x539F;&#x7406;&#xFF1A;&#x56E0;&#x4E3A;&#x5B83;&#x91C7;&#x7528;DOM 0&#x7EA7;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#xFF0C;&#x53EA;&#x6709;&#x7ED1;&#x5B9A;&#x4E00;&#x6B21;&#xFF0C;&#x540E;&#x9762;&#x7ED1;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x4F1A;&#x5427;&#x524D;&#x9762;&#x7684;&#x8986;&#x76D6;&#x6389;&#xFF1B;load&#x4E8B;&#x4EF6;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x8D44;&#x6E90;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x89E6;&#x53D1;&#x3002;</span>
+    &#x6240;&#x4EE5;&lt;script&gt;&#x6807;&#x7B7E;&#x5982;&#x679C;&#x653E;&#x5728;body&#x4E4B;&#x524D;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;<span class="hljs-built_in">window</span>.onload&#x3002;
+</code></pre>
+<h2 id="t6DOM 2&#x7EA7;&#x4E8B;&#x4EF6;">DOM 2&#x7EA7;&#x4E8B;&#x4EF6; <a href="#t6DOM 2&#x7EA7;&#x4E8B;&#x4EF6;"> # </a></h2>
+<ul>
+<li><p>DOM 2&#x7EA7;&#x4E8B;&#x4EF6;&#x53EF;&#x4EE5;&#x7ED9;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x884C;&#x4E3A;&#x7ED1;&#x5B9A;<strong>&#x591A;&#x4E2A;&#x4E0D;&#x540C;</strong>&#x7684;&#x65B9;&#x6CD5;.
+&#x539F;&#x7406;&#xFF1A;&#x9ED8;&#x8BA4;&#x7684;&#x4F1A;&#x7ED9;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x2018;&#x5185;&#x7F6E;&#x4E8B;&#x4EF6;&#x6C60;&#x2019;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;DOM2&#x7ED9;&#x5143;&#x7D20;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x4F9D;&#x6B21;&#x7684;&#x5B58;&#x50A8;&#x5230;&#x8FD9;&#x4E2A;&#x5BB9;&#x5668;&#x4E2D;&#xFF0C;&#x5F53;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x9ED8;&#x8BA4;&#x627E;&#x5230;&#x4E8B;&#x4EF6;&#x6C60;&#xFF0C;&#x4F1A;&#x5427;&#x5BB9;&#x5668;&#x4E2D;&#x5B58;&#x50A8;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x4F9D;&#x6B21;&#x7684;&#x6267;&#x884C;&#x3002; </p>
+</li>
+<li><p><code>addEventListener</code> &#x5B9E;&#x73B0;&#x7ED1;&#x5B9A;<code>removeEventListener</code>&#x6765;&#x5B9E;&#x73B0;&#x79FB;&#x9664;&#x7ED1;&#x5B9A;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x95EE;&#x9898;&#x6709;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>&#x5F53;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x4E8B;&#x4EF6;&#x6C60;&#x4E2D;&#x628A;&#x6240;&#x6709;&#x7ED1;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x4F9D;&#x6B21;&#x7684;&#x6267;&#x884C;&#x3002;&#x6B64;&#x65F6;&#x4E0D;&#x7BA1;&#x54EA;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;this&#x90FD;&#x662F;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x3002;</li>
+<li>&#x6211;&#x4EEC;&#x6309;&#x7167;&#x7ED1;&#x5B9A;&#x7684;&#x5148;&#x540E;&#x987A;&#x5E8F;&#xFF0C;&#x5206;&#x522B;&#x628A;&#x7ED1;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x589E;&#x52A0;&#x5230;&#x4E86;&#x5185;&#x7F6E;&#x7684;&#x4E8B;&#x4EF6;&#x6C60;&#x4E2D;&#xFF0C;&#x540E;&#x9762;&#x7ED1;&#x5B9A;&#x7684;&#x5728;&#x4E8B;&#x4EF6;&#x6C60;&#x7684;&#x6700;&#x540E;&#x9762;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x5F53;&#x524D;&#x7684;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x7ED9;&#x5143;&#x7D20;&#x7684;&#x8FD9;&#x4E2A;&#x884C;&#x4E3A;&#x7ED1;&#x5B9A;&#x8FC7;&#x4E00;&#x6B21;&#x4E86;&#xFF0C;&#x5728;&#x7ED1;&#x5B9A;&#x4E5F;&#x4E0D;&#x4F1A;&#x518D;&#x5F80;&#x4E8B;&#x4EF6;&#x6C60;&#x4E2D;&#x91CD;&#x590D;&#x589E;&#x52A0;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x5BFC;&#x81F4;&#x6211;&#x4EEC;&#x53EA;&#x80FD;&#x7ED9;&#x67D0;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x67D0;&#x4E2A;&#x884C;&#x4E3A; &#x7ED1;&#x5B9A;&#x591A;&#x4E2A;&#x201D;&#x4E0D;&#x91CD;&#x590D;&#x7684;&#x65B9;&#x6CD5;&#x201C;&#xFF1B;</li>
+<li>&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E00;&#x822C;&#x5199;<strong>false</strong>&#xFF0C;&#x8BA9;&#x7ED1;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x5728;&#x4E8B;&#x4EF6;&#x7684;<strong>&#x5192;&#x6CE1;&#x4F20;&#x64AD;</strong>&#x9636;&#x6BB5;&#x6267;&#x884C;&#x3002;true&#x8BA9;&#x65B9;&#x6CD5;&#x5728;&#x4E8B;&#x4EF6;&#x4F20;&#x64AD;&#x7684;&#x6355;&#x83B7;&#x9636;&#x6BB5;&#x6267;&#x884C;&#x3002;
++removeEventListener&#xFF0C;&#x79FB;&#x9664;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x4E00;&#x4E2A;&#x4E0D;&#x80FD;&#x5C11;&#xFF0C;&#x5E76;&#x4E14;&#x9700;&#x8981;&#x548C;&#x7ED1;&#x5B9A;&#x7684;&#x65F6;&#x5019;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x624D;&#x53EF;&#x4EE5;&#x79FB;&#x9664;&#x3002;DOM0&#x4E8B;&#x4EF6;&#x7684;&#x79FB;&#x9664;&#x7528;null&#x5373;&#x53EF;&#xFF0C;DOM2&#x7684;&#x533F;&#x540D;&#x51FD;&#x6570;&#x65E0;&#x6CD5;&#x79FB;&#x9664;&#xFF0C;&#x6240;&#x4EE5;DOM 2&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x4E00;&#x822C;&#x7528;&#x5B9E;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x65B9;&#x4FBF;&#x79FB;&#x9664;&#x3002;</li>
+<li>DOM   0&#x548C;2&#x662F;&#x53EF;&#x4EE5;&#x5171;&#x5B58;&#x7684;&#x3002;&#x539F;&#x7406;&#x4E0D;&#x540C;&#x3002;</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>&#x5728;&#x5F15;&#x5165;jQ&#x4E4B;&#x540E;&#xFF0C;$(document).ready(function(){}) &#x7B80;&#x5199; $(function(){} )&#xFF0C;&#x5B83;&#x91C7;&#x7528;&#x7684;&#x662F;DOM&#x4E8C;&#x7EA7;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x3002;&#x5E76;&#x4E14;&#x91C7;&#x7528;&#x7684;&#x662F;DOM&#x4E8C;&#x7EA7;&#x4E2D;&#x72EC;&#x6709;&#x7684;&#x4E8B;&#x4EF6;&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#x7684;:DOMContentLoaded(HTML&#x7ED3;&#x6784;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;)
+&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;HTML&#x7ED3;&#x6784;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x4E2D;&#x4F7F;&#x7528;&#x591A;&#x6B21;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x90FD;&#x662F;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x3002;
+</code></pre><h2 id="t7IE&#x4E0B;&#x7684;DOM 2&#x7EA7;&#x4E8B;&#x4EF6;&#x53CA;&#x5176;&#x517C;&#x5BB9;&#x95EE;&#x9898;">IE&#x4E0B;&#x7684;DOM 2&#x7EA7;&#x4E8B;&#x4EF6;&#x53CA;&#x5176;&#x517C;&#x5BB9;&#x95EE;&#x9898; <a href="#t7IE&#x4E0B;&#x7684;DOM 2&#x7EA7;&#x4E8B;&#x4EF6;&#x53CA;&#x5176;&#x517C;&#x5BB9;&#x95EE;&#x9898;"> # </a></h2>
+<blockquote>
+<ul>
+<li>&#x7ED1;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x4EE5;&#x53CA;&#x8BED;&#x6CD5;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x3002; document.body.attachEvent(&quot;onclick&quot;,fn1 )    &#x53C2;&#x6570;&#x53EA;&#x80FD;&#x4E24;&#x4E2A;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x8981;&#x52A0;on&#xFF0C;&#x9ED8;&#x8BA4;&#x53EA;&#x80FD;&#x5728;&#x5192;&#x6CE1;&#x9636;&#x6BB5;&#x53D1;&#x751F;&#xFF0C;&#x4E0D;&#x80FD;&#x63A7;&#x5236;&#x5728;&#x6355;&#x83B7;&#x9636;&#x6BB5;&#x3002;</li>
+<li>&apos;this&apos;&#x95EE;&#x9898;&#xFF1A;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#xFF0C;&#x6267;&#x884C;&#x5BF9;&#x5E94;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6807;&#x51C6;&#x6D4F;&#x89C8;&#x5668;&#x4E0B;&#xFF0C;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;this &#x662F;&#x5F53;&#x524D;&#x7684;&#x5143;&#x7D20;&#xFF0C;IE6-8&#x4E0B;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;this&#x662F;window&#x3002;
++&#x6807;&#x51C6;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x67D0;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#xFF0C;&#x5982;&#x679C;&#x7ED1;&#x5B9A;&#x8FC7;&#x4E0D;&#x518D;&#x91CD;&#x590D;&#x7684;&#x7ED1;&#x5B9A;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x540E;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x4F46;&#x662F;IE6-8&#x4E0B;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x53BB;&#x91CD;&#xFF0C;&#x54EA;&#x6015;&#x65B9;&#x6CD5;&#x91CD;&#x590D;&#x4E86;&#xFF0C;&#x4E5F;&#x90FD;&#x4F1A;&#x7ED9;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x7ED1;&#x5B9A;&#x4E0A;&#xFF0C;&#x5F53;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7ED1;&#x5B9A;&#x51E0;&#x6B21;&#x5C31;&#x91CD;&#x590D;&#x6267;&#x884C;&#x51E0;&#x6B21;&#x3002;</li>
+<li>&#x987A;&#x5E8F;&#x95EE;&#x9898;&#xFF1A;&#x6807;&#x51C6;&#x6D4F;&#x89C8;&#x5668;&#x4E0B;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x7684;&#x987A;&#x5E8F;&#x662F;&#x6309;&#x7167;&#x7ED1;&#x5B9A;&#x7684;&#x987A;&#x5E8F;&#x4F9D;&#x6B21;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x4F46;&#x662F;ie6-8&#x4E0B;&#x6267;&#x884C;&#x7684;&#x987A;&#x5E8F;&#x548C;&#x7ED1;&#x5B9A;&#x7684;&#x987A;&#x5E8F;&#x65E0;&#x5173;&#xFF0C;&#x662F;&#x6DF7;&#x4E71;&#x7684;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="t8&#x4E8B;&#x4EF6;&#x4F20;&#x64AD;&#xFF08;&#x5192;&#x6CE1;&#x548C;&#x6355;&#x83B7;&#xFF09;">&#x4E8B;&#x4EF6;&#x4F20;&#x64AD;&#xFF08;&#x5192;&#x6CE1;&#x548C;&#x6355;&#x83B7;&#xFF09; <a href="#t8&#x4E8B;&#x4EF6;&#x4F20;&#x64AD;&#xFF08;&#x5192;&#x6CE1;&#x548C;&#x6355;&#x83B7;&#xFF09;"> # </a></h2>
+<blockquote>
+<p>&#x4E8B;&#x4EF6;&#x7684;&#x5192;&#x6CE1;&#x4F20;&#x64AD;&#xFF1A;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x884C;&#x4E3A;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x6240;&#x6709;<strong>&#x7236;&#x7EA7;&#x5143;&#x7D20;</strong>&#x7684;&#x76F8;&#x5173;&#x884C;&#x4E3A;&#x90FD;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x8FD9;&#x79CD;&#x4E8B;&#x4EF6;&#x7684;&#x4F20;&#x64AD;&#x673A;&#x5236;&#x53EB;&#x505A;&quot;&#x5192;&#x6CE1;&#x4F20;&#x64AD;&quot;&#xFF1B;</p>
+</blockquote>
+<ul>
+<li>&#x5192;&#x6CE1;&#x4F20;&#x64AD;&#x548C;&#x4E8B;&#x4EF6;&#x662F;&#x5426;&#x88AB;&#x7ED1;&#x5B9A;&#x65E0;&#x5173;&#xFF0C;</li>
+<li>mouseenter &#x548C;mouseover&#x7684;&#x533A;&#x522B;&#xFF1A;<blockquote>
+<ul>
+<li>mouseenter&#x9ED8;&#x8BA4;&#x963B;&#x6B62;&#x4E86;&#x4E8B;&#x4EF6;&#x7684;&#x5192;&#x6CE1;&#x4F20;&#x64AD;&#xFF0C;&#x5B50;&#x5143;&#x7D20;&#x7684;mouseenter&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x7236;&#x7EA7;&#x7684;&#x76F8;&#x5173;&#x4E8B;&#x4EF6;&#x4E0D;&#x4F1A;&#x80CC;&#x89E6;&#x53D1;&#x3002;&#x4F46;&#x662F;mouseover&#x5B58;&#x5728;&#x5192;&#x6CE1;&#x4F20;&#x64AD;&#xFF0C;</li>
+<li>&#x5F53;&#x9F20;&#x6807;&#x5148;&#x4ECE;&#x7236;&#x5230;&#x5B50;&#xFF0C;&#x518D;&#x4ECE;&#x5B50;&#x5230;&#x7236;&#xFF0C;&#x4F1A;&#x91CD;&#x65B0;&#x89E6;&#x53D1;&#x7EFF;&#x76D2;&#x5B50;&#x7684;mouseover&#x4F46;&#x662F;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x7EFF;&#x76D2;&#x5B50;&#x7684;onmouseenter&#xFF0C;</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><strong>&#x4E8B;&#x4EF6;&#x59D4;&#x6258;</strong>&#xFF1A;&#x5229;&#x7528;&#x4E86;&#x5192;&#x6CE1;&#x673A;&#x5236;&#xFF0C;&#x5F53;&#x5BB9;&#x5668;&#x4E2D;&#x67D0;&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x76F8;&#x5173;&#x884C;&#x4E3A;&#x89E6;&#x53D1;&#xFF0C;&#x5F53;&#x524D;&#x5BB9;&#x5668;&#x7684;&#x76F8;&#x5173;&#x884C;&#x4E3A;&#x4E5F;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x5982;&#x679C;&#x7ED9;&#x5BB9;&#x5668;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x4E86;&#x65B9;&#x6CD5;&#xFF0C;&#x65B9;&#x6CD5;&#x4E5F;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x4E8B;&#x4EF6;&#x6E90;&#xFF08;&#x5F53;&#x524D;&#x64CD;&#x4F5C;&#x7684;&#x5143;&#x7D20;&#xFF09;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E8B;&#x4EF6;&#x6E90;&#x662F;&#x8C01;&#x6765;&#x505A;&#x4E0D;&#x540C;&#x7684;&#x64CD;&#x4F5C;</p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

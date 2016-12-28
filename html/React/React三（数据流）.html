@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li class="active"><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0React第三讲课堂笔记（数据流）">React第三讲课堂笔记（数据流）</a><ul><li><a href="#t11. state setState">1. state setState</a></li><li><a href="#t22. props">2. props</a></li><li><a href="#t33. propTypes">3. propTypes</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0React&#x7B2C;&#x4E09;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;&#x6570;&#x636E;&#x6D41;&#xFF09;">React&#x7B2C;&#x4E09;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;&#x6570;&#x636E;&#x6D41;&#xFF09; <a href="#t0React&#x7B2C;&#x4E09;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;&#x6570;&#x636E;&#x6D41;&#xFF09;"> # </a></h1>
+<h2 id="t11. state setState">1. state setState <a href="#t11. state setState"> # </a></h2>
+<p>&#x53EF;&#x4EE5;&#x628A;&#x7EC4;&#x4EF6;&#x5F53;&#x6210;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x673A;&#xFF0C;&#x6211;&#x4EEC;&#x7ED9;&#x7EC4;&#x4EF6;&#x4F20;&#x5165;&#x6570;&#x636E;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#xFF0C;&#x7EC4;&#x4EF6;&#x5728;&#x5185;&#x90E8;&#x8FDB;&#x884C;&#x903B;&#x8F91;&#x5904;&#x7406;&#xFF0C;&#x4E4B;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x6BB5;HTML&#x7ED3;&#x6784;&#x4F5C;&#x4E3A;&#x8F93;&#x51FA;&#x3002;</p>
+<p>&#x800C;&#x4F20;&#x5165;&#x7684;&#x6570;&#x636E;&#x5373;&#x4E3A;props&#xFF0C;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;&#x7684;&#x72B6;&#x6001;&#x63A7;&#x5236;&#x5373;&#x4E3A;state&#xFF0C;&#x6BCF;&#x4E00;&#x6B21;&#x72B6;&#x6001;&#x5BF9;&#x5E94;&#x4E8E;&#x7EC4;&#x4EF6;&#x7684;&#x4E00;&#x4E2A; ui &#x3002;</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+
+class StateDemo extends Component {
+
+  state = {
+    secondsElapsed: 0
+  }
+
+  tick(){
+    this.setState({ secondsElapsed: this.state.secondsElapsed + 1 });
+  }
+
+  componentDidMount(){
+    this.interval = setInterval( this.tick.bind(this), 1000 );
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval);
+  }
+
+  render(){
+    return (
+      &lt;div&gt;&#x76EE;&#x524D;&#x5DF2;&#x7ECF;&#x8BA1;&#x65F6;&#xFF1A;{this.state.secondsElapsed}&#x79D2;&lt;/div&gt;
+    )
+  }
+}
+
+export default StateDemo;
+</code></pre><h2 id="t22. props">2. props <a href="#t22. props"> # </a></h2>
+<p>&#x901A;&#x8FC7; this.props &#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x4F20;&#x9012;&#x7ED9;&#x8BE5;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B9A;&#x4E49; getDefaultProps &#x6765;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#x503C;&#xFF08;&#x8FD9;&#x662F;ES5&#x7684;&#x5199;&#x6CD5;&#xFF0C;ES6&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;props&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5199;props&#xFF09;</p>
+<p>&#x4E0B;&#x9762;&#x51E0;&#x4E2A;&#x662F;props&#x7684;&#x5E38;&#x7528;API&#xFF1A;</p>
+<ul>
+<li><code>this.props.children</code></li>
+<li><code>this.props.map</code></li>
+<li><code>this.props.filter</code></li>
+</ul>
+<p><strong>props&#x662F;&#x8C03;&#x7528;&#x7EC4;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x4F20;&#x9012;&#x8FDB;&#x53BB;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x7EC4;&#x4EF6;&#x6811;&#x6570;&#x636E;&#x4F20;&#x9012;</strong></p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+
+class PropsDemo extends Component {
+  props = {
+    title: &apos;&#x8FD9;&#x662F;&#x9ED8;&#x8BA4;&#x7684;title&#x5C5E;&#x6027;&#x503C;&apos;
+  }
+  render(){
+    console.log(this.props);
+
+    return &lt;b&gt;{this.props.title}&lt;/b&gt;
+  }
+}
+
+export default PropsDemo;
+
+
+// &#x7EC4;&#x4EF6;&#x8C03;&#x7528;&#x65B9;&#x5F0F;
+// &lt;PropsDemo title=&quot;&#x8BBE;&#x7F6E;&#x7684;&#x6807;&#x9898;&quot; /&gt;
+</code></pre><h2 id="t33. propTypes">3. propTypes <a href="#t33. propTypes"> # </a></h2>
+<p>&#x901A;&#x8FC7;&#x6307;&#x5B9A; propTypes &#x53EF;&#x4EE5;&#x6821;&#x9A8C;props&#x5C5E;&#x6027;&#x503C;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6821;&#x9A8C;&#x53EF;&#x63D0;&#x5347;&#x5F00;&#x53D1;&#x8005;&#x4F53;&#x9A8C;&#xFF0C;&#x7528;&#x4E8E;&#x7EA6;&#x5B9A;&#x7EDF;&#x4E00;&#x7684;&#x63A5;&#x53E3;&#x89C4;&#x8303;&#x3002;</p>
+<pre><code>import React, { Component, PropTypes } from &apos;react&apos;;
+
+class PropTypesDemo extends Component {
+
+  render(){
+    return &lt;b&gt;{this.props.title}&lt;/b&gt;
+  }
+}
+
+PropTypesDemo.defaultProps= {
+  title: &apos;&#x6211;&#x662F;&#x9ED8;&#x8BA4;&#x7684;title&apos;
+}
+
+PropTypesDemo.propTypes = {
+  title: PropTypes.string.isRequired
+}
+
+export default PropTypesDemo;
+</code></pre>
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

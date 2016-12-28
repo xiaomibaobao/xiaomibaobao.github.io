@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li class="active"><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0React第九讲课堂笔记（mixin）">React第九讲课堂笔记（mixin）</a><ul><li><a href="#t11. ES5 语法实现 mixin">1. ES5 语法实现 mixin</a></li><li><a href="#t22. 用high-order component的方式实现">2. 用high-order component的方式实现</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0React&#x7B2C;&#x4E5D;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;mixin&#xFF09;">React&#x7B2C;&#x4E5D;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;mixin&#xFF09; <a href="#t0React&#x7B2C;&#x4E5D;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;mixin&#xFF09;"> # </a></h1>
+<p>mixin &#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x8FC7; mixin &#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x540C;&#x7EC4;&#x4EF6;&#x95F4;&#x5171;&#x4EAB;&#x4EE3;&#x7801;&#xFF0C;&#x4F7F;&#x4F60;&#x7684;React&#x7A0B;&#x5E8F;&#x53D8;&#x5F97;&#x66F4;&#x4E3A;&#x53EF;&#x91CD;&#x7528;&#x3002;</p>
+<p><code>&#x6CE8;&#x610F;&#xFF0C;ES6&#x8BED;&#x6CD5;&#x4E0D;&#x652F;&#x6301;mixin&#x5199;&#x6CD5;&#xFF0C;&#x800C;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;decorator&#x53BB;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x5171;&#x4EAB;&#xFF0C;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;ES5&#x8BED;&#x6CD5;&#x505A;&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#x3002;</code></p>
+<h2 id="t11. ES5 &#x8BED;&#x6CD5;&#x5B9E;&#x73B0; mixin">1. ES5 &#x8BED;&#x6CD5;&#x5B9E;&#x73B0; mixin <a href="#t11. ES5 &#x8BED;&#x6CD5;&#x5B9E;&#x73B0; mixin"> # </a></h2>
+<pre><code>
+import React from &apos;react&apos;;
+
+var SetIntervalMixin = {
+  componentWillMount: function() {
+    this.intervals = [];
+  },
+  setInterval: function() {
+    this.intervals.push(setInterval.apply(null, arguments));
+  },
+  componentWillUnmount: function() {
+    this.intervals.forEach(clearInterval);
+  }
+};
+
+var MixinDemo = React.createClass({
+  // Use the mixin
+  mixins: [SetIntervalMixin],
+  getInitialState: function() {
+    return {seconds: 0};
+  },
+  componentDidMount: function() {
+    // Call a method on the mixin
+    this.setInterval(this.tick, 1000);
+  },
+  tick: function() {
+    this.setState({seconds: this.state.seconds + 1});
+  },
+  render: function() {
+    return (
+      &lt;p&gt;
+        &#x8BA1;&#x65F6;&#x5668;&#x5DF2;&#x7ECF;&#x8FD0;&#x884C;&#x4E86;&#xFF1A; {this.state.seconds} &#x79D2;.
+      &lt;/p&gt;
+    );
+  }
+});
+
+export default MixinDemo;
+</code></pre><h2 id="t22. &#x7528;high-order component&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;">2. &#x7528;high-order component&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0; <a href="#t22. &#x7528;high-order component&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;"> # </a></h2>
+<pre><code>import React, { Component } from &apos;react&apos;;
+
+let Mixin = MixinComponent =&gt; class extends Component {
+  constructor() {
+    super();
+    this.state = { val: 0 };
+    this.update = this.update.bind(this);
+  }
+  update(){
+    this.setState({val: this.state.val + 1});
+  }
+  componentWillMount(){
+    console.log(&apos;will mount...&apos;)
+  }
+  render(){
+    return (
+      &lt;MixinComponent
+        update={this.update}
+        {...this.state}
+        {...this.props}
+       /&gt;
+    )
+  }
+  componentDidMount(){
+    console.log(&apos;mounted...&apos;)
+  }
+}
+
+const Button = (props) =&gt; {
+  return (
+    &lt;button onClick={props.update}&gt;
+      {props.txt} - {props.val}
+    &lt;/button&gt;
+  )
+}
+
+const Label = (props) =&gt; {
+  return (
+    &lt;label onMouseMove={props.update}&gt;
+      {props.txt} - {props.val}
+    &lt;/label&gt;
+  )
+}
+
+let ButtonMixed = Mixin(Button);
+let LabelMixed = Mixin(Label);
+
+class Mixins extends Component {
+  render(){
+    return (
+      &lt;div&gt;
+        &lt;ButtonMixed txt=&quot;button&quot; /&gt;
+        &lt;LabelMixed txt=&quot;label&quot; /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default Mixins;
+</code></pre>
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

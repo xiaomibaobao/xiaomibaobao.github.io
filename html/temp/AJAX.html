@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>git2</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                git2
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li></ul></li><li><a href="#"><span></span>contact</a><ul></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>React</a><ul></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li></ul></li><li><a href="#"><span></span>temp</a><ul><li class="active"><a href="../../html/temp/AJAX.html">AJAX</a></li><li><a href="../../html/temp/DOM.html">DOM</a></li><li><a href="../../html/temp/ES6.html">ES6</a></li><li><a href="../../html/temp/HTTP.html">HTTP</a></li><li><a href="../../html/temp/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/temp/事件.html">事件</a></li><li><a href="../../html/temp/函数.html">函数</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0AJAX">AJAX</a><ul><li><a href="#t1什么是AJAX？">什么是AJAX？</a></li><li><a href="#t2网页渲染的同步与异步的区别">网页渲染的同步与异步的区别</a></li><li><a href="#t3HTTP介绍">HTTP介绍</a><ul><li><a href="#t4web客户端和服务器">web客户端和服务器</a></li><li><a href="#t5HTTP事务">HTTP事务</a></li><li><a href="#t6http报文">http报文</a></li><li><a href="#t7HTTP 方法">HTTP 方法</a></li><li><a href="#t8HTTP 状态码">HTTP 状态码</a></li></ul></li><li><a href="#t9MIME Type">MIME Type</a></li><li><a href="#t10URI、URL、URN">URI、URL、URN</a><ul><li><a href="#t11方案">方案</a></li></ul></li><li><a href="#t12浏览器兼容性">浏览器兼容性</a></li><li><a href="#t13如何发起AJAX?">如何发起AJAX?</a><ul><li><a href="#t14使用XMLHttpRequest">使用XMLHttpRequest</a><ul><li><a href="#t15XMLHttpRequest和本地文件">XMLHttpRequest和本地文件</a></li><li><a href="#t16方法">方法</a><ul><li><a href="#t17abort()">abort()</a></li><li><a href="#t18getAllResponseHeaders()">getAllResponseHeaders()</a></li><li><a href="#t19getResponseHeader()">getResponseHeader()</a></li><li><a href="#t20open()">open()</a></li><li><a href="#t21overrideMimeType()">overrideMimeType()</a></li><li><a href="#t22onload">onload</a></li><li><a href="#t23onreadystatechange">onreadystatechange</a></li><li><a href="#t24send()">send()</a></li><li><a href="#t25setRequestHeader()">setRequestHeader()</a></li></ul></li><li><a href="#t26顺序问题">顺序问题</a></li></ul></li><li><a href="#t27在低版本IE浏览器中使用ActiveXObject时需要注意的地方">在低版本IE浏览器中使用ActiveXObject时需要注意的地方</a></li></ul></li><li><a href="#t28AJAX 示例">AJAX 示例</a><ul><li><a href="#t29如何使用上面的Ajax库">如何使用上面的Ajax库</a></li></ul></li><li><a href="#t30表单操作">表单操作</a><ul><li><a href="#t31利用ajax模拟表单提交">利用ajax模拟表单提交</a></li></ul></li><li><a href="#t32跨域请求操作">跨域请求操作</a><ul><li><a href="#t33同源策略">同源策略</a><ul><li><a href="#t34什么是同源？">什么是同源？</a></li><li><a href="#t35同源策略为什么会出现？">同源策略为什么会出现？</a></li></ul></li><li><a href="#t36跨域HTTP请求">跨域HTTP请求</a><ul><li><a href="#t37什么是跨域？">什么是跨域？</a></li><li><a href="#t38JSONP">JSONP</a></li><li><a href="#t39跨域资源共享">跨域资源共享</a><ul><li><a href="#t40withCredentials属性">withCredentials属性</a></li></ul></li><li><a href="#t41W3C规定的跨域资源共享中服务器可以返回的头信息如下：">W3C规定的跨域资源共享中服务器可以返回的头信息如下：</a></li></ul></li></ul></li><li><a href="#t42结束语">结束语</a><ul><li><a href="#t43参考">参考</a></li></ul></li></ul></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h2 id="t0AJAX">AJAX <a href="#t0AJAX"> # </a></h2>
+<p><code>AJAX</code>&#x5373;<code>&#x201C;Asynchronous Javascript And XML&#x201D;&#xFF08;&#x5F02;&#x6B65;JavaScript&#x548C;XML&#xFF09;</code>&#xFF0C;&#x662F;&#x6307;&#x4E00;&#x79CD;&#x521B;&#x5EFA;&#x4EA4;&#x4E92;&#x5F0F;&#x7F51;&#x9875;&#x5E94;&#x7528;&#x7684;&#x7F51;&#x9875;&#x5F00;&#x53D1;&#x6280;&#x672F;&#x3002;<br></p>
+<ul>
+<li>AJAX = &#x5F02;&#x6B65; JavaScript&#x548C;XML&#xFF08;&#x6807;&#x51C6;&#x901A;&#x7528;&#x6807;&#x8BB0;&#x8BED;&#x8A00;&#x7684;&#x5B50;&#x96C6;&#xFF09;</li>
+<li>AJAX &#x662F;&#x4E00;&#x79CD;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x5FEB;&#x901F;&#x52A8;&#x6001;&#x7F51;&#x9875;&#x7684;&#x6280;&#x672F;</li>
+<li>&#x901A;&#x8FC7;&#x5728;&#x540E;&#x53F0;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x884C;&#x5C11;&#x91CF;&#x6570;&#x636E;&#x4EA4;&#x6362;</li>
+<li>AJAX&#x53EF;&#x4EE5;&#x4F7F;&#x7F51;&#x9875;&#x5B9E;&#x73B0;&#x5F02;&#x6B65;&#x66F4;&#x65B0;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x6574;&#x4E2A;&#x7F51;&#x9875;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5BF9;&#x7F51;&#x9875;&#x7684;&#x67D0;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x3002;</li>
+<li>&#x4F20;&#x7EDF;&#x7684;&#x7F51;&#x9875;&#xFF08;&#x4E0D;&#x4F7F;&#x7528; AJAX&#xFF09;&#x5982;&#x679C;&#x9700;&#x8981;&#x66F4;&#x65B0;&#x5185;&#x5BB9;&#xFF0C;&#x5FC5;&#x987B;&#x91CD;&#x8F7D;&#x6574;&#x4E2A;&#x7F51;&#x9875;&#x9875;&#x9762;&#x3002;</li>
+</ul>
+<h3 id="t1&#x4EC0;&#x4E48;&#x662F;AJAX&#xFF1F;">&#x4EC0;&#x4E48;&#x662F;AJAX&#xFF1F; <a href="#t1&#x4EC0;&#x4E48;&#x662F;AJAX&#xFF1F;"> # </a></h3>
+<p>AJAX&#x53EA;&#x662F;&#x662F;&#x4E00;&#x4E2A;&#x524D;&#x7AEF;&#x6280;&#x672F;&#xFF0C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8BED;&#x8A00;&#x3002;&#x5B83;&#x662F;&#x5229;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x63D0;&#x4F9B;&#x64CD;&#x4F5C;<code>HTTP</code>&#x7684;&#x63A5;&#x53E3;(<code>XMLHttpRequest</code>&#x6216;&#x8005;<code>ActiveXObject</code>)&#x6765;&#x64CD;&#x4F5C;<code>HTTP</code>&#x4EE5;&#x8FBE;&#x5230;&#x5F02;&#x6B65;&#x7684;&#x6548;&#x679C;&#x3002;<br></p>
+<h3 id="t2&#x7F51;&#x9875;&#x6E32;&#x67D3;&#x7684;&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;&#x7684;&#x533A;&#x522B;">&#x7F51;&#x9875;&#x6E32;&#x67D3;&#x7684;&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;&#x7684;&#x533A;&#x522B; <a href="#t2&#x7F51;&#x9875;&#x6E32;&#x67D3;&#x7684;&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;&#x7684;&#x533A;&#x522B;"> # </a></h3>
+<ul>
+<li>&#x540C;&#x6B65;&#xFF1A;&#x5F53;&#x4F60;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5730;&#x5740;&#x680F;&#x91CC;&#x8F93;&#x5165;&#x767E;&#x5EA6;&#x7F51;&#x5740;&#x5E76;&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x662F;&#x521B;&#x5EFA;&#x65B0;&#x7684;tabpage&#x3001;&#x65B0;&#x7684;&#x5185;&#x5B58;&#x5757;&#x3001;&#x52A0;&#x8F7D;&#x7F51;&#x9875;&#x7684;&#x5168;&#x90E8;&#x8D44;&#x6E90;&#x3001;&#x6E32;&#x67D3;&#x52A0;&#x8F7D;&#x8FC7;&#x6765;&#x7684;&#x8D44;&#x6E90;&#x3002;&#x8FD9;&#x4E9B;&#x90A3;&#x90FD;&#x662F;&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x7684;&#xFF0C;&#x5C31;&#x60F3;&#x4E0A;&#x5E1D;&#x521B;&#x4F5C;&#x4E16;&#x754C;&#x4E00;&#x6837;&#x3002;&#x53EA;&#x8981;&#x4E0E;&#x540E;&#x53F0;&#x4EA4;&#x4E92;&#x6570;&#x636E;&#xFF0C;&#x90A3;&#x6015;&#x6570;&#x636E;&#x53EA;&#x6709;&#x90A3;&#x4E48;&#x4E00;&#x4E22;&#x4E22;&#xFF0C;&#x4E5F;&#x5F97;&#x91CD;&#x65B0;&#x521B;&#x9020;&#x4E00;&#x6B21;&#x4E16;&#x754C;&#xFF0C;&#x5982;&#x6B64;&#x53CD;&#x590D;&#x3002;&#x6D4F;&#x89C8;&#x5668;&#x81EA;&#x5DF1;&#x63A7;&#x5236;<code>HTTP</code>&#x64CD;&#x4F5C;</li>
+<li>&#x5F02;&#x6B65;&#xFF1A;&#x4E0D;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x521B;&#x9020;&#x4E00;&#x6B21;&#x4E16;&#x754C;&#xFF0C;&#x7528;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x4E16;&#x754C;&#x6765;&#x8FBE;&#x5230;&#x76EE;&#x7684;&#x3002;&#x4E0E;&#x540E;&#x53F0;&#x4EA4;&#x4E92;&#x6570;&#x636E;&#x4E0D;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x6765;&#x6E32;&#x67D3;&#x9875;&#x9762;.&#x81EA;&#x5DF1;&#x6765;&#x63A7;&#x5236;<code>HTTP</code>&#x64CD;&#x4F5C;&#x3002;</li>
+</ul>
+<h3 id="t3HTTP&#x4ECB;&#x7ECD;">HTTP&#x4ECB;&#x7ECD; <a href="#t3HTTP&#x4ECB;&#x7ECD;"> # </a></h3>
+<p><em>HTTP (HyperText Transfer Protocol) &#x8D85;&#x6587;&#x672C;&#x4F20;&#x8F93;&#x534F;&#x8BAE;</em>  &#x5728;&#x5F53;&#x524D;web&#x73AF;&#x5883;&#x4E2D;&#x8D70;&#x7684;&#x6D41;&#x91CF;&#x5927;&#x90E8;&#x5206;&#x90FD;&#x662F;&#x8D70;&#x7684;<code>HTTP</code>&#x6D41;&#x91CF;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4F60;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE;&#x4EFB;&#x4F55;&#x4E1C;&#x897F;&#xFF0C;&#x90A3;&#x6015;&#x662F;&#x4E00;&#x5F20;&#x5C0F;&#x56FE;&#x7247;&#x4E5F;&#x662F;<code>HTTP</code>&#x6765;&#x7ED9;&#x4F60;&#x5F53;&#x642C;&#x8FD0;&#x5DE5;&#x663E;&#x793A;&#x5728;&#x4F60;&#x9762;&#x524D;&#x7684;&#x3002;&#x800C;&#x4E14;AJAX&#x5C31;&#x662F;&#x57FA;&#x4E8E;HTTP&#x6765;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x8981;&#x60F3;&#x7CBE;&#x901A;AJAX&#xFF0C;&#x9002;&#x5F53;&#x7684;&#x4E86;&#x89E3;&#x5E76;&#x638C;&#x63E1;HTTP&#x662F;&#x5341;&#x5206;&#x5FC5;&#x8981;&#x7684;&#x3002;</p>
+<h4 id="t4web&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x5668;">web&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x5668; <a href="#t4web&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x5668;"> # </a></h4>
+<p>web&#x5185;&#x5BB9;&#x90FD;&#x662F;&#x5B58;&#x50A8;&#x5728;web&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#xFF0C;web&#x670D;&#x52A1;&#x5668;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x662F;http&#x534F;&#x8BAE;&#xFF0C;&#x56E0;&#x6B64;&#x7ECF;&#x5E38;&#x4F1A;&#x88AB;&#x79F0;&#x4E3A;http&#x670D;&#x52A1;&#x5668;&#x3002;&#x8FD9;&#x4E9B;http&#x670D;&#x52A1;&#x5668;&#x5B58;&#x50A8;&#x91CF;&#x56E0;&#x7279;&#x7F51;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x679C;http&#x5BA2;&#x670D;&#x7AEF;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;&#x7684;&#x8BDD;&#xFF0C;&#x5B83;&#x4EEC;&#x4F1A;&#x63D0;&#x4F9B;&#x6570;&#x636E;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;http&#x8BF7;&#x6C42;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x5728;http&#x54CD;&#x5E94;&#x4E2D;&#x4F1A;&#x9001;&#x6240;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x636E;&#x3002;http&#x5BA2;&#x670D;&#x7AEF;&#x548C;http&#x670D;&#x52A1;&#x5668;&#x5171;&#x540C;&#x6784;&#x6210;&#x4E86;&#x4E07;&#x7EF4;&#x7F51;&#x7684;&#x57FA;&#x672C;&#x7EC4;&#x5EFA;&#x3002;&#x53EF;&#x80FD;&#x4F60;&#x6BCF;&#x5929;&#x90FD;&#x662F;&#x4F7F;&#x7528;http&#x5BA2;&#x670D;&#x7AEF;&#x3002;&#x6700;&#x5E38;&#x89C1;&#x7684;http&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x3002;web&#x6D4F;&#x89C8;&#x5668;&#x5411;&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;http&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x663E;&#x793A;&#x5728;&#x4F60;&#x7684;&#x5C4F;&#x5E55;&#x4E0A;&#x3002;</p>
+<h4 id="t5HTTP&#x4E8B;&#x52A1;">HTTP&#x4E8B;&#x52A1; <a href="#t5HTTP&#x4E8B;&#x52A1;"> # </a></h4>
+<p>&#x4E00;&#x4E2A;http&#x4E8B;&#x52A1;&#x7531;&#x4E00;&#x6761;(&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x5F80;&#x670D;&#x52A1;&#x5668;&#x7684;)&#x8BF7;&#x6C42;&#x547D;&#x4EE4;&#x548C;&#x4E00;&#x4E2A;(&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x56DE;&#x5BA2;&#x6237;&#x7AEF;&#x7684;)&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#x7EC4;&#x6210;&#x3002;&#x8FD9;&#x79CD;&#x901A;&#x4FE1;&#x65F6;&#x901A;&#x8FC7;&#x540D;&#x4E3A;<code>HTTP message</code>&#x7684;&#x683C;&#x5F0F;&#x5316;&#x6570;&#x636E;&#x5757;&#x8FDB;&#x884C;&#x7684;&#x3002;
+&#x53EA;&#x6709;&#x5F53;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x90FD;&#x6210;&#x529F;&#x65F6;&#x6B64;http&#x4E8B;&#x52A1;&#x624D;&#x7B97;&#x6210;&#x529F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8FD9;&#x6761;http&#x624D;&#x7B97;&#x6210;&#x529F;&#x3002;&#x53EA;&#x6709;&#x5F53;&#x5176;&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;(&#x8BF7;&#x6C42;&#x6216;&#x8005;&#x54CD;&#x5E94;)&#x5931;&#x8D25;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;http&#x5C31;&#x7B97;&#x5931;&#x8D25;&#x3002;
+<em>&#x4E00;&#x4E2A;http&#x5C31;&#x662F;&#x4E00;&#x4E2A;http&#x4E8B;&#x52A1;</em>&#xFF0C;&#x4E14;http&#x4E8B;&#x52A1;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x6B64;http&#x4E0D;&#x53EF;&#x5728;&#x590D;&#x7528;&#x3002;</p>
+<h4 id="t6http&#x62A5;&#x6587;">http&#x62A5;&#x6587; <a href="#t6http&#x62A5;&#x6587;"> # </a></h4>
+<p>http&#x62A5;&#x6587;&#x662F;&#x7531;&#x4E00;&#x884C;&#x4E00;&#x884C;&#x7684;&#x7B80;&#x5355;&#x5B57;&#x7B26;&#x4E32;&#x7EC4;&#x6210;&#x7684;&#x3002;http&#x62A5;&#x6587;&#x90FD;&#x662F;&#x7EAF;&#x6587;&#x672C;&#xFF0C;&#x4E0D;&#x662F;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#xFF0C;&#x6240;&#x4EE5;&#x4EBA;&#x4EEC;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x5730;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x8BFB;&#x5199;&#x3002;<br>
+http&#x62A5;&#x6587;&#x5206;&#x4E3A;&#x4E09;&#x90E8;&#x5206;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>&#x8D77;&#x59CB;&#x884C;
+&#x62A5;&#x6587;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#x5C31;&#x662F;&#x8D77;&#x59CB;&#x884C;&#xFF0C;&#x5728;&#x8BF7;&#x6C42;&#x62A5;&#x6587;&#x4E2D;&#x7528;&#x6765;&#x8BF4;&#x660E;&#x505A;&#x4E9B;&#x4EC0;&#x4E48;&#xFF0C;&#x5728;&#x54CD;&#x5E94;&#x62A5;&#x6587;&#x4E2D;&#x8BF4;&#x660E;&#x51FA;&#x73B0;&#x4E86;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x3002;</li>
+<li>&#x9996;&#x90E8;&#x5B57;&#x6BB5;
+&#x8D77;&#x59CB;&#x884C;&#x540E;&#x9762;&#x6709;&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x9996;&#x90E8;&#x5B57;&#x6BB5;&#x3002;&#x6BCF;&#x4E2A;&#x9996;&#x90E8;&#x5B57;&#x6BB5;&#x90FD;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#x548C;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x9996;&#x90E8;&#x5206;&#x4E3A;5&#x79CD;&#x7C7B;&#x578B;:<br>
+<code>&#x901A;&#x7528;&#x9996;&#x90E8;&#x3001;&#x8BF7;&#x6C42;&#x9996;&#x90E8;&#x3001;&#x54CD;&#x5E94;&#x9996;&#x90E8;&#x3001;&#x5B9E;&#x4F53;&#x9996;&#x90E8;&#x3001;&#x6269;&#x5C55;&#x9996;&#x90E8;</code><br></li>
+<li>&#x4E3B;&#x4F53;
+&#x62A5;&#x6587;&#x4E3B;&#x4F53;&#x5305;&#x542B;&#x4E86;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x3002;&#x8BF7;&#x6C42;&#x4E3B;&#x4F53;&#x4E2D;&#x62A5;&#x9519;&#x4E86;&#x8981;&#x53D1;&#x9001;&#x7ED9;web&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#xFF1B;&#x54CD;&#x5E94;&#x4E3B;&#x4F53;&#x4E2D;&#x88C5;&#x8F7D;&#x4E86;&#x8981;&#x8FD4;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6570;&#x636E;&#x3002;&#x8D77;&#x59CB;&#x884C;&#x548C;&#x9996;&#x90E8;&#x5B57;&#x6BB5;&#x90FD;&#x662F;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x6587;&#x672C;&#x5F62;&#x5F0F;&#x7684;&#xFF0C;&#x800C;&#x4E3B;&#x4F53;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4EFB;&#x610F;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x4E3B;&#x4F53;&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x6587;&#x672C;&#x3002;</li>
+</ul>
+</blockquote>
+<h4 id="t7HTTP &#x65B9;&#x6CD5;">HTTP &#x65B9;&#x6CD5; <a href="#t7HTTP &#x65B9;&#x6CD5;"> # </a></h4>
+<p>http&#x652F;&#x6301;&#x51E0;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x8BF7;&#x6C42;&#x547D;&#x4EE4;&#xFF0C;&#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x88AB;&#x79F0;&#x4E3A;<code>http&#x65B9;&#x6CD5;</code> &#x6BCF;&#x6761;http&#x8BF7;&#x6C42;&#x62A5;&#x6587;&#x90FD;&#x5305;&#x62EC;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#x6267;&#x884C;&#x4EC0;&#x4E48;&#x52A8;&#x4F5C;(&#x83B7;&#x53D6;&#x4E00;&#x4E2A;web&#x9875;&#x9762;&#x3001;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x7F51;&#x5173;&#x7A0B;&#x5E8F;&#x3001;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;)&#x3002;<br></p>
+<blockquote>
+<p>&#x5E38;&#x89C1;&#x6765;http&#x65B9;&#x6CD5;&#x5982;&#x4E0B;</p>
+<ul>
+<li>GET &#x4ECE;&#x670D;&#x52A1;&#x5668;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x547D;&#x540D;&#x8D44;&#x6E90;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4F20;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#x6765;&#x83B7;&#x53D6;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x6307;&#x5B9A;&#x7684;&#x8D44;&#x6E90;&#x3002;</li>
+<li>POST &#x5C06;&#x5BA2;&#x6237;&#x7AEF;&#x6570;&#x636E;&#x53D1;&#x9001;&#x5230;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x7F51;&#x5173;&#x7A0B;&#x5E8F;&#x3002;</li>
+<li>DELETE &#x4ECE;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x5220;&#x9664;&#x547D;&#x540D;&#x8D44;&#x6E90;</li>
+<li>HEAD &#x4EC5;&#x53D1;&#x9001;&#x547D;&#x540D;&#x8D44;&#x6E90;&#x4E2D;&#x7684;http&#x9996;&#x90E8;</li>
+<li>PUT &#x5C06;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5230;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x8D44;&#x6E90;&#x4E2D;&#x53BB;</li>
+<li>TRACE &#x5BF9;&#x62A5;&#x6587;&#x8FDB;&#x884C;&#x8FFD;&#x8E2A;</li>
+<li>OPTIONS &#x51B3;&#x5B9A;&#x53EF;&#x4EE5;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x6267;&#x884C;&#x54EA;&#x4E9B;&#x65B9;&#x6CD5;</li>
+</ul>
+</blockquote>
+<p>GET&#x4E0E;POST&#x7684;&#x533A;&#x522B;&#xFF1A;<br></p>
+<ul>
+<li>URL&#x957F;&#x5EA6;&#x9650;&#x5236; &#x6D4F;&#x89C8;&#x5668;&#x5BF9;URL&#x6709;&#x5927;&#x5C0F;&#x9650;&#x5236;&#xFF0C;chrome 8k firefox 7k ie 2k</li>
+<li>&#x8D44;&#x6E90;&#x5927;&#x5C0F;&#x9650;&#x5236;&#xFF1A;get&#x65B9;&#x6CD5;&#x9650;&#x5236;&#x5927;&#x5C0F;&#xFF0C;get&#x662F;&#x5C06;&#x6570;&#x636E;&#x76F4;&#x63A5;&#x62FC;&#x63A5;&#x5728;URL&#x540E;&#x7AEF;query&#x90E8;&#x5206;&#xFF0C;&#x800C;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x5BF9;URL&#x6709;&#x957F;&#x5EA6;&#x9650;&#x5236;&#x7684;&#xFF0C;&#x6240;&#x4EE5;get&#x6709;&#x5927;&#x5C0F;&#x9650;&#x5236;&#x3002;post&#x4E0D;&#x9650;&#x5236;&#x5927;&#x5C0F;&#x3002;&#x56E0;&#x4E3A;post&#x662F;&#x5C06;&#x6570;&#x636E;&#x653E;&#x5230;&#x8BF7;&#x6C42;&#x7684;&#x4E3B;&#x4F53;&#x91CC;&#xFF0C;&#x800C;&#x4E3B;&#x4F53;&#x662F;&#x4E0D;&#x9650;&#x5236;&#x5927;&#x5C0F;&#x7684;&#xFF0C;&#x6240;&#x4EE5;post&#x6CA1;&#x6709;&#x5927;&#x5C0F;&#x9650;&#x5236;&#x3002;</li>
+<li>&#x529F;&#x80FD; get&#x4E3B;&#x8981;&#x662F;&#x7528;&#x6765;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x62C9;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x800C;post&#x4E3B;&#x8981;&#x662F;&#x7528;&#x6765;&#x5C06;&#x6570;&#x636E;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#x3002;</li>
+<li>&#x5B89;&#x5168; get&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x53D1;&#x9001;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x800C;post&#x4E0D;&#x4F1A;&#x88AB;&#x770B;&#x5230;&#xFF0C;&#x56E0;&#x4E3A;post&#x628A;&#x6570;&#x636E;&#x653E;&#x5230;&#x4E3B;&#x4F53;&#x91CC;&#x4E86;&#x3002;</li>
+</ul>
+<h4 id="t8HTTP &#x72B6;&#x6001;&#x7801;">HTTP &#x72B6;&#x6001;&#x7801; <a href="#t8HTTP &#x72B6;&#x6001;&#x7801;"> # </a></h4>
+<p>&#x6BCF;&#x6761;http&#x54CD;&#x5E94;&#x62A5;&#x6587;&#x8FD4;&#x56DE;&#x65F6;&#x90FD;&#x4F1A;&#x643A;&#x5E26;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7801;&#x3002;&#x72B6;&#x6001;&#x7801;&#x662F;&#x4E00;&#x4E2A;&#x4E09;&#x4F4D;&#x6570;&#x5B57;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x544A;&#x77E5;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x662F;&#x5426;&#x6210;&#x529F;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x5426;&#x9700;&#x8981;&#x91C7;&#x53D6;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#x3002;<br>
+&#x51E0;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x72B6;&#x6001;&#x7801;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>200 OK &#x6587;&#x6863;&#x6B63;&#x786E;&#x8FD4;&#x56DE;</li>
+<li>301 Redirect &#x6C38;&#x4E45;&#x91CD;&#x5B9A;&#x5411;&#x3002;&#x4E00;&#x76F4;&#x4ECE;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x53BB;&#x83B7;&#x53D6;&#x8D44;&#x6E90;</li>
+<li>302 Redirect &#x4E34;&#x65F6;&#x91CD;&#x5B9A;&#x5411;&#x3002;&#x4E34;&#x65F6;&#x5230;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x53BB;&#x83B7;&#x53D6;&#x8D44;&#x6E90;</li>
+<li>303 see other&#x3001;307 Temporary Redirect &#x5C06;&#x5BA2;&#x670D;&#x7AEF;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x4E00;&#x4E2A;&#x8D1F;&#x8F7D;&#x4E0D;&#x5927;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF0C;&#x7528;&#x4E8E;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x548C;&#x670D;&#x52A1;&#x5668;&#x5931;&#x8054;</li>
+<li>404 Not Found &#x65E0;&#x6CD5;&#x627E;&#x5230;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;</li>
+<li>500 Internal Server Error &#x670D;&#x52A1;&#x5668;&#x9519;&#x8BEF;</li>
+</ul>
+</blockquote>
+<p>&#x4F34;&#x968F;&#x7740;&#x6BCF;&#x4E2A;&#x6570;&#x5B57;&#x72B6;&#x6001;&#x7801;&#xFF0C;http&#x8FD8;&#x4F1A;&#x53D1;&#x9001;&#x4E00;&#x6761;&#x89E3;&#x91CA;&#x6027;&#x7684;<code>&#x539F;&#x56E0;&#x77ED;&#x8BED;</code>&#x6587;&#x672C;&#x3002;&#x5305;&#x542B;&#x6587;&#x672C;&#x77ED;&#x8BED;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x8FDB;&#x884C;&#x63CF;&#x8FF0;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#x4F7F;&#x7528;&#x7684;&#x90FD;&#x662F;&#x6570;&#x5B57;&#x7801;&#x3002;<br>
+http&#x8F6F;&#x4EF6;&#x5904;&#x7406;&#x4E0B;&#x5217;&#x72B6;&#x6001;&#x7801;&#x548C;&#x539F;&#x56E0;&#x77ED;&#x8BED;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>200 OK</li>
+<li>200 Document attached</li>
+<li>200 Success</li>
+<li>200 All&apos;s cool, dude</li>
+</ul>
+</blockquote>
+<h3 id="t9MIME Type">MIME Type <a href="#t9MIME Type"> # </a></h3>
+<p>&#x56E0;&#x7279;&#x7F51;&#x4E0A;&#x6709;&#x6570;&#x5343;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;http&#x4ED4;&#x7EC6;&#x5730;&#x7ED9;&#x6BCF;&#x79CD;&#x8981;&#x901A;&#x8FC7;web&#x4F20;&#x8F93;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x6253;&#x4E0A;&#x4E86;&#x540D;&#x4E3A;MIME&#x7C7B;&#x578B;(MIME Type)&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x6807;&#x7B7E;&#x3002;&#x6700;&#x521D;&#x8BBE;&#x8BA1;MIME(Multipurpose Internet Mail Extension&#xFF0C;&#x591A;&#x7528;&#x9014;&#x56E0;&#x7279;&#x7F51;&#x90AE;&#x4EF6;&#x6269;&#x5C55;) &#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E4B;&#x95F4;&#x642C;&#x79FB;&#x62A5;&#x6587;&#x65F6;&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;&#x3002;MIME&#x5728;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#x5DE5;&#x4F5C;&#x5F97;&#x975E;&#x5E38;&#x597D;&#xFF0C;&#x56E0;&#x6B64;HTTP&#x4E5F;&#x91C7;&#x7EB3;&#x4E86;&#x5B83;&#xFF0C;&#x7528;&#x5B83;&#x6765;&#x63CF;&#x8FF0;&#x5E76;&#x6807;&#x8BB0;&#x591A;&#x5A92;&#x4F53;&#x5185;&#x5BB9;&#x3002;<br>
+web&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x4E3A;&#x6240;&#x6709;&#x7684;http&#x5BF9;&#x8C61;&#x6570;&#x636E;&#x9644;&#x52A0;&#x4E00;&#x4E2A;MIME&#x7C7B;&#x578B;&#x3002;&#x5F53;web&#x6D4F;&#x89C8;&#x5668;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x53D6;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x56DE;&#x53BB;&#x67E5;&#x770B;&#x76F8;&#x5173;&#x7684;MIME&#x7C7B;&#x578B;&#xFF0C;&#x770B;&#x770B;&#x5B83;&#x662F;&#x5426;&#x77E5;&#x9053;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x5927;&#x591A;&#x6570;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x6570;&#x767E;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x3002;<br>
+MIME Type&#x5C31;&#x662F;&#x544A;&#x8BC9;&#x6D4F;&#x89C8;&#x5668;&#x7528;&#x4EC0;&#x4E48;&#x65B9;&#x5F0F;&#x6765;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x3002;<br>
+<em>MIME&#x7C7B;&#x578B;&#x662F;&#x4E00;&#x79CD;&#x6587;&#x672C;&#x6807;&#x8BB0;&#xFF0C;&#x8868;&#x793A;&#x4E00;&#x79CD;&#x4E3B;&#x8981;&#x7684;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x548C;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x5B50;&#x7C7B;&#x578B;&#xFF0C;&#x4E2D;&#x95F4;&#x7531;&#x4E00;&#x6761;&#x659C;&#x6760;&#x6765;&#x5206;&#x9694;&#x3002;</em></p>
+<ul>
+<li>html&#x683C;&#x5F0F;&#x7684;&#x6587;&#x672C;&#x6587;&#x6863;&#x7531;<code>text/html</code>&#x7C7B;&#x578B;&#x6765;&#x6807;&#x8BB0;</li>
+<li>&#x666E;&#x901A;&#x7684;ASCII&#x6587;&#x672C;&#x6587;&#x6863;&#x7531;<code>text/plain</code>&#x7C7B;&#x578B;&#x6765;&#x6807;&#x8BB0;</li>
+<li>JPEG&#x683C;&#x5F0F;&#x7684;&#x56FE;&#x7247;&#x4E3A;<code>image/jpeg</code>&#x7C7B;&#x578B;</li>
+<li>GIF&#x683C;&#x5F0F;&#x7684;&#x56FE;&#x7247;&#x4E3A;<code>image/gif</code>&#x7C7B;&#x578B;</li>
+<li>&#x8868;&#x5355;&#x63D0;&#x4EA4;&#x7531;<code>application/x-www-form-urlencoded</code>&#x7C7B;&#x578B;&#x6765;&#x6807;&#x8BB0;</li>
+</ul>
+<p>MIME&#x7C7B;&#x578B;&#x5728;HTTP&#x534F;&#x8BAE;&#x4E2D;&#x7684;&#x8868;&#x73B0;&#x4E3A;<code>Request Header</code>&#x6216;&#x8005;<code>Response Header</code>&#x4E2D;&#x7684;<code>Content-Type</code></p>
+<h3 id="t10URI&#x3001;URL&#x3001;URN">URI&#x3001;URL&#x3001;URN <a href="#t10URI&#x3001;URL&#x3001;URN"> # </a></h3>
+<blockquote>
+<p>URI : &#x6BCF;&#x4E2A;web&#x670D;&#x52A1;&#x5668;&#x8D44;&#x6E90;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x8FD9;&#x6837;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x53EF;&#x4EE5;&#x8BF4;&#x660E;&#x4ED6;&#x4EEC;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x8D44;&#x6E90;&#x662F;&#x4EC0;&#x4E48;&#x4E86;&#x3002;&#x670D;&#x52A1;&#x5668;&#x8D44;&#x6E90;&#x540D;&#x88AB;&#x79F0;&#x4E3A;<code>&#x7EDF;&#x4E00;&#x8D44;&#x6E90;&#x6807;&#x8BC6;&#x7B26;(Uniform Resource Identifier&#xFF0C;URI)</code> URI&#x5C31;&#x50CF;&#x56E0;&#x7279;&#x7F51;&#x4E0A;&#x7684;&#x90AE;&#x653F;&#x5730;&#x5740;&#x4E00;&#x6837;&#xFF0C;&#x5728;&#x4E16;&#x754C;&#x8303;&#x56F4;&#x5185;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x5E76;&#x5B9A;&#x4F4D;&#x4FE1;&#x606F;&#x8D44;&#x6E90;&#x3002;<br>
+&#x4F8B;&#x5982; <a href="https://www.baidu.com/img/baidu_jgylogo3.gif">https://www.baidu.com/img/baidu_jgylogo3.gif</a>
+&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x767E;&#x5EA6;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x4E00;&#x4E2A;&#x56FE;&#x7247;&#x8D44;&#x6E90;&#x7684;URI</p>
+<p>URL : <code>&#x7EDF;&#x4E00;&#x8D44;&#x6E90;&#x5B9A;&#x4F4D;&#x7B26;(URL)</code> &#x662F;&#x8D44;&#x6E90;&#x6807;&#x8BC6;&#x7B26;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x5F62;&#x5F0F;&#x3002;URL&#x63CF;&#x8FF0;&#x4E86;&#x4E00;&#x53F0;&#x7279;&#x5B9A;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x67D0;&#x8D44;&#x6E90;&#x7684;&#x7279;&#x5B9A;&#x4F4D;&#x7F6E;&#x3002;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x660E;&#x786E;&#x8BF4;&#x660E;&#x5982;&#x4F55;&#x4ECE;&#x4E00;&#x4E2A;&#x7CBE;&#x786E;&#x3001;&#x56FA;&#x5B9A;&#x7684;&#x4F4D;&#x7F6E;&#x83B7;&#x53D6;&#x8D44;&#x6E90;&#x3002;<br>
+&#x4F8B;&#x5982; &#xFF1A;https(http&#x534F;&#x8BAE;)://www.baidu.com(&#x8FDB;&#x5165;&#x767E;&#x5EA6;&#x670D;&#x52A1;&#x5668;)/img/baidu_jgylogo3.gif(&#x83B7;&#x53D6;&#x8DEF;&#x5F84;&#x4E3A;/img/baidujgylogo3.gif&#x7684;&#x56FE;&#x7247;)
+&#x5927;&#x90E8;&#x5206;&#x7684;URL&#x90FD;&#x9075;&#x5FAA;&#x4E00;&#x79CD;&#x6807;&#x51C6;&#x683C;&#x5F0F;&#xFF0C;&#x8FD9;&#x79CD;&#x683C;&#x5F0F;&#x5206;&#x4E3A;&#x4E09;&#x90E8;&#x5206;&#x3002;</p>
+<ul>
+<li>&#x7B2C;&#x4E00;&#x90E8;&#x5206; <code>&#x65B9;&#x6848;(scheme)</code>&#xFF0C;&#x8BF4;&#x660E;&#x4E86;&#x8BBF;&#x95EE;&#x8D44;&#x6E90;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x534F;&#x8BAE;&#x7C7B;&#x578B;&#x3002;&#x7740;&#x90E8;&#x5206;&#x901A;&#x5E38;&#x5C31;&#x662F;http&#x534F;&#x8BAE;&#x3002;</li>
+<li>&#x7B2C;&#x4E8C;&#x90E8;&#x5206; &#x670D;&#x52A1;&#x5668;&#x4F4D;&#x7F6E;&#xFF0C;&#x7ED9;&#x51FA;&#x6765;&#x670D;&#x52A1;&#x5668;&#x7684;&#x56E0;&#x7279;&#x7F51;&#x5730;&#x5740;(&#x6BD4;&#x5982;&#xFF0C;www.baidu.com)&#x3002;</li>
+<li>&#x7B2C;&#x4E09;&#x90E8;&#x5206; &#x8D44;&#x6E90;&#x8DEF;&#x5F84;&#xFF0C;&#x6307;&#x5B9A;&#x4E86;web&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x67D0;&#x4E2A;&#x8D44;&#x6E90;(&#x6BD4;&#x5982;&#xFF0C;/img/baidujgylogo3.gif)&#x3002;
+<em>&#x73B0;&#x5728;&#xFF0C;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7684;URI&#x90FD;&#x662F;URL</em>
+&#x5927;&#x591A;&#x6570;&#x7684;URL&#x65B9;&#x6848;&#x7684;URL&#x8BED;&#x6CD5;&#x90FD;&#x5EFA;&#x7ACB;&#x5728;&#x8FD9;&#x4E2A;&#x6709;9&#x90E8;&#x5206;&#x6784;&#x6210;&#x7684;&#x901A;&#x7528;&#x683C;&#x5F0F;&#x4E0A;&#xFF1A;<br>
+<code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;</code><br></li>
+</ul>
+<p>URN : <code>URI</code> &#x7684;&#x7B2C;&#x4E8C;&#x79CD;&#x5F62;&#x5F0F;&#x5C31;&#x662F;<code>&#x7EDF;&#x4E00;&#x8D44;&#x6E90;&#x540D;&#x79F0;(URN)</code>&#x3002;URN&#x662F;&#x4F5C;&#x4E3A;&#x7279;&#x5B9A;&#x5185;&#x5BB9;&#x7684;&#x552F;&#x4E00;&#x540D;&#x79F0;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x4E0E;&#x76EE;&#x524D;&#x8D44;&#x6E90;&#x5730;&#x65E0;&#x5173;&#x3002;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x4E0E;&#x4F4D;&#x7F6E;&#x65E0;&#x5173;&#x7684;URN&gt;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x8D44;&#x6E90;&#x56DB;&#x5904;&#x642C;&#x79FB;&#x3002;&#x901A;&#x8FC7;URN&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#x901A;&#x8FC7;&#x591A;&#x79CD;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x534F;&#x8BAE;&#x6765;&#x8BBF;&#x95EE;&#x8D44;&#x6E90;&#x3002;<br>
+&#x6BD4;&#x5982;&#xFF0C;&#x4E0D;&#x8BBA;&#x56E0;&#x7279;&#x7F51;&#x6807;&#x51C6;&#x6587;&#x6863;RFC 2141 &#x4F4D;&#x4E8E;&#x4F55;&#x5904;(&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x590D;&#x5236;&#x5230;&#x591A;&#x4E2A;&#x5730;&#x65B9;)&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x5217;URN&#x6765;&#x547D;&#x540D;&#x5B83;&#xFF1A;<br>
+<code>urn:ietf:rdc:2141</code><br>
+URN&#x76EE;&#x524D;&#x4ECD;&#x7136;&#x5904;&#x4E8E;&#x8BD5;&#x9A8C;&#x9636;&#x6BB5;&#x3002;</p>
+</blockquote>
+<p>URI&#x5305;&#x62EC;&#x4E24;&#x79CD;&#x5F62;&#x5F0F;&#xFF0C;&#x4E00;&#x79CD;&#x662F;URL&#x4E00;&#x79CD;&#x662F;URN&#x3002;&#x76EE;&#x524D;&#x5927;&#x90E8;&#x5206;&#x4F1A;&#x4E0D;&#x52A0;&#x533A;&#x522B;&#x7684;&#x4F7F;&#x7528;URI&#x548C;URL&#x3002;&#x56E0;&#x4E3A;URL&#x662F;URI&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x96C6;&#x3002;</p>
+<h4 id="t11&#x65B9;&#x6848;">&#x65B9;&#x6848; <a href="#t11&#x65B9;&#x6848;"> # </a></h4>
+<p><code>&#x65B9;&#x6848;</code>&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x89C4;&#x5B9A;&#x5982;&#x4F55;&#x8BBF;&#x95EE;&#x6307;&#x5B9A;&#x8D44;&#x6E90;&#x7684;&#x4E3B;&#x8981;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;&#x5B83;&#x4F1A;&#x544A;&#x8BC9;&#x8D1F;&#x8D23;&#x89E3;&#x6790;URL&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x534F;&#x8BAE;&#xFF0C;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x5C31;&#x662F;HTTP&#x65B9;&#x6848;&#x3002;
+&#x5E38;&#x89C1;&#x7684;&#x65B9;&#x6848;&#x683C;&#x5F0F;:<br></p>
+<blockquote>
+<ul>
+<li>http &#x8D85;&#x6587;&#x672C;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#x65B9;&#x6848;&#xFF0C;&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;&#x4E3A;80</li>
+<li>https &#x65B9;&#x6848;https&#x548C;&#x65B9;&#x6848;http&#x662F;&#x4E00;&#x5BF9;&#xFF0C;&#x4E3A;&#x4E00;&#x4E2A;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x4F7F;&#x7528;&#x4E86;&#x7F51;&#x666F;&#x7684;SSL&#xFF0C;SSL&#x4E3A;http&#x63D0;&#x4F9B;&#x4E86;&#x7AEF;&#x5230;&#x7AEF;&#x7684;&#x52A0;&#x5BC6;&#x673A;&#x5236;&#x3002;&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;&#x4E3A;443</li>
+<li>mailto &#x6307;&#x5411;Email&#x5730;&#x5740;&#x3002;</li>
+<li>ftp &#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x4ECE;ftp&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x4F20;&#x4E0B;&#x8F7D;&#x6587;&#x4EF6;</li>
+<li>file &#x8BBF;&#x95EE;&#x672C;&#x5730;&#x6587;&#x4EF6;</li>
+<li>telnet &#x7528;&#x4E8E;&#x4EA4;&#x4E92;&#x5F0F;&#x8BBF;&#x95EE;&#x4E1A;&#x52A1;</li>
+</ul>
+</blockquote>
+<h3 id="t12&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;">&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027; <a href="#t12&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;"> # </a></h3>
+<p>&#x5728;IE7&#x4EE5;&#x4E0B;&#x7248;&#x672C;&#x7684;IE&#x7CFB;&#x5217;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#xFF0C;&#x8981;&#x5E94;&#x7528;AJAX&#x5FC5;&#x987B;&#x4F7F;&#x7528;<code>ActiveXObject(&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x5FAE;&#x8F6F;&#x63A8;&#x5E7F;&#x548C;&#x652F;&#x6301;&#x5728;Internet Explorer&#x4E2D;&#xFF0C;&#x4E0D;&#x5728;Windows&#x5E94;&#x7528;&#x5546;&#x5E97;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;)</code> &#x65B9;&#x6CD5;&#x3002;&#x5728;&#x6807;&#x51C6;&#x6D4F;&#x89C8;&#x5668;(chrome&#x3001;firefox&#x3001;opera&#x3001;safari&#x3001;ie7+)&#x5F53;&#x4E2D;&#x5219;&#x4F7F;&#x7528;<code>XMLHttpRequest</code>&#x5BF9;&#x8C61;&#x3002;</p>
+<h3 id="t13&#x5982;&#x4F55;&#x53D1;&#x8D77;AJAX?">&#x5982;&#x4F55;&#x53D1;&#x8D77;AJAX? <a href="#t13&#x5982;&#x4F55;&#x53D1;&#x8D77;AJAX?"> # </a></h3>
+<p>&#x5728;&#x4F4E;&#x7248;&#x672C;IE(7-)&#x4E2D;&#x4F7F;&#x7528;<code>ActiveXObject</code>&#x6784;&#x9020;AJAX&#x5BF9;&#x8C61;&#x65F6;&#x9700;&#x8981;&#x4F20;&#x5165;&#x4E00;&#x4E2A;String&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;<code>Microsoft.XMLHTTP</code>&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>Msxml3.XMLHTTP</code>&#x548C;<code>Msxml2.XMLHTTP</code>&#x3002;&#x56E0;&#x4E3A;&#x4E00;&#x5F00;&#x59CB;&#x662F;<code>Microsoft.XMLHTTP</code> &#x4E4B;&#x540E;&#x53D8;&#x6210;<code>Msxml2.XMLHTTP</code>&#x53CA;&#x66F4;&#x65B0;&#x7248;&#x7684;<code>Msxml3.XMLHTTP</code></p>
+<pre><code class="lang-js"><span class="hljs-comment">// code for IE6, IE5</span>
+ <span class="hljs-keyword">var</span> xmlhttp1 = <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Microsoft.XMLHTTP&quot;</span>);
+ <span class="hljs-keyword">var</span> xmlhttp2 = <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Msxml2.XMLHTTP&quot;</span>);
+ <span class="hljs-keyword">var</span> xmlhttp3 = <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Msxml3.XMLHTTP&quot;</span>);
+</code></pre>
+<p>&#x5728;&#x6807;&#x51C6;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x5219;&#x4F7F;&#x7528;<code>XMLHttpRequest</code>&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-js"><span class="hljs-comment">// code for IE8+, Firefox, Chrome, Opera, Safari</span>
+<span class="hljs-keyword">var</span> xmlhttp = <span class="hljs-keyword">new</span> XMLHttpRequest();
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;AJAX&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x505A;&#x4E00;&#x4E2A;&#x5224;&#x65AD;&#xFF0C;&#x5982;&#x679C;&#x6D4F;&#x89C8;&#x5668;&#x4E3A;&#x4F4E;&#x7248;&#x672C;IE&#x5C31;&#x4F7F;&#x7528;<code>ActiveXObject</code>&#x5BF9;&#x8C61;&#x5426;&#x5219;&#x4F7F;&#x7528;<code>XMLHttpRequest</code>&#x5BF9;&#x8C61;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> XHR = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> xmlhttp;
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.XMLHttpRequest) {
+        <span class="hljs-comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span>
+        xmlhttp = <span class="hljs-keyword">new</span> XMLHttpRequest();
+    }
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// code for IE6, IE5</span>
+        xmlhttp = <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Microsoft.XMLHTTP&quot;</span>);
+    }
+    <span class="hljs-keyword">return</span> xmlhttp;
+  };
+<span class="hljs-keyword">var</span> xmlObj=XHR();
+<span class="hljs-built_in">console</span>.log(xmlObj);
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5728;&#x4EFB;&#x4F55;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x80FD;&#x53D1;&#x8D77;AJAX&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x5DE6;&#x53F3;&#x4E00;&#x4E2A;&#x574F;&#x5904;&#xFF0C;&#x5C31;&#x662F;&#x6BCF;&#x6B21;&#x83B7;&#x53D6;AJAX&#x5BF9;&#x8C61;&#x65F6;&#x90FD;&#x4F1A;&#x5224;&#x65AD;&#x4E00;&#x6B21;&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x5F88;&#x8D39;&#x65F6;&#x8D39;&#x529B;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x5229;&#x7528;<code>&#x60F0;&#x6027;&#x51FD;&#x6570;</code>&#x7684;&#x6982;&#x5FF5;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x53EA;&#x9700;&#x8981;&#x7B2C;&#x4E00;&#x6B21;&#x5224;&#x65AD;&#xFF0C;&#x540E;&#x9762;&#x90FD;&#x4E0D;&#x9700;&#x8981;&#x5224;&#x65AD;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-js"> <span class="hljs-keyword">var</span> XHR = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+ <span class="hljs-comment">//&#x5C06;&#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;&#x7684;AJAX&#x5BF9;&#x8C61;&#x653E;&#x5165;&#x4E00;&#x4E2A;function&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x6839;&#x636E;&#x56FA;&#x5B9A;&#x7684;&#x987A;&#x5E8F;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#x91CC;&#x3002;</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> AJAXObj = [<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> XMLHttpRequest
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Msxml2.XMLHTTP&quot;</span>)
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Msxml3.XMLHTTP&quot;</span>)
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Microsoft.XMLHTTP&quot;</span>)
+        }], val = <span class="hljs-literal">null</span>, index = <span class="hljs-number">0</span>; index &lt; AJAXObj.length; index++) {
+        <span class="hljs-comment">//&#x6B64;&#x65B9;&#x6CD5;&#x7684;&#x6838;&#x5FC3;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;&#x6B64;&#x5BF9;&#x8C61;&#x5C31;&#x7528;val&#x4FDD;&#x5B58;&#x8D77;&#x6765;&#xFF0C;&#x7528;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x6700;&#x9002;&#x5408;ajax&#x5BF9;&#x8C61;&#x7684;function&#x66FF;&#x6362;XHR&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x4E14;&#x7ED3;&#x675F;&#x8BE5;&#x5FAA;&#x73AF;&#x3002;&#x8FD9;&#x6837;&#x7B2C;&#x4E8C;&#x6B21;&#x6267;&#x884C;XHR&#x65B9;&#x6CD5;&#x65F6;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x5FAA;&#x73AF;&#xFF0C;&#x76F4;&#x63A5;&#x5C31;&#x80FD;&#x5F97;&#x5230;&#x5F53;&#x524D;&#x6D4F;&#x89C8;&#x5668;&#x6700;&#x9002;ajax&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x90FD;&#x4E0D;&#x652F;&#x6301;&#x5C31;&#x629B;&#x51FA;&#x81EA;&#x5B9A;&#x4E49;&#x5F15;&#x7528;&#x9519;&#x8BEF;&#x3002;</span>
+            <span class="hljs-keyword">try</span> {
+                val = AJAXObj[index]()
+            } <span class="hljs-keyword">catch</span> (b) {
+                <span class="hljs-keyword">continue</span>
+            }
+            <span class="hljs-comment">//&#x5047;&#x8BBE;&#x5F53;&#x524D;&#x6D4F;&#x89C8;&#x5668;&#x4E3A;&#x6807;&#x51C6;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x6B64;&#x5904;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;console.log(XHR);</span>
+            <span class="hljs-comment">//&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;function () {</span>
+            <span class="hljs-comment">//  return new XMLHttpRequest</span>
+            <span class="hljs-comment">//};XHR&#x6210;&#x529F;&#x66FF;&#x6362;&#x3002;</span>
+            XHR=AJAXObj[index];
+            <span class="hljs-keyword">break</span>
+        }
+        <span class="hljs-keyword">if</span> (!val) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">ReferenceError</span>(<span class="hljs-string">&quot;XMLHttpRequest is not supported&quot;</span>)
+        }
+        <span class="hljs-keyword">return</span> val;
+    };
+  <span class="hljs-keyword">var</span> xmlObj=XHR();
+  <span class="hljs-built_in">console</span>.log(xmlObj);
+</code></pre>
+<p>&#x672C;&#x65B9;&#x6CD5;&#x7684;&#x6838;&#x5FC3;&#x5C31;&#x662F;&#x5229;&#x7528; <code>&#x60F0;&#x6027;&#x51FD;&#x6570;</code> &#x3002;&#x8FD9;&#x624D;&#x662F;&#x6B63;&#x70B9;&#x3002;&#x7B2C;&#x4E00;&#x6B21;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x7684;&#x503C;&#xFF0C;&#x4F9B;&#x5185;&#x90E8;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x7136;&#x540E;&#x7528;&#x8FD9;&#x4E2A;&#x5185;&#x90E8;&#x51FD;&#x6570;&#x91CD;&#x7F6E;&#x5916;&#x90E8;&#x51FD;&#x6570;&#xFF08;&#x56E0;&#x4E3A;&#x540C;&#x540D;&#xFF09;&#xFF0C;&#x4EE5;&#x540E;&#x5C31;&#x4E0D;&#x7528;&#x8BA1;&#x7B97;&#x4E86;&#xFF0C;&#x4E5F;&#x4E0D;&#x7528;&#x5224;&#x65AD;&#x5206;&#x652F;&#x6761;&#x4EF6;&#x3002;&#x8FD9;&#x65F6;&#x51FD;&#x6570;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x88AB;&#x8D4B;&#x503C;&#x7684;&#x53D8;&#x91CF;&#x3002;<br>
+&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x4F9D;&#x6B21;&#x4ECB;&#x7ECD;<code>XMLHttpRequest</code>&#x548C;<code>ActiveXObject</code>&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x3002;</p>
+<h4 id="t14&#x4F7F;&#x7528;XMLHttpRequest">&#x4F7F;&#x7528;XMLHttpRequest <a href="#t14&#x4F7F;&#x7528;XMLHttpRequest"> # </a></h4>
+<p>XMLHttpRequest &#x662F;&#x4E00;&#x4E2A; JavaScript &#x5BF9;&#x8C61;,&#x5B83;&#x6700;&#x521D;&#x7531;&#x5FAE;&#x8F6F;&#x8BBE;&#x8BA1;,&#x968F;&#x540E;&#x88AB; Mozilla,Apple, &#x548C; Google&#x91C7;&#x7EB3;. &#x5982;&#x4ECA;,&#x8BE5;&#x5BF9;&#x8C61;&#x5DF2;&#x7ECF;&#x88AB; W3C&#x7EC4;&#x7EC7;&#x6807;&#x51C6;&#x5316;. &#x901A;&#x8FC7;&#x5B83;,&#x4F60;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x53D6;&#x56DE;&#x4E00;&#x4E2A;URL&#x4E0A;&#x7684;&#x8D44;&#x6E90;&#x6570;&#x636E;. &#x5C3D;&#x7BA1;&#x540D;&#x5B57;&#x91CC;&#x6709;XML, &#x4F46;XMLHttpRequest &#x53EF;&#x4EE5;&#x53D6;&#x56DE;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x8D44;&#x6E90;,&#x5E76;&#x4E0D;&#x5C40;&#x9650;&#x4E8E;XML. &#x800C;&#x4E14;&#x9664;&#x4E86;HTTP ,&#x5B83;&#x8FD8;&#x652F;&#x6301;file &#x548C; ftp &#x534F;&#x8BAE;.<br></p>
+<p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x521B;&#x5EFA;&#x5E76;&#x4F7F;&#x7528;&#x4E00;&#x4E2A; XMLHttpRequest &#x5B9E;&#x4F8B;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x8BED;&#x53E5;:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> req = <span class="hljs-keyword">new</span> XMLHttpRequest();
+<span class="hljs-comment">//do something...</span>
+</code></pre>
+<p>XMLHttpRequest &#x8BA9;&#x53D1;&#x9001;&#x4E00;&#x4E2A;HTTP&#x8BF7;&#x6C42;&#x53D8;&#x5F97;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x3002;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x7B80;&#x5355;&#x7684;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#xFF0C;&#x6253;&#x5F00;&#x4E00;&#x4E2A;URL&#xFF0C;&#x7136;&#x540E;&#x53D1;&#x9001;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x3002;&#x5F53;&#x4F20;&#x8F93;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x7ED3;&#x679C;&#x7684;HTTP&#x72B6;&#x6001;&#x4EE5;&#x53CA;&#x8FD4;&#x56DE;&#x7684;&#x54CD;&#x5E94;&#x5185;&#x5BB9;&#x4E5F;&#x53EF;&#x4EE5;&#x4ECE;&#x8BF7;&#x6C42;&#x5BF9;&#x8C61;&#x4E2D;&#x83B7;&#x53D6;&#x3002;&#x672C;&#x9875;&#x628A;&#x8FD9;&#x4E2A;&#x5F3A;&#x5927;&#x7684;JavaScript&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x751A;&#x81F3;&#x7565;&#x6709;&#x6666;&#x6DA9;&#x7684;&#x4F7F;&#x7528;&#x6848;&#x4F8B;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x4E0B;&#x6982;&#x8FF0;&#x3002;<br></p>
+<p>XMLHttpRequest&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&#x6982;&#x8FF0;&#xFF1A;</p>
+<ul>
+<li><strong>&#x8FD4;&#x56DE;&#x503C;</strong>   <strong>&#x65B9;&#x6CD5;(&#x53C2;&#x6570;)</strong></li>
+<li>void <code>abort</code>();&#x4E2D;&#x6B62;&#x64CD;&#x4F5C;</li>
+<li>DOMString <code>getAllResponseHeaders</code>();&#x5F97;&#x5230;&#x6240;&#x6709;&#x54CD;&#x5E94;&#x5934;</li>
+<li>DOMString? <code>getResponseHeader</code>(DOMString header);&#x5F97;&#x5230;&#x6307;&#x5B9A;&#x54CD;&#x5E94;&#x5934;</li>
+<li>void <code>open</code>(DOMString method, DOMString url, optional boolean async, optional DOMString? user, optional DOMString? +   password);&#x5F00;&#x542F;XMLHttpRequest&#x5BF9;&#x8C61;</li>
+<li>void <code>overrideMimeType</code>(DOMString mime);&#x91CD;&#x5199;MIME&#x7C7B;&#x578B;</li>
+<li>void <code>send</code>();&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x6B64;&#x65B9;&#x6CD5;&#x6709;&#x516D;&#x79CD;&#x91CD;&#x8F7D;</li>
+<li>void <code>send</code>(ArrayBuffer data);&#x53D1;&#x9001;&#x4E8C;&#x8FDB;&#x5236;&#x6D41;</li>
+<li>void <code>send</code>(Blob data);&#x53D1;&#x9001;&#x4E8C;&#x8FDB;&#x5236;&#x5757;</li>
+<li>void <code>send</code>(Document data);&#x53D1;&#x9001;&#x6587;&#x6863;</li>
+<li>void <code>send</code>(DOMString? data);&#x53D1;&#x9001;&#x5B57;&#x7B26;&#x4E32;</li>
+<li>void <code>send</code>(FormData data);&#x53D1;&#x9001;&#x683C;&#x5F0F;&#x5316;&#x8868;&#x5355;&#x6570;&#x636E;</li>
+<li>void <code>setRequestHeader</code>(DOMString header, DOMString value);&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x5934;</li>
+</ul>
+<p>XMLHttpRequest&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x6982;&#x8FF0;&#xFF1A;</p>
+<ul>
+<li><strong>&#x5C5E;&#x6027;&#x540D;</strong>  <strong>&#x683C;&#x5F0F;&#x7C7B;&#x578B;</strong>  <strong>&#x8BF4;&#x660E;</strong></li>
+<li><code>onreadystatechange</code>  <code>Function?</code>     &#x4E00;&#x4E2A;JavaScript&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x5F53;readyState&#x5C5E;&#x6027;&#x6539;&#x53D8;&#x65F6;&#x4F1A;&#x8C03;&#x7528;&#x5B83;&#x3002;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4F1A;&#x5728;&#x7528;&#x6237;&#x63A5;&#x53E3;&#x7EBF;&#x7A0B;&#x4E2D;&#x8C03;&#x7528;&#x3002;(<code>&#x8B66;&#x544A;: &#x4E0D;&#x80FD;&#x5728;&#x672C;&#x5730;&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;. &#x4E5F;&#x4E0D;&#x5E94;&#x8BE5;&#x5728;&#x540C;&#x6B65;&#x6A21;&#x5F0F;&#x7684;&#x8BF7;&#x6C42;&#x4E2D;&#x4F7F;&#x7528;.</code>)</li>
+<li><code>readyState</code>     <code>unsigned short</code> &#x8BF7;&#x6C42;&#x7684;&#x4E94;&#x79CD;&#x72B6;&#x6001;: 0    UNSENT (&#x672A;&#x6253;&#x5F00;)    open()&#x65B9;&#x6CD5;&#x8FD8;&#x672A;&#x88AB;&#x8C03;&#x7528;&#x3001; 1    OPENED  (&#x672A;&#x53D1;&#x9001;)    send()&#x65B9;&#x6CD5;&#x8FD8;&#x672A;&#x88AB;&#x8C03;&#x7528;&#x3001;2    HEADERS_RECEIVED (&#x5DF2;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x5934;)    send()&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x88AB;&#x8C03;&#x7528;, &#x54CD;&#x5E94;&#x5934;&#x548C;&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x5DF2;&#x7ECF;&#x8FD4;&#x56DE;&#x3001; 3    LOADING (&#x6B63;&#x5728;&#x4E0B;&#x8F7D;&#x54CD;&#x5E94;&#x4F53;)    &#x54CD;&#x5E94;&#x4F53;&#x4E0B;&#x8F7D;&#x4E2D;; responseText&#x4E2D;&#x5DF2;&#x7ECF;&#x83B7;&#x53D6;&#x4E86;&#x90E8;&#x5206;&#x6570;&#x636E;&#x3001; 4    DONE (&#x8BF7;&#x6C42;&#x5B8C;&#x6210;)    &#x6574;&#x4E2A;&#x8BF7;&#x6C42;&#x8FC7;&#x7A0B;&#x5DF2;&#x7ECF;&#x5B8C;&#x6BD5;.</li>
+<li><code>response</code>     <code>varies</code>    &#x54CD;&#x5E94;&#x5B9E;&#x4F53;&#x7684;&#x7C7B;&#x578B;&#x7531; responseType &#x6765;&#x6307;&#x5B9A;&#xFF0C; &#x53EF;&#x4EE5;&#x662F; ArrayBuffer&#xFF0C; Blob&#xFF0C; Document&#xFF0C; JavaScript &#x5BF9;&#x8C61; (&#x5373; &quot;json&quot;)&#xFF0C; &#x6216;&#x8005;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x672A;&#x5B8C;&#x6210;&#x6216;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x8BE5;&#x503C;&#x4E3A; null&#x3002;</li>
+<li><code>responseText</code>     <code>DOMString</code>    &#x6B64;&#x6B21;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x4E3A;&#x6587;&#x672C;&#xFF0C;&#x6216;&#x662F;&#x5F53;&#x8BF7;&#x6C42;&#x672A;&#x6210;&#x529F;&#x6216;&#x8FD8;&#x672A;&#x53D1;&#x9001;&#x65F6;&#x4E3A; null&#x3002;&#x53EA;&#x8BFB;&#x3002;</li>
+<li><code>responseType</code>     <code>XMLHttpRequestResponseType</code> &#x8BBE;&#x7F6E;&#x8BE5;&#x503C;&#x80FD;&#x591F;&#x6539;&#x53D8;&#x54CD;&#x5E94;&#x7C7B;&#x578B;&#x3002;&#x5C31;&#x662F;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#x4F60;&#x671F;&#x671B;&#x7684;&#x54CD;&#x5E94;&#x683C;&#x5F0F;&#xFF1A; <code>&quot;&quot; (&#x7A7A;&#x5B57;&#x7B26;&#x4E32;)</code>     &#x5B57;&#x7B26;&#x4E32;(&#x9ED8;&#x8BA4;&#x503C;)&#x3001; <code>&quot;ArrayBufferView&quot;</code>     ArrayBufferView&#x3001; <code>&quot;blob&quot;</code>     Blob&#x3001; <code>&quot;document&quot;</code>     Document&#x3001; <code>&quot;json&quot;</code>     JavaScript Object&#x3001; <code>&quot;text&quot;</code>     &#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li><code>responseXML</code>     <code>Document?</code> &#x672C;&#x6B21;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x662F;&#x4E00;&#x4E2A; Document &#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4EE5;&#x4E0B;&#x60C5;&#x51B5;&#x5219;&#x503C;&#x4E3A; null&#xFF1A;&#x8BF7;&#x6C42;&#x672A;&#x6210;&#x529F;&#xFF0C;&#x8BF7;&#x6C42;&#x672A;&#x53D1;&#x9001;&#xFF0C;&#x6216;&#x54CD;&#x5E94;&#x65E0;&#x6CD5;&#x88AB;&#x89E3;&#x6790;&#x6210; XML &#x6216; HTML&#x3002;&#x5F53;&#x54CD;&#x5E94;&#x4E3A;text/xml &#x6D41;&#x65F6;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x3002;&#x5F53; responseType &#x8BBE;&#x7F6E;&#x4E3A;&quot;document&quot;&#xFF0C;&#x5E76;&#x4E14;&#x8BF7;&#x6C42;&#x4E3A;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x5219;&#x54CD;&#x5E94;&#x4F1A;&#x88AB;&#x5F53;&#x505A; text/html &#x6D41;&#x6765;&#x89E3;&#x6790;&#x3002;&#x53EA;&#x8BFB;.(<code>&#x6CE8;&#x610F;: &#x5982;&#x679C;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x652F;&#x6301; text/xml Content-Type &#x5934;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; overrideMimeType() &#x5F3A;&#x5236; XMLHttpRequest &#x5C06;&#x54CD;&#x5E94;&#x89E3;&#x6790;&#x4E3A; XML&#x3002;</code>)</li>
+<li><code>status</code>     <code>unsigned short</code>    &#x8BE5;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x7801; (&#x4F8B;&#x5982;, &#x72B6;&#x6001;&#x7801;200 &#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6210;&#x529F;&#x7684;&#x8BF7;&#x6C42;).&#x53EA;&#x8BFB;.</li>
+<li><code>statusText</code>     <code>DOMString</code>    &#x8BE5;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x4FE1;&#x606F;,&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7801;&#x548C;&#x539F;&#x56E0;&#x77ED;&#x8BED; (&#x4F8B;&#x5982; &quot;200 OK&quot;). &#x53EA;&#x8BFB;.</li>
+<li><code>upload</code>     <code>XMLHttpRequestUpload</code>    &#x53EF;&#x4EE5;&#x5728; upload &#x4E0A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x6765;&#x8DDF;&#x8E2A;&#x4E0A;&#x4F20;&#x8FC7;&#x7A0B;&#x3002;</li>
+<li><code>withCredentials</code>     <code>boolean</code> &#x8868;&#x660E;&#x5728;&#x8FDB;&#x884C;&#x8DE8;&#x7AD9;(cross-site)&#x7684;&#x8BBF;&#x95EE;&#x63A7;&#x5236;(Access-Control)&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;(&#x4F8B;&#x5982;cookie&#x6216;&#x6388;&#x6743;&#x7684;header)&#x3002; &#x9ED8;&#x8BA4;&#x4E3A; false&#x3002;<em>&#x6CE8;&#x610F;: &#x8FD9;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x540C;&#x7AD9;(same-site)&#x8BF7;&#x6C42;.</em></li>
+</ul>
+<h5 id="t15XMLHttpRequest&#x548C;&#x672C;&#x5730;&#x6587;&#x4EF6;">XMLHttpRequest&#x548C;&#x672C;&#x5730;&#x6587;&#x4EF6; <a href="#t15XMLHttpRequest&#x548C;&#x672C;&#x5730;&#x6587;&#x4EF6;"> # </a></h5>
+<p><em>&#x7F51;&#x9875;&#x4E2D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x76F8;&#x5BF9;URL&#x7684;&#x80FD;&#x529B;&#x901A;&#x5E38;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x80FD;&#x4F7F;&#x7528;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6765;&#x5F00;&#x53D1;&#x548C;&#x6D4B;&#x8BD5;HTML&#xFF0C;&#x5E76;&#x907F;&#x514D;&#x5BF9;web&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x884C;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x90E8;&#x7F72;&#x3002;&#x7136;&#x540E;&#x5F53;&#x4F7F;&#x7528;XMLHttpRqeust&#x8FDB;&#x884C;Ajax&#x7F16;&#x7A0B;&#x65F6;&#xFF0C;&#x8FD9;&#x901A;&#x5E38;&#x662F;&#x4E0D;&#x53EF;&#x884C;&#x7684;&#x3002;XMLHttpRequest&#x7528;&#x4E8E;HTTP&#x548C;HTTPS&#x534F;&#x8BAE;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#x3002;&#x7406;&#x8BBA;&#x4E0A;&#xFF0C;&#x5B83;&#x80FD;&#x591F;&#x540C;&#x50CF;FTP&#x8FD9;&#x6837;&#x7684;&#x5176;&#x4ED6;&#x534F;&#x8BAE;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F46;&#x6BD4;&#x5982;&#x50CF;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#x548C;&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x7801;&#x7B49;&#x90E8;&#x5206;API&#x662F;HTTP&#x7279;&#x6709;&#x7684;&#x3002;&#x5982;&#x679C;&#x4ECE;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x4E2D;&#x52A0;&#x8F7D;&#x7F51;&#x9875;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x7F51;&#x9875;&#x4E2D;&#x7684;&#x811A;&#x672C;&#x5C06;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x76F8;&#x5BF9;URL&#x4F7F;&#x7528;XMLHttpRequest&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E9B;URL&#x5C06;&#x76F8;&#x5BF9;&#x4E8E;<code>file://URL</code>&#x800C;&#x4E0D;&#x662F;<code>http://URL</code>&#x3002;&#x800C;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x901A;&#x5E38;&#x4F1A;&#x963B;&#x6B62;&#x4F7F;&#x7528;&#x7EDD;&#x5BF9;<code>http://URL</code>&#x3002;&#x7ED3;&#x679C;&#x662F;&#x5F53;&#x4F7F;&#x7528;XMLHttpRequest&#x65F6;&#xFF0C;&#x4E3A;&#x4E86;&#x6D4B;&#x8BD5;&#x5B83;&#x4EEC;&#x901A;&#x5E38;&#x5FC5;&#x987B;&#x628A;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x5230;wen&#x670D;&#x52A1;&#x5668;(&#x6216;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;)</em></p>
+<h5 id="t16&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5; <a href="#t16&#x65B9;&#x6CD5;"> # </a></h5>
+<h6 id="t17abort()">abort() <a href="#t17abort()"> # </a></h6>
+<pre><code class="lang-js">req.abort();
+</code></pre>
+<p>&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x5DF2;&#x7ECF;&#x88AB;&#x53D1;&#x9001;,&#x5219;&#x7ACB;&#x523B;&#x4E2D;&#x6B62;&#x8BF7;&#x6C42;(cancel).abort()&#x65B9;&#x6CD5;&#x5728;&#x6240;&#x6709;&#x7684;XMLHttpRequest&#x7248;&#x672C;&#x548C;XHR2&#x4E2D;&#x53EF;&#x7528;&#xFF0C;&#x8C03;&#x7528;abort()&#x65B9;&#x6CD5;&#x5728;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x89E6;&#x53D1;abort&#x4E8B;&#x4EF6;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;XMLHttpRequest&#x5BF9;&#x8C61;&#x7684;<code>onabort</code>&#x5C5E;&#x6027;&#x662F;&#x5426;&#x5B58;&#x5728;&#x6765;&#x5224;&#x65AD;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//if&#x6210;&#x7ACB;&#x7684;&#x8BDD;abort()&#x5B58;&#x5728;,&#x5426;&#x5219;&#x4E0D;&#x5B58;&#x5728;</span>
+<span class="hljs-keyword">if</span>(<span class="hljs-string">&apos;onabort&apos;</span> <span class="hljs-keyword">in</span> req){
+   req.abort();
+}
+</code></pre>
+<h6 id="t18getAllResponseHeaders()">getAllResponseHeaders() <a href="#t18getAllResponseHeaders()"> # </a></h6>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> allHeaders = req.getAllResponseHeaders();
+</code></pre>
+<p>&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x54CD;&#x5E94;&#x5934;&#x4FE1;&#x606F;(&#x54CD;&#x5E94;&#x5934;&#x540D;&#x548C;&#x503C;), &#x5982;&#x679C;&#x54CD;&#x5E94;&#x5934;&#x8FD8;&#x6CA1;&#x63A5;&#x6536;,&#x5219;&#x8FD4;&#x56DE;null. (<code>&#x6CE8;&#x610F;: &#x5BF9;&#x4E8E;&#x591A;&#x90E8;&#x5206;&#x8BF7;&#x6C42;&#xFF0C;&#x8FD9;&#x5C06;&#x8FD4;&#x56DE;&#x5934;&#x4ECE;&#x8BF7;&#x6C42;&#x7684;&#x5F53;&#x524D;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4ECE;&#x539F;&#x6765;&#x7684;&#x901A;&#x9053;&#x4E0A;&#x3002;</code>)</p>
+<h6 id="t19getResponseHeader()">getResponseHeader() <a href="#t19getResponseHeader()"> # </a></h6>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> dateHeader = req.getAllResponseHeaders(<span class="hljs-string">&quot;Date&quot;</span>);
+</code></pre>
+<p>&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x7684;&#x503C;, &#x5982;&#x679C;&#x54CD;&#x5E94;&#x5934;&#x8FD8;&#x6CA1;&#x88AB;&#x63A5;&#x53D7;,&#x6216;&#x8BE5;&#x54CD;&#x5E94;&#x5934;&#x4E0D;&#x5B58;&#x5728;,&#x5219;&#x8FD4;&#x56DE;null.</p>
+<h6 id="t20open()">open() <a href="#t20open()"> # </a></h6>
+<p><em>&#x6CE8;&#x610F;: &#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5DF2;&#x7ECF;&#x53D1;&#x51FA;&#x4E3B;&#x52A8;&#x8BF7;&#x6C42;&#xFF08;open()&#x6216;openRequest()&#x5DF2;&#x7ECF;&#x88AB;&#x8C03;&#x7528;&#xFF09;&#x662F;&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528;abort()&#x3002;</em></p>
+<pre><code class="lang-js">req.open(http Method,URL,isAsync,userName,password);
+<span class="hljs-comment">//&#x53C2;&#x6570;</span>
+<span class="hljs-comment">//http Method &#x8BF7;&#x6C42;&#x6240;&#x4F7F;&#x7528;&#x7684;HTTP&#x65B9;&#x6CD5;; &quot;POST&quot; &#x6216;&#x8005; &quot;GET&quot;. &#x5982;&#x679C;&#x4E0B;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x975E;HTTP(S)&#x7684;URL,&#x5219;&#x5FFD;&#x7565;&#x8BE5;&#x53C2;&#x6570;.</span>
+<span class="hljs-comment">//URL &#x8BE5;&#x8BF7;&#x6C42;&#x6240;&#x8981;&#x8BBF;&#x95EE;&#x7684;URL</span>
+<span class="hljs-comment">//isAsync &#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x5E03;&#x5C14;&#x53C2;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&#x771F;&#xFF0C;&#x6307;&#x793A;&#x662F;&#x5426;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x8BE5;&#x503C;&#x4E3A;false&#x65F6;&#xFF0C;send()&#x65B9;&#x6CD5;&#x4E0D;&#x8FD4;&#x56DE;&#x76F4;&#x5230;&#x6536;&#x5230;&#x54CD;&#x5E94;&#x3002;&#x5982;&#x679C;&#x4E3A;true&#xFF0C;&#x5B8C;&#x6210;&#x4EA4;&#x6613;&#x7684;&#x901A;&#x77E5;&#x4F7F;&#x7528;&#x4E8B;&#x4EF6;&#x4FA6;&#x542C;&#x5668;&#x63D0;&#x4F9B;&#x3002;&#x8FD9;&#x5FC5;&#x987B;&#x662F;&#x771F;&#x5B9E;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x591A;&#x90E8;&#x5206;&#x5C5E;&#x6027;&#x4E3A;true&#xFF0C;&#x6216;&#x5C06;&#x5F15;&#x53D1;&#x5F02;&#x5E38;&#x3002;</span>
+<span class="hljs-comment">//userName &#x53EF;&#x9009;&#x7684;&#x7528;&#x6237;&#x540D;&#xFF0C;&#x4EE5;&#x7528;&#x4E8E;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x7684;&#x76EE;&#x7684;;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</span>
+<span class="hljs-comment">//password &#x53EF;&#x9009;&#x7684;&#x5BC6;&#x7801;&#x7528;&#x4E8E;&#x8BA4;&#x8BC1;&#x7684;&#x76EE;&#x7684;;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</span>
+</code></pre>
+<p>&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;. &#x8BE5;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;JavaScript&#x4EE3;&#x7801;&#x4E2D;;&#x5982;&#x679C;&#x662F;&#x672C;&#x5730;&#x4EE3;&#x7801;, &#x4F7F;&#x7528; openRequest()&#x65B9;&#x6CD5;&#x4EE3;&#x66FF;.<br>
+<em>&#x5982;&#x679C;&#x4F20;&#x5165;&#x7684;http method&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x4E0E; CONNECT, DELETE, GET, HEAD, OPTIONS, POST, PUT, TRACE, &#x6216;&#x8005; TRACK&#x5339;&#x914D;&#x4E0A;, &#x4ECE;&#x8303;&#x56F4;0x61&#xFF08;ASCII a&#xFF09;&#x6BCF;&#x4E2A;&#x5B57;&#x8282;0x7A&#xFF08;ASCII a&#xFF09;&#x51CF;&#x53BB;0x20&#x3002;&#x628A;&#x5C0F;&#x5199;&#x8F6C;&#x6362;&#x6210;&#x5927;&#x5199;(<code>&#x5982;&#x679C;&#x5B83;&#x4E0D;&#x5339;&#x914D;&#x4EFB;&#x4F55;&#x4E0A;&#x8FF0;&#x60C5;&#x51B5;&#xFF0C;&#x5B83;&#x662F;&#x901A;&#x8FC7;&#x4F20;&#x9012;&#x5B57;&#x9762;&#x4E0A;&#xFF0C;&#x5305;&#x62EC;&#x5728;&#x6700;&#x540E;&#x7684;&#x8BF7;&#x6C42;&#x3002;</code>)</em></p>
+<p><em>&#x5982;&#x679C;http method &#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x5339;&#x914D;&#x5230; CONNECT, TRACE, &#x6216;&#x8005; TRACK &#x8FD9;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;, &#x629B;&#x51FA; &quot;SecurityError&quot; &#x5F02;&#x5E38;&#xFF0C;&#x56E0;&#x4E3A;&#x5B89;&#x5168;&#x98CE;&#x9669;&#x5DF2;&#x88AB;&#x660E;&#x786E;&#x7981;&#x6B62;&#x3002;&#x65E7;&#x6D4F;&#x89C8;&#x5668;&#x5E76;&#x4E0D;&#x652F;&#x6301;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x81F3;&#x5C11;<code>HEAD</code>&#x5F97;&#x5230;&#x5E7F;&#x6CDB;&#x652F;&#x6301;</em></p>
+<h6 id="t21overrideMimeType()">overrideMimeType() <a href="#t21overrideMimeType()"> # </a></h6>
+<pre><code class="lang-js">req.overrideMimeType(<span class="hljs-string">&quot;text/plain&quot;</span>);
+<span class="hljs-comment">//&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x4E3A;MIME Type&#x683C;&#x5F0F;</span>
+</code></pre>
+<p>&#x91CD;&#x5199;&#x7531;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7684;MIME&#x7C7B;&#x578B;&#x3002;&#x8FD9;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x4E00;&#x4E0B;&#x60C5;&#x51B5;&#x3002;&#x5047;&#x5982;&#x4F60;&#x5C06;&#x4E0B;&#x8F7D;XML&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4F60;&#x8BA1;&#x5212;&#x628A;&#x5B83;&#x5F53;&#x6210;&#x7EAF;&#x6587;&#x672C;&#x5BF9;&#x5F85;&#x3002;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;overrideMimeType()&#x8BA9;XMLHttpRequest&#x77E5;&#x9053;&#x5B83;&#x4E0D;&#x9700;&#x8981;&#x628A;&#x6587;&#x4EF6;&#x89E3;&#x6790;&#x4E3A;XML&#x6587;&#x6863;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x4E0D;&#x8981;&#x628A;&#x54CD;&#x5E94;&#x4F5C;&#x4E3A;XML&#x6587;&#x6863;&#x5904;&#x7406;</span>
+req.overrideMimeType(<span class="hljs-string">&apos;text/plain; charset=utf-8&apos;</span>);
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;send()&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x3002;</p>
+<h6 id="t22onload">onload <a href="#t22onload"> # </a></h6>
+<pre><code class="lang-js">req.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText,<span class="hljs-keyword">this</span>.responseType,<span class="hljs-keyword">this</span>.response);
+}
+</code></pre>
+<p>&#x5F53;XMLHttpRequest&#x5BF9;&#x8C61;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x65F6;(readyState&#x4E3A;4)&#x89E6;&#x53D1;&#x3002;&#x4E14;&#x53EA;&#x4E0E;readyState&#x6709;&#x5173;&#xFF0C;&#x4E0E;status&#x548C;statustext&#x65E0;&#x5173;&#x3002;&#x6240;&#x4EE5;&#x5F53;&#x6CE8;&#x518C;onload&#x7684;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x65F6;&#x4E0D;&#x4E00;&#x5B9A;&#x4E3A;&#x6210;&#x529F;&#x7684;&#x72B6;&#x6001;&#x3002;&#x53EA;&#x662F;&#x4E5F;&#x4EC5;&#x4EC5;&#x662F;&#x8FD9;&#x4E2A;&#x6761;http&#x4E8B;&#x52A1;&#x5B8C;&#x6210;&#x800C;&#x5DF2;&#x3002;&#x4E0D;&#x6CE8;&#x518C;&#x6B64;&#x65B9;&#x6CD5;&#x5219;onload&#x9ED8;&#x8BA4;&#x4E3A;null&#x3002;</p>
+<h6 id="t23onreadystatechange">onreadystatechange <a href="#t23onreadystatechange"> # </a></h6>
+<pre><code class="lang-js">req.onreadystatechange=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+<span class="hljs-comment">//&#x5224;&#x65AD;ajax&#x6210;&#x529F;,&#x6B64;&#x5199;&#x6CD5;&#x6709;&#x517C;&#x5BB9;&#x6027;&#x3002;</span>
+ <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.readyState==<span class="hljs-keyword">this</span>.DONE&amp;&amp;<span class="hljs-keyword">this</span>.statusText==<span class="hljs-string">&quot;OK&quot;</span>){
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.response,<span class="hljs-string">&apos;&#x6210;&#x529F;&apos;</span>);
+ }
+<span class="hljs-comment">//&#x5224;&#x65AD;ajax&#x6210;&#x529F;&#x8FD8;&#x6709;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x5199;&#x6CD5;</span>
+ <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.readyState==<span class="hljs-number">4</span>&amp;&amp;<span class="hljs-keyword">this</span>.status==<span class="hljs-number">200</span>){
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText,<span class="hljs-string">&apos;&#x6210;&#x529F;&apos;</span>);
+ }
+}
+</code></pre>
+<p>&#x6BCF;&#x5F53;readyState&#x7684;&#x503C;&#x6539;&#x53D8;&#x65F6;&#x5C31;&#x4F1A;&#x51FA;&#x53D1;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;&#x4E0D;&#x6CE8;&#x518C;&#x6B64;&#x65B9;&#x6CD5;&#x5219;onreadystatechange&#x9ED8;&#x8BA4;&#x4E3A;null&#x3002;</p>
+<h6 id="t24send()">send() <a href="#t24send()"> # </a></h6>
+<p><em>&#x6CE8;&#x610F;: &#x6240;&#x6709;&#x76F8;&#x5173;&#x7684;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x5FC5;&#x987B;&#x5728;&#x8C03;&#x7528;send()&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#x8FDB;&#x884C;.</em></p>
+<pre><code class="lang-js">req.send(<span class="hljs-literal">undefined</span>||<span class="hljs-literal">null</span>||ArrayBufferView||Blob||XML||<span class="hljs-built_in">String</span>||FormData);
+<span class="hljs-comment">//&#x6B64;&#x65B9;&#x6CD5;&#x6709;7&#x79CD;&#x53C2;&#x6570;&#x91CD;&#x8F7D;</span>
+</code></pre>
+<p>&#x53D1;&#x9001;&#x8BF7;&#x6C42;. &#x5982;&#x679C;&#x8BE5;&#x8BF7;&#x6C42;&#x662F;&#x5F02;&#x6B65;&#x6A21;&#x5F0F;(&#x9ED8;&#x8BA4;),&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x7ACB;&#x523B;&#x8FD4;&#x56DE;. &#x76F8;&#x53CD;,&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x662F;&#x540C;&#x6B65;&#x6A21;&#x5F0F;,&#x5219;&#x76F4;&#x5230;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x5B8C;&#x5168;&#x63A5;&#x53D7;&#x4EE5;&#x540E;,&#x8BE5;&#x65B9;&#x6CD5;&#x624D;&#x4F1A;&#x8FD4;&#x56DE;.<br>
+GET&#x8BF7;&#x6C42;<code>&#x7EDD;&#x5BF9;</code>&#x6CA1;&#x6709;&#x4E3B;&#x4F53;&#xFF0C;&#x6240;&#x4EE5;&#x5E94;&#x8BE5;&#x4F20;&#x9012;null&#x6216;&#x8005;&#x7701;&#x7565;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x3002;POST&#x8BF7;&#x6C42;&#x901A;&#x5E38;&#x62E5;&#x6709;&#x4E3B;&#x4F53;&#xFF0C;&#x540C;&#x65F6;&#x5B83;&#x5E94;&#x8BE5;&#x5339;&#x914D;&#x4F7F;&#x7528;setRequestHeader()&#x6307;&#x5B9A;&#x7684;<code>Content-Type</code>&#x5934;&#x3002;</p>
+<p><em>&#x5982;&#x679C;&#x6570;&#x636E;&#x662F;&#x4E00;&#x4E2A;Document&#xFF0C;&#x5B83;&#x5728;&#x53D1;&#x9001;&#x4E4B;&#x524D;&#x88AB;&#x5E8F;&#x5217;&#x5316;&#x3002;&#x5F53;&#x53D1;&#x9001;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;Firefox&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;3&#x7684;&#x7248;&#x672C;&#x603B;&#x662F;&#x4F7F;&#x7528;UTF-8&#x7F16;&#x7801;&#x53D1;&#x9001;&#x8BF7;&#x6C42;; Firefox 3&#x7684;&#x6B63;&#x5E38;&#x4F7F;&#x7528;&#x53D1;&#x9001;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x7F16;&#x7801;&#x7531;body.xml&#x7F16;&#x7801;&#xFF0C;&#x6216;&#x8005;UTF-8&#x6307;&#x5B9A;&#x7684;&#x7F16;&#x7801;&#x6587;&#x4EF6;&#x3002;</em><br></p>
+<h6 id="t25setRequestHeader()">setRequestHeader() <a href="#t25setRequestHeader()"> # </a></h6>
+<pre><code class="lang-js">req.setRequestHeader(<span class="hljs-string">&quot;header&quot;</span>,<span class="hljs-string">&quot;value&quot;</span>);
+<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x5236;&#x5B9A;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#xFF0C;&#x6B64;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5728;send()&#x6267;&#x884C;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x3002;</span>
+<span class="hljs-comment">//header &#x5C06;&#x8981;&#x88AB;&#x8D4B;&#x503C;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x540D;&#x79F0;.</span>
+<span class="hljs-comment">//value &#x7ED9;&#x6307;&#x5B9A;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x8D4B;&#x7684;&#x503C;.</span>
+</code></pre>
+<p>&#x7ED9;&#x6307;&#x5B9A;&#x7684;HTTP&#x8BF7;&#x6C42;&#x5934;&#x8D4B;&#x503C;.&#x5728;&#x8FD9;&#x4E4B;&#x524D;,&#x4F60;&#x5FC5;&#x987B;&#x786E;&#x8BA4;&#x5DF2;&#x7ECF;&#x8C03;&#x7528; open() &#x65B9;&#x6CD5;&#x6253;&#x5F00;&#x4E86;&#x4E00;&#x4E2A;url.<br>
+&#x5982;&#x679C;&#x5BF9;&#x76F8;&#x540C;&#x7684;&#x5934;&#x8C03;&#x7528;setRequestHeader()&#x591A;&#x6B21;&#xFF0C;&#x65B0;&#x503C;&#x4E0D;&#x4F1A;&#x53D6;&#x4EE3;&#x4E4B;&#x524D;&#x6307;&#x5B9A;&#x7684;&#x503C;&#xFF0C;&#x76F8;&#x53CD;&#xFF0C;HTTP&#x8BF7;&#x6C42;&#x5C06;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x5934;&#x7684;&#x591A;&#x4E2A;&#x526F;&#x672C;&#x6216;&#x8005;&#x4E2A;&#x5934;&#x5C06;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x503C;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">req.setRequestHeader(<span class="hljs-string">&quot;Accepts&quot;</span>,<span class="hljs-string">&apos;text/html&apos;</span>);
+req.setRequestHeader(<span class="hljs-string">&quot;Accepts&quot;</span>,<span class="hljs-string">&apos;text/css&apos;</span>);
+<span class="hljs-comment">//&#x90A3;&#x4E2A;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x7684;Accepts&#x7684;&#x503C;&#x4E3A; &#x201C;text/html,text/css&#x201D;</span>
+</code></pre>
+<p>&#x4F60;&#x4E0D;&#x80FD;&#x5236;&#x5B9A;<code>Content-Length</code>&#x3001;<code>Date</code>&#x3001;<code>Referer</code>&#x6216;<code>User-Agent</code>&#x5934;&#xFF0C;XMLHttpRequest&#x5C06;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x8FD9;&#x4E9B;&#x5934;&#x800C;&#x9632;&#x6B62;&#x4F2A;&#x9020;&#x4ED6;&#x4EEC;&#x3002;&#x7C7B;&#x4F3C;&#x5730;&#xFF0C;XMLHttpRequest&#x5BF9;&#x8C61;&#x81EA;&#x52A8;&#x5904;&#x7406;cookie&#x3001;&#x8FDE;&#x63A5;&#x65F6;&#x95F4;&#x3001;&#x5B57;&#x7B26;&#x96C6;&#x548C;&#x7F16;&#x7801;&#x5224;&#x65AD;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x65E0;&#x6CD5;&#x5411;setRequestHeader()&#x4F20;&#x9012;&#x8FD9;&#x4E9B;&#x5934;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>Accept-Charset</li>
+<li>Content-Transfer-Encoding</li>
+<li>Date</li>
+<li>Connection</li>
+<li>Expect</li>
+<li>Content-Length</li>
+<li>Host</li>
+<li>Cookie</li>
+<li>Keep-Alive</li>
+<li>User-Agent</li>
+<li>Cookie2</li>
+<li>Referer</li>
+</ul>
+</blockquote>
+<p>&#x4F60;&#x80FD;&#x4E3A;&#x8BF7;&#x6C42;&#x6307;&#x5B9A;<code>Authorization</code>&#x5934;&#xFF0C;&#x4F46;&#x901A;&#x5E38;&#x4E0D;&#x9700;&#x8981;&#x8FD9;&#x4E48;&#x505A;&#x3002;&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A;&#x53D7;&#x5BC6;&#x7801;&#x4FDD;&#x62A4;&#x7684;URL&#xFF0C;&#x628A;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x4F5C;&#x4E3A;&#x7B2C;&#x56DB;&#x4E2A;&#x548C;&#x7B2C;&#x4E94;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;open)&#xFF0C;&#x5219;XMLHttpRequest&#x5C06;&#x8BBE;&#x7F6E;&#x5408;&#x9002;&#x7684;&#x5934;&#x3002;</p>
+<h5 id="t26&#x987A;&#x5E8F;&#x95EE;&#x9898;">&#x987A;&#x5E8F;&#x95EE;&#x9898; <a href="#t26&#x987A;&#x5E8F;&#x95EE;&#x9898;"> # </a></h5>
+<p><em>HTTP&#x8BF7;&#x6C42;&#x7684;&#x5404;&#x90E8;&#x5206;&#x6709;&#x6307;&#x5B9A;&#x987A;&#x5E8F;&#xFF1A;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#x548C;URL&#x9996;&#x5148;&#x5230;&#x8FBE;&#xFF0C;&#x7136;&#x540E;&#x662F;&#x8BF7;&#x6C42;&#x5934;&#xFF0C;&#x6700;&#x540E;&#x662F;&#x8BF7;&#x6C42;&#x4E3B;&#x9898;&#x3002;MXLHttpRequest&#x5B9E;&#x73B0;&#x901A;&#x5E38;&#x76F4;&#x5230;&#x8C03;&#x7528;send()&#x65B9;&#x6CD5;&#x624D;&#x5F00;&#x59CB;&#x542F;&#x52A8;&#x7F51;&#x7EDC;&#x3002;&#x5355;XMLHttpRequest API&#x7684;&#x8BBE;&#x8BA1;&#x4F3C;&#x4E4E;&#x4F7F;&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x90FD;&#x5C06;&#x5199;&#x5165;&#x7F51;&#x7EDC;&#x6D41;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x8C03;&#x7528;XMLHttpRequest&#x65B9;&#x6CD5;&#x7684;&#x987A;&#x5E8F;&#x5FC5;&#x987B;&#x5339;&#x914D;HTTP&#x8BF7;&#x6C42;&#x7684;&#x67B6;&#x6784;&#x3002;&#x4F8B;&#x5982;&#xFF0C;setRequestHeader()&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x5FC5;&#x987B;&#x5728;&#x8C03;&#x7528;send()&#x4E4B;&#x524D;&#x4F46;&#x5728;&#x8C03;&#x7528;open()&#x4E4B;&#x540E;&#xFF0C;&#x5426;&#x5219;&#x5B83;&#x5C06;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;</em></p>
+<p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x7684;&#x4EE3;&#x7801;&#x505A;&#x4E00;&#x4E9B;&#x4E0E;&#x6570;&#x636E;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x83B7;&#x53D6;&#x7684;XML&#x6587;&#x6863;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">processData</span>(<span class="hljs-params">data</span>) </span>{
+  <span class="hljs-comment">// taking care of data</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handler</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.readyState == <span class="hljs-keyword">this</span>.DONE) {
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.status == <span class="hljs-number">200</span> &amp;&amp;
+       <span class="hljs-keyword">this</span>.responseXML != <span class="hljs-literal">null</span> &amp;&amp;
+       <span class="hljs-keyword">this</span>.responseXML.getElementById(<span class="hljs-string">&apos;test&apos;</span>).textContent) {
+      <span class="hljs-comment">// success!</span>
+      processData(<span class="hljs-keyword">this</span>.responseXML.getElementById(<span class="hljs-string">&apos;test&apos;</span>).textContent);
+      <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-comment">// something went wrong</span>
+    processData(<span class="hljs-literal">null</span>);
+  }
+}
+
+<span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> XMLHttpRequest();
+client.onreadystatechange = handler;
+client.open(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&quot;unicorn.xml&quot;</span>);
+client.send();
+
+<span class="hljs-comment">//&#x5982;&#x679C;&#x4F60;&#x53EA;&#x662F;&#x60F3;&#x8BB0;&#x5F55;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">log</span>(<span class="hljs-params">message</span>) </span>{
+  <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> XMLHttpRequest();
+  client.open(<span class="hljs-string">&quot;POST&quot;</span>, <span class="hljs-string">&quot;/log&quot;</span>);
+  client.setRequestHeader(<span class="hljs-string">&quot;Content-Type&quot;</span>, <span class="hljs-string">&quot;text/plain;charset=UTF-8&quot;</span>);
+  client.send(message);
+}
+
+<span class="hljs-comment">//&#x6216;&#x8005;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x8981;&#x68C0;&#x67E5;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x6587;&#x6863;&#x7684;&#x72B6;&#x6001;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchStatus</span>(<span class="hljs-params">address</span>) </span>{
+  <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> XMLHttpRequest();
+  client.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// in case of network errors this might not give reliable results</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.readyState == <span class="hljs-keyword">this</span>.DONE)
+      returnStatus(<span class="hljs-keyword">this</span>.status);
+  }
+  client.open(<span class="hljs-string">&quot;HEAD&quot;</span>, address);
+  client.send();
+}
+</code></pre>
+<h4 id="t27&#x5728;&#x4F4E;&#x7248;&#x672C;IE&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;ActiveXObject&#x65F6;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;">&#x5728;&#x4F4E;&#x7248;&#x672C;IE&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;ActiveXObject&#x65F6;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9; <a href="#t27&#x5728;&#x4F4E;&#x7248;&#x672C;IE&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;ActiveXObject&#x65F6;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;"> # </a></h4>
+<p>&#x4F7F;&#x7528;ActiveXObject&#x4E0E;XMLHttpRequest&#x5BF9;&#x8C61;&#x5927;&#x4F53;&#x76F8;&#x540C;&#x3002;&#x4E0D;&#x8FC7;&#x8FD8;&#x662F;&#x6709;&#x8BB8;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<blockquote>
+<p>&#x4E0D;&#x540C;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>ActiveXObject&#x5BF9;&#x8C61;&#x4E2D;&#x6CA1;&#x6709;timeout&#x5C5E;&#x6027;&#xFF0C;&#x6CA1;&#x6709;ontimeout&#x65B9;&#x6CD5;&#x3002;</li>
+<li>ActiveXObject&#x5BF9;&#x8C61;&#x4E2D;&#x4E0D;&#x652F;&#x6301;statustext&#x5C5E;&#x6027;&#x3002;</li>
+<li>ActiveXObject&#x5BF9;&#x8C61;&#x4E2D;&#x6CA1;&#x6709;DONE&#x3001;OPEN&#x3001;UNSENT&#x3001;HEADERS_RECEIVED&#x3001;DONE &#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x3002;</li>
+<li>ActiveXObject&#x5BF9;&#x8C61;&#x4E2D;&#x6CA1;&#x6709;onload&#x65B9;&#x6CD5;&#x3002;</li>
+<li>ActiveXObject&#x5BF9;&#x8C61;&#x4E2D;send()&#x4E0D;&#x652F;&#x6301;<code>ArrayBuffer|Blob|Formdata</code> &#x7B49;&#x7C7B;&#x578B;&#x91CD;&#x8F7D;&#x3002;</li>
+<li>ActiveXObject&#x5BF9;&#x8C61;&#x4E2D;&#x6CA1;&#x6709;withCredentials&#x5C5E;&#x6027;&#x3002;<br>
+&#x7531;&#x4E8E;ActiveXObject&#x5BF9;&#x8C61;&#x53EA;&#x5728;IE5&#x3001;IE6&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x5F88;&#x591A;&#x529F;&#x80FD;&#x90FD;&#x6CA1;&#x6709;&#x3002;&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x65F6;&#x9700;&#x6CE8;&#x610F;&#x3002;<br></li>
+</ul>
+</blockquote>
+<p>ActiveXObject&#x5BF9;&#x8C61;&#x7528;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> http;
+  <span class="hljs-keyword">if</span>(<span class="hljs-built_in">window</span>.XMLHttpRequest){
+   http = <span class="hljs-keyword">new</span> XMLHttpRequest();
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.ActiveXObject){
+   http = <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Microsoft.XMLHTTP&quot;</span>);
+   <span class="hljs-keyword">if</span> (!http){
+    http = <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Msxml2.XMLHTTP&quot;</span>);
+   }
+  }
+ <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleStateResponse</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.readyState == <span class="hljs-number">4</span>) {
+   <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.status == <span class="hljs-number">200</span>) {
+    <span class="hljs-keyword">var</span> results = <span class="hljs-keyword">this</span>.responseText;
+    <span class="hljs-built_in">console</span>.log(results);
+   } <span class="hljs-keyword">else</span> {
+    alert ( <span class="hljs-string">&quot;Not able to retrieve description&quot;</span> );
+   }
+  }
+ }
+ http.open();
+ http.onreadystatechange=handleStateResponse;
+ http.send();
+</code></pre>
+<h3 id="t28AJAX &#x793A;&#x4F8B;">AJAX &#x793A;&#x4F8B; <a href="#t28AJAX &#x793A;&#x4F8B;"> # </a></h3>
+<p>&#x4E0A;&#x9762;&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x548C;&#x4F7F;&#x7528;&#x5904;&#x7406;ajax&#x7684;&#x5BF9;&#x8C61;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4E00;&#x4E9B;&#x5730;&#x65B9;&#x6211;&#x4EEC;&#x90FD;&#x90FD;&#x5DF2;&#x7ECF;&#x63D0;&#x5230;&#x4E86;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x5199;ajax&#x793A;&#x4F8B;&#xFF0C;&#x4EE5;&#x4FBF;&#x66F4;&#x597D;&#x7684;&#x5DE9;&#x56FA;ajax&#x77E5;&#x8BC6;&#x3002;<br>
+&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x662F;&#x53C2;&#x7167;jQuery&#x7684;ajax&#x51FD;&#x6570;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x6765;&#x7F16;&#x5199;&#x7684;,&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x4EE5;&#x589E;&#x5F3A;&#x4F53;&#x9A8C;&#x3002;<br></p>
+<p>&#x6700;&#x7EC8;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x7F16;&#x5199;&#x4E00;&#x4E2A;$http&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0B;&#x6709;get()&#x3001;post()&#x3001;getScript()&#x3001;ajax()&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x3002;</span>
+<span class="hljs-comment">//&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x90FD;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x53EF;&#x4F9B;&#x94FE;&#x5F0F;&#x6CE8;&#x518C;&#x7684;&#x5BF9;&#x8C61;&#x3002;</span>
+<span class="hljs-comment">//ajax()&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x591A;&#x4E2A;&#x56FA;&#x5B9A;&#x7684;&#x53C2;&#x6570;&#x4EE5;&#x8FBE;&#x5230;&#x9AD8;&#x914D;&#x7F6E;&#x6027;&#x3002;</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">global, undefined</span>) </span>{
+    <span class="hljs-comment">//&#x5982;&#x679C;&#x5168;&#x5C40;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;$http&#x5BF9;&#x8C61;&#x7684;&#x8BDD;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF0C;&#x4E0D;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x4EE3;&#x7801;&#x3002;</span>
+    <span class="hljs-keyword">if</span> (global.$http) {
+        <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">var</span> http = global.$http = {};
+    <span class="hljs-comment">//&#x5224;&#x65AD;&#x7C7B;&#x578B;</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isType</span>(<span class="hljs-params">str</span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj</span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.prototype.toString.call(obj) == <span class="hljs-string">&apos;[object &apos;</span> + str + <span class="hljs-string">&apos;]&apos;</span>;
+        }
+    }
+
+    <span class="hljs-keyword">var</span> isObject = isType(<span class="hljs-string">&quot;Object&quot;</span>);
+    <span class="hljs-keyword">var</span> isFunction = isType(<span class="hljs-string">&quot;Function&quot;</span>);
+    <span class="hljs-keyword">var</span> isNumber = isType(<span class="hljs-string">&quot;Number&quot;</span>);
+    <span class="hljs-keyword">var</span> isString = isType(<span class="hljs-string">&quot;String&quot;</span>);
+    <span class="hljs-keyword">var</span> isBoolean = isType(<span class="hljs-string">&apos;Boolean&apos;</span>);
+    <span class="hljs-keyword">var</span> isArray = isType(<span class="hljs-string">&apos;Array&apos;</span>);
+    <span class="hljs-comment">//&#x68C0;&#x6D4B;&#x53C2;&#x6570;&#x4E2D;&#x6709;&#x6CA1;&#x6709;`?`</span>
+    <span class="hljs-keyword">var</span> hasSearch = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">url</span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-regexp">/^.+\?[^?]*$/g</span>.test(url)
+    };
+    <span class="hljs-comment">//&#x5FAA;&#x73AF;&#x5E2E;&#x52A9;&#x51FD;&#x6570;</span>
+    <span class="hljs-keyword">var</span> each=(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+         <span class="hljs-keyword">if</span> ([].forEach)
+             <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">arr,func</span>)</span>{
+                 [].forEach.call(arr, func);
+             }
+         <span class="hljs-keyword">else</span>
+             <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">arr,func</span>)</span>{
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
+                   func.call(arr, arr[i], i, arr);
+                }
+             }
+    })();
+
+    <span class="hljs-comment">//&#x83B7;&#x53D6;ajax&#x5BF9;&#x8C61;,</span>
+    <span class="hljs-keyword">var</span> getXHR = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> list = [<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> XMLHttpRequest
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Microsoft.XMLHTTP&quot;</span>)
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Msxml2.XMLHTTP&quot;</span>)
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">&quot;Msxml3.XMLHTTP&quot;</span>)
+        }], temp = <span class="hljs-literal">null</span>, index = <span class="hljs-number">0</span>; index &lt; list.length; index++) {
+            <span class="hljs-keyword">try</span> {
+                temp = list[index]()
+            } <span class="hljs-keyword">catch</span> (ex) {
+                <span class="hljs-keyword">continue</span>
+            }
+            getXHR = list[index];
+            <span class="hljs-keyword">break</span>;
+        }
+        <span class="hljs-keyword">if</span> (!temp) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">ReferenceError</span>(<span class="hljs-string">&quot;browser is not supported&quot;</span>)
+        }
+        <span class="hljs-keyword">return</span> temp;
+    };
+
+
+    http.ajax = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>{
+        <span class="hljs-comment">// &#x5982;&#x679C;options&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x90A3;&#x4E48;&#x6B64;&#x65B9;&#x6CD5;&#x540E;&#x7EED;&#x5C06;&#x4E0D;&#x6267;&#x884C;&#x3002;</span>
+        <span class="hljs-keyword">if</span> (!isObject(options)) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-comment">//&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x5BF9;&#x8C61;</span>
+        <span class="hljs-keyword">var</span> defaultOptions = {
+            <span class="hljs-comment">//&#x6DFB;&#x52A0;&#x5230;&#x8BF7;&#x6C42;&#x5934;`Accepts`&#x4E2D;&#xFF0C;&#x7528;&#x6765;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;Ajax&#x63A5;&#x6536;&#x4EC0;&#x4E48;MIME Type&#x7684;&#x6570;&#x636E;&#x3002;Array&#x7C7B;&#x578B;</span>
+            accepts: <span class="hljs-literal">undefined</span>,
+            <span class="hljs-comment">//&#x662F;&#x5426;&#x4E3A;&#x5F02;&#x6B65;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;true&#x3002;Boolean&#x7C7B;&#x578B;</span>
+            <span class="hljs-keyword">async</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-comment">//&#x5728;&#x6267;&#x884C;send()&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;Function&#x7C7B;&#x578B;</span>
+            beforeSend: <span class="hljs-literal">undefined</span>,
+            <span class="hljs-comment">//&#x662F;&#x5426;&#x7F13;&#x5B58;&#x3002;Boolean&#x7C7B;&#x578B;</span>
+            cache: <span class="hljs-literal">false</span>,
+            <span class="hljs-comment">//&#x4E0D;&#x7BA1;&#x6210;&#x529F;&#x6216;&#x5931;&#x8D25;&#x90FD;&#x4F1A;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x3002;Function&#x7C7B;&#x578B;</span>
+            complete: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{},
+            <span class="hljs-comment">//&#x6DFB;&#x52A0;&#x5230;&#x8BF7;&#x6C42;&#x5934;`Content-Type`&#x4E2D;&#xFF0C;&#x6807;&#x8BC6;&#x6B64;http&#x662F;&#x4EC0;&#x4E48;MiME Type&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;`application/x-www-form-urlencoded; charset=UTF-8`&#x3002;String&#x7C7B;&#x578B;</span>
+            contentType: <span class="hljs-string">&apos;application/x-www-form-urlencoded; charset=UTF-8&apos;</span>,
+            <span class="hljs-comment">//&#x5BBF;&#x4E3B;&#x5BF9;&#x8C61;&#x3002;Object&#x7C7B;&#x578B;</span>
+            context: <span class="hljs-literal">undefined</span>,
+            <span class="hljs-comment">//&#x53D1;&#x9001;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#x3002;Object&#x6216;&#x8005;String&#x7C7B;&#x578B;</span>
+            data: <span class="hljs-literal">undefined</span>,
+            <span class="hljs-comment">//&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;`xml|bolb|arraybuffer|html|script|json|text`&#x3002;String&#x7C7B;&#x578B;</span>
+            dataType: <span class="hljs-string">&apos;text&apos;</span>,
+            <span class="hljs-comment">//&#x8FC7;&#x6EE4;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x3002;Function&#x7C7B;&#x578B;</span>
+            dataFilter: <span class="hljs-literal">undefined</span>,
+            <span class="hljs-comment">//&#x6267;&#x884C;&#x5931;&#x8D25;&#x3001;parseError&#x6216;&#x8005;timeout&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x3002;Function&#x7C7B;&#x578B;</span>
+            error: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">xhr, xhr.status, text</span>) </span>{},
+            <span class="hljs-comment">//&#x81EA;&#x5B9A;&#x4E49;&#x5934;&#x4FE1;&#x606F;&#x3002;Object&#x7C7B;&#x578B;</span>
+            headers: {},
+            <span class="hljs-comment">//&#x91CD;&#x5199;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;MIME Type&#x3002;String&#x7C7B;&#x578B;</span>
+            mimeType: <span class="hljs-string">&apos;&apos;</span>,
+            <span class="hljs-comment">//URL&#x8BA4;&#x8BC1;&#x5BC6;&#x7801;&#x3002;String&#x7C7B;&#x578B;</span>
+            password: <span class="hljs-literal">undefined</span>,
+            <span class="hljs-comment">//&#x6CE8;&#x518C;&#x5BF9;&#x5E94;http&#x72B6;&#x6001;&#x7801;&#x65F6;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x3002;Object&#x7C7B;&#x578B;</span>
+            statusCode: {},
+            <span class="hljs-comment">//Ajax&#x6210;&#x529F;&#x65F6;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x3002;Function&#x7C7B;&#x578B;</span>
+            success: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{},
+            <span class="hljs-comment">//&#x8D85;&#x65F6;&#x6BEB;&#x79D2;&#x503C;&#xFF0C;&#x6B64;&#x503C;&#x5FC5;&#x987B;&#x5927;&#x4E8E;500&#x6BEB;&#x79D2;&#xFF0C;&#x5426;&#x5219;&#x4E0D;&#x751F;&#x6548;&#x3002;Number&#x7C7B;&#x578B;</span>
+            timeout: <span class="hljs-literal">undefined</span>,
+            <span class="hljs-comment">//&#x8BF7;&#x6C42;&#x7684;http&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;`get|post|head|put|delete`&#x3002;String&#x7C7B;&#x578B;</span>
+            type: <span class="hljs-string">&apos;&apos;</span>,
+            <span class="hljs-comment">//&#x8BF7;&#x6C42;&#x7684;URL&#xFF0C;&#x6B64;URL&#x7684;&#x65B9;&#x6848;&#x4E0D;&#x53EF;&#x4EE5;&#x4E3A;`file`&#x3002;String&#x7C7B;&#x578B;</span>
+            url: <span class="hljs-string">&apos;&apos;</span>,
+            <span class="hljs-comment">//URL&#x8BA4;&#x8BC1;&#x8D26;&#x53F7;&#x3002;String&#x7C7B;&#x578B;</span>
+            username: <span class="hljs-literal">undefined</span>,
+            <span class="hljs-comment">//&#x5728;send()&#x6267;&#x884C;&#x524D;&#xFF0C;&#x901A;&#x8FC7;&#x6B64;&#x51FD;&#x6570;&#x64CD;&#x4F5C;xhr&#x5BF9;&#x8C61;&#x3002;Function&#x7C7B;&#x578B;</span>
+            setXhrFields: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">xhr</span>)</span>{}
+        },
+         <span class="hljs-comment">//&#x4E34;&#x65F6;&#x53D8;&#x91CF;</span>
+         tempVal;
+
+        <span class="hljs-comment">//&#x8986;&#x76D6;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x5BF9;&#x8C61;</span>
+        <span class="hljs-keyword">for</span> (tempVal <span class="hljs-keyword">in</span> defaultOptions) {
+            <span class="hljs-keyword">if</span> (options.hasOwnProperty(tempVal) &amp;&amp; options[tempVal])
+                defaultOptions[tempVal] = options[tempVal];
+        }
+
+        <span class="hljs-keyword">var</span> xhr = getXHR(), _promise = <span class="hljs-keyword">new</span> __promise();
+
+        <span class="hljs-keyword">if</span> (!<span class="hljs-regexp">/^(get|post|head|put|delete)$/img</span>.test(defaultOptions.type)) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">ReferenceError</span>(<span class="hljs-string">&apos;not supported this http method&apos;</span>);
+        }
+        <span class="hljs-keyword">if</span> (!<span class="hljs-regexp">/^(xml|bolb|arraybuffer|html|script|json|text)/img</span>.test(defaultOptions.dataType)) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&apos;not supported &apos;</span> + defaultOptions.dataType + <span class="hljs-string">&apos; data type&apos;</span>);
+        }
+        <span class="hljs-keyword">if</span> (!isString(defaultOptions.url)) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&apos;url must be a string&apos;</span>)
+        }
+        <span class="hljs-comment">//&#x662F;&#x5426;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;&#x5219;&#x5728;URL&#x540E;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x6570;</span>
+        <span class="hljs-keyword">if</span> (defaultOptions.cache) {
+            defaultOptions.url += (hasSearch(defaultOptions.url) ? <span class="hljs-string">&apos;_=&apos;</span> : <span class="hljs-string">&apos;?_=&apos;</span>) + <span class="hljs-built_in">Math</span>.random() * (<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">24</span>) | <span class="hljs-number">0</span>;
+        }
+        <span class="hljs-comment">//&#x5C06;&#x53D1;&#x9001;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#x4ECE;Object&#x7C7B;&#x578B;&#x8F6C;&#x4E3A;String&#x7C7B;&#x578B;</span>
+        <span class="hljs-keyword">if</span> (defaultOptions.data) {
+            <span class="hljs-keyword">if</span> (isObject(defaultOptions.data)) {
+                <span class="hljs-keyword">var</span> arr = [];
+                <span class="hljs-keyword">for</span> (tempVal <span class="hljs-keyword">in</span> defaultOptions.data) {
+                    <span class="hljs-keyword">if</span> (defaultOptions.data.hasOwnProperty(tempVal)) {
+                        <span class="hljs-comment">// &#x6B64;&#x5904;&#x53C2;&#x89C1;&#x4E0B;&#x6587;&#x7684;&#x8868;&#x5355;&#x64CD;&#x4F5C;</span>
+                        arr.push(<span class="hljs-built_in">encodeURIComponent</span>(tempVal) + <span class="hljs-string">&quot;=&quot;</span> + <span class="hljs-built_in">encodeURIComponent</span>(defaultOptions.data[tempVal]));
+                    }
+                }
+                defaultOptions.data = arr.join(<span class="hljs-string">&apos;&amp;&apos;</span>);
+            }
+            <span class="hljs-comment">//&#x5F53;&#x8BF7;&#x6C42;&#x7684;http&#x65B9;&#x6CD5;&#x4E3A;get&#x3001;head&#x3001;delete&#x4E2D;&#x4E00;&#x4E2A;&#x65F6;&#x76F4;&#x63A5;&#x62FC;&#x63A5;&#x5230;URL&#x540E;&#x5E76;&#x4E14;&#x5220;&#x9664;data&#x3002;&#x53C2;&#x89C1;send()&#x65B9;&#x6CD5;&#x89E3;&#x91CA;&#x3002;</span>
+            <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/^(get|head|delete)$/img</span>.test(defaultOptions.type)) {
+                defaultOptions.url += (hasSearch(defaultOptions.url) ? <span class="hljs-string">&apos;&apos;</span> : <span class="hljs-string">&apos;?&apos;</span>) + defaultOptions.data;
+                <span class="hljs-keyword">delete</span>  defaultOptions.data;
+            }
+        }
+
+        defaultOptions.setXhrFields(xhr);
+
+        xhr.open(defaultOptions.type, defaultOptions.url, defaultOptions.async, defaultOptions.username, defaultOptions.password);
+        <span class="hljs-keyword">if</span>(isArray(defaultOptions.accepts)){
+           each(defaultOptions.accepts,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>)</span>{
+              xhr.setRequestHeader(<span class="hljs-string">&apos;Accepts&apos;</span>,x);
+           })
+        }
+        <span class="hljs-keyword">for</span> (tempVal <span class="hljs-keyword">in</span> defaultOptions.headers) {
+            <span class="hljs-keyword">if</span> (defaultOptions.headers.hasOwnProperty(tempVal))
+                xhr.setRequestHeader(tempVal, defaultOptions.headers[tempVal]);
+        }
+        xhr.setRequestHeader(<span class="hljs-string">&quot;Content-Type&quot;</span>, defaultOptions.contentType);
+
+        <span class="hljs-keyword">if</span> (defaultOptions.context) {
+            <span class="hljs-comment">//&#x7ED1;&#x5B9A;&#x5BBF;&#x4E3B;&#x5BF9;&#x8C61;</span>
+            defaultOptions.complete = defaultOptions.complete.bind(defaultOptions.context);
+            defaultOptions.success = defaultOptions.success.bind(defaultOptions.context);
+            defaultOptions.error = defaultOptions.error.bind(defaultOptions.context);
+        }
+
+        <span class="hljs-comment">//&#x5C06;success&#x3001;error&#x3001;complete&#x65B9;&#x6CD5;&#x5305;&#x88F9;&#x8D77;&#x6765;</span>
+        <span class="hljs-keyword">var</span> _success = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">text</span>) </span>{
+            defaultOptions.success(text);
+            _promise._done(text);
+            defaultOptions.complete(xhr);
+            _promise._always();
+        }, _error = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">text</span>) </span>{
+            defaultOptions.error(xhr, xhr.status, text);
+            _promise._fail(xhr, xhr.status, text);
+            defaultOptions.complete(xhr);
+            _promise._always();
+        };
+
+
+        <span class="hljs-comment">//&#x68C0;&#x6D4B;xhr&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x6709;responseType&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5219;&#x5C06;dataType&#x8D4B;&#x7ED9;&#x5B83;</span>
+        (<span class="hljs-string">&apos;responseType&apos;</span> <span class="hljs-keyword">in</span> xhr)&amp;&amp; (xhr.responseType = defaultOptions.dataType);
+        xhr.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.readyState == <span class="hljs-number">4</span>) {
+                <span class="hljs-keyword">if</span> (defaultOptions.mimeType) {
+                    <span class="hljs-comment">//&#x91CD;&#x5199;MIME Type</span>
+                    xhr.overrideMimeType(defaultOptions.mimeType);
+                }
+                <span class="hljs-comment">//&#x5F53;http&#x72B6;&#x6001;&#x7801;&#x4E3A;2xx&#x65F6;&#x6267;&#x884C;success&#xFF0C;4xx&#x6216;5xx&#x65F6;&#x6267;&#x884C;error</span>
+                <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/^2\d{2}$/</span>.test(<span class="hljs-keyword">this</span>.status)) {
+                    <span class="hljs-keyword">var</span> returnVal = <span class="hljs-literal">undefined</span>;
+                    <span class="hljs-keyword">if</span> (xhr.responseType) {
+                        returnVal = <span class="hljs-keyword">this</span>.response;
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-comment">//&#x6570;&#x636E;&#x5904;&#x7406;</span>
+                        <span class="hljs-keyword">switch</span> (defaultOptions.dataType.toLowerCase()) {
+                            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;xml&apos;</span>:
+                                returnVal = <span class="hljs-keyword">this</span>.responseXML;
+                                <span class="hljs-keyword">break</span>;
+                            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;html&apos;</span>:
+                                <span class="hljs-keyword">var</span> frag = <span class="hljs-built_in">document</span>.createDocumentFragment();
+                                frag.innerHTML = <span class="hljs-keyword">this</span>.responseText;
+                                returnVal = frag;
+                                <span class="hljs-keyword">break</span>;
+                            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;script&apos;</span>:
+                                <span class="hljs-keyword">var</span> scr = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&quot;script&quot;</span>);
+                                scr.innerHTML = <span class="hljs-keyword">this</span>.responseText;
+                                returnVal = scr;
+                                <span class="hljs-keyword">break</span>;
+                            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;json&apos;</span>:
+                                <span class="hljs-keyword">if</span> (global.JSON.parse) {
+                                    <span class="hljs-keyword">try</span> {
+                                        returnVal = <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-keyword">this</span>.responseText);
+                                    } <span class="hljs-keyword">catch</span> (ex) {
+                                        _error(ex)
+                                    }
+                                } <span class="hljs-keyword">else</span> {
+                                    returnVal = <span class="hljs-built_in">eval</span>(<span class="hljs-string">&apos;(&apos;</span> + <span class="hljs-keyword">this</span>.responseText + <span class="hljs-string">&apos;)&apos;</span>);
+                                }
+                                <span class="hljs-keyword">break</span>;
+                            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;arraybuffer&apos;</span>:
+                                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">ReferenceError</span>(<span class="hljs-string">&apos;not supported arraybuffer&apos;</span>);
+                            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;blob&apos;</span>:
+                                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">ReferenceError</span>(<span class="hljs-string">&apos;not supported blob&apos;</span>);
+                            <span class="hljs-keyword">default</span>:
+                                returnVal = <span class="hljs-keyword">this</span>.responseText;
+                        }
+                    }
+                    _success(defaultOptions.dataFilter(returnVal)||returnVal);
+                }
+                <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/^(4|5)\d{2}$/</span>.test(<span class="hljs-keyword">this</span>.status)) {
+                    _error();
+                }
+                <span class="hljs-comment">//&#x6839;&#x636E;http&#x72B6;&#x6001;&#x7801;&#x6267;&#x884C;statusCode&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;</span>
+                (<span class="hljs-keyword">this</span>.status.toString() <span class="hljs-keyword">in</span> defaultOptions.statusCode) &amp;&amp; defaultOptions.statusCode[<span class="hljs-keyword">this</span>.status]();
+            }
+        };
+        <span class="hljs-keyword">if</span> (defaultOptions.beforeSend) {
+            defaultOptions.beforeSend(xhr);
+        }
+        xhr.send(defaultOptions.data);
+        xhr.onerror = _error;
+        <span class="hljs-comment">//&#x8D85;&#x65F6;&#x8BBE;&#x7F6E;&#xFF0C;&#x6B64;&#x65B9;&#x6CD5;&#x6709;&#x517C;&#x5BB9;&#x6027;&#x3002;&#x6240;&#x4EE5;&#x6267;&#x884C;&#x524D;&#x5148;&#x505A;&#x7279;&#x6027;&#x5224;&#x65AD;</span>
+        <span class="hljs-keyword">if</span> (isNumber(defaultOptions.timeout) &amp;&amp; defaultOptions.timeout &gt; <span class="hljs-number">500</span>) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-string">&apos;timeout&apos;</span> <span class="hljs-keyword">in</span> xhr) {
+                xhr.timeout = defaultOptions.timeout;
+                xhr.ontimeout = defaultOptions.error;
+            } <span class="hljs-keyword">else</span> {
+                setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                    <span class="hljs-keyword">if</span> (xhr.readyState != <span class="hljs-number">4</span>) {
+                        _error();
+                    }
+                }, defaultOptions.timeout);
+            }
+        }
+        <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x94FE;&#x5F0F;&#x6CE8;&#x518C;&#x5BF9;&#x8C61;</span>
+        <span class="hljs-keyword">return</span> _promise;
+    };
+    <span class="hljs-comment">//&#x5229;&#x7528;ajax&#x65B9;&#x6CD5;&#x751F;&#x4EA7;get&#x3001;post&#x65B9;&#x6CD5;</span>
+    each([<span class="hljs-string">&apos;get&apos;</span>, <span class="hljs-string">&apos;post&apos;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+        http[x] = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">url, data, func, datatype</span>) </span>{
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">arguments</span>.length != <span class="hljs-number">4</span>)
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&apos;lacking arguments&apos;</span>);
+            <span class="hljs-keyword">return</span> http.ajax({
+                url: url,
+                data: data,
+                success: func,
+                dataType: datatype,
+                type: x
+            })
+        }
+    });
+    <span class="hljs-comment">//&#x5229;&#x7528;ajax&#x751F;&#x4EA7;getScript&#x65B9;&#x6CD5;</span>
+    http.getScript = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">url, data, func</span>) </span>{
+        <span class="hljs-keyword">return</span> http.ajax({
+            url: url,
+            type: <span class="hljs-string">&apos;get&apos;</span>,
+            data: data,
+            success: func,
+            dataType: <span class="hljs-string">&apos;script&apos;</span>
+        })
+    };
+    <span class="hljs-comment">//&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x5BF9;&#x8C61;</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__promise</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x51FD;&#x6570;</span>
+        <span class="hljs-keyword">this</span>._done = <span class="hljs-keyword">this</span>._fail = <span class="hljs-keyword">this</span>._always = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        };
+    }
+
+    <span class="hljs-comment">//&#x8FD9;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5B8C;&#x4E4B;&#x540E;&#x90FD;&#x5FC5;&#x987B;&#x5C06;&#x81EA;&#x5DF1;&#x8FD4;&#x56DE;&#xFF0C;&#x5426;&#x5219;&#x65E0;&#x6CD5;&#x94FE;&#x5F0F;&#x6CE8;&#x518C;</span>
+    __promise.prototype.done = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">func</span>) </span>{
+        <span class="hljs-keyword">this</span>._done = func;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+    __promise.prototype.fail = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">func</span>) </span>{
+        <span class="hljs-keyword">this</span>._fail = func;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+    __promise.prototype.always = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">func</span>) </span>{
+        <span class="hljs-keyword">this</span>._always = func;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">//AMD, CommonJs, then globals</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> define === <span class="hljs-string">&apos;function&apos;</span> &amp;&amp; define.amd) {
+            define([], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+                <span class="hljs-keyword">return</span> http;
+            });
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> exports === <span class="hljs-string">&apos;object&apos;</span>) {
+            <span class="hljs-built_in">module</span>.exports = http;
+        } <span class="hljs-keyword">else</span> {
+            global.$http =  global.$http || http;
+        }
+})(<span class="hljs-built_in">window</span>);
+</code></pre>
+<h5 id="t29&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x4E0A;&#x9762;&#x7684;Ajax&#x5E93;">&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x4E0A;&#x9762;&#x7684;Ajax&#x5E93; <a href="#t29&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x4E0A;&#x9762;&#x7684;Ajax&#x5E93;"> # </a></h5>
+<pre><code class="lang-js">        <span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-comment">//&#x5047;&#x8BBE;&#x672C;&#x5730;&#x6709;&#x4E00;&#x53F0;&#x7AEF;&#x53E3;&#x4E3A;1111&#x7684;web&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4E14;&#x8FD9;&#x4E2A;web&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x6709;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;ajaxAPI&#x7684;&#x63A5;&#x53E3;</span>
+            <span class="hljs-comment">//&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x4F7F;&#x7528;</span>
+            $http.get(<span class="hljs-string">&apos;http://localhost:1111/ajaxAPI&apos;</span>,<span class="hljs-string">&apos;arg=1&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>)</span>{
+                <span class="hljs-built_in">console</span>.log(toString.call(x),x)
+            },<span class="hljs-string">&apos;json&apos;</span>).done(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;done&apos;</span>)
+            }).fail(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
+                <span class="hljs-built_in">console</span>.error(e)
+            }).always(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+                <span class="hljs-built_in">console</span>.info(<span class="hljs-string">&apos;always&apos;</span>);
+            });
+            <span class="hljs-comment">//&#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x4F7F;&#x7528;</span>
+            $http.ajax({
+                type:<span class="hljs-string">&apos;get&apos;</span>,
+                url:<span class="hljs-string">&apos;http://localhost:1111/ajaxAPI&apos;</span>,
+                context:{a:<span class="hljs-string">&apos;123&apos;</span>},
+                success:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>)</span>{
+                    <span class="hljs-built_in">console</span>.log(x,<span class="hljs-keyword">this</span>.a);
+                }
+            });
+            <span class="hljs-comment">//... &#x4F60;&#x8FD8;&#x53EF;&#x4EE5;&#x6839;&#x636E;ajax&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x53C2;&#x6570;&#x7F16;&#x5199;&#x529F;&#x80FD;&#x66F4;&#x52A0;&#x5F3A;&#x5927;&#x7684;&#x51FD;&#x6570;</span>
+        }
+</code></pre>
+<h3 id="t30&#x8868;&#x5355;&#x64CD;&#x4F5C;">&#x8868;&#x5355;&#x64CD;&#x4F5C; <a href="#t30&#x8868;&#x5355;&#x64CD;&#x4F5C;"> # </a></h3>
+<p>&#x8003;&#x8651;&#x5230;HTML&#x8868;&#x5355;&#x3002;&#x5F53;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#x65F6;&#xFF0C;&#x8868;&#x5355;&#x4E2D;&#x7684;&#x6570;&#x636E;(&#x6BCF;&#x4E2A;&#x8868;&#x5355;&#x5143;&#x7D20;&#x7684;&#x540D;&#x5B57;&#x548C;&#x503C;)&#x7F16;&#x7801;&#x5230;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x968F;&#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;HTML&#x8868;&#x5355;&#x901A;&#x8FC7;POST&#x65B9;&#x6CD5;&#x53D1;&#x9001;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x800C;&#x7F16;&#x7801;&#x4E4B;&#x540E;&#x7684;&#x8868;&#x5355;&#x6570;&#x636E;&#x5219;&#x7528;&#x505A;&#x8BF7;&#x6C42;&#x4E3B;&#x4F53;&#x3002;&#x5BF9;&#x8868;&#x5355;&#x6570;&#x636E;&#x4F7F;&#x7528;&#x7684;&#x7F16;&#x7801;&#x65B9;&#x6848;&#x76F8;&#x5BF9;&#x7B80;&#x5355;&#xFF1A;&#x5BF9;&#x6BCF;&#x4E2A;&#x8868;&#x5355;&#x5143;&#x7D20;&#x7684;&#x540D;&#x5B57;&#x548C;&#x503C;&#x6267;&#x884C;&#x5076;&#x75DB;&#x7684;URL&#x7F16;&#x7801;(&#x4F7F;&#x7528;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x8F6C;&#x4E49;&#x7801;&#x66FF;&#x6362;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#xFF1B;&#x7F16;&#x7801;&#x5229;&#x7528;encodeURIComponent()&#x65B9;&#x6CD5;&#xFF0C;&#x89E3;&#x7801;&#x5229;&#x7528;decodeURIComponent()&#x65B9;&#x6CD5;)&#xFF0C;&#x4F7F;&#x7528;&#x7B49;&#x53F7;&#x628A;&#x7F16;&#x7801;&#x540E;&#x7684;&#x540D;&#x5B57;&#x548C;&#x503C;&#x5206;&#x5F00;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;<code>&amp;</code>&#x7B26;&#x53F7;&#x5206;&#x5F00;<code>&#x540D;/&#x503C;</code>&#x5BF9;&#x3002;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x8868;&#x5355;&#x7684;&#x7F16;&#x7801;&#x5982;&#x4E0B;&#x8FD9;&#x6837;&#xFF1A;</p>
+<blockquote>
+<p>name=pizza&amp;age=18&amp;address=%E5%8C%97%E4%BA%AC</p>
+</blockquote>
+<p>&#x8868;&#x5355;&#x6570;&#x636E;&#x7F16;&#x7801;&#x683C;&#x5F0F;&#x6709;&#x4E00;&#x4E2A;&#x6B63;&#x5F0F;&#x7684;MIME&#x7C7B;&#x578B;</p>
+<blockquote>
+<p>application/x-www=form-urlencoded</p>
+</blockquote>
+<p>&#x5F53;&#x4F7F;&#x7528;post&#x65B9;&#x6CD5;&#x63D0;&#x4EA4;&#x8FD9;&#x987A;&#x5E8F;&#x7684;&#x8868;&#x5355;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;<code>Content-Type</code>&#x8BF7;&#x6C42;&#x5934;&#x4E3A;&#x8FD9;&#x4E2A;&#x503C;&#x3002;<br>
+&#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x7F16;&#x7801;&#x5E76;&#x4E0D;&#x9700;&#x8981;HTML&#x8868;&#x5355;&#xFF0C;&#x5728;&#x672C;&#x7AE0;&#x6211;&#x4EEC;&#x5B9E;&#x9645;&#x4E0A;&#x5C06;&#x4E0D;&#x9700;&#x8981;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8868;&#x5355;&#x3002;&#x5728;Ajax&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x4F60;&#x5E0C;&#x671B;&#x53D1;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7684;&#x53EF;&#x80FD;&#x662F;&#x4E2A;javascript&#x5BF9;&#x8C61;&#x3002;&#x524D;&#x9762;&#x5C55;&#x793A;&#x7684;&#x6570;&#x636E;&#x53D8;&#x6210;javascript&#x5BF9;&#x8C61;&#x7684;&#x8868;&#x5355;&#x7F16;&#x7801;&#x5F62;&#x5F0F;&#x53EF;&#x80FD;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-js">{
+    name:pizza,
+    age:<span class="hljs-number">18</span>,
+    address:<span class="hljs-string">&apos;&#x5317;&#x4EAC;&apos;</span>
+}
+</code></pre>
+<p>&#x8868;&#x5355;&#x7F16;&#x7801;&#x5728;web&#x4E0A;&#x5982;&#x6B64;&#x5E7F;&#x6CDB;&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x540C;&#x65F6;&#x6240;&#x6709;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x90FD;&#x80FD;&#x5F88;&#x597D;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x6240;&#x4EE5;&#x975E;&#x8868;&#x5355;&#x6570;&#x636E;&#x7684;&#x8868;&#x5355;&#x7F16;&#x7801;&#x4E5F;&#x662F;&#x5BB9;&#x6613;&#x5B9E;&#x73B0;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">encodeFormData</span>(<span class="hljs-params">data</span>)</span>{
+    <span class="hljs-keyword">if</span>(!data) <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&apos;</span>;
+    <span class="hljs-keyword">var</span> arr=[];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> data){
+        <span class="hljs-keyword">if</span>(!data.hasOwnProperty(name)) <span class="hljs-keyword">continue</span>;
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> data[name] === <span class="hljs-string">&apos;function&apos;</span>) <span class="hljs-keyword">continue</span>;
+        <span class="hljs-keyword">var</span> value = data[name] + <span class="hljs-string">&apos;&apos;</span>;
+        name=<span class="hljs-built_in">encodeURIComponent</span>(name);
+        value=<span class="hljs-built_in">encodeURIComponent</span>(value);
+        arr.push(name + <span class="hljs-string">&apos;=&apos;</span> + value);
+    }
+    <span class="hljs-keyword">return</span> arr.join(<span class="hljs-string">&apos;&amp;&apos;</span>);
+}
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x5DF2;&#x5B9A;&#x4E49;&#x7684;encodeFormData()&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x5BB9;&#x6613;&#x7684;&#x5C06;javascript&#x5BF9;&#x8C61;&#x8F6C;&#x5316;&#x4E3A;&#x8868;&#x5355;&#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x3002;<br>
+<em>&#x8868;&#x5355;&#x6570;&#x636E;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;get&#x8BF7;&#x6C42;&#x6765;&#x63D0;&#x4EA4;&#xFF0C;&#x65E2;&#x7136;&#x8868;&#x5355;&#x63D0;&#x4EA4;&#x7684;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x6267;&#x884C;&#x53EA;&#x8BFB;&#x67E5;&#x8BE2;&#xFF0C;&#x56E0;&#x6B64;get&#x8BF7;&#x6C42;&#x6BD4;post&#x66F4;&#x5408;&#x9002;&#x3002;get&#x8BF7;&#x6C42;&#x4ECE;&#x6765;&#x6CA1;&#x6709;&#x4E3B;&#x4F53;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x53D1;&#x9001;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8868;&#x5355;&#x7F16;&#x7801;&#x6570;&#x636E;<code>&#x8D1F;&#x8F7D;</code>&#x8981;&#x4F5C;&#x4E3A;URL&#x7684;&#x67E5;&#x8BE2;(search)&#x90E8;&#x5206;&#x3002;</em><br></p>
+<h4 id="t31&#x5229;&#x7528;ajax&#x6A21;&#x62DF;&#x8868;&#x5355;&#x63D0;&#x4EA4;">&#x5229;&#x7528;ajax&#x6A21;&#x62DF;&#x8868;&#x5355;&#x63D0;&#x4EA4; <a href="#t31&#x5229;&#x7528;ajax&#x6A21;&#x62DF;&#x8868;&#x5355;&#x63D0;&#x4EA4;"> # </a></h4>
+<p>&#x5728;&#x5E94;&#x7528;&#x573A;&#x666F;&#x4E2D;&#xFF0C;&#x6A21;&#x62DF;&#x8868;&#x5355;&#x63D0;&#x4EA4;&#x662F;&#x5341;&#x5206;&#x5E38;&#x89C1;&#x7684;&#x3002;&#x5728;HTML&#x4E2D;form&#x5143;&#x7D20;&#x63D0;&#x4EA4;&#x4E4B;&#x540E;&#x4F1A;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x9875;&#x9762;&#xFF0C;&#x8FD9;&#x4E2A;&#x73B0;&#x8C61;&#x7684;&#x526F;&#x4F5C;&#x7528;&#x662F;&#x5F88;&#x5927;&#x7684;&#xFF0C;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x6574;&#x4E2A;&#x9875;&#x9762;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6240;&#x4EE5;&#x66F4;&#x591A;&#x7684;&#x662F;&#x901A;&#x8FC7;ajax&#x6A21;&#x62DF;&#x8868;&#x5355;&#x63D0;&#x4EA4;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#x662F;&#x548C;html&#x7684;&#x8868;&#x5355;&#x63D0;&#x4EA4;&#x4E00;&#x6478;&#x4E00;&#x6837;&#x4F46;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x9875;&#x9762;&#x3002;&#x5728;&#x5B9E;&#x73B0;&#x6A21;&#x62DF;&#x8868;&#x5355;&#x63D0;&#x4EA4;&#x4E4B;&#x524D;&#x9700;&#x8981;&#x5148;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x8868;&#x5355;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x5E2E;&#x52A9;&#x51FD;&#x6570;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<pre><code class="lang-js">http.serialize = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">form</span>) </span>{
+        <span class="hljs-keyword">var</span> parts = [], optValue = <span class="hljs-string">&quot;&quot;</span>;
+        each(form.elements, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ele</span>) </span>{
+            <span class="hljs-keyword">switch</span> (ele.type) {
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;select-one&apos;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;select-multiple&apos;</span>:
+                    <span class="hljs-keyword">if</span> (ele.name) {
+                        each(ele.options, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">option</span>) </span>{
+                            <span class="hljs-keyword">if</span> (option.selected) {
+                                 <span class="hljs-keyword">if</span> (option.hasAttribute) {
+                                      optValue = (option.hasAttribute(<span class="hljs-string">&quot;value&quot;</span>) ? option.value : option.text);
+                                 } <span class="hljs-keyword">else</span> {
+                                      optValue = (option.attributes[<span class="hljs-string">&quot;value&quot;</span>].specified ? option.value : option.text);
+                                 }
+                                parts.push(<span class="hljs-built_in">encodeURIComponent</span>(ele.name) + <span class="hljs-string">&quot;=&quot;</span> + <span class="hljs-built_in">encodeURIComponent</span>(optValue));
+                            }
+                        })
+                    }
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-literal">undefined</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;submit&apos;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;reset&apos;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;button&apos;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;file&apos;</span>:
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;radio&apos;</span>:
+                <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;checkbox&apos;</span>:
+                    <span class="hljs-keyword">if</span> (!ele.checked) {
+                        <span class="hljs-keyword">break</span>;
+                    }
+                <span class="hljs-keyword">default</span> :
+                    <span class="hljs-keyword">if</span> (ele.name) {
+                        parts.push(<span class="hljs-built_in">encodeURIComponent</span>(ele.name) + <span class="hljs-string">&quot;=&quot;</span> + <span class="hljs-built_in">encodeURIComponent</span>(ele.value));
+                    }
+            }
+        });
+        <span class="hljs-keyword">return</span> parts.join(<span class="hljs-string">&apos;&amp;&apos;</span>);
+    }
+
+    <span class="hljs-comment">//&#x7ED9;&#x8868;&#x5355;&#x6CE8;&#x518C;onsubmit&#x4E8B;&#x4EF6;&#x3002;&#x5F53;&#x63D0;&#x4EA4;&#x65F6;&#x5C31;&#x5E8F;&#x5217;&#x5316;&#x8868;&#x5355;&#x6570;&#x636E;&#x5E76;&#x53D1;&#x9001;&#x7ED9;&#x670D;&#x52A1;&#x5668;</span>
+    <span class="hljs-built_in">document</span>.forms[<span class="hljs-number">0</span>].onsubmit=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        $http.get(<span class="hljs-string">&apos;/serialize&apos;</span>,$http.serialize(<span class="hljs-keyword">this</span>),<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>)</span>{
+            <span class="hljs-built_in">console</span>.log(res);
+        });
+        <span class="hljs-comment">//&#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    };
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;serialize()&#x51FD;&#x6570;&#x9996;&#x5148;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;parts&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x5C06;&#x8981;&#x521B;&#x5EFA;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5404;&#x4E2A;&#x90E8;&#x5206;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x901A;&#x8FC7;for&#x5FAA;&#x73AF;&#x8FED;&#x4EE3;&#x6BCF;&#x4E2A;&#x8868;&#x5355;&#x5B57;&#x6BB5;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4FDD;&#x5B58;&#x5728;field&#x53D8;&#x91CF;&#x4E2D;&#x3002;&#x5728;&#x83B7;&#x5F97;&#x4E86;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x5F15;&#x7528;&#x4E4B;&#x540E;&#xFF0C;&#x4F7F;&#x7528;switch&#x8BED;&#x53E5;&#x68C0;&#x6D4B;&#x5176;type&#x5C5E;&#x6027;&#x3002;&#x5E8F;&#x5217;&#x5316;&#x8FC7;&#x7A0B;&#x6700;&#x9EBB;&#x70E6;&#x7684;&#x5C31;&#x662F;<code>select</code>&#x5143;&#x7D20;&#xFF0C;&#x5B83;&#x53EF;&#x80FD;&#x662F;&#x5355;&#x9009;&#x6846;&#x4E5F;&#x53EF;&#x80FD;&#x662F;&#x591A;&#x9009;&#x6846;&#xFF0C;&#x503C;&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x9009;&#x4E2D;&#x9879;&#xFF0C;&#x800C;&#x591A;&#x9009;&#x6846;&#x5219;&#x53EF;&#x80FD;&#x6709;&#x96F6;&#x6216;&#x591A;&#x4E2A;&#x9009;&#x4E2D;&#x9879;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x4EE3;&#x7801;&#x9002;&#x7528;&#x4E8E;&#x8FD9;&#x4E24;&#x79CD;&#x9009;&#x62E9;&#x6846;&#xFF0C;&#x81F3;&#x4E8E;&#x53EF;&#x9009;&#x6846;&#x7684;&#x6570;&#x91CF;&#x662F;&#x7531;&#x6D4F;&#x89C8;&#x5668;&#x63A7;&#x5236;&#x7684;&#x3002;&#x5728;&#x627E;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x9009;&#x4E2D;&#x9879;&#x4E4B;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x786E;&#x5B9A;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x503C;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;value&#x7279;&#x6027;&#xFF0C;&#x6216;&#x8005;&#x867D;&#x7136;&#x5B58;&#x5728;&#x8BE5;&#x7279;&#x6027;&#xFF0C;&#x4F46;&#x503C;&#x4E3A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8981;&#x4F7F;&#x7528;&#x9009;&#x9879;&#x7684;&#x6587;&#x672C;&#x4EE3;&#x66FF;&#x3002;&#x4E3A;&#x68C0;&#x67E5;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#xFF0C;&#x5728;DOM&#x517C;&#x5BB9;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x9700;&#x8981;&#x4F7F;&#x7528;hasAttribute()&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x5728;IE&#x4E2D;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7279;&#x6027;&#x7684;specified&#x5C5E;&#x6027;.
+<br></p>
+<p>&#x5982;&#x679C;&#x8868;&#x5355;&#x4E2D;&#x5305;&#x542B;<code>fieldset</code>&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8BE5;&#x5143;&#x7D20;&#x4F1A;&#x51FA;&#x73B0;&#x5728;&#x5143;&#x7D20;&#x96C6;&#x5408;&#x4E2D;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;type&#x5C5E;&#x6027;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;type&#x5C5E;&#x6027;&#x672A;&#x5B9A;&#x4E49;&#xFF0C;&#x5219;&#x4E0D;&#x9700;&#x8981;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x5E8F;&#x5217;&#x5316;&#x3002;&#x540C;&#x6837;&#xFF0C;&#x5BF9;&#x4E8E;&#x5404;&#x79CD;&#x6309;&#x94AE;&#x4EE5;&#x53CA;&#x6587;&#x4EF6;&#x8F93;&#x5165;&#x5B57;&#x6BB5;&#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;&#x5BF9;&#x4E8E;&#x5355;&#x9009;&#x6309;&#x94AE;&#x548C;&#x590D;&#x9009;&#x6846;&#xFF0C;&#x8981;&#x68C0;&#x67E5;&#x5176;checked&#x5C5E;&#x6027;&#x662F;&#x5426;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;false&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5219;&#x9000;&#x51FA;switch&#x8BED;&#x53E5;&#x3002;&#x5982;&#x679C;checked&#x5C5E;&#x6027;&#x4E3A;ture&#xFF0C;&#x5219;&#x7EE7;&#x7EED;&#x6267;&#x884C;default&#x8BED;&#x53E5;&#xFF0C;&#x5373;&#x5C06;&#x5F53;&#x524D;&#x5B57;&#x6BB5;&#x7684;&#x540D;&#x79F0;&#x548C;&#x503C;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x6DFB;&#x52A0;&#x5230;parts&#x6570;&#x7EC4;&#x4E2D;&#x3002;&#x51FD;&#x6570;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6B65;&#xFF0C;&#x5C31;&#x662F;&#x4F7F;&#x7528;join()&#x683C;&#x5F0F;&#x5316;&#x6574;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x7528;&#x548C;&#x53F7;&#x6765;&#x5206;&#x5272;&#x6BCF;&#x4E00;&#x4E2A;&#x8868;&#x5355;&#x5B57;&#x6BB5;&#x3002;<br></p>
+<p>&#x6700;&#x540E;&#xFF0C;serialize()&#x51FD;&#x6570;&#x4F1A;&#x4EE5;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x5E8F;&#x5217;&#x5316;&#x4E4B;&#x540E;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x8981;&#x5E8F;&#x5217;&#x5316;&#x6210;&#x5176;&#x5B83;&#x683C;&#x5F0F;&#xFF0C;&#x4E5F;&#x4E0D;&#x662F;&#x4EC0;&#x4E48;&#x56F0;&#x96BE;&#x7684;&#x4E8B;&#x3002;<br></p>
+<p><hr></p>
+<h3 id="t32&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x64CD;&#x4F5C;">&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x64CD;&#x4F5C; <a href="#t32&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x64CD;&#x4F5C;"> # </a></h3>
+<p>&#x5728;&#x5E94;&#x7528;&#x573A;&#x666F;&#x4E2D;&#x4F1A;&#x7ECF;&#x5E38;&#x51FA;&#x73B0;&#x4E0D;&#x540C;&#x6E90;&#x7684;&#x6570;&#x636E;&#x8BF7;&#x6C42;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x9700;&#x8981;&#x505A;&#x76F8;&#x5E94;&#x7684;&#x5904;&#x7406;&#x64CD;&#x4F5C;&#x3002;&#x7531;&#x4E8E;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x548C;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x7B49;&#x95EE;&#x9898;&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x6240;&#x4EE5;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x6765;&#x6E90;&#x7684;&#x8BF7;&#x6C42;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;&#x6709;&#x5F88;&#x591A;&#x3002;&#x4E0B;&#x9762;&#x4F1A;&#x4E3A;&#x5927;&#x5BB6;&#x5217;&#x51FA;&#x76F8;&#x5E94;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x4EE5;&#x53CA;&#x76F8;&#x5E94;&#x7684;&#x6982;&#x5FF5;&#x666E;&#x53CA;&#x3002;</p>
+<h4 id="t33&#x540C;&#x6E90;&#x7B56;&#x7565;">&#x540C;&#x6E90;&#x7B56;&#x7565; <a href="#t33&#x540C;&#x6E90;&#x7B56;&#x7565;"> # </a></h4>
+<p>&#x540C;&#x6E90;&#x7B56;&#x7565;&#x5C31;&#x662F;&#x89C4;&#x5B9A;&#x4E86;javascript&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;&#x90A3;&#x4E9B;web&#x5185;&#x5BB9;&#x7684;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x5B89;&#x5168;&#x9650;&#x5236;&#x3002;</p>
+<h5 id="t34&#x4EC0;&#x4E48;&#x662F;&#x540C;&#x6E90;&#xFF1F;">&#x4EC0;&#x4E48;&#x662F;&#x540C;&#x6E90;&#xFF1F; <a href="#t34&#x4EC0;&#x4E48;&#x662F;&#x540C;&#x6E90;&#xFF1F;"> # </a></h5>
+<p>&#x540C;&#x6E90;&#x5C31;&#x662F;&#x89C4;&#x5B9A;&#x591A;&#x4E2A;web&#x8D44;&#x6E90;&#x7684;url&#x4E2D;<code>scheme</code>&#x3001;<code>hostname</code>&#x3001;<code>port</code>&#x5FC5;&#x987B;&#x76F8;&#x540C;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x9879;&#x4E0D;&#x540C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;web&#x8D44;&#x6E90;&#x5C31;&#x4E0D;&#x662F;&#x540C;&#x6E90;&#x7684;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x5C31;&#x4F1A;&#x5176;&#x76F8;&#x5E94;&#x7684;&#x4F5C;&#x7528;&#x6765;&#x9650;&#x5236;&#x8FD9;&#x4E2A;web&#x8D44;&#x6E90;&#x3002;</p>
+<h5 id="t35&#x540C;&#x6E90;&#x7B56;&#x7565;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x51FA;&#x73B0;&#xFF1F;">&#x540C;&#x6E90;&#x7B56;&#x7565;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x51FA;&#x73B0;&#xFF1F; <a href="#t35&#x540C;&#x6E90;&#x7B56;&#x7565;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x51FA;&#x73B0;&#xFF1F;"> # </a></h5>
+<p>&#x5BF9;&#x4E8E;&#x9632;&#x6B62;&#x811A;&#x672C;&#x7A83;&#x53D6;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x6765;&#x8BF4;&#xFF0C;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x662F;&#x975E;&#x5E38;&#x6709;&#x5FC5;&#x8981;&#x7684;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD9;&#x4E00;&#x4E2A;&#x9650;&#x5236;&#xFF0C;&#x6076;&#x610F;&#x811A;&#x672C;&#x53EF;&#x80FD;&#x4F1A;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x7A7A;&#x9875;&#x9762;&#xFF0C;&#x8BF1;&#x5BFC;&#x7528;&#x6237;&#x8FDB;&#x5165;&#x5E76;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x7A97;&#x53E3;&#x5728;&#x5185;&#x7F51;&#x6D4F;&#x89C8;&#x64CD;&#x4F5C;&#x6587;&#x4EF6;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x6076;&#x610F;&#x811A;&#x672C;&#x5C31;&#x80FD;&#x591F;&#x8BFB;&#x53D6;&#x7A97;&#x53E3;&#x5185;&#x7684;&#x5185;&#x5BB9;&#x53D1;&#x9001;&#x5230;&#x81EA;&#x5DF1;&#x7684;&#x670D;&#x52A1;&#x5668;&#x6765;&#x8FBE;&#x5230;&#x7A83;&#x53D6;&#x6570;&#x636E;&#x7684;&#x76EE;&#x7684;&#x3002;&#x800C;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x5C31;&#x662F;&#x9650;&#x5236;&#x4E86;&#x8FD9;&#x79CD;&#x884C;&#x4E3A;&#x3002;</p>
+<p><em>&#x601D;&#x8003;&#xFF1A;web&#x7684;&#x5B89;&#x5168;&#x6027;&#x5982;&#x4F55;&#x8003;&#x8651;&#xFF1F;</em></p>
+<h4 id="t36&#x8DE8;&#x57DF;HTTP&#x8BF7;&#x6C42;">&#x8DE8;&#x57DF;HTTP&#x8BF7;&#x6C42; <a href="#t36&#x8DE8;&#x57DF;HTTP&#x8BF7;&#x6C42;"> # </a></h4>
+<h5 id="t37&#x4EC0;&#x4E48;&#x662F;&#x8DE8;&#x57DF;&#xFF1F;">&#x4EC0;&#x4E48;&#x662F;&#x8DE8;&#x57DF;&#xFF1F; <a href="#t37&#x4EC0;&#x4E48;&#x662F;&#x8DE8;&#x57DF;&#xFF1F;"> # </a></h5>
+<p>&#x5F53;&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x7684;URL&#x4E0E;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;URL&#x4E2D;&#x7684;<code>scheme</code>&#x3001;<code>hostname</code>&#x3001;<code>port</code>&#x6709;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x7B97;&#x662F;&#x8DE8;&#x57DF;&#x64CD;&#x4F5C;&#x3002;&#x8BF7;&#x53C2;&#x89C1;&#x4E0A;&#x9762;&#x7684;&#x540C;&#x6E90;&#x3002;<br></p>
+<p>&#x56E0;&#x4E3A;&#x6709;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x7684;&#x9650;&#x5236;&#xFF0C;XMLHttpRequest&#x4EC5;&#x53EF;&#x4EE5;&#x53D1;&#x8D77;&#x64CD;&#x4F5C;&#x540C;&#x57DF;(&#x540C;&#x6E90;)&#x4E0B;&#x7684;&#x8BF7;&#x6C42;&#x3002;&#x867D;&#x7136;&#x8FD9;&#x4E2A;&#x9650;&#x5236;&#x5173;&#x95ED;&#x4E86;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x4F46;&#x662F;&#x4E5F;&#x963B;&#x6B62;&#x4E86;&#x5927;&#x91CF;&#x5408;&#x6CD5;&#x7684;&#x9002;&#x5408;&#x4F7F;&#x7528;&#x7684;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x3002;&#x4E0D;&#x8FC7;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x4F7F;&#x7528;<code>img</code>&#x3001;<code>form</code>&#x3001;<code>iframe</code>&#x7B49;&#x5143;&#x7D20;&#x4E2D;&#x4F7F;&#x7528;&#x8DE8;&#x57DF;URL&#xFF0C;&#x6700;&#x4E2D;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x663E;&#x793A;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x3002;&#x4F46;&#x662F;&#x56E0;&#x4E3A;&#x540C;&#x6E90;&#x7B56;&#x7565;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x5141;&#x8BB8;&#x64CD;&#x4F5C;&#x6216;&#x8005;&#x4E0D;&#x80FD;&#x826F;&#x597D;&#x7684;&#x663E;&#x793A;&#x8DE8;&#x57DF;&#x6587;&#x6863;&#x5185;&#x5BB9;&#x3002;
+&#x5982;&#x679C;&#x6B64;&#x5904;&#x4F7F;&#x7528;XMLHttpRequest&#x6765;&#x64CD;&#x4F5C;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#xFF0C;&#x90A3;&#x4E48;&#x6240;&#x6709;&#x7684;&#x6587;&#x6863;&#x5185;&#x5BB9;&#x90FD;&#x5C06;&#x5728;responseText&#x5C5E;&#x6027;&#x4E2D;&#x66B4;&#x9732;&#xFF0C;&#x6240;&#x4EE5;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x4E0D;&#x5141;&#x8BB8;XMLHttpRequest&#x8FDB;&#x884C;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x3002;<br>
+<em>&#x6CE8;&#x610F;&#xFF1A;<code>img</code>&#x5143;&#x7D20;&#x4F1A;&#x628A;&#x8FD4;&#x56DE;&#x7684;&#x5185;&#x5BB9;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x4E3A;&#x56FE;&#x7247;&#x3002;<code>iframe</code>&#x5143;&#x7D20;&#x4E0D;&#x5141;&#x8BB8;&#x64CD;&#x4F5C;&#x8DE8;&#x57DF;&#x6570;&#x636E;.</em><br>
+&#x4F46;&#x662F;&#x9700;&#x8981;&#x5F3A;&#x8C03;&#x7684;&#x662F;<code>script</code>&#x5143;&#x7D20;&#x5E76;&#x672A;&#x771F;&#x6B63;&#x53D7;&#x5230;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x56E0;&#x4E3A;script&#x6709;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x52A0;&#x8F7D;&#x4E0D;&#x540C;&#x57DF;&#x7684;javascript&#x8D44;&#x6E90;&#x3002;&#x9700;&#x8981;&#x52A0;&#x8F7D;&#x5E76;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x6765;&#x6E90;&#x7684;&#x811A;&#x672C;&#x3002;&#x6B63;&#x56E0;&#x4E3A;&#x5982;&#x6B64;&#xFF0C;<code>script</code>&#x7684;&#x7075;&#x6D3B;&#x6027;&#x4F7F;&#x5176;&#x6210;&#x4E3A;&#x5728;&#x8DE8;&#x57DF;&#x64CD;&#x4F5C;&#x4E2D;&#x4EE3;&#x66FF;XMLHttpRequest&#x7684;&#x4E3B;&#x6D41;Ajax&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#xFF1A;<code>JSONP</code>&#x3002;</p>
+<h5 id="t38JSONP">JSONP <a href="#t38JSONP"> # </a></h5>
+<p><code>script</code>&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E00;&#x79CD;Ajax&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#xFF0C;&#x53EA;&#x9700;&#x8BBE;&#x7F6E;<code>script</code>&#x5143;&#x7D20;&#x7684;src&#x5C5E;&#x6027;&#x5E76;&#x4E14;&#x63D2;&#x5165;&#x5230;DOM&#x4E2D;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C31;&#x4F1A;&#x53D1;&#x51FA;&#x4E00;&#x4E2A;HTTP&#x8BF7;&#x6C42;&#x5230;src&#x5C5E;&#x6027;&#x6240;&#x6307;&#x5411;&#x7684;URL&#x3002;&#x4F7F;&#x7528;<code>script</code>&#x5143;&#x7D20;&#x8FDB;&#x884C;Ajax&#x4F20;&#x8F93;&#x7684;&#x4E00;&#x4E2A;&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x5C31;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x53D7;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x6E90;&#x7684;&#x8BF7;&#x6C42;&#x3002;&#x800C;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x539F;&#x56E0;&#x5C31;&#x662F;&#x7528;<code>script</code>&#x5143;&#x7D20;&#x4F1A;&#x81EA;&#x52A8;&#x89E3;&#x7801;&#x5E76;&#x6267;&#x884C;(&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5F53;&#x505A;javascript&#x6765;&#x5904;&#x7406;)&#x4E0B;&#x8F7D;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<blockquote>
+<p>JSONP&#x5E26;&#x6765;&#x7684;&#x5B89;&#x5168;&#x6027;&#x8003;&#x8651;&#xFF1A;
+&#x4E3A;&#x4E86;&#x4F7F;&#x7528;<code>script</code>&#x5143;&#x7D20;&#x6765;&#x8FDB;&#x884C;Ajax&#x4F20;&#x8F93;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x5141;&#x8BB8;web&#x9875;&#x9762;&#x4FE1;&#x4EFB;&#x5E76;&#x6267;&#x884C;&#x76EE;&#x6807;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x8FC7;&#x6765;&#x7684;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x8FD9;&#x5BF9;&#x4E8E;&#x4E0D;&#x4FE1;&#x4EFB;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4E0D;&#x5E94;&#x8BE5;&#x91C7;&#x53D6;&#x8BE5;&#x6280;&#x672F;&#x3002;&#x5728;&#x4E0E;&#x4FE1;&#x4EFB;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4EA4;&#x4E92;&#x662F;&#x8FD8;&#x8981;&#x63D0;&#x9632;&#x653B;&#x51FB;&#x8005;&#x53EF;&#x80FD;&#x4F1A;&#x8FDB;&#x5165;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x3002;&#x6240;&#x4EE5;&#x4F5C;&#x4E3A;Ajax&#x6570;&#x636E;&#x4F20;&#x8F93;&#x7684;<code>script</code>&#x4E0E;&#x53EF;&#x4FE1;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4EA4;&#x4E92;&#xFF0C;&#x662F;&#x76F8;&#x5F53;&#x5371;&#x9669;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+</blockquote>
+<p>&#x4F7F;&#x7528;&#x8FD9;&#x79CD;<code>script</code>&#x5143;&#x7D20;&#x6765;&#x8FDB;&#x884C;Ajax&#x6570;&#x636E;&#x7684;&#x4F20;&#x8F93;&#x7684;&#x6280;&#x672F;&#x5C31;&#x53EB;&#x505A;&apos;JSONP&apos;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;<code>JSON&#xFF0D;padding</code>.&#x8FD9;&#x4E2A;<code>P</code>(<code>padding</code>)&#x4EE3;&#x8868;&#x7684;&#x662F; &#x586B;&#x5145;&#x3001;&#x8865;&#x5145;&#x3001;&#x524D;&#x7F00;&#x3002;&#x5728;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x5FC5;&#x987B;&#x7528;javascript&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x52A0;&#x62EC;&#x53F7;&#x5305;&#x88F9;&#x4F4F;&#x624D;&#x884C;&#x3002;&#x800C;&#x4E0D;&#x662F;&#x4EC5;&#x4EC5;&#x53D1;&#x9001;&#x4E00;&#x6BB5;JSON&#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x800C;&#x5DF2;&#xFF0C;&#x8981;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x6D4F;&#x89C8;&#x5668;&#x53EA;&#x4F1A;&#x5BF9;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;JSON&#x89E3;&#x7801;&#xFF0C;&#x7ED3;&#x679C;&#x8FD8;&#x662F;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x505A;&#x4EFB;&#x4F55;&#x76F8;&#x5E94;&#x7684;&#x5904;&#x7406;&#x3002;<br>
+&#x56E0;&#x6B64;&#x5728;&#x4F7F;&#x7528;JSONP&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x662F;&#x6709;&#x56FA;&#x5B9A;&#x683C;&#x5F0F;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x8FD9;&#x6837;&#x7684;&#x6570;&#x636E;</span>
+[<span class="hljs-string">&quot;jeams&quot;</span>,<span class="hljs-string">&quot;bond&quot;</span>,{NAME:<span class="hljs-string">&quot;OBAMA&quot;</span>&#xFF0C;AGE:<span class="hljs-number">56</span>}]
+<span class="hljs-comment">//&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8FD9;&#x6837;&#x7684;&#x54CD;&#x5E94;</span>
+functionName([<span class="hljs-string">&quot;jeams&quot;</span>,<span class="hljs-string">&quot;bond&quot;</span>,{NAME:<span class="hljs-string">&quot;OBAMA&quot;</span>&#xFF0C;AGE:<span class="hljs-number">56</span>}])
+</code></pre>
+<p>&#x5176;&#x4E2D;&#x7684;functionName&#x5FC5;&#x987B;&#x662F;&#x5728;window&#x4E0B;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7684;&#x540D;&#x79F0;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x4E0D;&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x6BB5;JSON&#x6570;&#x636E;&#x800C;&#x5DF2;&#x4E86;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x4F1A;&#x6267;&#x884C;&#x5BF9;&#x5E94;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x5305;&#x88F9;&#x540E;&#x7684;&#x54CD;&#x5E94;&#x4F1A;&#x6210;&#x4E3A;&#x8FD9;&#x4E2A;<code>script</code>&#x5143;&#x7D20;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5B83;&#x5148;&#x5224;&#x65AD;JSON&#x7F16;&#x7801;&#x540E;&#x7684;&#x6570;&#x636E;(&#x56E0;&#x4E3A;&#x662F;&#x4E00;&#x4E2A;javascript&#x8868;&#x8FBE;&#x5F0F;)&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6570;&#x636E;&#x4F20;&#x7ED9;functionName&#x51FD;&#x6570;&#x3002;&#x6B64;&#x5904;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5047;&#x8BBE;functionName&#x4F1A;&#x90A3;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x505A;&#x6709;&#x7528;&#x7684;&#x4E8B;&#x60C5;&#x3002;
+&#x4F46;&#x662F;&#x4E3A;&#x4E86;&#x53EF;&#x884C;&#x8D77;&#x89C1;&#xFF0C;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x8981;&#x628A;&#x9700;&#x8981;&#x5305;&#x88F9;&#x6570;&#x636E;&#x7684;&#x90A3;&#x4E2A;javascript&#x65B9;&#x6CD5;&#x540D;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x91CC;&#x7684;&#x90A3;&#x4E2A;functionName&#x3002;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x4F1A;&#x77E5;&#x9053;&#x7528;&#x4EC0;&#x4E48;&#x6765;&#x5305;&#x88F9;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x4E86;&#x3002;&#x670D;&#x52A1;&#x5668;&#x4E5F;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;JSONP&#x6570;&#x636E;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;JSON&#x6570;&#x636E;&#x3002;&#x4F8B;&#x5982;&#x53EF;&#x4EE5;&#x5728;&#x8BF7;&#x6C42;&#x7684;URL&#x540E;&#x9762;&#x52A0;&#x4E0A;<code>?callback=functionName</code>&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;JSONP&#x8BF7;&#x6C42;</span>
+<span class="hljs-comment">//&#x8BF7;&#x6C42;&#x7684;url&#x3001;&#x5305;&#x88F9;&#x65B9;&#x6CD5;&#x540D;&#x79F0;&#x3001;&#x56DE;&#x8C03;&#x51FD;&#x6570;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">JSONP</span>(<span class="hljs-params">url,callbackName,callback</span>)</span>{
+    <span class="hljs-comment">//&#x4E3A;&#x672C;&#x6B21;&#x8BF7;&#x6C42;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;callback&#x540D;&#x79F0;</span>
+    <span class="hljs-keyword">var</span> cbnum=<span class="hljs-string">&quot;cb&quot;</span>+JSONP.count++; <span class="hljs-comment">//&#x8BA1;&#x6570;&#x5668; &#x751F;&#x6210;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x540D;&#x79F0;</span>
+    <span class="hljs-keyword">var</span> cbname=<span class="hljs-string">&quot;JSONP.&quot;</span>+cbnum; <span class="hljs-comment">//&#x4F5C;&#x4E3A;JSONP&#x65B9;&#x6CD5;&#x7684;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x5C5E;&#x6027;</span>
+
+    <span class="hljs-keyword">if</span>(url.indexOf(<span class="hljs-string">&quot;?&quot;</span>)==-<span class="hljs-number">1</span>){
+        url+=<span class="hljs-string">&quot;?&quot;</span>+callbackName+<span class="hljs-string">&quot;=&quot;</span>+cbname;
+    }<span class="hljs-keyword">else</span>{
+        url+=<span class="hljs-string">&quot;&amp;&quot;</span>+callbackName+<span class="hljs-string">&quot;=&quot;</span>+cbname;
+    }
+
+    JSONP[cbnum]=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>)</span>{
+        <span class="hljs-keyword">try</span>{
+            callback(response);
+        }<span class="hljs-keyword">catch</span> (ex){
+
+        }<span class="hljs-keyword">finally</span>{
+            <span class="hljs-comment">//&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;&#x5C31;&#x5220;&#x6389;&#xFF0C;&#x56E0;&#x4E3A;&#x6CA1;&#x4EC0;&#x4E48;&#x7528;&#x4E86;</span>
+            <span class="hljs-keyword">delete</span> JSONP[cbnum];
+            script.parentNode.removeChild(script);
+        }
+    }
+    <span class="hljs-keyword">var</span> script=<span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&quot;script&quot;</span>);
+    script.src=url;
+    <span class="hljs-built_in">document</span>.body.appendChild(script);
+}
+<span class="hljs-comment">//&#x521D;&#x59CB;&#x5316;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x552F;&#x4E00;&#x540D;&#x79F0;&#x7684;&#x8BA1;&#x6570;&#x5668;</span>
+JSONP.count=<span class="hljs-number">0</span>;
+
+<span class="hljs-comment">//&#x53D1;&#x8D77;JSONP&#x8BF7;&#x6C42;&#x3002;</span>
+JSONP(<span class="hljs-string">&quot;http://suggestion.baidu.com/su?wd=xxx&quot;</span>,<span class="hljs-string">&quot;cb&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
+    <span class="hljs-comment">//&#x5C06;&#x767E;&#x5EA6;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;&#x4E2D;</span>
+    <span class="hljs-built_in">console</span>.log(data)
+});
+</code></pre>
+<p><em>&#x6CE8;&#x610F;&#xFF1A;&#x5F53;&#x591A;&#x6B21;&#x6267;&#x884C;&#x540C;&#x4E00;&#x4E2A;url&#x7684;JSONP&#x64CD;&#x4F5C;&#x65F6;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7F13;&#x5B58;&#x95EE;&#x9898;&#x3002;</em></p>
+<blockquote>
+<p>&#x53EF;&#x7528;&#x7684;jsonp&#x63A5;&#x53E3;&#xFF1A;<br>
+&#x67E5;&#x8BE2;&#x6DD8;&#x5B9D;&#x5546;&#x54C1;&#xFF1A;<br>
+1:<em><a href="http://suggest.taobao.com/sug?code=utf-8&amp;q=&#x5546;&#x54C1;&#x5173;&#x952E;&#x5B57;&amp;callback=cb">http://suggest.taobao.com/sug?code=utf-8&amp;q=&#x5546;&#x54C1;&#x5173;&#x952E;&#x5B57;&amp;callback=cb</a>;</em><br>
+&#x5FEB;&#x9012;&#x67E5;&#x8BE2;&#xFF1A;<br>
+2:<a href="http://www.kuaidi100.com/query?type=quanfengkuaidi&amp;postid=390011492112">http://www.kuaidi100.com/query?type=quanfengkuaidi&amp;postid=390011492112</a>;<br>&#xFF08;ps:&#x5FEB;&#x9012;&#x516C;&#x53F8;&#x7F16;&#x7801;:&#x7533;&#x901A;=&quot;shentong&quot; EMS=&quot;ems&quot; &#x987A;&#x4E30;=&quot;shunfeng&quot; &#x5706;&#x901A;=&quot;yuantong&quot; &#x4E2D;&#x901A;=&quot;zhongtong&quot; &#x97F5;&#x8FBE;=&quot;yunda&quot; &#x5929;&#x5929;=&quot;tiantian&quot; &#x6C47;&#x901A;=&quot;huitongkuaidi&quot; &#x5168;&#x5CF0;=&quot;quanfengkuaidi&quot; &#x5FB7;&#x90A6;=&quot;debangwuliu&quot; &#x5B85;&#x6025;&#x9001;=&quot;zhaijisong&quot;&#xFF09;<br>
+&#x5929;&#x6C14;&#x67E5;&#x8BE2;&#xFF1A;<br>
+3:<em><a href="http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&amp;day=0&amp;city=&amp;dfc=1&amp;charset=utf-8">http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&amp;day=0&amp;city=&amp;dfc=1&amp;charset=utf-8</a>;</em><br>
+&#x624B;&#x673A;&#x53F7;&#x67E5;&#x8BE2;&#xFF1A;<br>
+4:<a href="http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=&#x624B;&#x673A;&#x53F7;">http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=&#x624B;&#x673A;&#x53F7;</a>;<br>
+&#x767E;&#x5EA6;&#x641C;&#x7D20;&#xFF1A;<br>
+5:<em><a href="http://suggestion.baidu.com/su?wd=a&amp;cb=xxx">http://suggestion.baidu.com/su?wd=a&amp;cb=xxx</a>;</em></p>
+</blockquote>
+<h5 id="t39&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;">&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB; <a href="#t39&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;"> # </a></h5>
+<p>&#x7531;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x540C;&#x6E90;&#x7B56;&#x7565;&#xFF0C;&#x9650;&#x5236;&#x4E86;XMLHttpRequest&#x7684;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x4F46;&#x662F;&#x5728;XHR2&#x4E2D;&#x6D4F;&#x89C8;&#x5668;&#x9009;&#x62E9;&#x5141;&#x8BB8;&#x53D1;&#x9001;&#x5408;&#x9002;&#x7684;CORS(cross-origin resource sharing&#xFF0C;&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;)&#x6765;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x3002;&#x5728;&#x6807;&#x51C6;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F9D;&#x65E7;&#x4F7F;&#x7528;XMLHttpRequest&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x5728;IE8&#xFF0D;9&#x4E2D;&#x5219;&#x4F7F;&#x7528;XDomainRequest&#x5BF9;&#x8C61;&#x6765;&#x8BF7;&#x6C42;&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x3002;<br>
+&#x867D;&#x7136;&#x5B9E;&#x73B0;CORS&#x4E0D;&#x9700;&#x8981;&#x505A;&#x4EFB;&#x4F55;&#x4E8B;&#x60C5;&#xFF0C;&#x4F46;&#x662F;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x5B89;&#x5168;&#x7EC6;&#x8282;&#x9700;&#x8981;&#x4E86;&#x89E3;&#x3002;&#x9996;&#x5148;&#xFF0C;&#x5982;&#x679C;&#x901A;&#x8FC7;XMLHttpRequest&#x7684;open()&#x65B9;&#x6CD5;&#x4F20;&#x5165;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;(&#x8BE6;&#x60C5;&#x89C1;open&#x65B9;&#x6CD5;)&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4EEC;&#x7EDD;&#x4E0D;&#x4F1A;&#x901A;&#x8FC7;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x3002;&#x53E6;&#x5916;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x4E5F;&#x4E0D;&#x4F1A;&#x5305;&#x542B;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x7684;&#x7528;&#x6237;&#x8BC1;&#x4E66;&#xFF1A;cookie&#x548C;HTTP&#x8EAB;&#x4EFD;&#x8BA4;&#x8BC1;&#x7684;&#x4EE4;&#x724C;(TOKEN)&#x901A;&#x5E38;&#x4E0D;&#x4F1A;&#x4F5C;&#x4E3A;&#x8BF7;&#x6C42;&#x7684;&#x5185;&#x5BB9;&#x53D1;&#x9001;
+&#x5230;&#x5BF9;&#x65B9;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E14;&#x5BF9;&#x65B9;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x6570;&#x636E;(cookie&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x7684;&#x4E00;&#x4E9B;&#x54CD;&#x5E94;&#x5934;)&#x90FD;&#x5C06;&#x88AB;&#x4E22;&#x5F03;&#x3002;&#x5982;&#x679C;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x5FC5;&#x987B;&#x9700;&#x8981;&#x4F20;&#x5165;&#x8FD9;&#x51E0;&#x79CD;&#x7528;&#x6237;&#x8BC1;&#x4E66;&#x624D;&#x80FD;&#x6210;&#x529F;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5FC5;&#x987B;&#x5728;&#x8C03;&#x7528;send()&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#x8BBE;&#x7F6E;XMLHttpRequest&#x7684;WithCredentials&#x4E3A;true&#xFF0C;&#x6B64;&#x5C5E;&#x6027;&#x9ED8;&#x8BA4;&#x4E3A;false&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x68C0;&#x7D22;XMLHttpRequest&#x5BF9;&#x8C61;&#x6709;&#x6CA1;&#x6709;&#x8BE5;&#x5C5E;&#x6027;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B83;&#x652F;&#x6301;CORS&#x64CD;&#x4F5C;&#x3002;<br></p>
+<h6 id="t40withCredentials&#x5C5E;&#x6027;">withCredentials&#x5C5E;&#x6027; <a href="#t40withCredentials&#x5C5E;&#x6027;"> # </a></h6>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;XMLHttpRequest&#x8FDB;&#x884C;&#x8DE8;&#x6E90;&#x8BF7;&#x6C42;&#x4E0D;&#x63D0;&#x4F9B;&#x51ED;&#x636E;(cookie&#x3001;HTTP&#x8BA4;&#x8BC1;&#x53CA;&#x5BA2;&#x6237;&#x7AEF;SSL&#x8BC1;&#x660E;&#x7B49;)&#x3002;&#x901A;&#x8FC7;&#x5C06;XMLHttpRequest&#x7684;withCredentials&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;true&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x67D0;&#x4E2A;&#x8BF7;&#x6C42;&#x5E94;&#x8BE5;&#x53D1;&#x9001;&#x51ED;&#x636E;&#x3002;&#x5982;&#x679C;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x5E26;&#x51ED;&#x636E;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x4F1A;&#x7528;&#x4E0B;&#x9762;&#x7684;HTTP&#x5934;&#x90E8;&#x6765;&#x54CD;&#x5E94;&#x3002;<br></p>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8FD4;&#x56DE;&#x6B64;&#x54CD;&#x5E94;&#x5934;</span>
+Access-Control-Allow-Credentials: <span class="hljs-literal">true</span>
+<span class="hljs-comment">//XMLHttpRequest&#x7684;withCredentials&#x8BBE;&#x7F6E;&#x4E3A;true</span>
+xhr.withCredentials=<span class="hljs-literal">true</span>;
+</code></pre>
+<p>&#x5982;&#x679C;&#x53D1;&#x9001;&#x7684;&#x662F;&#x5E26;&#x51ED;&#x636E;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x670D;&#x52A1;&#x5668;&#x7684;&#x76F8;&#x5E94;&#x4E2D;&#x6CA1;&#x6709;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x5934;&#x90E8;&#xFF0C;&#x90A3;&#x4E48;&#x6D4F;&#x89C8;&#x5668;&#x5C31;&#x4E0D;&#x4F1A;&#x628A;&#x76F8;&#x5E94;&#x4EA4;&#x7ED9;JavaScript(&#x4E8E;&#x662F;&#xFF0C;responseText&#x4E2D;&#x5C06;&#x662F;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;status&#x7684;&#x503C;&#x4E3A;0&#xFF0C;&#x800C;&#x4E14;&#x4F1A;&#x8C03;&#x7528;onerror()&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;)&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x54CD;&#x5E94;&#x4E2D;&#x53D1;&#x9001;&#x8FD9;&#x4E2A;HTTP&#x5934;&#x90E8;&#xFF0C;&#x8868;&#x793A;&#x5141;&#x8BB8;&#x6E90;&#x53D1;&#x9001;&#x5E26;&#x51ED;&#x636E;&#x7684;&#x8BF7;&#x6C42;&#x3002;<br></p>
+<blockquote>
+<p>&#x4F7F;&#x7528;XDomainRequest&#x5BF9;&#x8C61;&#x65F6;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;:<br>
+1&#x3001;XDomainRequest&#x5BF9;&#x8C61;&#x6CA1;&#x6709;onreadystatechange&#x5C5E;&#x6027;&#x3002;<br>
+2&#x3001;&#x6B64;&#x5BF9;&#x8C61;&#x53EA;&#x6709;IE8&#x4E2D;&#x6709;&#x3002;<br>
+3&#x3001;&#x6B64;&#x65B9;&#x6CD5;&#x53EA;&#x53EF;&#x4F7F;&#x7528;http&#x65B9;&#x6848;&#x548C;https&#x65B9;&#x6848;&#x3002;<br>
+4&#x3001;&#x6B64;&#x5BF9;&#x8C61;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;contentType&#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x6765;&#x83B7;&#x5F97;&#x54CD;&#x5E94;&#x5934;&#x4E2D;&#x7684;Content-Type&#x3002;<br></p>
+</blockquote>
+<p>&#x5F53;&#x6D4F;&#x89C8;&#x5668;&#x4F7F;&#x7528;&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;&#x65F6;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x4F7F;&#x7528;XMLHttpRequest&#x8FD8;&#x662F;XDoaminRequest&#x3002;&#x670D;&#x52A1;&#x5668;&#x90FD;&#x5FC5;&#x987B;&#x5728;&#x54CD;&#x5E94;&#x5934;&#x4E2D;&#x8BBE;&#x7F6E;<code>Access-Control-Allow-Origin</code>&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x5728;java&#x6216;&#x8005;C#&#x4E2D;</span>
+&lt;% Response.AddHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>,<span class="hljs-string">&quot;*&quot;</span>) %&gt;
+<span class="hljs-comment">//nodejs&#x4E2D;</span>
+response.writeHead(<span class="hljs-number">200</span>,{<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>:<span class="hljs-string">&quot;*&quot;</span>})
+</code></pre>
+<p>&#x5176;&#x4E2D;<code>&#xFF0A;</code>&#x4EE3;&#x7801;&#x5141;&#x8BB8;&#x4EFB;&#x4F55;&#x6E90;&#x8BF7;&#x6C42;&#x672C;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6539;&#x6210;&#x56FA;&#x5B9A;&#x7684;&#x6E90;&#x3002;&#x4F8B;&#x5982;&#xFF1A;<code>{&quot;Access-Control-Allow-Origin&quot;:&quot;http://localhost:63342&quot;}</code> &#x53EA;&#x5141;&#x8BB8;URL&#x4E3A;<code>http://localhost:63342</code>&#x7684;&#x8BF7;&#x6C42;&#x6E90;&#x8BF7;&#x6C42;&#x672C;&#x670D;&#x52A1;&#x5668;&#x3002;
+<strong>&#x8B66;&#x544A;&#xFF1A;&#x5982;&#x679C;&#x5C06;XMLHttpRequest&#x7684;withCredentials&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;true&#x7684;&#x65F6;&#x5019;&#xFF0C;<code>Access-Control-Allow-Origin</code>&#x8FD9;&#x4E2A;&#x54CD;&#x5E94;&#x5934;&#x4E0D;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A;<code>*</code>&#x3002;</strong></p>
+<blockquote>
+<h5 id="t41W3C&#x89C4;&#x5B9A;&#x7684;&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;&#x4E2D;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x7684;&#x5934;&#x4FE1;&#x606F;&#x5982;&#x4E0B;&#xFF1A;">W3C&#x89C4;&#x5B9A;&#x7684;&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;&#x4E2D;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x7684;&#x5934;&#x4FE1;&#x606F;&#x5982;&#x4E0B;&#xFF1A; <a href="#t41W3C&#x89C4;&#x5B9A;&#x7684;&#x8DE8;&#x57DF;&#x8D44;&#x6E90;&#x5171;&#x4EAB;&#x4E2D;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x7684;&#x5934;&#x4FE1;&#x606F;&#x5982;&#x4E0B;&#xFF1A;"> # </a></h5>
+<ol>
+<li>Access-Control-Allow-Origin<br>
+&#x4F5C;&#x7528;&#xFF1A;&#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x6B64;&#x670D;&#x52A1;&#x5668;&#x7684;&#x57DF;&#x540D;<br>
+&#x4F7F;&#x7528;&#x683C;&#x5F0F;&#xFF1A;Access-Control-Allow-Origin = &quot;Access-Control-Allow-Origin&quot; &quot;:&quot; ascii-origin | &quot;*&quot;</li>
+<li>Access-Control-Max-Age<br>
+&#x4F5C;&#x7528;&#xFF1A;&#x8868;&#x660E;&#x5728;&#x6307;&#x5B9A;&#x591A;&#x5C11;&#x79D2;&#x5185;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x53D1;&#x9001;&#x9884;&#x68C0;&#x9A8C;&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x4EE5;&#x7F13;&#x5B58;&#x8BE5;&#x7ED3;&#x679C;<br>
+&#x4F7F;&#x7528;&#x683C;&#x5F0F;&#xFF1A;Access-Control-Max-Age = &quot;Access-Control-Max-Age&quot; &quot;:&quot; delta-seconds</li>
+<li>Access-Control-Allow-Credentials<br>
+&#x4F5C;&#x7528;&#xFF1A;&#x5141;&#x8BB8;&#x643A;&#x5E26; &#x7528;&#x6237;&#x8BA4;&#x8BC1;&#x51ED;&#x636E;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x5141;&#x8BB8;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x7684;&#x8BF7;&#x6C42;&#x643A;&#x5E26;Cookie&#xFF09;<br>
+&#x4F7F;&#x7528;&#x683C;&#x5F0F;&#xFF1A;Access-Control-Allow-Credentials: &quot;Access-Control-Allow-Credentials&quot; &quot;:&quot; &quot;true&quot;</li>
+<li>Access-Control-Allow-Methods<br>
+&#x4F5C;&#x7528;&#xFF1A;&#x8868;&#x660E;&#x5B83;&#x5141;&#x8BB8;&#x54EA;&#x4E9B;&#x6307;&#x5B9A;HTTP&#x65B9;&#x6CD5;&#x7684;&#x5916;&#x57DF;&#x8BF7;&#x6C42;<br>
+&#x4F7F;&#x7528;&#x683C;&#x5F0F;&#xFF1A;Access-Control-Allow-Methods: &quot;Access-Control-Allow-Methods&quot; &quot;:&quot; #Method</li>
+<li>Access-Control-Allow-Headers<br>
+&#x4F5C;&#x7528;&#xFF1A;&#x8868;&#x660E;&#x5B83;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x5305;&#x542B;&#x6307;&#x5B9A;&#x7684;&#x90A3;&#x4E9B;&#x5934;&#x4FE1;&#x606F;<br>
+&#x4F7F;&#x7528;&#x683C;&#x5F0F;&#xFF1A;Access-Control-Allow-Headers: &quot;Access-Control-Allow-Headers&quot; &quot;:&quot; #field-name</li>
+<li>Access-Control-Request-Method<br>
+&#x4F5C;&#x7528;&#xFF1A;&#x8868;&#x660E;&#x5B83;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x54EA;&#x4E9B;HTTP&#x65B9;&#x6CD5;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;<br>
+&#x4F7F;&#x7528;&#x683C;&#x5F0F;&#xFF1A;Access-Control-Request-Method: &quot;Access-Control-Request-Method&quot; &quot;:&quot; Method</li>
+<li>Access-Control-Request-Headers<br>
+&#x4F5C;&#x7528;&#xFF1A;&#x8868;&#x660E;&#x5B83;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x8BBE;&#x7F6E;&#x54EA;&#x4E9B;&#x5934;&#x4FE1;&#x606F;<br>
+&#x4F7F;&#x7528;&#x683C;&#x5F0F;&#xFF1A;Access-Control-Request-Headers: &quot;Access-Control-Request-Headers&quot; &quot;:&quot; #field-name</li>
+</ol>
+</blockquote>
+<pre><code class="lang-js">(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">global, undefined</span>) </span>{
+    <span class="hljs-comment">//&#x6839;&#x636E;&#x6709;&#x65E0;withCredentials&#x6765;&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x65F6;&#x5019;&#x652F;&#x6301;XMLHttpRequest&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x64CD;&#x4F5C;</span>
+    <span class="hljs-keyword">var</span> XMLHttpRequestCORS = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> (!(<span class="hljs-string">&apos;XMLHttpRequest&apos;</span> <span class="hljs-keyword">in</span> global))
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">var</span> a = <span class="hljs-keyword">new</span> XMLHttpRequest();
+        <span class="hljs-keyword">return</span> a.withCredentials !== <span class="hljs-literal">undefined</span>;
+    })(), request = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">//&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-string">&apos;XDomainRequest&apos;</span> <span class="hljs-keyword">in</span> global)
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> XDomainRequest();
+        <span class="hljs-comment">//&#x662F;&#x5426;&#x652F;&#x6301;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-string">&apos;XMLHttpRequest&apos;</span> <span class="hljs-keyword">in</span> global &amp;&amp; XMLHttpRequestCORS)
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> XMLHttpRequest();
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    };
+    <span class="hljs-keyword">var</span> xhr = request();
+    <span class="hljs-keyword">if</span>(xhr){
+        xhr.open(<span class="hljs-string">&quot;get&quot;</span>, <span class="hljs-string">&quot;http://localhost:1111&quot;</span>);
+        xhr.onload = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-comment">//onload&#x65B9;&#x6CD5;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#xFF0C;&#x53C2;&#x89C1;&#x4E0A;&#x9762;XMLHttpRequest&#x7684;onload&#x5C5E;&#x6027;&#x89E3;&#x91CA;</span>
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText);
+        };
+        xhr.send();
+    }
+
+})(<span class="hljs-built_in">window</span>);
+</code></pre>
+<h3 id="t42&#x7ED3;&#x675F;&#x8BED;">&#x7ED3;&#x675F;&#x8BED; <a href="#t42&#x7ED3;&#x675F;&#x8BED;"> # </a></h3>
+<p>&#x73B0;&#x5728;&#x4F60;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x51C6;&#x5907;&#x5F00;&#x59CB;&#x7F16;&#x5199;&#x7B2C;&#x4E00;&#x4E2A;<code>Ajax</code>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E86;&#xFF0C;&#x4E0D;&#x8FC7;&#x53EF;&#x4EE5;&#x9996;&#x5148;&#x4ECE;&#x8FD9;&#x4E9B;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x5F00;&#x59CB;&#xFF0C;&#x5BF9;<code>XMLHttpRequest</code>&#x5BF9;&#x8C61;&#x6709;&#x57FA;&#x672C;&#x7684;&#x4E86;&#x89E3;&#x3002;<br>
+&#x73B0;&#x5728;&#x5148;&#x82B1;&#x70B9;&#x513F;&#x65F6;&#x95F4;&#x8003;&#x8651;&#x8003;&#x8651;<code>Ajax</code>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6709;&#x591A;&#x4E48;&#x5F3A;&#x5927;&#x3002;&#x8BBE;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x5F53;&#x5355;&#x51FB;&#x6309;&#x94AE;&#x3001;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x3001;&#x4ECE;&#x7EC4;&#x5408;&#x6846;&#x4E2D;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x9009;&#x9879;&#x6216;&#x8005;&#x7528;&#x9F20;&#x6807;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x62D6;&#x52A8;&#x65F6;&#xFF0C;Web &#x8868;&#x5355;&#x80FD;&#x591F;&#x7ACB;&#x523B;&#x4F5C;&#x51FA;&#x54CD;&#x5E94;&#x4F1A;&#x662F;&#x4EC0;&#x4E48;&#x60C5;&#x5F62;&#x3002;&#x60F3;&#x4E00;&#x60F3;&#x5F02;&#x6B65; &#x7A76;&#x7ADF;&#x610F;&#x5473;&#x7740;&#x4EC0;&#x4E48;&#xFF0C;&#x60F3;&#x4E00;&#x60F3; JavaScript &#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x800C;&#x4E14;&#x4E0D;&#x7B49;&#x5F85; &#x670D;&#x52A1;&#x5668;&#x5BF9;&#x5B83;&#x7684;&#x8BF7;&#x6C42;&#x4F5C;&#x51FA;&#x54CD;&#x5E94;&#x3002;&#x4F1A;&#x9047;&#x5230;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x95EE;&#x9898;&#xFF1F;&#x4F1A;&#x8FDB;&#x5165;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x9886;&#x57DF;&#xFF1F;&#x8003;&#x8651;&#x5230;&#x8FD9;&#x79CD;&#x65B0;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x7F16;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#x5E94;&#x5982;&#x4F55;&#x6539;&#x53D8;&#x8868;&#x5355;&#x7684;&#x8BBE;&#x8BA1;&#xFF1F;<br>
+&#x5982;&#x679C;&#x5728;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x4E0A;&#x82B1;&#x4E00;&#x70B9;&#x513F;&#x65F6;&#x95F4;&#xFF0C;&#x4E0E;&#x7B80;&#x5355;&#x5730;&#x526A;&#x5207;/&#x7C98;&#x8D34;&#x67D0;&#x4E9B;&#x4EE3;&#x7801;&#x5230;&#x60A8;&#x6839;&#x672C;&#x4E0D;&#x7406;&#x89E3;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x76F8;&#x6BD4;&#xFF0C;&#x6536;&#x76CA;&#x4F1A;&#x66F4;&#x591A;&#x3002;</p>
+<h4 id="t43&#x53C2;&#x8003;">&#x53C2;&#x8003; <a href="#t43&#x53C2;&#x8003;"> # </a></h4>
+<ul>
+<li><a href="http://bob.ippoli.to/archives/2005/12/05/remote-json-jsonp/">http://bob.ippoli.to/archives/2005/12/05/remote-json-jsonp/</a></li>
+<li><a href="http://www.w3.org/TR/cors/">http://www.w3.org/TR/cors/</a></li>
+<li><a href="http://www.w3.org/TR/XMLHttpRequest/">http://www.w3.org/TR/XMLHttpRequest/</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/ie/cc288060(v=vs.85).aspx">https://msdn.microsoft.com/zh-cn/library/ie/cc288060(v=vs.85).aspx</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">https://developer.mozilla.org/en-US/docs/Web/HTTP</a></li>
+</ul>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

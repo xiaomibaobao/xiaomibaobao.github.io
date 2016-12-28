@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li class="active"><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0React第二讲课堂笔记（JSX 语法）">React第二讲课堂笔记（JSX 语法）</a><ul><li><a href="#t11. 什么是 JSX">1. 什么是 JSX</a></li><li><a href="#t22. 为什么要使用 JSX">2. 为什么要使用 JSX</a></li><li><a href="#t33. 注释">3. 注释</a></li><li><a href="#t44. 命名">4. 命名</a></li><li><a href="#t55. 根元素个数">5. 根元素个数</a></li><li><a href="#t66. 嵌入变量">6. 嵌入变量</a></li><li><a href="#t77. styles">7. styles</a></li><li><a href="#t88. JSX SPREAD">8. JSX SPREAD</a></li><li><a href="#t99. 属性名不能和 js 关键字冲突">9. 属性名不能和 js 关键字冲突</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0React&#x7B2C;&#x4E8C;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;JSX &#x8BED;&#x6CD5;&#xFF09;">React&#x7B2C;&#x4E8C;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;JSX &#x8BED;&#x6CD5;&#xFF09; <a href="#t0React&#x7B2C;&#x4E8C;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;JSX &#x8BED;&#x6CD5;&#xFF09;"> # </a></h1>
+<h2 id="t11. &#x4EC0;&#x4E48;&#x662F; JSX">1. &#x4EC0;&#x4E48;&#x662F; JSX <a href="#t11. &#x4EC0;&#x4E48;&#x662F; JSX"> # </a></h2>
+<p>&#x7C7B;&#x4F3C; xml &#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x7EC4;&#x4EF6;&#x6811;</p>
+<pre><code>var HelloMessage = React.createClass({
+  render: function() {
+    return &lt;div&gt;Hello {this.props.name}&lt;/div&gt;;
+  }
+});
+
+React.render(&lt;HelloMessage name=&quot;John&quot; /&gt;, mountNode);
+</code></pre><p>JSX&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x5E76;&#x4E0D;&#x5F3A;&#x5236;&#x8981;&#x6C42;&#x4F7F;&#x7528;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x7528;JSX&#xFF0C;&#x7528;React&#x63D0;&#x4F9B;&#x7684;API&#x5199;&#x7684;&#x8BDD;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;React&#x7684;API&#x6765;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x548C;DOM&#x5143;&#x7D20;&#x3002;</p>
+<pre><code>
+var HelloMessage = React.createClass({
+  displayName: &quot;HelloMessage&quot;,
+  render: function() {
+    return React.createElement(&quot;div&quot;, null, &quot;Hello &quot;, this.props.name);
+  }
+});
+
+React.render(React.createElement(HelloMessage, {name: &quot;John&quot;}), mountNode);
+</code></pre><h2 id="t22. &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4F7F;&#x7528; JSX">2. &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4F7F;&#x7528; JSX <a href="#t22. &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4F7F;&#x7528; JSX"> # </a></h2>
+<p>&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x4E3A;&#x4E86; React &#x4F7F;&#x7528; JSX&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x7EAF;&#x7CB9;&#x7684; JS&#x3002;&#x4F46;&#x6211;&#x4EEC;&#x66F4;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; JSX , <strong>&#x56E0;&#x4E3A;&#x5B83;&#x80FD;&#x5B9A;&#x4E49;&#x7B80;&#x6D01;&#x4E14;&#x6211;&#x4EEC;&#x719F;&#x77E5;&#x7684;&#x5305;&#x542B;&#x5C5E;&#x6027;&#x7684;&#x6811;&#x72B6;&#x7ED3;&#x6784;&#x8BED;&#x6CD5;&#x3002;</strong></p>
+<h2 id="t33. &#x6CE8;&#x91CA;">3. &#x6CE8;&#x91CA; <a href="#t33. &#x6CE8;&#x91CA;"> # </a></h2>
+<pre><code>import React, { Component } from &apos;react&apos;;
+
+const name = &apos;yongfeng&apos;;
+const MyComponent = () =&gt; {
+    &lt;Nav&gt;
+    {/* &#x4E00;&#x822C;&#x6CE8;&#x91CA;, &#x7528; {} &#x5305;&#x56F4; */}
+    &lt;a
+      /* &#x591A;
+         &#x884C;
+         &#x6CE8;&#x91CA; */
+      className={ name ? &apos;a&apos; : &apos;b&apos; } // &#x884C;&#x5C3E;&#x6CE8;&#x91CA;
+      href=&quot;http://guoyongfeng.github.io/idoc&quot;
+    &gt; &#x6CE8;&#x91CA; &lt;/a&gt;
+  &lt;/Nav&gt;
+};
+
+export default MyComponent;
+</code></pre><h2 id="t44. &#x547D;&#x540D;">4. &#x547D;&#x540D; <a href="#t44. &#x547D;&#x540D;"> # </a></h2>
+<pre><code>import React, { Component } from &apos;react&apos;;
+
+// 1. &#x7EC4;&#x4EF6;&#x547D;&#x540D;&#x9075;&#x5FAA;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#xFF0C;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;
+class ComponentDemo extends Component {
+  render(){
+    return &lt;div&gt; &#x4F60;&#x597D;&#xFF0C;&#x5144;&#x5F1F;... &lt;/div&gt;
+  }
+}
+
+export default ComponentDemo;
+</code></pre><h2 id="t55. &#x6839;&#x5143;&#x7D20;&#x4E2A;&#x6570;">5. &#x6839;&#x5143;&#x7D20;&#x4E2A;&#x6570; <a href="#t55. &#x6839;&#x5143;&#x7D20;&#x4E2A;&#x6570;"> # </a></h2>
+<pre><code>import React, { Component } from &apos;react&apos;;
+
+class ComponentDemo extends Component {
+  render(){
+    // &#x4EE5;&#x4E0B;&#x5199;&#x6CD5;&#x76F4;&#x63A5;&#x62A5;&#x9519;
+    return (
+      &lt;div&gt;
+        hello
+      &lt;/div&gt;
+      &lt;h1&gt; hello h1 &lt;/h1&gt;
+    );
+  }
+}
+
+export default ComponentDemo;
+</code></pre><p>React&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x9650;&#x5236;&#xFF0C; &#x7EC4;&#x4EF6;&#x53EA;&#x80FD;&#x6E32;&#x67D3;&#x5355;&#x4E2A;&#x6839;&#x8282;&#x70B9;&#x3002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x8FD4;&#x56DE;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x5B83;&#x4EEC;&#x5FC5;&#x987B;&#x88AB;&#x5305;&#x542B;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x91CC;&#x3002;</p>
+<h2 id="t66. &#x5D4C;&#x5165;&#x53D8;&#x91CF;">6. &#x5D4C;&#x5165;&#x53D8;&#x91CF; <a href="#t66. &#x5D4C;&#x5165;&#x53D8;&#x91CF;"> # </a></h2>
+<p><code>{}&#x82B1;&#x62EC;&#x53F7;&#x5185;&#x53EF;&#x4EE5;&#x5199;JS&#x903B;&#x8F91;&#xFF0C;&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x65B9;&#x6CD5;&#x5B9A;&#x4E49;&#x90FD;&#x53EF;&#x4EE5;</code></p>
+<pre><code>let person = &lt;Person name={window.isLoggedIn ? window.name : &apos;&apos;} /&gt;;
+</code></pre><h2 id="t77. styles">7. styles <a href="#t77. styles"> # </a></h2>
+<pre><code>import React, { Component } from &apos;react&apos;;
+
+class StyleDemo extends Component {
+  render(){
+    // 5. &#x5728;JS&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x7ED9;&#x7EC4;&#x4EF6;&#x5B9A;&#x4E49;&#x6837;&#x5F0F;
+    var MyComponentStyles = {
+        color: &apos;blue&apos;,
+        fontSize: &apos;28px&apos;
+    };
+
+    return (
+      &lt;div style={MyComponentStyles}&gt;
+          &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD9;&#x6837;&#x5199;&#x884C;&#x5185;&#x6837;&#x5F0F;
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default StyleDemo;
+</code></pre><h2 id="t88. JSX SPREAD">8. JSX SPREAD <a href="#t88. JSX SPREAD"> # </a></h2>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>{...obj}</code> &#x6765;&#x6279;&#x91CF;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x5230;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+
+class SpreadDemo extends Component {
+  componentWillMount(){
+    console.log(this.props);
+  }
+  render(){
+    return &lt;h1&gt; {this.props.name} is a {this.props.type} &lt;/h1&gt;;
+  }
+}
+
+export default SpreadDemo;
+</code></pre><h2 id="t99. &#x5C5E;&#x6027;&#x540D;&#x4E0D;&#x80FD;&#x548C; js &#x5173;&#x952E;&#x5B57;&#x51B2;&#x7A81;">9. &#x5C5E;&#x6027;&#x540D;&#x4E0D;&#x80FD;&#x548C; js &#x5173;&#x952E;&#x5B57;&#x51B2;&#x7A81; <a href="#t99. &#x5C5E;&#x6027;&#x540D;&#x4E0D;&#x80FD;&#x548C; js &#x5173;&#x952E;&#x5B57;&#x51B2;&#x7A81;"> # </a></h2>
+<p>&#x4F8B;&#x5982;&#xFF1A;<code>className readOnly htmlfor</code></p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+    "name": "xiaomi-Blog",
+    "version": "1.0.0",
+    "description": "'我每失去一条臂膀，就睁开一只眼睛；--顾城《杨树》",
+    "keywords": [
+        "js,node,react,webpack,full-stack;"
+    ],
+    "homepage": "https://xiaomibaobao.github.io/",
+    "author": "xiaomibaobao <yueyuele@163.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/xiaomibaobao"
+    },
+    "licenses": "MIT",
+    "idoc": {
+        "theme": "handbook",
+        "md": [
+            "index.md",
+            {
+                "React": [
+                    "React一（初识React）.md",
+                    "React七（组件嵌套）.md",
+                    "React三（数据流）.md",
+                    "React九（mixin）.md",
+                    "React二（JSX语法）.md",
+                    "React五（DOM操作）.md",
+                    "React八（表单操作）.md",
+                    "React六（事件）.md",
+                    "React十（编码规范）.md",
+                    "React四（定义组件）.md"
+                ]
+            },
+            {
+                "Node.js": [
+                    "MongoDB.md",
+                    "node 1.md",
+                    "Node.js知识详解.md",
+                    "node入门(2).md"
+                ]
+            },
+            {
+                "Angular": [
+                    "AngularJS 2.md",
+                    "AngularJS.md"
+                ]
+            },
+            {
+                "原生JavaScript": [
+                    "AJAX.md",
+                    "DOM.md",
+                    "ES6.md",
+                    "HTTP.md",
+                    "JS 基础知识拾遗.md",
+                    "Promise.md",
+                    "事件.md",
+                    "函数.md",
+                    "面向对象.md",
+                    "CORS详解.md",
+                    "数组详谈.md",
+                    "正则表达式.md",
+                    "面向对象OOP.md"
+                ]
+            },
+            {
+                "设计、算法和思考": [
+                    "学习Git.md",
+                    "性能优化待办事项.md",
+                    "性能优化点总结.md",
+                    "订阅发布模式详解.md",
+                    "BOM之 History对象.md",
+                    "BOM之window对象.md",
+                    "Web离线存储的几种方式.md",
+                    "缓存作用（304）.md"
+                ]
+            },
+            {
+                "前端工程": [
+                    "Git.md",
+                    "Gulp.md",
+                    "HTTP缓存.md",
+                    "jade.md",
+                    "less.md",
+                    "webpack入门及实践.md",
+                    "Cookie & Session.md",
+                    "Express.md",
+                    "前端模块化之requireJS.md"
+                ]
+            },
+            "CONTACT.md"
+        ]
+    }
+}

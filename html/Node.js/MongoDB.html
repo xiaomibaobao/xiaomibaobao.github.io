@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li class="active"><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0MongoDB">MongoDB</a><ul><li><a href="#t11.1 MongoDB简介">1.1 MongoDB简介</a></li><li><a href="#t21.2 Mongoose是什么？">1.2 Mongoose是什么？</a></li><li><a href="#t31.3 安装mongoose">1.3 安装mongoose</a></li><li><a href="#t41.4 使用mongoose">1.4 使用mongoose</a></li><li><a href="#t51.5 Schema">1.5 Schema</a><ul><li><a href="#t61.5.1 Schema.Type">1.5.1 Schema.Type</a></li><li><a href="#t71.5.2 定义Schema">1.5.2 定义Schema</a></li></ul></li><li><a href="#t81.6 Model">1.6 Model</a></li><li><a href="#t91.7 Entity简述">1.7 Entity简述</a></li><li><a href="#t101.8 保存Entity">1.8 保存Entity</a></li><li><a href="#t111.9 ObjectId">1.9 ObjectId</a></li><li><a href="#t121.10 为Entity增加实例方法">1.10 为Entity增加实例方法</a></li><li><a href="#t131.11 为Model增加静态方法">1.11 为Model增加静态方法</a></li><li><a href="#t141.12 验证器">1.12 验证器</a></li><li><a href="#t151.13 中间件">1.13 中间件</a><ul><li><a href="#t161.13.1 Serial串行">1.13.1 Serial串行</a></li><li><a href="#t171.13.1 Parallel并行">1.13.1 Parallel并行</a></li></ul></li></ul></li><li><a href="#t182. 基础操作">2. 基础操作</a><ul><li><a href="#t192.1 查询">2.1 查询</a></li><li><a href="#t202.2 Model保存">2.2 Model保存</a></li><li><a href="#t212.3 Entity保存">2.3 Entity保存</a></li><li><a href="#t222.4 更新">2.4 更新</a></li><li><a href="#t232.5 删除">2.5 删除</a></li></ul></li><li><a href="#t243. 基本查询">3. 基本查询</a><ul><li><a href="#t253.1 准备数据">3.1 准备数据</a></li><li><a href="#t263.2 属性过滤">3.2 属性过滤</a></li><li><a href="#t273.3 findOne(查询单条)">3.3 findOne(查询单条)</a></li><li><a href="#t283.4 findById(按ID单条数据)">3.4 findById(按ID单条数据)</a></li><li><a href="#t293.5 $gt、$lt(大于、小于)">3.5 $gt、$lt(大于、小于)</a></li><li><a href="#t303.6 $ne(不等于)">3.6 $ne(不等于)</a></li><li><a href="#t313.7 $in(包含)">3.7 $in(包含)</a></li><li><a href="#t323.8  $or(或者)">3.8  $or(或者)</a></li><li><a href="#t333.9 $exists(是否存在)">3.9 $exists(是否存在)</a></li></ul></li><li><a href="#t344. 高级查询">4. 高级查询</a><ul><li><a href="#t354.1 limit(限制数量)">4.1 limit(限制数量)</a></li><li><a href="#t364.2 skip(跳过/略过的数量)">4.2 skip(跳过/略过的数量)</a></li><li><a href="#t374.3 sort函数">4.3 sort函数</a></li><li><a href="#t384.4 分页查询">4.4 分页查询</a></li></ul></li><li><a href="#t395. 扩展阅读">5. 扩展阅读</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t0MongoDB">MongoDB <a href="#t0MongoDB"> # </a></h2>
+<h3 id="t11.1 MongoDB&#x7B80;&#x4ECB;">1.1 MongoDB&#x7B80;&#x4ECB; <a href="#t11.1 MongoDB&#x7B80;&#x4ECB;"> # </a></h3>
+<p>MongoDB&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x6E90;&#x7684;NoSQL&#x6570;&#x636E;&#x5E93;
+&#x540C;&#x65F6;&#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x6CA1;&#x6709;&#x56FA;&#x5B9A;&#x7684;&#x6A21;&#x5F0F;&#x548C;&#x7ED3;&#x6784;<br>&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x4EE5;&#x6587;&#x6863;&#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x50A8;,&#x6570;&#x636E;&#x683C;&#x5F0F;&#x5C31;&#x662F;JSON&#x3002;</p>
+<h3 id="t21.2 Mongoose&#x662F;&#x4EC0;&#x4E48;&#xFF1F;">1.2 Mongoose&#x662F;&#x4EC0;&#x4E48;&#xFF1F; <a href="#t21.2 Mongoose&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"> # </a></h3>
+<p>Mongoose&#x662F;MongoDB&#x7684;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6A21;&#x578B;&#x5DE5;&#x5177;<br>&#x540C;&#x65F6;&#x5B83;&#x4E5F;&#x662F;&#x9488;&#x5BF9;MongoDB&#x64CD;&#x4F5C;&#x7684;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6A21;&#x578B;&#x5E93;,&#x5C01;&#x88C5;&#x4E86;MongoDB&#x5BF9;&#x6587;&#x6863;&#x7684;&#x7684;&#x4E00;&#x4E9B;&#x589E;&#x5220;&#x6539;&#x67E5;&#x7B49;&#x5E38;&#x7528;&#x65B9;&#x6CD5;<br>&#x8BA9;NodeJS&#x64CD;&#x4F5C;Mongodb&#x6570;&#x636E;&#x5E93;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x7B80;&#x5355;  </p>
+<h3 id="t31.3 &#x5B89;&#x88C5;mongoose">1.3 &#x5B89;&#x88C5;mongoose <a href="#t31.3 &#x5B89;&#x88C5;mongoose"> # </a></h3>
+<pre><code class="lang-javascript">$ npm install mongoose
+</code></pre>
+<h3 id="t41.4 &#x4F7F;&#x7528;mongoose">1.4 &#x4F7F;&#x7528;mongoose <a href="#t41.4 &#x4F7F;&#x7528;mongoose"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;mongoose&quot;</span>);
+mongoose.connect(<span class="hljs-string">&quot;mongodb://user:pass@localhost:port/database&quot;</span>);
+</code></pre>
+<h3 id="t51.5 Schema">1.5 Schema <a href="#t51.5 Schema"> # </a></h3>
+<p>Schema&#x662F;&#x6570;&#x636E;&#x5E93;&#x96C6;&#x5408;&#x7684;&#x6A21;&#x578B;&#x9AA8;&#x67B6;<br>&#x5B9A;&#x4E49;&#x4E86;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5B57;&#x6BB5;&#x7684;&#x540D;&#x79F0;&#x548C;&#x7C7B;&#x578B;&#x4EE5;&#x53CA;&#x9ED8;&#x8BA4;&#x503C;&#x7B49;&#x4FE1;&#x606F;   </p>
+<h4 id="t61.5.1 Schema.Type">1.5.1 Schema.Type <a href="#t61.5.1 Schema.Type"> # </a></h4>
+<p>NodeJS&#x4E2D;&#x7684;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x90FD;&#x5C5E;&#x4E8E;Schema.Type<br>&#x53E6;&#x5916;Mongoose&#x8FD8;&#x5B9A;&#x4E49;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x7C7B;&#x578B;<br>&#x57FA;&#x672C;&#x5C5E;&#x6027;&#x7C7B;&#x578B;&#x6709;:  </p>
+<ul>
+<li>&#x5B57;&#x7B26;&#x4E32;(String)</li>
+<li>&#x65E5;&#x671F;&#x578B;(Date)</li>
+<li>&#x6570;&#x503C;&#x578B;(Number)</li>
+<li>&#x5E03;&#x5C14;&#x578B;(Boolean)</li>
+<li>null</li>
+<li>&#x6570;&#x7EC4;([])</li>
+<li>&#x5185;&#x5D4C;&#x6587;&#x6863;</li>
+</ul>
+<h4 id="t71.5.2 &#x5B9A;&#x4E49;Schema">1.5.2 &#x5B9A;&#x4E49;Schema <a href="#t71.5.2 &#x5B9A;&#x4E49;Schema"> # </a></h4>
+<pre><code class="lang-javascript">    <span class="hljs-keyword">var</span> personSchema = <span class="hljs-keyword">new</span> Schema({
+      name:<span class="hljs-built_in">String</span>, <span class="hljs-comment">//&#x59D3;&#x540D;</span>
+      binary:Buffer,<span class="hljs-comment">//&#x4E8C;&#x8FDB;&#x5236;</span>
+      living:<span class="hljs-built_in">Boolean</span>,<span class="hljs-comment">//&#x662F;&#x5426;&#x6D3B;&#x7740;</span>
+      birthday:<span class="hljs-built_in">Date</span>,<span class="hljs-comment">//&#x751F;&#x65E5;</span>
+      age:<span class="hljs-built_in">Number</span>,<span class="hljs-comment">//&#x5E74;&#x9F84;</span>
+      _id:Schema.Types.ObjectId,  <span class="hljs-comment">//&#x4E3B;&#x952E;</span>
+      _fk:Schema.Types.ObjectId,  <span class="hljs-comment">//&#x5916;&#x952E;</span>
+      array:[],<span class="hljs-comment">//&#x6570;&#x7EC4;</span>
+      arrOfString:[<span class="hljs-built_in">String</span>],<span class="hljs-comment">//&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;</span>
+      arrOfNumber:[<span class="hljs-built_in">Number</span>],<span class="hljs-comment">//&#x6570;&#x5B57;&#x6570;&#x7EC4;</span>
+      arrOfDate:[<span class="hljs-built_in">Date</span>],<span class="hljs-comment">//&#x65E5;&#x671F;&#x6570;&#x7EC4;</span>
+      arrOfBuffer:[Buffer],<span class="hljs-comment">//Buffer&#x6570;&#x7EC4;</span>
+      arrOfBoolean:[<span class="hljs-built_in">Boolean</span>],<span class="hljs-comment">//&#x5E03;&#x5C14;&#x503C;&#x6570;&#x7EC4;</span>
+      arrOfObjectId:[Schema.Types.ObjectId]<span class="hljs-comment">//&#x5BF9;&#x8C61;ID&#x6570;&#x7EC4;</span>
+      nested:{ <span class="hljs-comment">//&#x5185;&#x5D4C;&#x6587;&#x6863;</span>
+        name:<span class="hljs-built_in">String</span>,
+      }
+    });
+</code></pre>
+<h3 id="t81.6 Model">1.6 Model <a href="#t81.6 Model"> # </a></h3>
+<p>Model&#x662F;&#x7531;&#x901A;&#x8FC7;Schema&#x6784;&#x9020;&#x800C;&#x6210;<br>&#x9664;&#x4E86;&#x5177;&#x6709;Schema&#x5B9A;&#x4E49;&#x7684;&#x6570;&#x636E;&#x5E93;&#x9AA8;&#x67B6;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;<br>&#x5982;&#x4F55;&#x901A;&#x8FC7;Schema&#x6765;&#x521B;&#x5EFA;Model&#x5462;&#xFF0C;&#x5982;&#x4E0B;:    </p>
+<pre><code class="lang-javascript">mongoose.connect(<span class="hljs-string">&quot;mongodb://123.57.143.189:27017/xiaomi&quot;</span>);
+<span class="hljs-keyword">var</span> PersonModel = db.model(<span class="hljs-string">&quot;person&quot;</span>, PersonSchema);<span class="hljs-comment">//&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x8868;&#x793A;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6A21;&#x578B;</span>
+<span class="hljs-comment">// &#x5982;&#x679C;&#x8BE5;Model&#x5DF2;&#x7ECF;&#x5B9A;&#x4E49;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x540D;&#x5B57;&#x83B7;&#x53D6;</span>
+<span class="hljs-keyword">var</span> pModel = db.model(<span class="hljs-string">&apos;person&apos;</span>);<span class="hljs-comment">//&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x8868;&#x793A;&#x83B7;&#x53D6;&#x5DF2;&#x5B9A;&#x4E49;&#x7684;&#x6A21;&#x578B;</span>
+</code></pre>
+<p>&#x62E5;&#x6709;&#x4E86;Model&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x5C31;&#x62E5;&#x6709;&#x4E86;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x80FD;&#x529B;</p>
+<blockquote>
+</blockquote>
+<h3 id="t91.7 Entity&#x7B80;&#x8FF0;">1.7 Entity&#x7B80;&#x8FF0; <a href="#t91.7 Entity&#x7B80;&#x8FF0;"> # </a></h3>
+<p>&#x901A;&#x8FC7;Model&#x521B;&#x5EFA;&#x7684;&#x5B9E;&#x4F53;&#xFF0C;&#x5B83;&#x4E5F;&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;<br>&#x4F7F;&#x7528;Model&#x521B;&#x5EFA;Entity&#xFF0C;&#x5982;&#x4E0B;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-javascript"> <span class="hljs-keyword">var</span> personEntity = <span class="hljs-keyword">new</span> PersonModel({
+     name : <span class="hljs-string">&quot;xiaomi&quot;</span>,
+     age  : <span class="hljs-number">6</span>,
+     email: <span class="hljs-string">&quot;xiaomi@qq.com&quot;</span>
+ });
+</code></pre>
+<blockquote>
+<p>Schema&#x751F;&#x6210;Model&#xFF0C;Model&#x521B;&#x9020;Entity&#xFF0C;Model&#x548C;Entity&#x90FD;&#x53EF;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;,&#x4F46;Model&#x6BD4;Entity&#x66F4;&#x5177;&#x64CD;&#x4F5C;&#x6027;</p>
+</blockquote>
+<h3 id="t101.8 &#x4FDD;&#x5B58;Entity">1.8 &#x4FDD;&#x5B58;Entity <a href="#t101.8 &#x4FDD;&#x5B58;Entity"> # </a></h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;mongoose&quot;</span>);
+mongoose.connect(<span class="hljs-string">&quot;mongodb://123.57.143.189:27017/xiaomi&quot;</span>);
+<span class="hljs-keyword">var</span> PersonSchema = <span class="hljs-keyword">new</span> mongoose.Schema({
+    name: {type: <span class="hljs-built_in">String</span>},
+    age: {type: <span class="hljs-built_in">Number</span>, <span class="hljs-keyword">default</span>: <span class="hljs-number">0</span>},
+    time: {type: <span class="hljs-built_in">Date</span>, <span class="hljs-keyword">default</span>: <span class="hljs-built_in">Date</span>.now()},
+    email: {type: <span class="hljs-built_in">String</span>, <span class="hljs-keyword">default</span>: <span class="hljs-string">&apos;&apos;</span>}
+});
+<span class="hljs-keyword">var</span> PersonModel = db.model(<span class="hljs-string">&quot;person&quot;</span>, PersonSchema);
+
+<span class="hljs-keyword">var</span> personEntity = <span class="hljs-keyword">new</span> PersonModel({
+    name: <span class="hljs-string">&quot;xiaomi&quot;</span>,
+    age: <span class="hljs-number">6</span>,
+    email: <span class="hljs-string">&quot;xiaomi@qq.com&quot;</span>
+});
+<span class="hljs-built_in">console</span>.log(personEntity.name);
+personEntity.save(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, doc</span>) </span>{
+    <span class="hljs-keyword">if</span> (error) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;error :&quot;</span> + error);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">console</span>.log(doc);
+    }
+});
+</code></pre>
+<h3 id="t111.9 ObjectId">1.9 ObjectId <a href="#t111.9 ObjectId"> # </a></h3>
+<p>&#x5B58;&#x50A8;&#x5728;mongodb&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x6587;&#x6863;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x4E3B;&#x952E;_id<br>&#x8FD9;&#x4E2A;&#x4E3B;&#x952E;&#x540D;&#x79F0;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x662F;mongodb&#x652F;&#x6301;&#x7684;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;ObjectId  &#x8BE5;&#x7C7B;&#x578B;&#x7684;&#x503C;&#x7531;&#x7CFB;&#x7EDF;&#x81EA;&#x5DF1;&#x751F;&#x6210;&#xFF0C;&#x4ECE;&#x67D0;&#x79CD;&#x610F;&#x4E49;&#x4E0A;&#x51E0;&#x4E4E;&#x4E0D;&#x4F1A;&#x91CD;&#x590D;<br>ObjectId&#x662F;&#x4E00;&#x4E2A;12&#x5B57;&#x8282;&#x7684; BSON &#x7C7B;&#x578B;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x6309;&#x7167;&#x5B57;&#x8282;&#x987A;&#x5E8F;&#xFF0C;&#x4F9D;&#x6B21;&#x4EE3;&#x8868;&#xFF1A;  </p>
+<ul>
+<li>4&#x5B57;&#x8282;&#xFF1A;UNIX&#x65F6;&#x95F4;&#x6233;</li>
+<li>3&#x5B57;&#x8282;&#xFF1A;&#x8868;&#x793A;&#x8FD0;&#x884C;MongoDB&#x7684;&#x673A;&#x5668;</li>
+<li>2&#x5B57;&#x8282;&#xFF1A;&#x8868;&#x793A;&#x751F;&#x6210;&#x6B64;_id&#x7684;&#x8FDB;&#x7A0B;</li>
+<li>3&#x5B57;&#x8282;&#xFF1A;&#x7531;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x6570;&#x5F00;&#x59CB;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x751F;&#x6210;&#x7684;&#x503C;</li>
+</ul>
+<blockquote>
+<p>&#x6BCF;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x952E;&#x201C;_id&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;&#x952E;&#x5728;&#x6587;&#x6863;&#x6240;&#x5C5E;&#x7684;&#x96C6;&#x5408;&#x4E2D;&#x662F;&#x552F;&#x4E00;&#x7684;&#x3002;</p>
+</blockquote>
+<h3 id="t121.10 &#x4E3A;Entity&#x589E;&#x52A0;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;">1.10 &#x4E3A;Entity&#x589E;&#x52A0;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5; <a href="#t121.10 &#x4E3A;Entity&#x589E;&#x52A0;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">PersonSchema.methods.findSameAge = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">cb</span>)</span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.model(<span class="hljs-string">&apos;Person&apos;</span>).find({age:<span class="hljs-keyword">this</span>.age},cb);
+}
+<span class="hljs-keyword">var</span> PersonModel = db.model(<span class="hljs-string">&quot;person&quot;</span>, PersonSchema);
+ <span class="hljs-keyword">var</span> personEntity = <span class="hljs-keyword">new</span> PersonModel({
+     name : <span class="hljs-string">&quot;xiaomi&quot;</span>,
+     age  : <span class="hljs-number">6</span>,
+     email: <span class="hljs-string">&quot;xiaomi@qq.com&quot;</span>
+ });
+ personEntity.findSameAge(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,docs</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(docs);
+ });
+</code></pre>
+<h3 id="t131.11 &#x4E3A;Model&#x589E;&#x52A0;&#x9759;&#x6001;&#x65B9;&#x6CD5;">1.11 &#x4E3A;Model&#x589E;&#x52A0;&#x9759;&#x6001;&#x65B9;&#x6CD5; <a href="#t131.11 &#x4E3A;Model&#x589E;&#x52A0;&#x9759;&#x6001;&#x65B9;&#x6CD5;"> # </a></h3>
+<pre><code class="lang-javascript">PersonSchema.statics.findByName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name,cb</span>)</span>{
+    <span class="hljs-keyword">this</span>.find({name:<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(name,<span class="hljs-string">&apos;i&apos;</span>)},cb);
+}
+<span class="hljs-keyword">var</span> PersonModel = mongoose.model(<span class="hljs-string">&apos;Person&apos;</span>,PersonSchema);
+PersonModel.findByName(<span class="hljs-string">&apos;xiaomi&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,persons</span>)</span>{
+     <span class="hljs-built_in">console</span>.log(persons);<span class="hljs-comment">//&#x83B7;&#x5F97;&#x6240;&#x6709;&#x540D;&#x79F0;&#x53EB;&#x73E0;&#x5CF0;&#x57F9;&#x8BAD;&#x7684;&#x4EBA;</span>
+});
+</code></pre>
+<h3 id="t141.12 &#x9A8C;&#x8BC1;&#x5668;">1.12 &#x9A8C;&#x8BC1;&#x5668; <a href="#t141.12 &#x9A8C;&#x8BC1;&#x5668;"> # </a></h3>
+<p>&#x9A8C;&#x8BC1;&#x5668;&#x662F;&#x6307;&#x5B9A;&#x5728;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x524D;&#x505A;&#x7684;&#x9A8C;&#x8BC1;</p>
+<ul>
+<li>required &#x975E;&#x7A7A;&#x9A8C;&#x8BC1;</li>
+<li>min/max &#x8303;&#x56F4;&#x9A8C;&#x8BC1;&#xFF08;&#x8FB9;&#x503C;&#x9A8C;&#x8BC1;&#xFF09;</li>
+<li>enum/match &#x679A;&#x4E3E;&#x9A8C;&#x8BC1;/&#x5339;&#x914D;&#x9A8C;&#x8BC1;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> PersonSchema = <span class="hljs-keyword">new</span> Schema({
+      name:{
+        type:<span class="hljs-string">&apos;String&apos;</span>,
+        required:<span class="hljs-literal">true</span> <span class="hljs-comment">//&#x59D3;&#x540D;&#x975E;&#x7A7A;</span>
+      },
+      age:{
+        type:<span class="hljs-string">&apos;Nunmer&apos;</span>,
+        min:<span class="hljs-number">18</span>,       <span class="hljs-comment">//&#x5E74;&#x9F84;&#x6700;&#x5C0F;18</span>
+        max:<span class="hljs-number">110</span>     <span class="hljs-comment">//&#x5E74;&#x9F84;&#x6700;&#x5927;110</span>
+      },
+      city:{
+        type:<span class="hljs-string">&apos;String&apos;</span>,
+        enum:[<span class="hljs-string">&apos;&#x5317;&#x4EAC;&apos;</span>,<span class="hljs-string">&apos;&#x5E7F;&#x5DDE;&apos;</span>]  <span class="hljs-comment">//&#x53EA;&#x80FD;&#x662F;&#x5317;&#x4EAC;&#x6216;&#x5E7F;&#x5DDE;</span>
+      }
+    });
+</code></pre>
+<h3 id="t151.13 &#x4E2D;&#x95F4;&#x4EF6;">1.13 &#x4E2D;&#x95F4;&#x4EF6; <a href="#t151.13 &#x4E2D;&#x95F4;&#x4EF6;"> # </a></h3>
+<p>&#x4E2D;&#x95F4;&#x4EF6;&#x662F;&#x4E00;&#x79CD;&#x63A7;&#x5236;&#x51FD;&#x6570;&#xFF0C;&#x7C7B;&#x4F3C;&#x63D2;&#x4EF6;&#xFF0C;&#x80FD;&#x63A7;&#x5236;&#x6D41;&#x7A0B;&#x4E2D;&#x7684;init&#x3001;validate&#x3001;save&#x3001;remove`&#x65B9;&#x6CD5;</p>
+<h4 id="t161.13.1 Serial&#x4E32;&#x884C;">1.13.1 Serial&#x4E32;&#x884C; <a href="#t161.13.1 Serial&#x4E32;&#x884C;"> # </a></h4>
+<p>&#x4E32;&#x884C;&#x4F7F;&#x7528;pre&#x65B9;&#x6CD5;&#xFF0C;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;next&#x8C03;&#x7528;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> schema = <span class="hljs-keyword">new</span> Schema(...);
+schema.pre(<span class="hljs-string">&apos;save&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">next</span>)</span>{
+      <span class="hljs-comment">//&#x505A;&#x70B9;&#x4EC0;&#x4E48;</span>
+      next();
+});
+</code></pre>
+<h4 id="t171.13.1 Parallel&#x5E76;&#x884C;">1.13.1 Parallel&#x5E76;&#x884C; <a href="#t171.13.1 Parallel&#x5E76;&#x884C;"> # </a></h4>
+<pre><code class="lang-javascript">schema.pre(<span class="hljs-string">&apos;save&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">next,done</span>)</span>{
+      <span class="hljs-comment">//&#x4E0B;&#x4E00;&#x4E2A;&#x8981;&#x6267;&#x884C;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x5E76;&#x884C;&#x6267;&#x884C;</span>
+      next();
+      doAsync(done);
+});
+</code></pre>
+<h2 id="t182. &#x57FA;&#x7840;&#x64CD;&#x4F5C;">2. &#x57FA;&#x7840;&#x64CD;&#x4F5C; <a href="#t182. &#x57FA;&#x7840;&#x64CD;&#x4F5C;"> # </a></h2>
+<h3 id="t192.1 &#x67E5;&#x8BE2;">2.1 &#x67E5;&#x8BE2; <a href="#t192.1 &#x67E5;&#x8BE2;"> # </a></h3>
+<p>&#x8BED;&#x6CD5;</p>
+<pre><code class="lang-javascript">Model.find(&#x67E5;&#x8BE2;&#x6761;&#x4EF6;,callback);
+</code></pre>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript">Model.find({},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>)</span>{
+  <span class="hljs-comment">//&#x82E5;&#x6CA1;&#x6709;&#x5411;find&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;&#x662F;&#x663E;&#x793A;&#x6240;&#x6709;&#x6587;&#x6863;</span>
+});
+
+Model.find({ <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">6</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, docs</span>) </span>{
+  <span class="hljs-keyword">if</span>(error){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;error :&quot;</span> + error);
+  }<span class="hljs-keyword">else</span>{
+    <span class="hljs-built_in">console</span>.log(docs); <span class="hljs-comment">//docs: age&#x4E3A;6&#x7684;&#x6240;&#x6709;&#x6587;&#x6863;</span>
+  }
+});
+</code></pre>
+<h3 id="t202.2 Model&#x4FDD;&#x5B58;">2.2 Model&#x4FDD;&#x5B58; <a href="#t202.2 Model&#x4FDD;&#x5B58;"> # </a></h3>
+<p>&#x8BED;&#x6CD5;</p>
+<pre><code class="lang-javascript">Model.create(&#x6587;&#x6863;&#x6570;&#x636E;, callback))
+</code></pre>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript"> PersonModel.create({ name:<span class="hljs-string">&quot;xiaomi&quot;</span>, age:<span class="hljs-number">7</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,doc</span>)</span>{
+    <span class="hljs-keyword">if</span>(error) {
+        <span class="hljs-built_in">console</span>.log(error);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">console</span>.log(doc);
+    }
+});
+</code></pre>
+<h3 id="t212.3 Entity&#x4FDD;&#x5B58;">2.3 Entity&#x4FDD;&#x5B58; <a href="#t212.3 Entity&#x4FDD;&#x5B58;"> # </a></h3>
+<p>&#x8BED;&#x6CD5;</p>
+<pre><code class="lang-javascript">Entity.save(&#x6587;&#x6863;&#x6570;&#x636E;, callback))
+</code></pre>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> PersonEntity = <span class="hljs-keyword">new</span> PersonModel({name:<span class="hljs-string">&quot;xiaomi&quot;</span>,age: <span class="hljs-number">9</span>});
+
+PersonEntity.save(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,doc</span>) </span>{
+   <span class="hljs-keyword">if</span>(error) {
+      <span class="hljs-built_in">console</span>.log(error);
+   } <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">console</span>.log(doc);
+   }
+});
+</code></pre>
+<h3 id="t222.4 &#x66F4;&#x65B0;">2.4 &#x66F4;&#x65B0; <a href="#t222.4 &#x66F4;&#x65B0;"> # </a></h3>
+<p>&#x8BED;&#x6CD5;</p>
+<pre><code class="lang-javascript">Model.update(&#x67E5;&#x8BE2;&#x6761;&#x4EF6;,&#x66F4;&#x65B0;&#x5BF9;&#x8C61;,callback);
+</code></pre>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> conditions = {name : <span class="hljs-string">&apos;xiaomi&apos;</span>};
+  <span class="hljs-keyword">var</span> update = {$set : { age : <span class="hljs-number">100</span> }};
+  PersonModel.update(conditions, update, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+      <span class="hljs-keyword">if</span>(error) {
+          <span class="hljs-built_in">console</span>.log(error);
+      } <span class="hljs-keyword">else</span> {
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Update success!&apos;</span>);
+        }
+    });
+</code></pre>
+<blockquote>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#x5982;&#x679C;&#x5339;&#x914D;&#x5230;&#x591A;&#x6761;&#x8BB0;&#x5F55;&#xFF0C;&#x9ED8;&#x8BA4;&#x53EA;&#x66F4;&#x65B0;&#x4E00;&#x6761;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x66F4;&#x65B0;&#x5339;&#x914D;&#x5230;&#x7684;&#x6240;&#x6709;&#x8BB0;&#x5F55;&#x7684;&#x8BDD;&#x9700;&#x8981;&#x52A0;&#x4E00;&#x4E2A;&#x53C2;&#x6570; {multi:true}</p>
+</blockquote>
+<h3 id="t232.5 &#x5220;&#x9664;">2.5 &#x5220;&#x9664; <a href="#t232.5 &#x5220;&#x9664;"> # </a></h3>
+<p>&#x8BED;&#x6CD5;</p>
+<pre><code>Model.remove(&#x67E5;&#x8BE2;&#x6761;&#x4EF6;,callback);
+</code></pre><p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> conditions = { name: <span class="hljs-string">&apos;xiaomi&apos;</span> };
+PersonModel.remove(conditions, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+    <span class="hljs-keyword">if</span>(error) {
+          <span class="hljs-built_in">console</span>.log(error);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Delete success!&apos;</span>);
+    }
+});
+</code></pre>
+<h2 id="t243. &#x57FA;&#x672C;&#x67E5;&#x8BE2;">3. &#x57FA;&#x672C;&#x67E5;&#x8BE2; <a href="#t243. &#x57FA;&#x672C;&#x67E5;&#x8BE2;"> # </a></h2>
+<h3 id="t253.1 &#x51C6;&#x5907;&#x6570;&#x636E;">3.1 &#x51C6;&#x5907;&#x6570;&#x636E; <a href="#t253.1 &#x51C6;&#x5907;&#x6570;&#x636E;"> # </a></h3>
+<pre><code class="lang-javascript">        PersonModel.create([
+                          { name:<span class="hljs-string">&quot;xiaomi1&quot;</span>, age:<span class="hljs-number">1</span> },
+                          { name:<span class="hljs-string">&quot;xiaomi2&quot;</span>, age:<span class="hljs-number">2</span> },
+                          { name:<span class="hljs-string">&quot;xiaomi3&quot;</span>, age:<span class="hljs-number">3</span> },
+                          { name:<span class="hljs-string">&quot;xiaomi4&quot;</span>, age:<span class="hljs-number">4</span> },
+                          { name:<span class="hljs-string">&quot;xiaomi5&quot;</span>, age:<span class="hljs-number">5</span> },
+                          { name:<span class="hljs-string">&quot;xiaomi6&quot;</span>, age:<span class="hljs-number">6</span>},
+                          { name:<span class="hljs-string">&quot;xiaomi7&quot;</span>, age:<span class="hljs-number">7</span> },
+                          { name:<span class="hljs-string">&quot;xiaomi8&quot;</span>, age:<span class="hljs-number">8</span> },
+                          { name:<span class="hljs-string">&quot;xiaomi9&quot;</span>, age:<span class="hljs-number">9</span>},
+                          { name:<span class="hljs-string">&quot;xiaomi10&quot;</span>,age:<span class="hljs-number">10</span> }
+                         ], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>) </span>{
+            <span class="hljs-keyword">if</span>(error) {
+                <span class="hljs-built_in">console</span>.log(error);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;save ok&apos;</span>);
+            }
+        });
+</code></pre>
+<h3 id="t263.2 &#x5C5E;&#x6027;&#x8FC7;&#x6EE4;">3.2 &#x5C5E;&#x6027;&#x8FC7;&#x6EE4; <a href="#t263.2 &#x5C5E;&#x6027;&#x8FC7;&#x6EE4;"> # </a></h3>
+<p>&#x8BED;&#x6CD5;</p>
+<pre><code class="lang-javascript">find(Conditions,field,callback)
+</code></pre>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">//field&#x7701;&#x7565;&#x6216;&#x4E3A;Null&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x3002;</span>
+<span class="hljs-comment">//&#x8FD4;&#x56DE;&#x53EA;&#x5305;&#x542B;name&#x3001;age&#x4E24;&#x4E2A;&#x952E;&#x7684;&#x6240;&#x6709;&#x8BB0;&#x5F55;</span>
+Model.find({},{name:<span class="hljs-number">1</span>, age:<span class="hljs-number">1</span>, _id:<span class="hljs-number">0</span>}&#xFF0C;<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,docs</span>)</span>{
+   <span class="hljs-comment">//docs &#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x96C6;</span>
+})
+</code></pre>
+<blockquote>
+<p>&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x628A;&#x663E;&#x793A;&#x7684;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x5927;&#x4E8E;&#x96F6;&#x7684;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x5F53;&#x7136;1&#x662F;&#x6700;&#x597D;&#x7406;&#x89E3;&#x7684;&#xFF0C;_id&#x662F;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x8981;&#x663E;&#x793A;&#x52A0;&#x4E0A;(&quot;_id&quot;:0)</p>
+</blockquote>
+<h3 id="t273.3 findOne(&#x67E5;&#x8BE2;&#x5355;&#x6761;)">3.3 findOne(&#x67E5;&#x8BE2;&#x5355;&#x6761;) <a href="#t273.3 findOne(&#x67E5;&#x8BE2;&#x5355;&#x6761;)"> # </a></h3>
+<p>&#x4E0E;find&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x53EA;&#x8FD4;&#x56DE;&#x5355;&#x4E2A;&#x6587;&#x6863;&#xFF0C;&#x4E5F;&#x5C31;&#x8BF4;&#x5F53;&#x67E5;&#x8BE2;&#x5230;&#x5373;&#x4E00;&#x4E2A;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x5C06;&#x505C;&#x6B62;&#x7EE7;&#x7EED;&#x67E5;&#x8BE2;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;
+&#x8BED;&#x6CD5;</p>
+<pre><code class="lang-javascript">findOne(Conditions,callback)
+</code></pre>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript">TestModel.findOne({ age: <span class="hljs-number">6</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, doc</span>)</span>{
+       <span class="hljs-comment">// &#x67E5;&#x8BE2;&#x7B26;&#x5408;age&#x7B49;&#x4E8E;6&#x7684;&#x7B2C;&#x4E00;&#x6761;&#x6570;&#x636E;</span>
+       <span class="hljs-comment">// doc&#x662F;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</span>
+});
+</code></pre>
+<h3 id="t283.4 findById(&#x6309;ID&#x5355;&#x6761;&#x6570;&#x636E;)">3.4 findById(&#x6309;ID&#x5355;&#x6761;&#x6570;&#x636E;) <a href="#t283.4 findById(&#x6309;ID&#x5355;&#x6761;&#x6570;&#x636E;)"> # </a></h3>
+<p>&#x4E0E;findOne&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x5B83;&#x53EA;&#x63A5;&#x6536;&#x6587;&#x6863;&#x7684;_id&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x5355;&#x4E2A;&#x6587;&#x6863;
+&#x8BED;&#x6CD5;</p>
+<pre><code class="lang-javascript">findById(_id, callback)
+</code></pre>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript">PersonModel.findById(person._id, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, doc</span>)</span>{
+     <span class="hljs-comment">//doc &#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x6587;&#x6863;</span>
+});
+</code></pre>
+<h3 id="t293.5 $gt&#x3001;$lt(&#x5927;&#x4E8E;&#x3001;&#x5C0F;&#x4E8E;)">3.5 $gt&#x3001;$lt(&#x5927;&#x4E8E;&#x3001;&#x5C0F;&#x4E8E;) <a href="#t293.5 $gt&#x3001;$lt(&#x5927;&#x4E8E;&#x3001;&#x5C0F;&#x4E8E;)"> # </a></h3>
+<p>&#x67E5;&#x8BE2;&#x65F6;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x4F1A;&#x78B0;&#x5230;&#x8981;&#x6839;&#x636E;&#x67D0;&#x4E9B;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;&#x6761;&#x4EF6;&#x7B5B;&#x9009;&#x67E5;&#x8BE2;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4;Number&#x7C7B;&#x578B;&#xFF0C;&#x600E;&#x4E48;&#x529E;&#x5462;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;$gt(&gt;)&#x3001;$lt(&lt;)&#x3001;$lte(&lt;=)&#x3001;$gte(&gt;=)&#x64CD;&#x4F5C;&#x7B26;&#x8FDB;&#x884C;&#x6392;&#x9664;&#x6027;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x5982;&#x4E0B;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-javascript">Model.find({<span class="hljs-string">&quot;age&quot;</span>:{<span class="hljs-string">&quot;$gt&quot;</span>:<span class="hljs-number">6</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>)</span>{
+   <span class="hljs-comment">//&#x67E5;&#x8BE2;&#x6240;&#x6709;nage&#x5927;&#x4E8E;6&#x7684;&#x6570;&#x636E;</span>
+});
+
+Model.find({<span class="hljs-string">&quot;age&quot;</span>:{<span class="hljs-string">&quot;$lt&quot;</span>:<span class="hljs-number">6</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>)</span>{
+   <span class="hljs-comment">//&#x67E5;&#x8BE2;&#x6240;&#x6709;nage&#x5C0F;&#x4E8E;6&#x7684;&#x6570;&#x636E;</span>
+});
+
+Model.find({<span class="hljs-string">&quot;age&quot;</span>:{<span class="hljs-string">&quot;$gt&quot;</span>:<span class="hljs-number">6</span>,<span class="hljs-string">&quot;$lt&quot;</span>:<span class="hljs-number">9</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>)</span>{
+  <span class="hljs-comment">//&#x67E5;&#x8BE2;&#x6240;&#x6709;nage&#x5927;&#x4E8E;6&#x5C0F;&#x4E8E;9&#x7684;&#x6570;&#x636E;</span>
+});
+</code></pre>
+<h3 id="t303.6 $ne(&#x4E0D;&#x7B49;&#x4E8E;)">3.6 $ne(&#x4E0D;&#x7B49;&#x4E8E;) <a href="#t303.6 $ne(&#x4E0D;&#x7B49;&#x4E8E;)"> # </a></h3>
+<p>$ne(!=)&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x542B;&#x4E49;&#x76F8;&#x5F53;&#x4E8E;&#x4E0D;&#x7B49;&#x4E8E;&#x3001;&#x4E0D;&#x5305;&#x542B;&#xFF0C;&#x67E5;&#x8BE2;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x901A;&#x8FC7;&#x5B83;&#x8FDB;&#x884C;&#x6761;&#x4EF6;&#x5224;&#x5B9A;&#xFF0C;&#x5177;&#x4F53;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-javascript">Model.find({ age:{ $ne:<span class="hljs-number">6</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>)</span>{
+  <span class="hljs-comment">//&#x67E5;&#x8BE2;age&#x4E0D;&#x7B49;&#x4E8E;6&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;</span>
+});
+</code></pre>
+<h3 id="t313.7 $in(&#x5305;&#x542B;)">3.7 $in(&#x5305;&#x542B;) <a href="#t313.7 $in(&#x5305;&#x542B;)"> # </a></h3>
+<p>&#x548C;$ne&#x64CD;&#x4F5C;&#x7B26;&#x76F8;&#x53CD;&#xFF0C;$in&#x76F8;&#x5F53;&#x4E8E;&#x5305;&#x542B;&#x3001;&#x7B49;&#x4E8E;&#xFF0C;&#x67E5;&#x8BE2;&#x65F6;&#x67E5;&#x627E;&#x5305;&#x542B;&#x4E8E;&#x6307;&#x5B9A;&#x5B57;&#x6BB5;&#x6761;&#x4EF6;&#x7684;&#x6570;&#x636E;</p>
+<pre><code class="lang-javascript">Model.find({ age:{ $<span class="hljs-keyword">in</span>: <span class="hljs-number">6</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>)</span>{
+   <span class="hljs-comment">//&#x67E5;&#x8BE2;age&#x7B49;&#x4E8E;6&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;</span>
+});
+
+Model.find({ age:{$<span class="hljs-keyword">in</span>:[<span class="hljs-number">6</span>,<span class="hljs-number">7</span>]}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>)</span>{
+  <span class="hljs-comment">//&#x53EF;&#x4EE5;&#x628A;&#x591A;&#x4E2A;&#x503C;&#x7EC4;&#x7EC7;&#x6210;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</span>
+});
+</code></pre>
+<h3 id="t323.8  $or(&#x6216;&#x8005;)">3.8  $or(&#x6216;&#x8005;) <a href="#t323.8  $or(&#x6216;&#x8005;)"> # </a></h3>
+<p>&#x53EF;&#x4EE5;&#x67E5;&#x8BE2;&#x591A;&#x4E2A;&#x952E;&#x503C;&#x7684;&#x4EFB;&#x610F;&#x7ED9;&#x5B9A;&#x503C;&#xFF0C;&#x53EA;&#x8981;&#x6EE1;&#x8DB3;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x5C31;&#x53EF;&#x8FD4;&#x56DE;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x6761;&#x4EF6;&#x5224;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;&#xFF0C;&#x5982;&#x4E0B;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-javascript">Model.find({<span class="hljs-string">&quot;$or&quot;</span>:[{<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;xiaomi&quot;</span>},{<span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">6</span>}]},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>)</span>{
+    <span class="hljs-comment">//&#x67E5;&#x8BE2;name&#x4E3A;xiaomi&#x6216;age&#x4E3A;6&#x7684;&#x5168;&#x90E8;&#x6587;&#x6863;</span>
+});
+</code></pre>
+<h3 id="t333.9 $exists(&#x662F;&#x5426;&#x5B58;&#x5728;)">3.9 $exists(&#x662F;&#x5426;&#x5B58;&#x5728;) <a href="#t333.9 $exists(&#x662F;&#x5426;&#x5B58;&#x5728;)"> # </a></h3>
+<p>$exists&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x5224;&#x65AD;&#x67D0;&#x4E9B;&#x5173;&#x952E;&#x5B57;&#x6BB5;&#x662F;&#x5426;&#x5B58;&#x5728;&#x6765;&#x8FDB;&#x884C;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#x3002;&#x5982;&#x4E0B;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-javascript">Model.find({name: {$exists: <span class="hljs-literal">true</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>)</span>{
+      <span class="hljs-comment">//&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x5B58;&#x5728;name&#x5C5E;&#x6027;&#x7684;&#x6587;&#x6863;</span>
+});
+
+Model.find({email: {$exists: <span class="hljs-literal">false</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,docs</span>)</span>{
+      <span class="hljs-comment">//&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x4E0D;&#x5B58;&#x5728;email&#x5C5E;&#x6027;&#x7684;&#x6587;&#x6863;</span>
+});
+</code></pre>
+<h2 id="t344. &#x9AD8;&#x7EA7;&#x67E5;&#x8BE2;">4. &#x9AD8;&#x7EA7;&#x67E5;&#x8BE2; <a href="#t344. &#x9AD8;&#x7EA7;&#x67E5;&#x8BE2;"> # </a></h2>
+<p>&#x53EF;&#x4EE5;&#x9650;&#x5236;&#x7ED3;&#x679C;&#x7684;&#x6570;&#x91CF;,&#x8DF3;&#x8FC7;&#x90E8;&#x5206;&#x7ED3;&#x679C;,&#x6839;&#x636E;&#x4EFB;&#x610F;&#x952E;&#x5BF9;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x5404;&#x79CD;&#x6392;&#x5E8F;  </p>
+<blockquote>
+<p>&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x9009;&#x9879;&#x90FD;&#x8981;&#x5728;&#x67E5;&#x8BE2;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x524D;&#x6307;&#x5B9A; </p>
+</blockquote>
+<h3 id="t354.1 limit(&#x9650;&#x5236;&#x6570;&#x91CF;)">4.1 limit(&#x9650;&#x5236;&#x6570;&#x91CF;) <a href="#t354.1 limit(&#x9650;&#x5236;&#x6570;&#x91CF;)"> # </a></h3>
+<p>&#x5728;&#x67E5;&#x8BE2;&#x64CD;&#x4F5C;&#x4E2D;,&#x6709;&#x65F6;&#x6570;&#x636E;&#x91CF;&#x4F1A;&#x5F88;&#x5927;,&#x8FD9;&#x65F6;&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x5BF9;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x6570;&#x91CF;&#x8FDB;&#x884C;&#x9650;&#x5236;<br>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;limit&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x6765;&#x9650;&#x5236;&#x7ED3;&#x679C;&#x6570;&#x91CF;&#x3002;
+&#x8BED;&#x6CD5;</p>
+<pre><code class="lang-javascript">find(Conditions,fields,options,callback);
+</code></pre>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript">Model.find({},<span class="hljs-literal">null</span>,{limit:<span class="hljs-number">20</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,docs</span>)</span>{
+        <span class="hljs-built_in">console</span>.log(docs);
+});
+</code></pre>
+<blockquote>
+<p>&#x5982;&#x679C;&#x5339;&#x914D;&#x7684;&#x7ED3;&#x679C;&#x4E0D;&#x5230;20&#x4E2A;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x5339;&#x914D;&#x6570;&#x91CF;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;limit&#x51FD;&#x6570;&#x6307;&#x5B9A;&#x7684;&#x662F;&#x4E0A;&#x9650;&#x800C;&#x975E;&#x4E0B;&#x9650;</p>
+</blockquote>
+<h3 id="t364.2 skip(&#x8DF3;&#x8FC7;/&#x7565;&#x8FC7;&#x7684;&#x6570;&#x91CF;)">4.2 skip(&#x8DF3;&#x8FC7;/&#x7565;&#x8FC7;&#x7684;&#x6570;&#x91CF;) <a href="#t364.2 skip(&#x8DF3;&#x8FC7;/&#x7565;&#x8FC7;&#x7684;&#x6570;&#x91CF;)"> # </a></h3>
+<p>skip&#x51FD;&#x6570;&#x7684;&#x529F;&#x80FD;&#x662F;&#x7565;&#x8FC7;&#x6307;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x5339;&#x914D;&#x7ED3;&#x679C;&#xFF0C;&#x8FD4;&#x56DE;&#x4F59;&#x4E0B;&#x7684;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;<br>&#x5982;&#x4E0B;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-javascript">find(Conditions,fields,options,callback);
+</code></pre>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript">Model.find({},<span class="hljs-literal">null</span>,{skip:<span class="hljs-number">4</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,docs</span>)</span>{
+        <span class="hljs-built_in">console</span>.log(docs);
+});
+</code></pre>
+<blockquote>
+<p>&#x5982;&#x679C;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x6570;&#x91CF;&#x4E2D;&#x5C11;&#x4E8E;4&#x4E2A;&#x7684;&#x8BDD;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x7ED3;&#x679C;&#x3002;</p>
+</blockquote>
+<h3 id="t374.3 sort&#x51FD;&#x6570;">4.3 sort&#x51FD;&#x6570; <a href="#t374.3 sort&#x51FD;&#x6570;"> # </a></h3>
+<p>sort&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5C06;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x64CD;&#x4F5C;<br>&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x952E;/&#x503C;&#x5BF9;<br>&#x952E;&#x4EE3;&#x8868;&#x8981;&#x6392;&#x5E8F;&#x7684;&#x952E;&#x540D;,&#x503C;&#x4EE3;&#x8868;&#x6392;&#x5E8F;&#x7684;&#x65B9;&#x5411;,1&#x662F;&#x5347;&#x5E8F;,-1&#x662F;&#x964D;&#x5E8F;<br>&#x8BED;&#x6CD5;</p>
+<pre><code class="lang-javascript">find(Conditions,fields,options,callback)
+</code></pre>
+<p>&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javascript"> Model.find({},<span class="hljs-literal">null</span>,{sort:{age:-<span class="hljs-number">1</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,docs</span>)</span>{
+      <span class="hljs-comment">//&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6309;&#x7167;age&#x964D;&#x5E8F;&#x987A;&#x5E8F;&#x8FD4;&#x56DE;&#x6570;&#x636E;docs</span>
+});
+</code></pre>
+<blockquote>
+<p>sort&#x51FD;&#x6570;&#x53EF;&#x6839;&#x636E;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x6761;&#x4EF6;&#x6709;&#x9009;&#x62E9;&#x6027;&#x7684;&#x6765;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x663E;&#x793A;&#x6570;&#x636E;&#x7ED3;&#x679C;&#x3002;</p>
+</blockquote>
+<h3 id="t384.4 &#x5206;&#x9875;&#x67E5;&#x8BE2;">4.4 &#x5206;&#x9875;&#x67E5;&#x8BE2; <a href="#t384.4 &#x5206;&#x9875;&#x67E5;&#x8BE2;"> # </a></h3>
+<pre><code class="lang-javascript">Model(<span class="hljs-string">&apos;User&apos;</span>).find({})
+  .sort({createAt:-<span class="hljs-number">1</span>})
+  .skip((pageNum-<span class="hljs-number">1</span>)*pageSize)
+  .limit(pageSize)
+  .populate(<span class="hljs-string">&apos;user&apos;</span>)
+  .exec(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,docs</span>)</span>{
+     <span class="hljs-built_in">console</span>.log(docs);
+  });
+</code></pre>
+<h2 id="t395. &#x6269;&#x5C55;&#x9605;&#x8BFB;">5. &#x6269;&#x5C55;&#x9605;&#x8BFB; <a href="#t395. &#x6269;&#x5C55;&#x9605;&#x8BFB;"> # </a></h2>
+<p><a href="http://www.nodeclass.com/api/mongoose.html">mongoose</a></p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li class="active"><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0Gulp">Gulp</a><ul><li><a href="#t1流（Stream）以及gulp中的流：">流（Stream）以及gulp中的流：</a></li><li><a href="#t2gulp安装">gulp安装</a><ul><li><a href="#t3开始gulp">开始gulp</a></li></ul></li><li><a href="#t4Gulp的四个核心API">Gulp的四个核心API</a><ul><li><a href="#t51 gulp.src()">1 gulp.src()</a></li><li><a href="#t62 gulp.dest()">2 gulp.dest()</a></li><li><a href="#t73 gulp.task()">3 gulp.task()</a></li><li><a href="#t84 gulp.watch()">4 gulp.watch()</a><ul><li><a href="#t9小项目实战，自动刷新">小项目实战，自动刷新</a></li></ul></li></ul></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0Gulp">Gulp <a href="#t0Gulp"> # </a></h1>
+<blockquote>
+<p><code>gulpjs1</code>&#x662F;&#x4E00;&#x4E2A;&#x524D;&#x7AEF;&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#xFF0C;&#x4E0E;<code>gruntjs</code>&#x76F8;&#x6BD4;&#xFF0C;gulpjs&#x65E0;&#x9700;&#x5199;&#x4E00;&#x5927;&#x5806;&#x7E41;&#x6742;&#x7684;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;API&#x4E5F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5B66;&#x4E60;&#x8D77;&#x6765;&#x5F88;&#x5BB9;&#x6613;&#xFF0C;&#x800C;&#x4E14;gulpjs&#x4F7F;&#x7528;&#x7684;&#x662F;nodejs&#x4E2D;<code>stream&#x6765;&#x8BFB;&#x53D6;</code>&#x548C;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#xFF0C;&#x5176;&#x901F;&#x5EA6;&#x66F4;&#x5FEB;&#x3002;gulp&#x76F8;&#x5BF9;grunt&#x6765;&#x8BF4;&#x66F4;&#x5BB9;&#x6613;&#x4E0A;&#x624B;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x5F88;&#x9AD8;&#x7684;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x3002;</p>
+<ul>
+<li>&#x6613;&#x4E8E;&#x4F7F;&#x7528; &#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x4F18;&#x4E8E;&#x914D;&#x7F6E;&#x7684;&#x7B56;&#x7565;&#xFF0C;Gulp &#x8BA9;&#x7B80;&#x5355;&#x7684;&#x4EFB;&#x52A1;&#x7B80;&#x5355;&#xFF0C;&#x590D;&#x6742;&#x7684;&#x4EFB;&#x52A1;&#x53EF;&#x7BA1;&#x7406;&#x3002;</li>
+<li>&#x5FEB;&#x901F;&#x6784;&#x5EFA; &#x5229;&#x7528; node.js &#x6D41;&#x7684;&#x5A01;&#x529B;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x6784;&#x5EFA;&#x9879;&#x76EE;&#x5E76;&#x51CF;&#x5C11;&#x9891;&#x7E41;&#x7684; IO &#x64CD;&#x4F5C;&#x3002;&#x524D;&#x4E00;&#x7EA7;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x76F4;&#x63A5;&#x53D8;&#x6210;&#x540E;&#x4E00;&#x7EA7;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x4F7F;&#x5F97;&#x5728;&#x64CD;&#x4F5C;&#x4E0A;&#x975E;&#x5E38;&#x7B80;&#x5355;</li>
+<li>&#x9AD8;&#x8D28;&#x91CF;&#x7684;&#x63D2;&#x4EF6; Gulp &#x4E25;&#x683C;&#x7684;&#x63D2;&#x4EF6;&#x6307;&#x5357;&#x786E;&#x4FDD;&#x63D2;&#x4EF6;&#x5982;&#x4F60;&#x671F;&#x671B;&#x7684;&#x90A3;&#x6837;&#x7B80;&#x6D01;&#x5730;&#x5DE5;&#x4F5C;&#x3002;</li>
+<li>&#x6613;&#x4E8E;&#x5B66;&#x4E60; &#x901A;&#x8FC7;&#x6700;&#x5C11;&#x7684; API&#xFF0C;&#x638C;&#x63E1; gulp &#x6BEB;&#x4E0D;&#x8D39;&#x529B;&#xFF0C;&#x6784;&#x5EFA;&#x5DE5;&#x4F5C;&#x5C3D;&#x5728;&#x638C;&#x63E1;&#x3002;</li>
+</ul>
+</blockquote>
+<h4 id="t1&#x6D41;&#xFF08;Stream&#xFF09;&#x4EE5;&#x53CA;gulp&#x4E2D;&#x7684;&#x6D41;&#xFF1A;">&#x6D41;&#xFF08;Stream&#xFF09;&#x4EE5;&#x53CA;gulp&#x4E2D;&#x7684;&#x6D41;&#xFF1A; <a href="#t1&#x6D41;&#xFF08;Stream&#xFF09;&#x4EE5;&#x53CA;gulp&#x4E2D;&#x7684;&#x6D41;&#xFF1A;"> # </a></h4>
+<p><strong>NODE&#x4E2D;&#x7684;&#x2018;&#x6D41;&#x2019;&#xFF1A;</strong></p>
+<blockquote>
+<ul>
+<li>Stream&#x662F;nodejs&#x5404;&#x79CD;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x7684;&#x62BD;&#x8C61;&#x63A5;&#x53E3;&#x3002;</li>
+<li>&#x6240;&#x6709;&#x7684;stream&#x5BF9;&#x8C61;&#x90FD;&#x662F;EventEmitter&#x7684;&#x5B9E;&#x4F8B;,&#x53EF;&#x4EE5;&#x53D1;&#x5C04;&#x4E8B;&#x4EF6;&#x3002;</li>
+<li>&#x6D41;&#x662F;&#x4E00;&#x79CD;&#x6709;&#x8D77;&#x70B9;&#x548C;&#x7EC8;&#x70B9;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x624B;&#x6BB5;&#x3002;</li>
+<li>&#x4E0A;&#x4E00;&#x4E2A;&#x7684;&#x8F93;&#x51FA;&#x662F;&#x4E0B;&#x4E00;&#x4E2A;&#x7684;&#x8F93;&#x5165;</li>
+</ul>
+</blockquote>
+<p><strong>gulp&#x4E2D;&#x7684;&#x6D41;&#xFF1A;</strong></p>
+<blockquote>
+<ul>
+<li>gulp&#x6B63;&#x662F;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x4F18;&#x4E8E;&#x914D;&#x7F6E;&#x7684;&#x7B56;&#x7565;&#x6765;&#x5C3D;&#x91CF;&#x7B80;&#x5316;&#x4EFB;&#x52A1;&#x7F16;&#x5199;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</li>
+<li>&#x7C7B;&#x4F3C;jquery&#x91CC;&#x7684;&#x94FE;&#x5F0F;&#x64CD;&#x4F5C;&#xFF0C;&#x628A;&#x5404;&#x4E2A;&#x65B9;&#x6CD5;&#x4E32;&#x8FDE;&#x8D77;&#x6765;&#x6784;&#x5EFA;&#x5B8C;&#x6574;&#x7684;&#x4EFB;&#x52A1;&#x3002;</li>
+<li>&#x7528;gulp&#x7F16;&#x5199;&#x4EFB;&#x52A1;&#x4E5F;&#x53EF;&#x770B;&#x4F5C;&#x662F;&#x7528;Node.js&#x4EE3;&#x7801;&#x7F16;&#x5199;&#x4EFB;&#x52A1;&#x3002;</li>
+<li>&#x5F53;&#x4F7F;&#x7528;&#x6D41;&#x65F6;,gulp&#x4E0D;&#x9700;&#x8981;&#x751F;&#x6210;&#x5927;&#x91CF;&#x7684;&#x4E2D;&#x95F4;&#x6587;&#x4EF6;&#xFF0C;&#x53EA;&#x5C06;&#x6700;&#x540E;&#x7684;&#x8F93;&#x51FA;&#x5199;&#x5165;&#x78C1;&#x76D8;&#xFF0C;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x56E0;&#x6B64;&#x53D8;&#x5F97;&#x975E;&#x5E38;&#x5FEB;&#x3002;</li>
+</ul>
+</blockquote>
+<h3 id="t2gulp&#x5B89;&#x88C5;">gulp&#x5B89;&#x88C5; <a href="#t2gulp&#x5B89;&#x88C5;"> # </a></h3>
+<p>gulp&#x5B89;&#x88C5;&#x548C;&#x5176;&#x4ED6;npm&#x5305;&#x4E0D;&#x592A;&#x4E00;&#x6837;&#xFF0C;&#x5728;&#x5B89;&#x88C5;&#x4E86;node&#x73AF;&#x5883;&#x540E;&#xFF0C;&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x9700;&#x8981;&#x4E24;&#x6B65;&#x6B65;&#xFF1A;<a href="http://stackoverflow.com/questions/22115400/why-do-we-need-to-install-gulp-globally-and-locally">&#x4E3A;&#x4EC0;&#x4E48;?</a></p>
+<ol>
+<li><code>npm install -g gulp</code>&#x5168;&#x5C40;&#x5B89;&#x88C5;gulp&#x3002;</li>
+<li><ul>
+<li>&#x8FD8;&#x9700;&#x8981;&#x5728;&#x6BCF;&#x4E2A;&#x8981;&#x4F7F;&#x7528;gulp&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x90FD;&#x5355;&#x72EC;&#x5B89;&#x88C5;&#x4E00;&#x6B21;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5982;&#x679C;&#x60F3;&#x5728;&#x5B89;&#x88C5;&#x7684;&#x65F6;&#x5019;&#x628A;gulp&#x5199;&#x8FDB;&#x9879;&#x76EE;package.json&#x6587;&#x4EF6;&#x7684;&#x4F9D;&#x8D56;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#xFF1A;<code>npm install --save-dev gulp</code><h4 id="t3&#x5F00;&#x59CB;gulp">&#x5F00;&#x59CB;gulp <a href="#t3&#x5F00;&#x59CB;gulp"> # </a></h4>
+&#x548C;Grunt&#x4E00;&#x6837;&#xFF0C; gulp&#x9700;&#x8981;&#x8BB2;&#x5176;&#x4EE3;&#x7801;&#x653E;&#x5728;<code>gulpfile.js</code>&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x7528;require&#x5F15;&#x5165;<code>var gulp = require(&apos;gulp&apos;);</code>&#x8FD0;&#x884C;gulp&#x7684;<code>&#x76EE;&#x5F55;</code>&#x5E94;&#x8BE5;&#x662F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#x7684;&#xFF1A;
+&#x251C;&#x2500;&#x2500; gulpfile.js
+&#x251C;&#x2500;&#x2500; node_modules
+&#x2502; &#x2514;&#x2500;&#x2500; gulp
+&#x2514;&#x2500;&#x2500; package.json
+&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;gulpfile.js&#x6587;&#x4EF6;<strong>&#x5185;&#x5BB9;&#x793A;&#x4F8B;</strong>&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x4EFB;&#x52A1;:<pre><code>var gulp = require(&apos;gulp&apos;);
+gulp.task(&apos;default&apos;,function(){
+  console.log(&apos;hello world&apos;);
+});
+</code></pre><strong>&#x8FD0;&#x884C;gulp&#xFF1A;</strong>
+&#x5728;<code>gulpfile.js</code>&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x7528;cmd&#x8FD0;&#x884C;<code>gulp</code>+<code>&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x597D;&#x7684;gulp&#x4E2D;&#x7684;&#x4EFB;&#x52A1;&#x540D;</code>&#x5373;&#x53EF;&#xFF1B;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x4EFB;&#x52A1;&#x540D;&#xFF0C;&#x5219;&#x4F1A;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x540D;&#x4E3A;<code>default</code>&#xB7;&#x7684;&#x9ED8;&#x8BA4;&#x4EFB;&#x52A1;&#x3002;</li>
+</ol>
+<p><strong>gulp.js&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;</strong> </p>
+<blockquote>
+<ul>
+<li>&#x9996;&#x5148;&#x901A;&#x8FC7;gulp.src()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x60F3;&#x8981;&#x5904;&#x7406;&#x7684;&#x6587;&#x4EF6;&#x6D41;</li>
+<li>&#x7136;&#x540E;&#x628A;&#x6587;&#x4EF6;&#x6D41;&#x901A;&#x8FC7;pipe&#x65B9;&#x6CD5;&#x5BFC;&#x5165;&#x5230;gulp&#x7684;&#x63D2;&#x4EF6;&#x4E2D;</li>
+<li>&#x6700;&#x540E;&#x628A;&#x7ECF;&#x8FC7;&#x63D2;&#x4EF6;&#x5904;&#x7406;&#x540E;&#x7684;&#x6D41;&#x518D;&#x901A;&#x8FC7;pipe&#x65B9;&#x6CD5;&#x5BFC;&#x5165;&#x5230;gulp.dest()&#x4E2D;<pre><code>gulp.dest()&#x65B9;&#x6CD5;&#x5219;&#x628A;&#x6D41;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5199;&#x5165;&#x5230;&#x6587;&#x4EF6;&#x4E2D;
+  var gulp = require(&apos;gulp&apos;);
+  gulp.src(&apos;script/src.js&apos;)             // &#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x6D41;&#x7684;api
+      .pipe(gulp.dest(&apos;dist/dest.js&apos;)); // &#x5199;&#x6587;&#x4EF6;&#x7684;api
+</code></pre></li>
+</ul>
+</blockquote>
+<h2 id="t4Gulp&#x7684;&#x56DB;&#x4E2A;&#x6838;&#x5FC3;API">Gulp&#x7684;&#x56DB;&#x4E2A;&#x6838;&#x5FC3;API <a href="#t4Gulp&#x7684;&#x56DB;&#x4E2A;&#x6838;&#x5FC3;API"> # </a></h2>
+<h4 id="t51 gulp.src()">1 gulp.src() <a href="#t51 gulp.src()"> # </a></h4>
+<p>&#x5728;gulp&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;gulp&#x662F;&#x4F9D;&#x8D56;<code>&#x6D41;</code>&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;<code>gulp.src()</code>&#x65B9;&#x6CD5;&#x6B63;&#x662F;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x6D41;&#x7684;.
+&#x4F46;&#x8981;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x6D41;&#x91CC;&#x7684;&#x5185;&#x5BB9;&#x4E0D;&#x662F;&#x539F;&#x59CB;&#x7684;&#x6587;&#x4EF6;&#x6D41;,&#x800C;&#x662F;&#x4E00;&#x4E2A;<code>&#x865A;&#x62DF;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#x6D41;,</code>&#x8FD9;&#x4E2A;&#x865A;&#x62DF;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#x4E2D;&#x5B58;&#x50A8;&#x7740;&#x539F;&#x59CB;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x3001;&#x6587;&#x4EF6;&#x540D;&#x548C;&#x5185;&#x5BB9;&#x7B49;&#x4FE1;&#x606F;
+<code>gulp.src(globs[, options])</code></p>
+<ul>
+<li>globs &#x53C2;&#x6570;&#x662F;&#x6587;&#x4EF6;&#x5339;&#x914D;&#x6A21;&#x5F0F;(&#x7C7B;&#x4F3C;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;)&#xFF0C;&#x7528;&#x6765;&#x5339;&#x914D;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(&#x5305;&#x62EC;&#x6587;&#x4EF6;&#x540D;)&#xFF0C;&#x5F53;&#x7136;&#x8FD9;&#x91CC;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6307;&#x5B9A;&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;&#x5F53;&#x6709;&#x591A;&#x4E2A;&#x5339;&#x914D;&#x6A21;&#x5F0F;&#x65F6;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</li>
+<li>options &#x4E3A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x5230;<blockquote>
+<ul>
+<li>Gulp&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x4E86;node-glob&#x6A21;&#x5757;&#x6765;&#x5B9E;&#x73B0;&#x5176;&#x6587;&#x4EF6;&#x5339;&#x914D;&#x529F;&#x80FD;&#x3002;<code>globs</code>&#x53C2;&#x6570;&#x8BE6;&#x89E3;&#xFF0C;&#x5F15;&#x7528;&#x81EA;<a href="http://www.cnblogs.com/2050/p/4198792.html%22%E6%97%A0%E5%8F%8C%E7%9A%84%E5%8D%9A%E5%AE%A2%22">&#x65E0;&#x53CC;&#x7684;&#x535A;&#x5BA2;</a></li>
+</ul>
+</blockquote>
+</li>
+<li>&#x5339;&#x914D;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;0&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x4F46;&#x4E0D;&#x4F1A;&#x5339;&#x914D;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x9664;&#x975E;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;&#x51FA;&#x73B0;&#x5728;&#x672B;&#x5C3E;
+<code>**</code>&#x5339;&#x914D;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;0&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x76EE;&#x5F55;&#x53CA;&#x5176;&#x5B50;&#x76EE;&#x5F55;,&#x9700;&#x8981;&#x5355;&#x72EC;&#x51FA;&#x73B0;&#xFF0C;&#x5373;&#x5B83;&#x5DE6;&#x53F3;&#x4E0D;&#x80FD;&#x6709;&#x5176;&#x4ED6;&#x4E1C;&#x897F;&#x4E86;&#x3002;&#x5982;&#x679C;&#x51FA;&#x73B0;&#x5728;&#x672B;&#x5C3E;&#xFF0C;&#x4E5F;&#x80FD;&#x5339;&#x914D;&#x6587;&#x4EF6;&#x3002;
+<code>?</code> &#x5339;&#x914D;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;(&#x4E0D;&#x4F1A;&#x5339;&#x914D;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;)
+<code>[...]</code>&#x5339;&#x914D;&#x65B9;&#x62EC;&#x53F7;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x5B57;&#x7B26;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#xFF0C;&#x5F53;&#x65B9;&#x62EC;&#x53F7;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;^&#x6216;!&#x65F6;&#xFF0C;&#x5219;&#x8868;&#x793A;&#x4E0D;&#x5339;&#x914D;&#x65B9;&#x62EC;&#x53F7;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x5176;&#x4ED6;&#x5B57;&#x7B26;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#xFF0C;&#x7C7B;&#x4F3C;js&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;&#x7684;&#x7528;&#x6CD5;
+<code>!(pattern|pattern|pattern)</code> &#x5339;&#x914D;&#x4EFB;&#x4F55;&#x4E0E;&#x62EC;&#x53F7;&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x4E00;&#x6A21;&#x5F0F;&#x90FD;&#x4E0D;&#x5339;&#x914D;&#x7684;
+<code>?(pattern|pattern|pattern)</code>&#x5339;&#x914D;&#x62EC;&#x53F7;&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x4E00;&#x6A21;&#x5F0F;0&#x6B21;&#x6216;1&#x6B21;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;js&#x6B63;&#x5219;&#x4E2D;&#x7684;(pattern|pattern|pattern)?
+<code>+(pattern|pattern|pattern)</code>&#x5339;&#x914D;&#x62EC;&#x53F7;&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x4E00;&#x6A21;&#x5F0F;&#x81F3;&#x5C11;1&#x6B21;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;js&#x6B63;&#x5219;&#x4E2D;&#x7684;(pattern|pattern|pattern)+
+<code>*(pattern|pattern|pattern)</code>&#x5339;&#x914D;&#x62EC;&#x53F7;&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x4E00;&#x6A21;&#x5F0F;0&#x6B21;&#x6216;&#x591A;&#x6B21;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;js&#x6B63;&#x5219;&#x4E2D;&#x7684;(pattern|pattern|pattern)<em>
+<code>@(pattern|pattern|pattern)</code>&#x5339;&#x914D;&#x62EC;&#x53F7;&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x4E00;&#x6A21;&#x5F0F;1&#x6B21;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;js&#x6B63;&#x5219;&#x4E2D;&#x7684;(pattern|pattern|pattern)
+`gulp.src([&apos;js/</em>.js&apos;,&apos;css/<em>.css&apos;,&apos;</em>.html&apos;])`&#x5F53;&#x6709;&#x591A;&#x79CD;&#x5339;&#x914D;&#x6A21;&#x5F0F;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6570;&#x7EC4;</li>
+</ul>
+<h4 id="t62 gulp.dest()">2 gulp.dest() <a href="#t62 gulp.dest()"> # </a></h4>
+<p><code>gulp.dest(path[,options])</code>
+gulp&#x7684;&#x4F7F;&#x7528;<code>&#x6D41;&#x7A0B;</code>&#x4E00;&#x822C;&#x662F;&#x8FD9;&#x6837;&#x5B50;&#x7684;&#xFF1A;&#x9996;&#x5148;&#x901A;&#x8FC7;<code>gulp.src()</code>&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5904;&#x7406;&#x7684;&#x6587;&#x4EF6;&#x6D41;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6587;&#x4EF6;&#x6D41;&#x901A;&#x8FC7;pipe&#x65B9;&#x6CD5;&#x5BFC;&#x5165;&#x5230;<code>gulp&#x7684;&#x63D2;&#x4EF6;</code>&#x4E2D;&#xFF0C;&#x6700;&#x540E;&#x628A;&#x7ECF;&#x8FC7;&#x63D2;&#x4EF6;&#x5904;&#x7406;&#x540E;&#x7684;&#x6D41;&#x518D;&#x901A;&#x8FC7;pipe&#x65B9;&#x6CD5;&#x5BFC;&#x5165;&#x5230;<code>gulp.dest()</code>&#x4E2D;&#xFF0C;gulp.dest()&#x65B9;&#x6CD5;&#x5219;&#x628A;&#x6D41;&#x4E2D;&#x7684;&#x5185;&#x5BB9;<code>&#x5199;&#x5165;</code>&#x5230;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x8FD9;&#x91CC;&#x9996;&#x5148;&#x9700;&#x8981;&#x5F04;&#x6E05;&#x695A;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7ED9;gulp.dest()&#x4F20;&#x5165;&#x7684;&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#xFF0C;&#x53EA;&#x80FD;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x8981;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x800C;&#x4E0D;&#x80FD;&#x6307;&#x5B9A;&#x751F;&#x6210;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x8981;&#x60F3;&#x6539;&#x53D8;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x63D2;&#x4EF6;<code>gulp-rename</code>,&#x8FD9;&#x4E2A;&#x7B49;&#x4E0B;&#x4F1A;&#x63D0;&#x5230;&#x3002;</p>
+<pre><code>var gulp = require(&apos;gulp&apos;);
+gulp.src(&apos;script/jquery.js&apos;)
+    .pipe(gulp.dest(&apos;dist/foo.js&apos;));
+//&#x6700;&#x7EC8;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; dist/foo.js/jquery.js,&#x800C;&#x4E0D;&#x662F;dist/foo.js
+</code></pre><p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;gulp.dest<code>(path)</code>&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x662F;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x7684;path&#x53C2;&#x6570;&#x540E;&#x9762;&#x518D;&#x52A0;&#x4E0A;gulp.src()&#x4E2D;&#x6709;<code>&#x901A;&#x914D;&#x7B26;(**)</code>&#x5F00;&#x59CB;&#x51FA;&#x73B0;&#x7684;&#x90A3;&#x90E8;&#x5206;&#x8DEF;&#x5F84;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x7075;&#x6D3B;&#x5E94;&#x7528;&#xFF0C;&#x901A;&#x8FC7;&#x6307;&#x5B9A;gulp.src()&#x65B9;&#x6CD5;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x4E2D;&#x7684;<code>base</code>&#x5C5E;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x66F4;&#x7075;&#x6D3B;&#x7684;&#x6765;&#x6539;&#x53D8;gulp.dest()&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;</p>
+<pre><code>gulp.task(&apos;copy&apos;,function(){
+    gulp.src([&apos;./app/*/*.css&apos;
+            ,&apos;./app/img/**/*.png&apos;
+            ,&apos;./app/js/*.js&apos;
+            ,&apos;!./app/js/tmp.js&apos;],{base:&apos;./app&apos;})//
+        .pipe(gulp.dest(&apos;./dist&apos;))
+});
+gulp.task(&apos;default&apos;,[&apos;copy&apos;]);
+//&#x518D;&#x5982;&#xFF1A;&#x6240;&#x4EE5;&#x6539;&#x53D8;base&#x8DEF;&#x5F84;&#x540E;&#xFF0C;gulp.dest()&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E5F;&#x4F1A;&#x6539;&#x53D8;
+gulp.src(script/lib/*.js) //&#x6CA1;&#x6709;&#x914D;&#x7F6E;base&#x53C2;&#x6570;&#xFF0C;&#x6B64;&#x65F6;&#x9ED8;&#x8BA4;&#x7684;base&#x8DEF;&#x5F84;&#x4E3A;script/lib
+    //&#x5047;&#x8BBE;&#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x4E3A;script/lib/jquery.js
+    .pipe(gulp.dest(&apos;build&apos;)) //&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; build/jquery.js
+
+gulp.src(script/lib/*.js, {base:&apos;script&apos;}) //&#x914D;&#x7F6E;&#x4E86;base&#x53C2;&#x6570;&#xFF0C;&#x6B64;&#x65F6;base&#x8DEF;&#x5F84;&#x4E3A;script
+    //&#x5047;&#x8BBE;&#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x4E3A;script/lib/jquery.js
+    .pipe(gulp.dest(&apos;build&apos;)) //&#x6B64;&#x65F6;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; build/lib/jquery.js
+</code></pre><h4 id="t73 gulp.task()">3 gulp.task() <a href="#t73 gulp.task()"> # </a></h4>
+<p><code>gulp.task</code>&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x4EFB;&#x52A1;&#xFF0C;<code>gulp.task(name[, deps], fn)</code></p>
+<pre><code>gulp.task(&apos;mytask&apos;, [&apos;array&apos;, &apos;of&apos;, &apos;task&apos;, &apos;names&apos;], function() { //&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6709;&#x4F9D;&#x8D56;&#x7684;&#x4EFB;&#x52A1;,&#x5F53;&#x524D;&#x5B9A;&#x4E49;&#x7684;&#x4EFB;&#x52A1;[&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;]&#x4F1A;&#x5728;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x7684;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x540E;&#x624D;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4F9D;&#x8D56;&#xFF0C;&#x5219;&#x53EF;&#x7701;&#x7565;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x3002;
+  // Do something
+});
+</code></pre><p>&#x6CE8;&#x610F;&#x4E86;&#xFF0C;gulp&#x5E76;&#x4E0D;&#x4F1A;&#x7B49;&#x5F85;&#x90A3;&#x4E2A;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x800C;&#x662F;&#x4F1A;&#x63A5;&#x7740;&#x6267;&#x884C;&#x540E;&#x7EED;&#x7684;&#x4EFB;&#x52A1;&#x3002;</p>
+<pre><code>gulp.task(&apos;first&apos;,function(){
+  //one&#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;
+  setTimeout(function(){
+    console.log(&apos;one is done&apos;)
+  },5000);
+});
+
+//two&#x4EFB;&#x52A1;&#x867D;&#x7136;&#x4F9D;&#x8D56;&#x4E8E;one&#x4EFB;&#x52A1;,&#x4F46;&#x5E76;&#x4E0D;&#x4F1A;&#x7B49;&#x5230;one&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x540E;&#x518D;&#x6267;&#x884C;,&#x7D27;&#x63A5;&#x7740;&#x6267;&#x884C;two&#x4EFB;&#x52A1;&#x3002;&#x6240;&#x4EE5;two&#x4EFB;&#x52A1;&#x4F1A;&#x5728;one&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x4E4B;&#x524D;&#x5C31;&#x6267;&#x884C;&#x4E86;&#x3002;
+gulp.task(&apos;second&apos;,[&apos;first&apos;],function(){
+  console.log(&apos;two is done&apos;);
+});
+//&#x5982;&#x679C;&#x60F3;&#x8981;second&#x7B49;&#x5F85;first&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;
+gulp.task(&apos;one&apos;,function(cb){ //cb&#x4E3A;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x7528;&#x6765;&#x901A;&#x77E5;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;
+  //one&#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;
+  setTimeout(function(){
+    console.log(&apos;one is done&apos;);
+    cb();  //&#x6267;&#x884C;&#x56DE;&#x8C03;&#xFF0C;&#x8868;&#x793A;&#x8FD9;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;
+  },5000);
+});
+gulp.task(&apos;two&apos;,[&apos;one&apos;],function(){//&#x8FD9;&#x65F6;two&#x4EFB;&#x52A1;&#x4F1A;&#x5728;one&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x540E;&#x518D;&#x6267;&#x884C;
+  console.log(&apos;two is done&apos;);
+});
+&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;&#x5B9A;&#x4E49;&#x4EFB;&#x52A1;&#x65F6;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6D41;&#x5BF9;&#x8C61;&#x3002;&#x9002;&#x7528;&#x4E8E;&#x4EFB;&#x52A1;&#x5C31;&#x662F;&#x64CD;&#x4F5C;gulp.src&#x83B7;&#x53D6;&#x5230;&#x7684;&#x6D41;&#x7684;&#x60C5;&#x51B5;&#x3002;
+gulp.task(&apos;one&apos;,function(cb){
+  var stream = gulp.src(&apos;client/**/*.js&apos;)
+      .pipe(dosomething()) //dosomething()&#x4E2D;&#x6709;&#x67D0;&#x4E9B;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;
+      .pipe(gulp.dest(&apos;build&apos;));
+    return stream;
+});
+
+gulp.task(&apos;two&apos;,[&apos;one&apos;],function(){
+  console.log(&apos;two is done&apos;);
+});
+
+&#x7B2C;&#x4E09;&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;promise&#x5BF9;&#x8C61;&#xFF0C;&#x6211;&#x8FD8;&#x4E0D;&#x592A;&#x61C2;promise&#x3002;&#x3002;&#x3002;&#x3002;
+</code></pre><h4 id="t84 gulp.watch()">4 gulp.watch() <a href="#t84 gulp.watch()"> # </a></h4>
+<pre><code>gulp.task(&apos;default&apos;,function(){
+    gulp.watch(&apos;./app/index.html&apos;,function(event){// event&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;:type added changed deleted// path &#x53D8;&#x5316;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;
+            console.log(event);
+    });
+});
+</code></pre><p>###&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;gulp&#x63D2;&#x4EF6;
+ <strong>&#x4F7F;&#x7528;&#x63D2;&#x4EF6;&#x6B65;&#x9AA4; #</strong></p>
+<ul>
+<li>npm install xxx --save-dev &#x5B89;&#x88C5;&#x63D2;&#x4EF6;</li>
+<li>&#x5728; gulpfile.js &#x9876;&#x90E8;&#x5F15;&#x5165;&#x6B64;&#x63D2;&#x4EF6;</li>
+<li>&#x5728;&#x521B;&#x5EFA;&#x4EFB;&#x52A1;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x6B64;&#x63D2;&#x4EF6;
+&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x63D2;&#x4EF6;&#x975E;&#x5E38;&#x591A;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;gulpfile.js&#x4E2D;&#x4F7F;&#x7528;<code>gulp-load-plugins</code>&#x6765;&#x5E2E;&#x6211;&#x4EEC;&#x52A0;&#x8F7D;&#x63D2;&#x4EF6;,&#x7136;&#x540E;&#x6211;&#x4EEC;&#x8981;&#x4F7F;&#x7528;<code>gulp-concat</code>&#x548C;<code>gulp-connect</code>&#x8FD9;&#x4E24;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C; &#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>$.concat&#x548C;$.connect</code>&#x6765;&#x4EE3;&#x66FF;&#x4E86;,&#x6CE8;&#x610F;$&#x540E;&#x9762;&#x7684;<code>&apos;  .&apos;</code>&#x522B;&#x5FD8;&#x4E86;&#x5199;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x539F;&#x59CB;&#x63D2;&#x4EF6;&#x540D;&#x53BB;&#x6389;gulp-&#x524D;&#x7F00;&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x8F6C;&#x6362;&#x4E3A;<code>&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x3002;</code><pre><code>var gulp = require(&apos;gulp&apos;);
+//&#x52A0;&#x8F7D;gulp-load-plugins&#x63D2;&#x4EF6;&#xFF0C;&#x5E76;&#x9A6C;&#x4E0A;&#x8FD0;&#x884C;&#x5B83;
+var plugins = require(&apos;gulp-load-plugins&apos;)();
+</code></pre><blockquote>
+<p>&#x7F16;&#x8BD1; Sass&#xFF1A;gulp-sass
+&#x7F16;&#x8BD1; Less&#xFF1A;gulp-less
+&#x5408;&#x5E76;&#x6587;&#x4EF6;&#xFF1A;gulp-concat
+&#x538B;&#x7F29;js &#x6587;&#x4EF6;&#xFF1A;gulp-uglify
+&#x91CD;&#x547D;&#x540D;js&#x6587;&#x4EF6;&#xFF1A;gulp-rename
+&#x4F18;&#x5316;&#x56FE;&#x50CF;&#x5927;&#x5C0F;&#xFF1A;gulp-imagemin:&#x5728;&#x4FDD;&#x8BC1;&#x4E0D;&#x6539;&#x53D8;&#x56FE;&#x50CF;&#x8D28;&#x91CF;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BA9;&#x56FE;&#x50CF;&#x6587;&#x4EF6;&#x7684;&#x4F53;&#x79EF;&#x53D8;&#x5F97;&#x66F4;&#x5C0F;&#x4E00;&#x70B9;
+&#x538B;&#x7F29;css &#x6587;&#x4EF6;&#xFF1A;gulp-minify-css</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>   gulp.task(&apos;minify&apos;,function(){
+        return gulp.src(&apos;app/less/page.less&apos;)//&#x6307;&#x5B9A; less&#x6587;&#x4EF6;
+            .pipe(less())//&#x628A;less&#x7F16;&#x8BD1;&#x6210;css
+            .pipe(gulp.dest(&apos;dist/css&apos;))//&#x8F93;&#x51FA;&#x5230;&#x76EE;&#x7684;&#x5730;
+            .pipe(minify())//&#x5BF9; css&#x518D;&#x8FDB;&#x884C;&#x538B;&#x7F29;
+            .pipe(rename(&apos;page.min.css&apos;))//&#x91CD;&#x547D;&#x540D;
+            .pipe(gulp.dest(&apos;dist/css&apos;));//&#x8F93;&#x51FA;&#x5230;&#x76EE;&#x7684;&#x5730;
+    });
+</code></pre><p>&#x521B;&#x5EFA;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;&#xFF1A;gulp-connect
+&#x5B9E;&#x65F6;&#x9884;&#x89C8; gulp-connect:&#x6709;&#x4E9B;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x628A;&#x6587;&#x4EF6;&#x653E;&#x5230;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x53BB;&#x9884;&#x89C8;&#xFF0C;gulp-connect&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;&#x53BB;&#x8FD0;&#x884C;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;
+&#x4EE3;&#x7801;&#x68C0;&#x67E5; jshint &#x6CE8;&#x610F;&#x5FC5;&#x987B;&#x540C;&#x65F6;&#x5B89;&#x88C5;jshint&#x548C;gulp-jshint</p>
+<h6 id="t9&#x5C0F;&#x9879;&#x76EE;&#x5B9E;&#x6218;&#xFF0C;&#x81EA;&#x52A8;&#x5237;&#x65B0;">&#x5C0F;&#x9879;&#x76EE;&#x5B9E;&#x6218;&#xFF0C;&#x81EA;&#x52A8;&#x5237;&#x65B0; <a href="#t9&#x5C0F;&#x9879;&#x76EE;&#x5B9E;&#x6218;&#xFF0C;&#x81EA;&#x52A8;&#x5237;&#x65B0;"> # </a></h6>
+<pre><code>var gulp=require(&apos;gulp&apos;);
+var $=require(&apos;gulp-load-plugins&apos;)();
+gulp.task(&apos;copy&apos;,function(){
+    gulp.src(&apos;./app/index.html&apos;)
+        .pipe(gulp.dest(&apos;./dist&apos;))
+        .pipe($.connect.reload());
+});
+gulp.task(&apos;watch&apos;,function(){
+    gulp.watch(&apos;./app/index.html&apos;,[&apos;copy&apos;])
+});
+gulp.task(&apos;server&apos;,[&apos;watch&apos;],function(){
+    $.connect.server({
+        root:&apos;./dist&apos;,
+        port:&apos;8888&apos;,
+        livereload:&apos;true&apos;
+    })
+});
+</code></pre>
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

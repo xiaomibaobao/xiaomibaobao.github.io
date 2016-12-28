@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li class="active"><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0前言">前言</a></li><li><a href="#t1AMD规范 & CMD规范">AMD规范 & CMD规范</a></li><li><a href="#t2RequireJS">RequireJS</a><ul><li><a href="#t3使用RequireJS">使用RequireJS</a></li><li><a href="#t4定义模块">定义模块</a></li><li><a href="#t5配置项">配置项</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <p>#&#x524D;&#x7AEF;&#x6A21;&#x5757;&#x5316;&#x4E4B;requireJS</p>
+<h2 id="t0&#x524D;&#x8A00;">&#x524D;&#x8A00; <a href="#t0&#x524D;&#x8A00;"> # </a></h2>
+<p>&#x524D;&#x7AEF;&#x6A21;&#x5757;&#x5316;&#x80FD;&#x89E3;&#x51B3;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#xFF1F;</p>
+<ol>
+<li>&#x6A21;&#x5757;&#x7684;&#x7248;&#x672C;&#x7BA1;&#x7406;</li>
+<li>&#x63D0;&#x9AD8;&#x53EF;&#x7EF4;&#x62A4;&#x6027; -- &#x901A;&#x8FC7;&#x6A21;&#x5757;&#x5316;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x804C;&#x8D23;&#x5355;&#x4E00;&#xFF0C;&#x975E;&#x5E38;&#x6709;&#x5229;&#x4E8E;&#x4EE3;&#x7801;&#x7684;&#x7EF4;&#x62A4;</li>
+<li>&#x6309;&#x9700;&#x52A0;&#x8F7D; -- &#x63D0;&#x9AD8;&#x663E;&#x793A;&#x6548;&#x7387;</li>
+<li>&#x66F4;&#x597D;&#x7684;&#x4F9D;&#x8D56;&#x5904;&#x7406; -- &#x4F20;&#x7EDF;&#x7684;&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#xFF0C;&#x5982;&#x679C;B&#x4F9D;&#x8D56;A&#xFF0C;&#x90A3;&#x4E48;&#x5FC5;&#x987B;&#x5728;B&#x6587;&#x4EF6;&#x524D;&#x9762;&#x5148;&#x52A0;&#x8F7D;&#x597D;A&#x3002;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E86;&#x6A21;&#x5757;&#x5316;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7533;&#x660E;&#x4F9D;&#x8D56;&#x5373;&#x53EF;&#x3002;</li>
+</ol>
+<h2 id="t1AMD&#x89C4;&#x8303; &amp; CMD&#x89C4;&#x8303;">AMD&#x89C4;&#x8303; &amp; CMD&#x89C4;&#x8303; <a href="#t1AMD&#x89C4;&#x8303; &amp; CMD&#x89C4;&#x8303;"> # </a></h2>
+<p>&#x8BF4;&#x5230;&#x524D;&#x7AEF;&#x6A21;&#x5757;&#x5316;&#xFF0C;&#x5C31;&#x4E0D;&#x5F97;&#x4E0D;&#x63D0;<strong>AMD&#x89C4;&#x8303;</strong>&#xFF08;<a href="https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88">&#x4E2D;&#x6587;&#x7248;</a>)&#x3001;<a href="https://github.com/amdjs/amdjs-api/wiki/AMD">&#x82F1;&#x6587;&#x7248;</a>&#xFF09;&#x548C;<strong>CMD&#x89C4;&#x8303;</strong>&#xFF08;<a href="https://github.com/cmdjs/specification/blob/master/draft/module.md">&#x82F1;&#x6587;&#x7248;</a>&#xFF09;</p>
+<p>&#x5B83;&#x4EEC;&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
+<p><a href="http://www.zhihu.com/question/20351507">http://www.zhihu.com/question/20351507</a></p>
+<p><a href="http://www.cnblogs.com/tugenhua0707/p/3507957.html">http://www.cnblogs.com/tugenhua0707/p/3507957.html</a></p>
+<p>AMD&#x89C4;&#x8303;&#x662F; RequireJS &#x5728;&#x63A8;&#x5E7F;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x7684;&#x89C4;&#x8303;&#x5316;&#x4EA7;&#x51FA;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5728;&#x8FD9;&#x91CC;&#x91CD;&#x70B9;&#x4ECB;&#x7ECD;&#x4E0B; AMD&#x89C4;&#x8303;&#x3002;</p>
+<p>AMD&#x89C4;&#x8303;&#x5168;&#x540D;&#x5F02;&#x6B65;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF08;Asynchronous Module Definition&#xFF09;&#x89C4;&#x8303;&#xFF0C;&#x8BA9;&#x6A21;&#x5757;&#x548C;&#x4F9D;&#x8D56;&#x53EF;&#x4EE5;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x3002;</p>
+<p>&#x4E3B;&#x8981;API&#xFF1A;</p>
+<pre><code>define(id?, dependencies?, factory);
+</code></pre><p>id,&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5B9A;&#x4E49;&#x4E2D;&#x6A21;&#x5757;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF08;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x4E3A;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x5668;&#x8BF7;&#x6C42;&#x7684;&#x6307;&#x5B9A;&#x811A;&#x672C;&#x7684;&#x540D;&#x5B57;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x63D0;&#x4F9B;&#xFF0C;&#x90A3;&#x4E48;&#x6A21;&#x5757;&#x540D;&#x5FC5;&#x987B;&#x662F;&#x9876;&#x7EA7;&#x548C;&#x7EDD;&#x5BF9;&#x7684;&#xFF08;&#x4E0D;&#x5141;&#x8BB8;&#x76F8;&#x5BF9;&#x540D;&#x5B57;&#xFF09;</p>
+<p>dependencies&#xFF0C;&#x6570;&#x7EC4;&#xFF0C;&#x6A21;&#x5757;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x53EF;&#x9009;&#x53C2;&#x6570;</p>
+<p>factory&#xFF0C;&#x51FD;&#x6570;&#x6216;&#x5BF9;&#x8C61;&#xFF0C;&#x5FC5;&#x9009;&#x53C2;&#x6570;&#x3002;</p>
+<h2 id="t2RequireJS">RequireJS <a href="#t2RequireJS"> # </a></h2>
+<p>RequireJS&#x662F;&#x4E00;&#x4E2A;JS&#x7684;&#x6587;&#x4EF6;&#x548C;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x5668;&#x3002;&#x4E13;&#x95E8;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x4F18;&#x5316;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x652F;&#x6301;&#x5176;&#x4ED6;JS&#x73AF;&#x5883;&#x3002;</p>
+<h3 id="t3&#x4F7F;&#x7528;RequireJS">&#x4F7F;&#x7528;RequireJS <a href="#t3&#x4F7F;&#x7528;RequireJS"> # </a></h3>
+<p>&#x8981;&#x60F3;&#x4F7F;&#x7528;requireJS&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x5728;&#x9875;&#x9762;&#x5F15;&#x5165;&#x811A;&#x672C;&#xFF1A;</p>
+<pre><code>&lt;script src=&quot;assets/vendor/require/require.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x4E66;&#x5199;&#x811A;&#x672C;&#xFF1A;</p>
+<pre><code>&lt;script&gt;
+    requirejs([&apos;js/a&apos;], function(a){
+        alert(a.test);
+    });  
+&lt;/script&gt;
+</code></pre><p>&#x518D;&#x6765;&#x770B;&#x770B;a.js:</p>
+<pre><code>define({
+  test: &apos;aa&apos;
+});
+</code></pre><p>html&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;RequireJS Demo&lt;/title&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;chrome=1&quot;&gt;
+        &lt;script src=&quot;assets/vendor/require/require.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script&gt;
+            requirejs([&apos;assets/js/a&apos;], function(a){
+                alert(a.test);
+            });  
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6253;&#x5F00;&#x540E;&#xFF0C;&#x5F39;&#x51FA;aa&#x3002;</p>
+<p>&#x5728;&#x5B9E;&#x8DF5;&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x793A;&#x4F8B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x6CE8;&#x610F;requireJS&#x7684;<code>baseUrl</code> &#x8BBE;&#x7F6E;&#xFF1A;</p>
+<p><strong>&#x7EC6;&#x8282;&#x4E4B;&#x5904;</strong></p>
+<p>1&#x3001;RequireJS &#x52A0;&#x8F7D;&#x6587;&#x4EF6;/&#x6A21;&#x5757;&#x90FD;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;baseUrl&#x7684;</p>
+<p>2&#x3001;baseUrl&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;data-main&#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x7684;&#x811A;&#x672C;&#x76EE;&#x5F55;</p>
+<pre><code>//baseUrl=&quot;assets/&quot;
+&lt;script data-main=&quot;assets/main&quot; src=&quot;assets/vendor/require/require.js&quot;&gt;&lt;/script&gt;
+
+//baseUrl=&quot;assets/js/&quot;
+&lt;script data-main=&quot;assets/js/main&quot; src=&quot;assets/vendor/require/require.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>3&#x3001;&#x5982;&#x679C;&#x6CA1;&#x6709;data-main&#x5C5E;&#x6027;&#xFF0C;&#x90A3;&#x4E48;baseUrl&#x7B49;&#x4E8E;&#x8BE5;html&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55;</p>
+<p>4&#x3001;baseUrl&#x53EF;&#x4EE5;&#x901A;&#x8FC7;RequireJS config&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;</p>
+<p>5&#x3001;&#x4F18;&#x5148;&#x7EA7;&#xFF1A;config &gt; data-main&#x5C5E;&#x6027; -&gt; html&#x76EE;&#x5F55;</p>
+<p>6&#x3001;RequireJS&#x52A0;&#x8F7D;JS&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x5199;js&#x540E;&#x7F00;</p>
+<p>7&#x3001;&#x52A0;&#x8F7D;&#x6587;&#x4EF6;/&#x6A21;&#x5757;&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5305;&#x542B;&#x524D;&#x7F00;http&#x6216;&#x8005;https</p>
+<p>8&#x3001;&#x53EF;&#x4EE5;&#x5728;config&#x4E2D;&#x4F7F;&#x7528;paths&#x914D;&#x7F6E;&#xFF0C;&#x6307;&#x5B9A;&#x76F8;&#x5BF9;&#x76EE;&#x5F55;</p>
+<pre><code>//&#x8FD9;&#x662F;&#x6211;&#x7684;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x7ED3;&#x6784;
+www/
+  index.html
+  assets/
+    js/
+      a.js
+    vendor/
+      require/
+        require.js
+    main.js
+
+//&#x914D;&#x7F6E;&#x6587;&#x4EF6;
+requirejs.config({
+    baseUrl: &apos;assets&apos;,
+    paths: {
+        js: &apos;js&apos;
+    }
+});
+
+//&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;js&#x6765;&#x6620;&#x5C04;&#x76EE;&#x5F55;&#xFF0C;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x5F15;&#x7528;
+requirejs([&apos;js/a&apos;], function(a){
+  alert(a.test);
+}); 
+</code></pre><p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x4E00;&#x5B9A;&#x8981;&#x4FDD;&#x8BC1;&#x4F7F;&#x7528;paths&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x653E;&#x5728;config&#x4E4B;&#x540E;&#x3002;&#x901A;&#x8FC7;&#x5728;&#x914D;&#x7F6E;paths&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x76F4;&#x63A5;&#x5B50;&#x76EE;&#x5F55;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x659C;&#x6760;&#x3002;</p>
+<p>9&#x3001;data-main&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x662F;requirejs&#x7684;&#x5165;&#x53E3;&#x70B9;</p>
+<h3 id="t4&#x5B9A;&#x4E49;&#x6A21;&#x5757;">&#x5B9A;&#x4E49;&#x6A21;&#x5757; <a href="#t4&#x5B9A;&#x4E49;&#x6A21;&#x5757;"> # </a></h3>
+<p>&#x5728;requirejs&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x5B9A;&#x4E49;&#x6A21;&#x5757;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>1&#x3001;&#x7B80;&#x5355;&#x7684;&#x952E;&#x503C;&#x5BF9;:</p>
+<pre><code>define({
+  color: &apos;black&apos;,
+  size: &apos;18px&apos;
+});
+</code></pre><p>2&#x3001;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code>define(function(){
+  return {
+    color: &apos;black&apos;,
+    size: &apos;18px&apos;
+  };
+});
+</code></pre><p>3&#x3001;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x5E76;&#x4F7F;&#x7528;&#x4F9D;&#x8D56;&#xFF1A;</p>
+<pre><code>define([&apos;a&apos;, &apos;b&apos;], function(a, b){
+  return {
+    color: &apos;black&apos;,
+    size: &apos;18px&apos;,
+    alert: function(){
+      return a.num + b.num;
+    }
+  };
+});
+</code></pre><p>4&#x3001;&#x5C06;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E3A;&#x6A21;&#x5757;&#xFF1A;</p>
+<pre><code>define([&apos;a&apos;, &apos;b&apos;], function(a, b){
+  return function(title){
+    return title ? title : a.title + b.title;
+  };
+});
+</code></pre><p>5&#x3001;&#x901A;&#x8FC7;&#x7B80;&#x5355;&#x7684;CommonJs&#x5305;&#x88C5;&#x5668;&#x5B9A;&#x4E49;&#x6A21;&#x5757;&#xFF1A;</p>
+<pre><code>define(function(require, exports, module){
+  var a = require(&apos;a&apos;),
+      b = require(&apos;b&apos;);
+  return function(){}; 
+});
+</code></pre><p>6&#x3001;&#x5B9A;&#x4E49;&#x5305;&#x542B;&#x540D;&#x5B57;&#x7684;&#x6A21;&#x5757;&#xFF1A;</p>
+<pre><code>define(&apos;moduleA&apos;, [&apos;a&apos;, &apos;b&apos;], function(a, b){
+  //do something...
+});
+</code></pre><h3 id="t5&#x914D;&#x7F6E;&#x9879;">&#x914D;&#x7F6E;&#x9879; <a href="#t5&#x914D;&#x7F6E;&#x9879;"> # </a></h3>
+<pre><code>requirejs.config({
+  baseUrl: &apos;&apos;, //&#x57FA;&#x5730;&#x5740;
+  paths: { //&#x8DEF;&#x5F84;&#x6620;&#x5C04;
+    &apos;js&apos;: &apos;../js&apos;
+  },
+  bundles: { //
+    primary: [&apos;main&apos;, &apos;util&apos;],
+    secondary: [&apos;text!secondary.html&apos;]
+  },
+  shim: { //&#x4ECE;&#x975E;&#x6A21;&#x5757;&#x7684;js&#x4E2D;&#xFF0C;&#x5BFC;&#x51FA;&#x6A21;&#x5757;
+    jquery: {
+      deps: [],
+      exports: &apos;jQuery&apos;
+    }
+  },
+  map: { //&#x65B9;&#x4FBF;&#x7248;&#x672C;&#x63A7;&#x5236;
+    &apos;some/newmodule&apos;: {
+      &apos;foo&apos;: &apos;foo1.2&apos;
+    },
+    &apos;some/oldmodule&apos;: {
+      &apos;foo&apos;: &apos;foo1.0&apos;
+    }
+  },
+  config: { //&#x914D;&#x7F6E;module
+    bar: {
+      size: &apos;large&apos;
+    }
+  },
+  packages: [], //&#x9700;&#x8981;&#x4ECE;CommonJS packages&#x4E2D;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;
+  nodeIdCompat: true,
+  waitSeconds: 15, // &#x52A0;&#x8F7D;&#x811A;&#x672C;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF08;&#x79D2;&#xFF09;
+  context: &apos;&apos;, //&#x8BBE;&#x7F6E;&#x4E0A;&#x4E0B;&#x6587;&#x540D;&#x79F0;
+  deps:[], //&#x9700;&#x8981;&#x52A0;&#x8F7D;&#x7684;&#x4F9D;&#x8D56;
+  callback: function(){}, //&#x5F53;deps&#x52A0;&#x8F7D;&#x5B8C;&#x65F6;&#x6267;&#x884C;
+  enforceDefine: false, // &#x662F;&#x5426;&#x5F53;&#x811A;&#x672C;&#x6CA1;&#x6709;define&#x65F6;&#x629B;&#x51FA;&#x9519;&#x8BEF;
+  xhtml: false, //&#x662F;&#x5426;&#x4F7F;&#x7528;xhtml&#x521B;&#x5EFA;&#x811A;&#x672C;&#x5143;&#x7D20;
+  urlArgs: &apos;test=&apos; + (new Date()).getTime(), //&#x914D;&#x7F6E;url&#x53C2;&#x6570;
+  scriptType: &apos;text/javascript&apos;, //&#x8BBE;&#x7F6E;&#x52A0;&#x8F7D;&#x811A;&#x672C;&#x7684;&#x811A;&#x672C;&#x7C7B;&#x578B;
+  skipDataMain: false //&#x662F;&#x5426;&#x4F7F;&#x7528;data-main&#x5C5E;&#x6027;
+});
+</code></pre>
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

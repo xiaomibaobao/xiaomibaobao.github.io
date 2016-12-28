@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>git2</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                git2
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li></ul></li><li><a href="#"><span></span>contact</a><ul></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>React</a><ul></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li></ul></li><li><a href="#"><span></span>temp</a><ul><li><a href="../../html/temp/AJAX.html">AJAX</a></li><li class="active"><a href="../../html/temp/DOM.html">DOM</a></li><li><a href="../../html/temp/ES6.html">ES6</a></li><li><a href="../../html/temp/HTTP.html">HTTP</a></li><li><a href="../../html/temp/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/temp/事件.html">事件</a></li><li><a href="../../html/temp/函数.html">函数</a></li></ul></li></ul>
+        </div>
+        
+        <!---->
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+    
+        <div class="page-toc">
+            <ul><li><a href="#t0DOM">DOM</a><ul><li><a href="#t11. DOM 节点">1. DOM 节点</a><ul><li><a href="#t21.1文档节点。">1.1文档节点。</a></li><li><a href="#t31.2注释节点：">1.2注释节点：</a></li><li><a href="#t41.3文档节点。">1.3文档节点。</a></li><li><a href="#t51.4元素节点 即标签。">1.4元素节点 即标签。</a></li></ul></li><li><a href="#t62 DOM中的节点关系">2 DOM中的节点关系</a></li><li><a href="#t73 DOM常用的操作元素的方法">3 DOM常用的操作元素的方法</a></li><li><a href="#t84 DOM深入：动态操作DOM。">4 DOM深入：动态操作DOM。</a><ul><li><a href="#t94.1 操作属性的方式：">4.1 操作属性的方式：</a></li></ul></li><li><a href="#t105 DOM 回流 重绘 映射">5 DOM 回流 重绘 映射</a><ul><li><a href="#t115.1 DOM回流：">5.1 DOM回流：</a></li><li><a href="#t125.2 DOM重绘，">5.2 DOM重绘，</a></li><li><a href="#t135.3 dom映射 :">5.3 dom映射 :</a></li></ul></li><li><a href="#t146 DOM盒子模型">6 DOM盒子模型</a><ul><li><a href="#t156.1 S提供的属性和方法">6.1 S提供的属性和方法</a></li><li><a href="#t166.2  JS提供的属性的详细解读">6.2  JS提供的属性的详细解读</a></li></ul></li></ul></li><li><a href="#t177.浏览器兼容处理思想">7.浏览器兼容处理思想</a></li></ul>
+        </div>
+
+        <div class="content markdown-body">
+
+            <h1 id="t0DOM">DOM <a href="#t0DOM"> # </a></h1>
+<blockquote>
+<ul>
+<li>HTML DOM &#x5B9A;&#x4E49;&#x4E86;&#x8BBF;&#x95EE;&#x548C;&#x64CD;&#x4F5C; HTML &#x6587;&#x6863;&#x7684;&#x6807;&#x51C6;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>DOM &#x4EE5;&#x6811;&#x7ED3;&#x6784;&#x8868;&#x8FBE; HTML &#x6587;&#x6863;&#x3002;</li>
+<li>DOM&#x6811;&#xFF1A;
+<img src="../.././dom.png" alt="Alt text"></li>
+</ul>
+</blockquote>
+<h3 id="t11. DOM &#x8282;&#x70B9;">1. DOM &#x8282;&#x70B9; <a href="#t11. DOM &#x8282;&#x70B9;"> # </a></h3>
+<p>DOM&#x53EF;&#x4EE5;&#x5C06;html&#x6216;&#x8005;xml&#xFF08;xml&#x4E2D;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x6269;&#x5C55;&#x6807;&#x7B7E;&#x3002;&#xFF09;&#x6807;&#x7B7E;&#x6E32;&#x67D3;&#x6210;&#x8282;&#x70B9;&#x3002;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x662F;&#x5177;&#x6709;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x7684;&#x8282;&#x70B9;&#x3002;nodeType&#x7528;&#x6765;&#x68C0;&#x6D4B;&#x8282;&#x70B9;&#x7C7B;&#x578B;</p>
+<h5 id="t21.1&#x6587;&#x6863;&#x8282;&#x70B9;&#x3002;">1.1&#x6587;&#x6863;&#x8282;&#x70B9;&#x3002; <a href="#t21.1&#x6587;&#x6863;&#x8282;&#x70B9;&#x3002;"> # </a></h5>
+<p>&#x6574;&#x4E2A;&#x9875;&#x9762;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x8282;&#x70B9;&#xFF08;&#x6839;&#x8282;&#x70B9;&#xFF09;document&#x3002;  &#x4E00;&#x4E2A;&#x6587;&#x6863;&#x8282;&#x70B9;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8282;&#x70B9;&#xFF1A;&#x5C31;&#x662F;html</p>
+<ul>
+<li>nodetype&#xFF1A;9&#xFF1B;</li>
+<li>nodename&#xFF1A;&#x201C;#document&#x201D;&#xFF1B;</li>
+<li>nodevalue&#xFF1A;null&#xFF1B;<h5 id="t31.2&#x6CE8;&#x91CA;&#x8282;&#x70B9;&#xFF1A;">1.2&#x6CE8;&#x91CA;&#x8282;&#x70B9;&#xFF1A; <a href="#t31.2&#x6CE8;&#x91CA;&#x8282;&#x70B9;&#xFF1A;"> # </a></h5>
+&#x6CE8;&#x91CA;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x88AB;&#x6E32;&#x67D3;&#x6210;&#x6CE8;&#x91CA;&#x8282;&#x70B9;&#x3002;</li>
+<li>nodetype&#xFF1A;8&#xFF1B;</li>
+<li>nodename&#xFF1A;&#x201C;#comment&#x201D;&#xFF1B;</li>
+<li>nodevalue&#xFF1A;&#x6CE8;&#x91CA;&#x7684;&#x5185;&#x5BB9;&#xFF1B;<h5 id="t41.3&#x6587;&#x6863;&#x8282;&#x70B9;&#x3002;">1.3&#x6587;&#x6863;&#x8282;&#x70B9;&#x3002; <a href="#t41.3&#x6587;&#x6863;&#x8282;&#x70B9;&#x3002;"> # </a></h5>
+</li>
+<li>nodetype&#xFF1A;3&#xFF1B;</li>
+<li>nodename&#xFF1A;&#x201C;#text&#x201D;&#xFF1B;</li>
+<li>nodevalue&#xFF1A;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x5305;&#x62EC;&#x56DE;&#x8F66;&#x548C;&#x7A7A;&#x683C;&#xFF1B;<h5 id="t51.4&#x5143;&#x7D20;&#x8282;&#x70B9; &#x5373;&#x6807;&#x7B7E;&#x3002;">1.4&#x5143;&#x7D20;&#x8282;&#x70B9; &#x5373;&#x6807;&#x7B7E;&#x3002; <a href="#t51.4&#x5143;&#x7D20;&#x8282;&#x70B9; &#x5373;&#x6807;&#x7B7E;&#x3002;"> # </a></h5>
+</li>
+<li>nodetype&#xFF1A;1&#xFF1B;</li>
+<li>nodename&#xFF1A;&#x201C;#&#x201D;+&#x5927;&#x5199;&#x7684;&#x6807;&#x8BB0;&#x540D;</li>
+<li><p>nodevalue&#xFF1A;null&#xFF1B;   </p>
+<h3 id="t62 DOM&#x4E2D;&#x7684;&#x8282;&#x70B9;&#x5173;&#x7CFB;">2 DOM&#x4E2D;&#x7684;&#x8282;&#x70B9;&#x5173;&#x7CFB; <a href="#t62 DOM&#x4E2D;&#x7684;&#x8282;&#x70B9;&#x5173;&#x7CFB;"> # </a></h3>
+<p><code>firstChild</code>
+<code>firstElementChild</code>(IE6-8&#x4E0D;&#x652F;&#x6301;)
+<code>lastChild</code>
+<code>firstElementChild</code>(IE6-8&#x4E0D;&#x652F;&#x6301;)
+<code>previousSibling</code>&#x54E5;&#x54E5;&#x8282;&#x70B9;&#xFF0C; &#x540C;firstChild&#xFF0C;&#x5305;&#x62EC;&#x6CE8;&#x91CA;&#x8282;&#x70B9;&#x548C;&#x6587;&#x672C;&#x8282;&#x70B9;&#xFF08;&#x56DE;&#x8F66;&#x7A7A;&#x683C;&#x7B49;&#xFF09;&#x90FD;&#x662F;&#x6700;&#x8FD1;&#x7684;&#x4E00;&#x4E2A;&#x3002;
+<code>previousElementSibling</code>&#x54E5;&#x54E5;&#x5143;&#x7D20;&#x8282;&#x70B9;&#xFF0C;(IE6-8&#x4E0D;&#x652F;&#x6301;)
+<code>nextsSibling</code>
+<code>nextElementSibling</code>(IE6-8&#x4E0D;&#x652F;&#x6301;)
+<code>childNodes</code>&#x83B7;&#x5F97;&#x6240;&#x6709;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x3002;
+<code>children</code>  &#x6240;&#x6709;&#x7684;&#x5B50;&#x5143;&#x7D20;&#x8282;&#x70B9;&#xFF0C;ie6-8&#x4F1A;&#x628A;&#x6587;&#x672C;&#x8282;&#x70B9;&#xFF08;&#x4E0D;&#x5305;&#x542B;&#x56DE;&#x8F66;&#x548C;&#x7A7A;&#x683C;&#xFF09;&#x5F53;&#x6210;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x3002;
+<code>parentNode</code> &#x7236;&#x8282;&#x70B9;&#xFF0C;
+&#x8282;&#x70B9;&#x672A;&#x627E;&#x5230;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;null</p>
+<pre><code>//children:&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x7684;&#x6240;&#x6709;&#x5B50;&#x8282;&#x70B9;
+  function children(curEle, tagName) {
+      var ary = [];
+      if (flag) {
+          ary = this.listToArray(curEle.children);
+      } else {
+          var chs = curEle.childNodes;
+          for (var i = 0; i &lt; chs.length; i++) {
+              var curNode = chs[i];
+              if (curNode.nodeType == 1) {
+                  ary.push(curNode)
+              }
+          }
+      }
+      if (typeof tagName == &apos;string&apos;) {
+          for (var i = 0; i &lt; ary.length; i++) {
+              if (ary[i].nodeName.toLowerCase() !== tagName.toLowerCase()) {
+                  ary.splice(i, 1);
+                  i--;
+              }
+          }
+      }
+      return ary;
+  }
+  //prev:&#x83B7;&#x53D6;&#x4E0A;&#x4E00;&#x4E2A;&#x54E5;&#x54E5;&#x5143;&#x7D20;
+  function prev(curEle) {
+      if (flag) {
+          return curEle.previousElementSibling;
+      }
+      var pre = curEle.previousSibling;
+      while (pre &amp;&amp; pre.nodeType !== 1) {
+          pre = pre.previousSibling;
+      }
+      return pre;
+  }
+
+  //prevAll:&#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;&#x54E5;&#x54E5;&#x5143;&#x7D20;&#x8282;&#x70B9;
+  function prevAll(curEle) {
+      var pre = this.prev(curEle);
+      var ary = [];
+      while (pre) {
+          ary.unshift(pre);
+          pre = this.prev(pre);
+      }
+      return ary;
+  }
+  //getCss:&#x83B7;&#x53D6;&#x975E;&#x884C;&#x95F4;&#x6837;&#x5F0F;
+  function getCss(curEle, attr) {
+      var val = null;
+      var reg = null;
+      if (flag) {//&#x9AD8;&#x7EA7;&#x6D4F;&#x89C8;&#x5668;
+          val = getComputedStyle(curEle, null)[attr];
+      } else {//&#x4F4E;&#x7EA7;&#x6D4F;&#x89C8;&#x5668;
+          if (attr == &apos;opacity&apos;) {// alpha(opacity=10)
+              val = curEle.currentStyle[&apos;filter&apos;];
+              reg = /^alpha\(opacity[=:](\d+(?:\.\d+))?\)$/i;
+              return reg.test(val) ? reg.exec(val)[1] / 100 : 1;
+          } else {
+              val = curEle.currentStyle[attr];
+          }
+
+      }
+      reg = /^([+-]?\d+(\.\d+)?)(px|pt|em|rem)?$/i;//-200px +200px 22.33px px pt em rem
+      // reg=/^((\+|-)?\d+(\.\d+)?)(px|pt|em|rem)?$/i;
+      return reg.test(val) ? parseFloat(val) : val;
+  }
+
+  //setCss:&#x8BBE;&#x7F6E;&#x884C;&#x95F4;&#x6837;&#x5F0F;
+  function setCss(curEle, attr, value) {
+      //float
+      if (attr == &apos;float&apos;) {
+          curEle.style.cssFloat = value;//&#x706B;&#x72D0;
+          curEle.style.styleFloat = value;//ie
+          return;
+      }
+      //&#x900F;&#x660E;&#x5EA6;&#x7684;&#x5904;&#x7406;
+      if (attr === &apos;opacity&apos;) {
+          curEle.style.opacity = value;
+          curEle.style.filter = &apos;alpha(opacity=&apos; + value * 100 + &apos;)&apos;;
+          return;
+      }
+      //&#x52A0;&#x5355;&#x4F4D;&#x7684;&#x5904;&#x7406;&#xFF1B;
+      var reg = /(width|height|top|right|bottom|left|((margin|padding)(top|right|bottom|left)?))/
+      if (reg.test(attr)) {
+          value += &apos;px&apos;;
+      }
+      curEle.style[attr] = value;
+  }
+</code></pre></li>
+</ul>
+<h3 id="t73 DOM&#x5E38;&#x7528;&#x7684;&#x64CD;&#x4F5C;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x6CD5;">3 DOM&#x5E38;&#x7528;&#x7684;&#x64CD;&#x4F5C;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x6CD5; <a href="#t73 DOM&#x5E38;&#x7528;&#x7684;&#x64CD;&#x4F5C;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x6CD5;"> # </a></h3>
+<p>DOM&#x63D0;&#x4F9B;&#x4E86;&#x64CD;&#x4F5C;&#x9875;&#x9762;&#x5143;&#x7D20;&#x5E38;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;
+<code>document.getElementById()</code>
+<code>document.getElementsByTagName(&quot;p&quot;),</code>&#x901A;&#x8FC7;html&#x6807;&#x540D;&#x83B7;&#x5F97;&#x4E00;&#x7EC4;&#x5143;&#x7D20;
+<code>document.getElementsByName(&quot;a&quot;)</code>&#x901A;&#x8FC7;name&#x5C5E;&#x6027;&#x503C;&#x83B7;&#x5F97;&#x4E00;&#x7EC4;&#x5143;&#x7D20;&#x3002;&#xFF08;&#x4E3B;&#x4F53;&#x53EA;&#x80FD;&#x662F;document,IE&#x4E0D;&#x517C;&#x5BB9;&#x975E;&#x8868;&#x5355;&#x5143;&#x7D20;&#x7684;name&#x5C5E;&#x6027;&#xFF09;
+<code>document.querySelector(&quot;.p1&quot;),</code>&#x53EA;&#x80FD;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x3002;&#x662F;&#x901A;&#x8FC7;CSS&#x9009;&#x62E9;&#x5668;&#x624D;&#x884C;&#x3002;
+<code>document.querySelectorAll(&quot;ul&gt;ul&quot;)</code>&#x4E00;&#x7EC4;&#x5168;&#x90E8;&#x3002;
+<code>document.body</code>&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x83B7;&#x5F97;Body&#xFF0C;
+<code>document.documentElement</code> &#x76F4;&#x63A5;&#x83B7;&#x5F97;html&#x5143;&#x7D20;&#x3002;
+<code>document.getElementsByClassName(&quot;a&quot;)</code>&#x901A;&#x8FC7;&#x7C7B;&#x540D;&#x83B7;&#x5F97;&#x5143;&#x7D20;&#x3002;IE6-8&#x4E0D;&#x517C;&#x5BB9;&#x3002;</p>
+<pre><code>//getByClass:&#x5728;&#x4E00;&#x5B9A;&#x8303;&#x56F4;&#x5185;&#x901A;&#x8FC7;className&#x83B7;&#x53D6;&#x5143;&#x7D20;
+    function getByClass(curEle, strClass) {
+        if (flag) {//&#x9AD8;&#x7EA7;
+            return curEle.getElementsByClassName(strClass);
+        }
+        var ary = [];
+        var aryClass = strClass.replace(/(^\s+)|(\s+$)/g, &apos;&apos;).split(/\s+/g);
+        var nodeList = curEle.getElementsByTagName(&apos;*&apos;);//&#x62FF;&#x5230;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x4E0B;&#x6240;&#x6709;&#x5143;&#x7D20;
+        for (var i = 0; i &lt; nodeList.length; i++) {//&#x5FAA;&#x73AF;&#xFF1A;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x5339;&#x914D;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x7684;className&#x662F;&#x5426;&#x7B26;&#x5408;&#x8981;&#x6C42;&#xFF0C;&#x5339;&#x914D;&#x8981;&#x6C42;&#xFF1A;&#x662F;&#x8FD9;&#x4E2A;&#x5143;&#x7D20;&#x4E0A;&#x7684;className&#x7B26;&#x5408;aryclass&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;className&#x5B57;&#x7B26;&#x4E32;
+            var curNode = nodeList[i];
+            var bOk = true;//&#x5047;&#x8BBE;&#x6CD5;&#xFF1A;&#x5047;&#x8BBE;&#x90FD;&#x7B26;&#x5408;
+            for (var k = 0; k &lt; aryClass.length; k++) {
+                var curClass = aryClass[k];
+                var reg = new RegExp(&apos;(^| +)&apos; + curClass + &apos;( +|$)&apos;);
+                if (!reg.test(curNode.className)) {
+                    bOk = false;
+                }
+            }
+            if (bOk) {
+                ary.push(curNode)
+            }
+        }
+        return ary;
+    }
+</code></pre><h3 id="t84 DOM&#x6DF1;&#x5165;&#xFF1A;&#x52A8;&#x6001;&#x64CD;&#x4F5C;DOM&#x3002;">4 DOM&#x6DF1;&#x5165;&#xFF1A;&#x52A8;&#x6001;&#x64CD;&#x4F5C;DOM&#x3002; <a href="#t84 DOM&#x6DF1;&#x5165;&#xFF1A;&#x52A8;&#x6001;&#x64CD;&#x4F5C;DOM&#x3002;"> # </a></h3>
+<p><code>creatElement</code> &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x8282;&#x70B9;
+<code>creatTextNode</code> &#x521B;&#x5EFA;&#x6587;&#x672C;&#x8282;&#x70B9;&#x3002;
+<code>appendChild</code> &#x628A;&#x8282;&#x70B9;&#x6DFB;&#x52A0;&#x5230;&#x9875;&#x9762;&#x672B;&#x5C3E;&#x7684;&#x4F4D;&#x7F6E;&#x4E0A;&#xFF08;&#x4E3B;&#x4F53;&#x53EA;&#x80FD;&#x662F;&#x64CD;&#x4F5C;&#x5143;&#x7D20;&#x7684;&#x7236;&#x6807;&#x7B7E;&#xFF09;
+<code>insertBefore&#xFF08;newEle&#xFF0C;OldEle&#xFF09;</code>&#x628A;&#x65B0;&#x7684;&#x63D2;&#x5165;&#x5230;&#x65E7;&#x7684;&#x4E4B;&#x524D;
+<code>replaceChild</code>
+<code>removeChild</code>
+<code>cloneNode</code>&#x6DF1;&#x514B;&#x9686;&#xFF1A;&#x5305;&#x62EC;&#x514B;&#x9686;&#x5176;&#x540E;&#x4EE3;&#xFF0C;&#x6CA1;&#x5199;&#x53C2;&#x6570;&#x6216;&#x8005;false&#xFF0C;&#x6D45;&#x514B;&#x9686;&#xFF0C;&#x53EA;&#x514B;&#x9686;&#x672C;&#x8EAB;&#x3002;
+<code>getAttribute</code>  &#x83B7;&#x53D6;&#x81EA;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;
+<code>setAttribute</code> &#x8BBE;&#x7F6E;&#x81EA;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;&#xFF08;&#x7279;&#x6B8A;&#x5C5E;&#x6027;&#x3001;&#x56FA;&#x6709;&#x5C5E;&#x6027;&#x3001;&#x81EA;&#x5B9A;&#x4E49;&#x90FD;&#x53EF;&#x4EE5;&#x3002;&#xFF09;&#xFF0C;&#x901A;&#x8FC7;<code>setAttribute</code>&#x8BBE;&#x7F6E;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x548C;&#x503C;&#xFF0C;&#x53EA;&#x80FD;&#x901A;&#x8FC7;getAttribute&#x6765;&#x83B7;&#x53D6;&#x3002; class&#x5728;ie6-7&#x80FD;&#x8BBE;&#x7F6E;&#x6210;&#x529F;&#xFF0C;&#x4F46;&#x662F;&#x6837;&#x5F0F;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;
+<code>removeAttribute</code></p>
+<h5 id="t94.1 &#x64CD;&#x4F5C;&#x5C5E;&#x6027;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;">4.1 &#x64CD;&#x4F5C;&#x5C5E;&#x6027;&#x7684;&#x65B9;&#x5F0F;&#xFF1A; <a href="#t94.1 &#x64CD;&#x4F5C;&#x5C5E;&#x6027;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;"> # </a></h5>
+<p>&#x6DFB;&#x52A0;&#x7CFB;&#x7EDF;&#x4E0D;&#x8BA4;&#x8BC6;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;&#x548C;&#x4FEE;&#x6539;&#xFF0C;&#x4F46;&#x770B;&#x4E0D;&#x89C1;&#x3002;&#x53EA;&#x80FD;&#x901A;&#x8FC7;getAttribute    setAttribute removeAttribute
+1&#xFF0C;&#x521B;&#x5EFA;&#x5143;&#x7D20;&#xFF1A;
+a&#xFF0C;<code>document.creatElement</code>
+b,   <code>obj.cloneNde(boolean)</code>
+2,&#x63D2;&#x5165;&#x5143;&#x7D20;&#x3002;
+a,  <code>oParent.appendChild(&#x521B;&#x5EFA;&#x7684;)</code>
+b&#xFF0C;<code>insertBefore&#xFF08;new&#xFF0C;old&#xFF09;</code>
+3&#xFF0C;&#x5220;&#x9664;&#x5143;&#x7D20;
+<code>oParent.removeChild</code>&#xFF08;&#x8981;&#x5220;&#x9664;&#x7684;&#x5143;&#x7D20;&#xFF09;
+4,&#x66FF;&#x6362;&#x5143;&#x7D20;
+<code>oParent.replace(newEle,oldEle=)</code> &#x548C;&#x5B57;&#x7B26;&#x4E32;&#x66FF;&#x6362;&#x76F8;&#x53CD;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x662F;<code>str.replace(&quot;oldStr&quot;,&quot;newStr&quot;)</code></p>
+<h3 id="t105 DOM &#x56DE;&#x6D41; &#x91CD;&#x7ED8; &#x6620;&#x5C04;">5 DOM &#x56DE;&#x6D41; &#x91CD;&#x7ED8; &#x6620;&#x5C04; <a href="#t105 DOM &#x56DE;&#x6D41; &#x91CD;&#x7ED8; &#x6620;&#x5C04;"> # </a></h3>
+<h5 id="t115.1 DOM&#x56DE;&#x6D41;&#xFF1A;">5.1 DOM&#x56DE;&#x6D41;&#xFF1A; <a href="#t115.1 DOM&#x56DE;&#x6D41;&#xFF1A;"> # </a></h5>
+<p>&#x5F53;&#x9875;&#x9762;&#x7ED3;&#x6784;&#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF08;&#x6DFB;&#x52A0;&#x3001;&#x5220;&#x9664;&#x3001;&#x4F4D;&#x7F6E;&#x79FB;&#x52A8;&#x3002;&#x3002;&#x3002;margin&#xFF0C;width&#x3002;&#x3002;&#x3002;&#xFF09;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x9875;&#x9762;&#x7ED3;&#x6784;&#xFF0C;
+&#x4F8B;&#x5B50;&#xFF1A;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x5143;&#x7D20;&#x7684;&#x65B9;&#x5F0F;&#x3002; &#x9875;&#x9762;&#x6027;&#x80FD;&#x8F83;&#x4F4E;&#xFF0C;DOM&#x56DE;&#x6D41;&#x592A;&#x591A;&#x3002;</p>
+<pre><code>for(var i=0;i&lt;jsonDate.length;i++){
+      var oLis=document.createElement(&apos;li&apos;);
+      oLis.innerHTML=jsonDate[i].content;
+      oUl.appendChild(oLis);//&#x6BCF;&#x6B21;&#x5FAA;&#x73AF;&#x90FD;&#x4F1A;&#x56DE;&#x6D41;&#x4E00;&#x6B21;&#x3002;
+  }
+</code></pre><h5 id="t125.2 DOM&#x91CD;&#x7ED8;&#xFF0C;">5.2 DOM&#x91CD;&#x7ED8;&#xFF0C; <a href="#t125.2 DOM&#x91CD;&#x7ED8;&#xFF0C;"> # </a></h5>
+<p>&#x5143;&#x7D20;&#x7684;&#x6837;&#x5F0F;&#x4E0A;&#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF08;&#x5B57;&#x4F53;&#x989C;&#x8272;&#xFF0C;&#x5927;&#x5C0F;&#xFF0C;&#x80CC;&#x666F;&#x7B49;&#x3002;&#x3002;&#xFF09;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x53EA;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x5BF9;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x6E32;&#x67D3;
+&#x4F8B;&#x5B50;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;&#xFF1A;</p>
+<pre><code>var str=&apos;&apos;;
+   for(var i=0;i&lt;jsonDate.length;i++){
+       str += &quot;&lt;li&gt;&quot;+jsonDate[i].content+&quot;&lt;li&gt;&quot;
+   }
+   oUl.innerHTML+=str;
+</code></pre><h5 id="t135.3 dom&#x6620;&#x5C04; :">5.3 dom&#x6620;&#x5C04; : <a href="#t135.3 dom&#x6620;&#x5C04; :"> # </a></h5>
+<p>&#x5F53;&#x83B7;&#x53D6;&#x7684;&#x5143;&#x7D20;/&#x5143;&#x7D20;&#x96C6;&#x5408;&#xFF0C;&#x548C;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x6807;&#x7B7E;/&#x5BB9;&#x5668; &#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x4E5F;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;
+&#x6700;&#x5E38;&#x89C1;&#x7684;&#x662F;&#xFF1A;<code>appendChild  insertBefore</code>,&#x5982;&#x679C;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x5DF2;&#x7ECF;&#x6709;&#x8FD9;&#x4E2A;&#x6807;&#x7B7E;&#x4E86;&#xFF0C;&#x5219;&#x79FB;&#x52A8;&#x4F4D;&#x7F6E;&#xFF0C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x6807;&#x7B7E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x624D;&#x662F;&#x5427;&#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x5230; &#x6700;&#x540E;/&#x6700;&#x524D; &#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<pre><code>&lt;li&gt;&#x5F20;&#x6D69;&lt;/li&gt;
+&lt;li&gt;&#x9648;&#x65ED;&lt;/li&gt;
+&lt;li&gt;&#x674E;&#x9E4F;&#x98DE;&lt;/li&gt;
+&lt;li&gt;&#x66F9;&#x6653;&#x9633;&lt;/li&gt;
+&lt;li&gt;111111&lt;/li&gt;   // appendedChild
+oUl.appendChild(oLis[1]);&#x7ED3;&#x679C;&#x662F;&#xFF1A;
+&lt;li&gt;&#x5F20;&#x6D69;&lt;/li&gt;
+&lt;li&gt;&#x674E;&#x9E4F;&#x98DE;&lt;/li&gt;
+&lt;li&gt;&#x66F9;&#x6653;&#x9633;&lt;/li&gt;
+&lt;li&gt;111111&lt;/li&gt;   // appendedChild
+&lt;li&gt;&#x9648;&#x65ED;&lt;/li&gt; //&#x9648;&#x65ED; &#x5230;&#x4E86;&#x6700;&#x540E;&#x4E00;&#x4E2A;,&#x7531;&#x4E8E;DOM&#x6620;&#x5C04;&#xFF0C;&#x8FD8;&#x662F;&#x4E94;&#x4E2A;&#x3002;
+</code></pre><h3 id="t146 DOM&#x76D2;&#x5B50;&#x6A21;&#x578B;">6 DOM&#x76D2;&#x5B50;&#x6A21;&#x578B; <a href="#t146 DOM&#x76D2;&#x5B50;&#x6A21;&#x578B;"> # </a></h3>
+<p>css&#x76D2;&#x5B50;&#x6A21;&#x578B;&#xFF1A; &#x8BBE;&#x5B9A;&#x597D;&#x7684;&#x5BBD;&#x9AD8;+padding+border+margin
+JS&#x76D2;&#x5B50;&#x6A21;&#x578B;&#xFF1A;&#x7528;JS&#x63D0;&#x4F9B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x53BB;&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x7684;&#x5404;&#x79CD;&#x6837;&#x5F0F;&#x503C;&#xFF1B;</p>
+<h5 id="t156.1 S&#x63D0;&#x4F9B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;">6.1 S&#x63D0;&#x4F9B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5; <a href="#t156.1 S&#x63D0;&#x4F9B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;"> # </a></h5>
+<pre><code>client&#x7CFB;&#x5217;&#xFF1A; clientWidth clientHeight clientLeft clientTop;
+offset&#x7CFB;&#x5217;&#xFF1A;offsetWidth offsetHeight offsetLeft offsetTop offsetParent;
+scroll&#x7CFB;&#x5217;&#xFF1A; scrollWidth scrollHeight  scrollLeft scrollTop;
+</code></pre><h5 id="t166.2  JS&#x63D0;&#x4F9B;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x8BE6;&#x7EC6;&#x89E3;&#x8BFB;">6.2  JS&#x63D0;&#x4F9B;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x8BE6;&#x7EC6;&#x89E3;&#x8BFB; <a href="#t166.2  JS&#x63D0;&#x4F9B;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x8BE6;&#x7EC6;&#x89E3;&#x8BFB;"> # </a></h5>
+<p>1)client&#x7CFB;&#x5217;
+  &#x6784;&#x6210;&#xFF1A;
+    <code>clientWidth/height:</code>&#x8BBE;&#x5B9A;&#x7684;&#x5BBD;&#xFF08;&#x9AD8;&#xFF09;+&#x5DE6;&#x53F3;padding&#xFF08;&#x4E0A;&#x4E0B;padding&#xFF09;;
+    <code>clientLeft/Top</code>:border&#x7684;&#x5BBD;&#x5EA6;&#xFF1B;
+  &#x662F;&#x5426;&#x53D7;&#x5185;&#x5BB9;&#x6EA2;&#x51FA;&#x7684;&#x5F71;&#x54CD;&#xFF1A;&#x4E0D;&#x53D7;&#x6EA2;&#x51FA;&#x5F71;&#x54CD;&#xFF1B;
+2&#xFF09;offset&#x7CFB;&#x5217;&#xFF1A;
+  &#x6784;&#x6210;&#xFF1A;
+   <code>offsetWidth/height:</code>&#x8BBE;&#x5B9A;&#x5BBD;&#xFF08;&#x9AD8;&#xFF09;+&#x5DE6;&#x53F3;padding&#xFF08;&#x4E0A;&#x4E0B;padding&#xFF09;+border
+                 clientWidth+border
+ <code>offsetLeft:</code>&#x5F53;&#x524D;&#x5143;&#x7D20;&#x7684;&#x5916;&#x8FB9;&#x6846;&#x8DDD;&#x79BB;&#x5B9A;&#x4F4D;&#x7236;&#x7EA7;&#x7684;&#x5185;&#x8FB9;&#x6846;&#x7684;&#x8DDD;&#x79BB;&#xFF1B;
+  &#x662F;&#x5426;&#x53D7;&#x5185;&#x5BB9;&#x6EA2;&#x51FA;&#x7684;&#x5F71;&#x54CD;&#xFF1A;&#x4E0D;&#x53D7;&#x6EA2;&#x51FA;&#x5185;&#x5BB9;&#x7684;&#x5F71;&#x54CD;&#xFF1B;
+   <code>offsetParent</code>&#x5B9A;&#x4F4D;&#x7236;&#x7EA7;
+3&#xFF09;scroll&#x7CFB;&#x5217;
+   &#x6784;&#x6210;:
+ <code>scrollHeight</code>&#x7EA6;&#x7B49;&#x4E8E;&#x4E0A;padding+&#x771F;&#x5B9E;&#x5185;&#x5BB9;&#x7684;&#x9AD8;&#x5EA6;
+    <code>scrollTop/scrollLeft:</code>&#x88AB;&#x6D4F;&#x89C8;&#x5668;&#x5377;&#x53BB;&#x7684;&#x8DDD;&#x79BB;&#x3002;</p>
+<blockquote>
+<ul>
+<li><p>&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7EA6;&#x7B49;&#x4E8E;&#xFF1A;
+1&#xFF09;&#x540C;&#x4E00;&#x5143;&#x7D20;&#xFF0C;&#x4E0D;&#x540C;&#x6D4F;&#x89C8;&#x5668;&#x6D4B;&#x8BD5;&#x7684;&#x503C;&#x4E0D;&#x540C;&#xFF1B;
+2&#xFF09;&#x540C;&#x4E00;&#x5143;&#x7D20;&#xFF0C;&#x662F;&#x5426;&#x6EA2;&#x51FA;&#x9690;&#x85CF;&#xFF0C;&#x5728;&#x540C;&#x4E00;&#x6D4F;&#x89C8;&#x5668;&#x4E0B;&#x4E5F;&#x4E0D;&#x76F8;&#x540C;&#xFF1B;
+&#x533A;&#x5206;&#x7ED3;&#x6784;&#x7236;&#x7EA7;&#x548C;&#x5B9A;&#x4F4D;&#x7236;&#x7EA7;&#xFF1A;&#x5982;&#x679C;&#x627E;&#x4E0D;&#x5230;&#xFF0C;&#x4E24;&#x4E2A;&#x7ED3;&#x679C;&#x90FD;&#x4F1A;&#x51FA;&#x73B0;null&#x3001;</p>
+</li>
+<li><p>&#x7ED3;&#x6784;&#x7236;&#x7EA7;&#x7684;&#x7956;&#x5E08;&#x7237;&#xFF1A;&#x6807;&#x7B7E;&#xFF1A;htmlElement&#xFF0C; &#x5982;&#x679C;&#x4E0D;&#x662F;&#x6807;&#x7B7E;&#xFF1A;htmlDocument&#xFF1B; parentNode&#x3002;</p>
+</li>
+<li>&#x5B9A;&#x4F4D;&#x7236;&#x7EA7;&#x7684;&#x7956;&#x5E08;&#x7237;&#xFF1A;body&#xFF0C;&#x5C0F;&#x4E8E;htmlElement&#xFF0C;</li>
+<li>5.&#x53D1;&#x73B0;4&#x4E2A;&#x5C0F;&#x95EE;&#x9898;&#xFF1A;
+1&#xFF09;&#x5BF9;&#x6D4F;&#x89C8;&#x5668;&#x76D2;&#x5B50;&#x6A21;&#x578B;&#x7684;&#x517C;&#x5BB9;&#x5904;&#x7406;&#xFF08;&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;&#xFF09;win;
+2&#xFF09;&#x5173;&#x4E8E;clientWidth&#xFF08;height&#xFF09;&#xFF0C;offsetWidth&#x7B49;&#x53EA;&#x80FD;&#x62FF;&#x5230;&#x56DB;&#x820D;&#x4E94;&#x5165;&#x7684;&#x6574;&#x6570;&#xFF0C;&#x4E0D;&#x80FD;&#x53D6;&#x5230;&#x5C0F;&#x6570;
+3&#xFF09;&#x4EE5;&#x4E0A;&#x6D89;&#x53CA;&#x5230;&#x7684;&#x6BCF;&#x79CD;&#x5C5E;&#x6027;&#x53EA;&#x80FD;&#x62FF;&#x5230;&#x590D;&#x5408;&#x503C;&#xFF0C;&#x65E0;&#x6CD5;&#x62FF;&#x5230;&#x5355;&#x72EC;&#x7684;&#x9AD8;&#x6216;&#x8005;&#x5BBD;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x6837;&#x5F0F;&#xFF1A;
+(&#x901A;&#x8FC7;style&#x53EA;&#x80FD;&#x62FF;&#x5230;&#x884C;&#x95F4;&#x6837;&#x5F0F;&#xFF0C;&#x4E0D;&#x80FD;&#x62FF;&#x5230;&#x975E;&#x884C;&#x95F4;&#x6837;&#x5F0F;) getCss;
+4)&#x5173;&#x4E8E;offset&#xFF0C;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x7684;&#x5916;&#x8FB9;&#x6846;&#x8DDD;&#x79BB;&#x6709;&#x5B9A;&#x4F4D;&#x7236;&#x7EA7;&#x7684;&#x5185;&#x8FB9;&#x6846;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;;&#x4F46;&#x6211;&#x4EEC;&#x6CA1;&#x6CD5;&#x77E5;&#x9053;&#xFF0C;&#x5728;&#x9875;&#x9762;&#x591A;&#x5C42;&#x5D4C;&#x5957;&#x53CA;&#x5B9A;&#x4F4D;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BE5;&#x5143;&#x7D20;&#x8DDD;&#x79BB;body&#x7684;&#x8DDD;&#x79BB;&#xFF1B;</li>
+</ul>
+</blockquote>
+<h1 id="t177.&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x5904;&#x7406;&#x601D;&#x60F3;">7.&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x5904;&#x7406;&#x601D;&#x60F3; <a href="#t177.&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x5904;&#x7406;&#x601D;&#x60F3;"> # </a></h1>
+<p>1&#xFF09;&#x6D4F;&#x89C8;&#x5668;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x517C;&#x5BB9;&#x5904;&#x7406; try...catch
+&#x7F3A;&#x9677;&#xFF1A;&#x65E0;&#x8BBA;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x5426;&#x652F;&#x6301;&#xFF0C;&#x90FD;&#x4F1A;&#x8D70;&#x4E00;&#x904D;try&#x91CC;&#x7684;JS&#x8BED;&#x53E5;&#xFF0C;&#x6027;&#x80FD;&#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#x5DEE;&#xFF1B;
+2&#xFF09;&#x5C5E;&#x6027;&#x5224;&#x65AD;
+    1.attr in obj
+    2.obj.attr</p>
+<pre><code>3. type of obj.attr===&apos;function&apos;
+</code></pre><p>3)&#x6D4F;&#x89C8;&#x5668;&#x7248;&#x672C;&#x5224;&#x65AD; navigator.userAgent:&#x53EF;&#x4EE5;&#x6253;&#x5370;&#x51FA;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x662F;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF1B;
+    1.reg.test(navigator.userAgent)
+    2.navigator.userAgent.search(reg)!=-1;&#x627E;&#x89C1;&#x4E86;&#xFF1B;
+    navigator.userAgent.search(reg)===-1;&#x6CA1;&#x627E;&#x89C1;&#xFF1B;</p>
+
+
+        </div>
+    
+</div>
+<style>
+    .page-toc{
+        overflow: hidden;
+        position:fixed;
+        left:50%;
+        margin-left:250px;
+	width:350px
+    }
+    .page-toc > ul li{
+        list-style-position: inside;
+	line-height:120%
+    }
+    .page-toc > ul{
+        transition: all 0.2s;
+        position: relative;
+    }
+    .page-toc > ul a {
+	color:#009a61;
+	font-size:110% ! important;
+	line-height:120%
+    }
+    .page-toc > ul .red{
+        background: #f3f3f3;
+        z-index: 1;
+        border-left: 3px solid #009a61;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+	color:#000
+    }
+
+    .markdown-body{
+	font-size: 120% ! important;
+        max-width:800px;
+    }
+    .container{
+       font-size: 110% ! important;
+    }
+    html,body,.container{
+      font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif ! important;
+    }
+    /*url("/static/img/banner.jpg") no-repeat*/
+    .bs-docs-header{
+        background:linear-gradient(to right ,#333333 50%,#0d0b0c 50%) ;
+        padding: 0;
+    }
+    .new-back{
+        background-image: url("static/img/banner.jpg") ;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 88px;
+    }
+    .markdown-body pre code,.markdown-body code{
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .markdown-body code{
+      line-height: inherit;
+    }
+    .markdown-body h3{
+        font-size:1.4em;
+    }
+    .markdown-body h4{
+        font-size:1em;
+    }
+
+
+
+    /*index*/
+    .jw-style{
+        font-size: 1.75em;
+        color: #1d3e81;
+        line-height: 2em;
+    }
+
+    .understand-me {
+        text-align: center;
+        margin: 100px auto 0;
+    }
+
+    .understand-me li {
+        vertical-align: top;
+        width: 33.3333%;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-align: center;
+    }
+
+    .understand-me li span {
+        color: #1a1a1a;
+        font-size: 1.6em;
+
+    }
+
+    .understand-me p {
+        margin: 0 auto;
+        width: 90%;
+        text-align: left;
+        color: #4c4c4c;
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    .understand-me img {
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .footers{
+        background:#0a0a0a url('static/img/footer.jpg') no-repeat center center;height: 248px; margin-top: 40px
+    }
+    .understand-me img:hover {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    @media screen and (max-width: 479px) {
+        .understand-me li{
+            width: 100%;
+            margin-bottom: 2em;
+        }
+        .new-back{
+            padding: 28px;
+        }
+        .understand-me p {
+            width: 60%;
+        }
+        .footers{
+            height: 80px;
+            background-size:auto 100%;;
+        }
+    }
+
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+<script>
+if(!$('.understand-me').length){
+var bar = $(window).height() - $('.navbar ').height() - $('.page-toc').position().top;
+var count =  bar/26/2;
+var barHeight = $('.page-toc').outerHeight();
+$('.page-toc li').eq(0).children('a').addClass('red');
+var arr = [];
+$("h1,h2,h3,h4,h5,h6").each(function () {
+    arr.push($(this).position().top);
+});
+if(!($(window).height()-50 > barHeight)){
+    var flagTop = true;
+}
+function dark(){
+    var top =  Math.abs($('.page-toc > ul').position().top);
+    var cur = $(document).scrollTop();
+    for(var i = arr.length; i >=0;i--){
+        if(arr[i]<=cur){
+            break;
+        }
+    }
+    if(i===-1){
+        i = 0;
+    }
+    $('.page-toc li a').removeClass('red');
+    $('.page-toc li').eq(i).children('a').addClass('red');
+    if(flagTop){
+      if(i> arr.length-count){
+          $(' .page-toc > ul').css('top',-(barHeight-bar));
+          return;
+      }
+      if(i>count){
+          $(' .page-toc > ul').css('top',-26*(i-count));
+      }else{
+          $(' .page-toc > ul').css('top',0);
+      }
+    }
+}
+$(window).on('scroll',dark);
+}
+</script>
+
+</body>
+</html>
+
+
+<script>
+
+</script>

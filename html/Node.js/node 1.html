@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li class="active"><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0JavaScript与Node.js">JavaScript与Node.js</a></li><li><a href="#t1以下是node自带的核心模块详解：">以下是node自带的核心模块详解：</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <p>#node&#x5165;&#x95E8;(1)</p>
+<h3 id="t0JavaScript&#x4E0E;Node.js">JavaScript&#x4E0E;Node.js <a href="#t0JavaScript&#x4E0E;Node.js"> # </a></h3>
+<blockquote>
+<p>JavaScript&#x6700;&#x65E9;&#x662F;&#x8FD0;&#x884C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#xFF0C;&#x7136;&#x800C;&#x6D4F;&#x89C8;&#x5668;&#x53EA;&#x662F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x4F7F;&#x7528;JavaScript&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#xFF0C;&#x4F46;&#x5E76;&#x6CA1;&#x6709;&#x201C;&#x8BF4;&#x201D;&#x592A;&#x591A;&#x5173;&#x4E8E;JavaScript&#x8BED;&#x8A00;&#x672C;&#x8EAB;&#x53EF;&#x4EE5;&#x505A;&#x4EC0;&#x4E48;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;JavaScript&#x662F;&#x4E00;&#x95E8;&#x201C;&#x5B8C;&#x6574;&#x201D;&#x7684;&#x8BED;&#x8A00;&#xFF1A; &#x5B83;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#xFF0C;&#x5176;&#x80FD;&#x529B;&#x4E0E;&#x5176;&#x4ED6;&#x540C;&#x7C7B;&#x8BED;&#x8A00;&#x76F8;&#x6BD4;&#x6709;&#x8FC7;&#x4E4B;&#x800C;&#x65E0;&#x4E0D;&#x53CA;&#x3002;</p>
+<p>Node.js&#x4E8B;&#x5B9E;&#x4E0A;&#x5C31;&#x662F;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x5728;&#x540E;&#x7AEF;&#xFF08;&#x8131;&#x79BB;&#x6D4F;&#x89C8;&#x5668;&#x73AF;&#x5883;&#xFF09;&#x8FD0;&#x884C;JavaScript&#x4EE3;&#x7801;&#x3002;
+&#x8981;&#x5B9E;&#x73B0;&#x5728;&#x540E;&#x53F0;&#x8FD0;&#x884C;JavaScript&#x4EE3;&#x7801;&#xFF0C;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x5148;&#x88AB;&#x89E3;&#x91CA;&#x7136;&#x540E;&#x6B63;&#x786E;&#x7684;&#x6267;&#x884C;&#x3002;Node.js&#x7684;&#x539F;&#x7406;&#x6B63;&#x662F;&#x5982;&#x6B64;&#xFF0C;&#x5B83;&#x4F7F;&#x7528;&#x4E86;Google&#x7684;V8&#x865A;&#x62DF;&#x673A;&#xFF08;Google&#x7684;Chrome&#x6D4F;&#x89C8;&#x5668;&#x4F7F;&#x7528;&#x7684;JavaScript&#x6267;&#x884C;&#x73AF;&#x5883;&#xFF09;&#xFF0C;&#x6765;&#x89E3;&#x91CA;&#x548C;&#x6267;&#x884C;JavaScript&#x4EE3;&#x7801;&#x3002;
+&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x4F34;&#x968F;&#x7740;Node.js&#x7684;&#x8FD8;&#x6709;&#x8BB8;&#x591A;&#x6709;&#x7528;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x7B80;&#x5316;&#x5F88;&#x591A;&#x91CD;&#x590D;&#x7684;&#x52B3;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x5411;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x56E0;&#x6B64;&#xFF0C;Node.js&#x4E8B;&#x5B9E;&#x4E0A;&#x65E2;&#x662F;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x65F6;&#x73AF;&#x5883;&#xFF0C;&#x540C;&#x65F6;&#x53C8;&#x662F;&#x4E00;&#x4E2A;&#x5E93;&#x3002;</p>
+<p>&#x8981;&#x4F7F;&#x7528;Node.js,&#x9996;&#x5148;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x3002;&#x5173;&#x4E8E;&#x5982;&#x4F55;&#x5B89;&#x88C5;Node.js&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x8D58;&#x8FF0;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x53C2;&#x8003;&#x5B98;&#x65B9;&#x7684;&#x5B89;&#x88C5;&#x6307;&#x5357;&#x3002;&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x7EE7;&#x7EED;&#x56DE;&#x6765;&#x9605;&#x8BFB;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x3002;<code>&#x5F15;&#x81EA;</code><a href="http://www.nodebeginner.org/index-zh-cn.html">nodebeginner</a></p>
+</blockquote>
+<ol>
+<li>&#x5982;&#x4F55;&#x901A;&#x8FC7;NODE&#x628A;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7F16;&#x5199;&#x7684;JS&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x8D77;&#x6765;&#x3002;
+  &#x5BA2;&#x6237;&#x7AEF;&#xFF1A;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x6E32;&#x67D3;HTML&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6E32;&#x67D3;HTML&#x9875;&#x9762;&#x5F15;&#x5165;&#x7684;JS&#x3002;
+  &#x670D;&#x52A1;&#x5668;&#x7AEF;&#xFF1A;
+  1&#xFF0C;,webstrom&#x4E2D;js&#x6587;&#x4EF6;&#x53F3;&#x952E;run&#x5373;&#x53EF;&#x76F8;&#x5F53;&#x4E8E;node&#x670D;&#x52A1;&#x73AF;&#x5883;&#x4E2D;&#x8FD0;&#x884C;
+  2&#xFF0C;NODE&#x547D;&#x4EE4;&#xFF1A;&#x5728;&#x6267;&#x884C;&#x7684;&#x76EE;&#x5F55;&#x4E0B;shift+&#x9F20;&#x6807;&#x53F3;&#x952E;&#xFF0C;&#x8F93;&#x5165;node+js&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5373;&#x53EF;&#x8FD0;&#x884C;&#x3002;
+  3&#xFF0C;cmd&#x4E2D;&#x8F93;&#x5165;node&#xFF0C;&#x7136;&#x540E;&#x5199;&#x4EE3;&#x7801;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li>&#x5E38;&#x7528;&#x7684;cmd&#x547D;&#x4EE4;&#xFF1A;
+ &#x9664;&#x4E86;&#x5728;win&#x8FD0;&#x884C;&#x6846;&#x4E2D;&#x8F93;&#x5165;cmd&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x4F7F;&#x7528;<code>shift+&#x9F20;&#x6807;&#x53F3;&#x952E;</code> &#xFF0C;&#x9009;&#x62E9; &#x5728;&#x6B64;&#x6253;&#x5F00;&#x547D;&#x4EE4;&#x63D0;&#x793A;&#x7B26; &#x6765;&#x8FD0;&#x884C;cmd
+ <code>mkdir xxx</code>  &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;,<code>rd xxx</code> &#x5220;&#x9664;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#xFF0C;
+ <code>echo &gt;1.txt</code>&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#xFF0C;<code>del xxx</code> &#x5220;&#x9664;&#x6307;&#x5B9A;&#x6587;&#x4EF6;
+ <code>cd xxx</code>  <code>cd..</code>&#x8FDB;&#x5165;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x3001;&#x8FD4;&#x56DE;&#x4E0A;&#x4E00;&#x7EA7;&#xFF0C;</li>
+<li><blockquote>
+<p>NODEJS&#x662F;&#x7531;&#x5F88;&#x591A;&#x7684;&#x6A21;&#x5757;&#x7EC4;&#x6210;&#x7684;&#x4E00;&#x4E2A;&#x4F9B;JS&#x8FD0;&#x884C;&#x548C;&#x8C03;&#x53D6;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x76F8;&#x5173;&#x529F;&#x80FD;&#x7684;&#x4E00;&#x4E2A;&#x73AF;&#x5883;&#x7684;&#x8FD0;&#x884C;&#x5E73;&#x53F0;&#x3002;</p>
+</blockquote>
+<p>Nodejs: Javascript + &#x7F51;&#x7EDC;&#x5E93;&#x548C;&#x7F51;&#x7EDC;IO&#xFF08;&#x5F02;&#x6B65;IO&#xFF09; + &#x4E8B;&#x4EF6;&#x673A;&#x5236;&#xFF08;EventLoop) + &#x539F;&#x751F;&#x7EC4;&#x4EF6;&#x673A;&#x5236;&#xFF08;Addons &#xFF09;+&#x5305;&#x673A;&#x5236;&#xFF08; npm&#xFF09;</p>
+<pre><code> -&gt;&#x5185;&#x7F6E;&#x6A21;&#x5757;&#x3002;&#xFF1A;&#x53EA;&#x8981;&#x5B89;&#x88C5;&#x4E86;node&#xFF0C;&#x5929;&#x751F;&#x81EA;&#x5E26;&#x7684;&#x6A21;&#x5757;&#x6709;&#xFF1A;&#x4F8B;&#x5982;http\fs\url:
+ -&gt;&#x7B2C;&#x4E09;&#x65B9;&#x6A21;&#x5757;&#xFF1A;&#x522B;&#x4EBA;&#x5199;&#x597D;&#x548C;&#x5C01;&#x88C5;&#x7684;&#x4F18;&#x79C0;&#x6A21;&#x5757;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x540C;&#x6837;&#x60F3;&#x5B9E;&#x73B0;&#x7C7B;&#x4F3C;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x628A;&#x5BF9;&#x5E94;&#x7684;&#x6A21;&#x5757;&#x5B89;&#x88C5;&#x5230;NODE&#x73AF;&#x5883;&#x5E73;&#x53F0;&#x4E0A;&#x5373;&#x53EF;&#x3002;npmjs.com &#x662F;npm&#x5305;&#x7BA1;&#x7406;&#x5E73;&#x53F0;&#x3002;
+</code></pre></li>
+<li><p>&#x5728;NODEJS&#x4E2D;&#xFF0C;JS&#x4FEE;&#x6539;&#x4E00;&#x6B21;&#xFF0C;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x60F3;&#x8BA9;&#x6700;&#x65B0;&#x7684;&#x4EE3;&#x7801;&#x8D77;&#x5230;&#x6548;&#x679C;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x7684;&#x4F7F;&#x7528;NODE&#x6267;&#x884C;&#x4E00;&#x6B21;&#x3002;
+&#x5728;NODEJS&#x4E2D;&#xFF0C;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x4E0D;&#x662F;window&#xFF0C;&#x800C;&#x662F;global&#xFF1B;</p>
+<blockquote>
+<p>&#x524D;&#x7AEF;&#x8DEF;&#x7531;&#xFF1A;&#x6839;&#x636E;&#x524D;&#x7AEF;&#x4E0D;&#x540C;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x63A5;&#x53D7;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BF7;&#x6C42;&#x540E;&#xFF0C;&#x6839;&#x636E;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x7684;&#xFF08;html&#xFF0C;css&#xFF0C;js&#xFF0C;jpg&#xFF0C;img&#xFF0C;audio&#xFF0C;video&#xFF09;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8FDB;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#xFF0C;</p>
+</blockquote>
+</li>
+<li><p>&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x7684;node&#x670D;&#x52A1;&#x5668;&#x6A21;&#x578B;&#xFF1A;
+&#x6267;&#x884C;&#x6B64;&#x4EE3;&#x7801;&#x540E;&#xFF0C;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#x8F93;&#x5165;<code>localhost:8888/index.html</code>&#x6216;&#x8005;<code>&#x4F60;&#x7684;ip + :8888/index.html</code>&#x5373;&#x53EF;&#x770B;&#x5230;Hello World.</p>
+<pre><code>var http = require(&quot;http&quot;);//&#x5F15;&#x5165;&#x6A21;&#x5757;&#xFF08;http&#x662F;&#x5185;&#x7F6E;&#x6A21;&#x5757;&#xFF0C;&#x7A0D;&#x540E;&#x4F1A;&#x8BE6;&#x89E3;&#xFF09;
+var server=http.createServer(function(request, response) {
+console.log(&quot;Request received.&quot;);
+response.writeHead(200, {&quot;Content-Type&quot;: &quot;text/plain&quot;});
+response.write(&quot;Hello World&quot;);
+response.end();
+})
+server.listen(8888);
+</code></pre></li>
+</ol>
+<h3 id="t1&#x4EE5;&#x4E0B;&#x662F;node&#x81EA;&#x5E26;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BE6;&#x89E3;&#xFF1A;">&#x4EE5;&#x4E0B;&#x662F;node&#x81EA;&#x5E26;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BE6;&#x89E3;&#xFF1A; <a href="#t1&#x4EE5;&#x4E0B;&#x662F;node&#x81EA;&#x5E26;&#x7684;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x8BE6;&#x89E3;&#xFF1A;"> # </a></h3>
+<ol>
+<li>&#x4E00;&#x4E9B;&#x4E0D;&#x5728;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</li>
+</ol>
+<p>&#x5982;&#x4F55;&#x8BA1;&#x7B97;&#x4EE3;&#x7801;&#x7684;&#x6267;&#x884C;&#x65F6;&#x95F4;</p>
+<pre><code>console.time(&apos;start&apos;);
+for(var i = 0; i&lt;1000000000;i++){
+}
+console.timeEnd(&apos;start&apos;);
+</code></pre><p>node&#x4E2D;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x5927;&#x81F4;&#x987A;&#x5E8F; 
+    &#x6B63;&#x5E38;&#x7684;&#x540C;&#x6B65;&#x4EE3;&#x7801; &gt; nextTick &gt; setTimeout(0) &gt; setImmediate &gt; io</p>
+<pre><code>
+</code></pre><p>setImmediate(function () {
+    console.log(&apos;setImmediate1&apos;);
+});
+setTimeout(function () {
+    console.log(&apos;setTimeout&apos;);
+},0);
+process.nextTick(function () {
+    console.log(&apos;nextTick&apos;);
+});
+/<em>for(;true;){
+    console.log(100);
+}</em>/
+console.log(1999);</p>
+<pre><code>process&#x4E0A;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;
+</code></pre><p>process.cwd()    //current working directory &#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;
+process.chdir(&apos;..&apos;);change dir //&#x6539;&#x53D8;&#x76EE;&#x5F55;(&#x5F53;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x662F;&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#x7684; &#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x662F;&#x4E0D;&#x80FD;&#x66F4;&#x6539;)
+process.stdin.on(&apos;data&apos;, function (data) {//&#x76D1;&#x542C;&#x7528;&#x6237;&#x8F93;&#x5165;,&#x6807;&#x51C6;&#x8F93;&#x5165;,&#x53C2;&#x6570;data&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x76D1;&#x542C;&#x5230;&#x7684;&#x6570;&#x636E;
+    console.log(data.toString());
+});
+process.stdout.write(&apos;hello&apos;);//&#x5411;&#x63A7;&#x5236;&#x53F0;&#x5185;&#x8F93;&#x51FA; console.log&#x8C03;&#x7528;&#x7684;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;
+process.memoryUsage()); //&#x76D1;&#x542C;&#x5185;&#x5B58;&#x7684;&#x4F7F;&#x7528;&#x91CF;,&#x68C0;&#x6D4B;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;(rss &#x5E38;&#x4F4F;&#x5185;&#x5B58;,heapTotal&#x4F7F;&#x7528;&#x7684;&#x603B;&#x91CF;,heapUsed &#x5806;&#x7684;&#x4F7F;&#x7528;&#x91CF;)</p>
+<pre><code>require&#x8BE6;&#x89E3;&#xFF1A;
+</code></pre><p>var a  = require(&apos;./a.js&apos;);//&#x52A0;&#x8F7D;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#xFF0C;//&#x591A;&#x6B21;&#x52A0;&#x8F7D;&#x540C;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x7B2C;&#x4E00;&#x6B21;&#x4F1A;&#x5C06;&#x5176;&#x7F13;&#x5B58;&#x4E0B;&#x6765;&#xFF0C;&#x7B2C;&#x4E8C;&#x6B21;&#x52A0;&#x8F7D;&#x8D70;&#x7F13;&#x5B58;&#xFF0C;&#x53D1;&#x73B0;&#x7F13;&#x5B58;&#x8FC7;&#x4E86;&#xFF0C;&#x5C31;&#x4E0D;&#x518D;&#x7EE7;&#x7EED;&#x52A0;&#x8F7D;&#x4E86;</p>
+<p>//&#x5220;&#x9664;require&#x7F13;&#x5B58;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;
+require.resolve(&apos;./a.js&apos;);//&#x89E3;&#x6790;&#x51FA;&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x6839;&#x636E;&#x6587;&#x4EF6;&#x540D;
+//1.&#x6211;&#x4EEC;&#x8981;&#x901A;&#x8FC7;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x8FDB;&#x884C;&#x5220;&#x9664;&#xFF1B;
+//2.&#x53BB;&#x7F13;&#x5B58;&#x5185;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x7F13;&#x5B58;&#x6A21;&#x5757;require.cache
+//3.&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x6A21;&#x5757;require.cache[require.resolve(&apos;./a.js&apos;)]
+//4.delete
+delete require.cache[require.resolve(&apos;./a.js&apos;)];</p>
+<pre><code>&#x7B2C;&#x4E09;&#x65B9;&#x6A21;&#x5757;&#x5BFC;&#x51FA;&#x63A5;&#x53E3;&#x65B9;&#x5F0F;exports&#x548C;module.exports&#x7684;&#x539F;&#x7406;:
+</code></pre><p>(function (exports,require,module,<strong>dirname,</strong>filename) {
+    //&#x6A21;&#x5757;&#x5316; &#x8FD4;&#x56DE;&#x5BF9;&#x8C61; &#x66B4;&#x9732;&#x63A5;&#x53E3;
+    //<strong>dirname </strong>filename &#x662F;&#x901A;&#x8FC7;&#x5916;&#x754C;&#x4F20;&#x8FDB;&#x6765;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x8BBF;&#x95EE;
+    exports = module.exports = {};
+    //exports  = Person;//&#x6539;&#x53D8;&#x4E86;exports&#x6307;&#x5411;&#x4F46;&#x662F;&#xFF0C;module&#x6CA1;&#x6709;&#x53D8;&#x5316;
+    function Person (){}
+    //&#x65B9;&#x6CD5;1&#xFF1A;&#x7ED9;exports&#x589E;&#x52A0;&#x5C5E;&#x6027;&#x4F1A;&#x5F71;&#x54CD;&#x5230;module.exports&#x503C;
+    //&#x9519;&#x8BEF;&#x65B9;&#x5F0F;epxorts = Function
+    //exports.person = Person 
+    //&#x65B9;&#x6CD5;2&#xFF1A;&#x76F4;&#x63A5;&#x6539;&#x53D8;module.exports
+     module.exports = {person:Person};//&#x5F15;&#x7528;&#x5730;&#x5740;
+    return module.exports;
+    //&#x5982;&#x679C;&#x5BFC;&#x51FA;&#x7684;&#x662F;&#x5F15;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B; &#x7528;module.exports =Function
+})();</p>
+<pre><code>2. util&#x6A21;&#x5757;&#xFF1A;
+
+&gt; util&#x6A21;&#x5757;&#x662F;&#x4E00;&#x4E2A;Node.js &#x6838;&#x5FC3;&#x6A21;&#x5757;&#xFF0C;&#x63D0;&#x4F9B;&#x5E38;&#x7528;&#x51FD;&#x6570;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x7528;&#x4E8E;&#x5F25;&#x8865;&#x6838;&#x5FC3;JavaScript &#x7684;&#x529F;&#x80FD; &#x8FC7;&#x4E8E;&#x7CBE;&#x7B80;&#x7684;&#x4E0D;&#x8DB3;&#x3002;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x6709;&#xFF1A;
+
+&#x5224;&#x65AD;&#x7C7B;&#x578B;
+</code></pre><p>console.log(util.isArray([]));
+console.log(util.isError(new Error()));
+console.log(util.isRegExp(/^$/));
+console.log(util.isDate(new Date()));</p>
+<pre><code>&#x6DF1;&#x5EA6;&#x89E3;&#x6790;
+util.inspect&#x662F;&#x4E00;&#x4E2A;&#x5C06;&#x4EFB;&#x610F;&#x5BF9;&#x8C61;&#x8F6C;&#x6362; &#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x8C03;&#x8BD5;&#x548C;&#x9519;&#x8BEF;&#x8F93;&#x51FA;&#x3002;&#x5B83;&#x81F3;&#x5C11;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x53C2;&#x6570; object&#xFF0C;&#x5373;&#x8981;&#x8F6C;&#x6362;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+//showHidden &#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x503C;&#x4E3A; true&#xFF0C;&#x5C06;&#x4F1A;&#x8F93;&#x51FA;&#x66F4;&#x591A;&#x9690;&#x85CF;&#x4FE1;&#x606F;&#x3002;
+//depth &#x8868;&#x793A;&#x6700;&#x5927;&#x9012;&#x5F52;&#x7684;&#x5C42;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x5F88;&#x590D;&#x6742;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x5C42;&#x6570;&#x4EE5;&#x63A7;&#x5236;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x7684;&#x591A; &#x5C11;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;depth&#xFF0C;&#x9ED8;&#x8BA4;&#x4F1A;&#x9012;&#x5F52;2&#x5C42;&#xFF0C;&#x6307;&#x5B9A;&#x4E3A; null &#x8868;&#x793A;&#x5C06;&#x4E0D;&#x9650;&#x9012;&#x5F52;&#x5C42;&#x6570;&#x5B8C;&#x6574;&#x904D;&#x5386;&#x5BF9;&#x8C61;&#x3002; &#x5982;&#x679C;color &#x503C;&#x4E3A; true&#xFF0C;&#x8F93;&#x51FA;&#x683C;&#x5F0F;&#x5C06;&#x4F1A;&#x4EE5;ANSI &#x989C;&#x8272;&#x7F16;&#x7801;&#xFF0C;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x5728;&#x7EC8;&#x7AEF;&#x663E;&#x793A;&#x66F4;&#x6F02;&#x4EAE; &#x7684;&#x6548;&#x679C;&#x3002;
+</code></pre><p>util.inspect(object,[showHidden],[depth],[colors])</p>
+<pre><code>&#x7EE7;&#x627F;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;util.inherits&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x95F4;&#x539F;&#x578B;&#x7EE7;&#x627F; &#x7684;&#x51FD;&#x6570;&#x3002;
+JavaScript &#x6CA1;&#x6709; &#x63D0;&#x4F9B;&#x5BF9;&#x8C61;&#x7EE7;&#x627F;&#x7684;&#x8BED;&#x8A00;&#x7EA7;&#x522B;&#x7279;&#x6027;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;&#x539F;&#x578B;&#x590D;&#x5236;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;
+</code></pre><p>util.inherits(Child,Parent);</p>
+<pre><code>3. buffer&#x8BE6;&#x89E3;&#xFF1A;
+&gt;JavaScript &#x8BED;&#x8A00;&#x81EA;&#x8EAB;&#x53EA;&#x6709;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x6CA1;&#x6709;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;
+&#x4F46;&#x5728;&#x5904;&#x7406;&#x50CF;TCP&#x6D41;&#x6216;&#x6587;&#x4EF6;&#x6D41;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x5230;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x3002;&#x56E0;&#x6B64;&#x5728; Node.js&#x4E2D;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; Buffer &#x7C7B;&#xFF0C;&#x8BE5;&#x7C7B;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x5B58;&#x653E;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x7684;&#x7F13;&#x5B58;&#x533A;&#x3002;
+
+//buffer&#x662F;16&#x8FDB;&#x5236;&#xFF0C;&#x6BCF;&#x9022;16&#x8FDB;1.&#x5927;&#x4E8E;256&#x7684;&#x5BF9;256&#x53D6;&#x6A21;&#xFF0C;&#x8D1F;&#x503C;&#x662F;256&#x52A0;&#x8D1F;&#x503C;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x4E0D;&#x5728;&#x8303;&#x56F4;&#x6216;&#x8005;&#x5B57;&#x7B26;&#x4E32;&#x4EC0;&#x4E48;&#x7684;&#x5C31;&#x662F;00.
+</code></pre><p> var buffer = new Buffer([17,18,19]); 
+buffer.toString(&apos;utf8&apos;,3,6)//toStirng&#x7684;&#x53C2;&#x6570;(&apos;&#x7F16;&#x7801;&apos;,&#x5F00;&#x59CB;,&#x7ED3;&#x5C3E;)//&#x4E0E;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8F6C;&#x6362;
+//&#x53E6;&#x5916;&#xFF0C;node&#x8FD8;&#x81EA;&#x5E26;&#x4E00;&#x4E2A;bufferi&#x89E3;&#x7801;&#x6A21;&#x5757;string_decorder
+var String_decoder = require(&apos;string_decoder&apos;).StringDecoder;
+var sd = new String_decoder; //&#x5411;&#x5F53;&#x4E8E;&#x5B9E;&#x4F8B;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;
+console.log(sd.write(buffer.slice(0,4)).toString());
+console.log(sd.write(buffer.slice(4)).toString());
+//&#x90FD;&#x5F80;sd&#x5BF9;&#x8C61;&#x91CC;&#x5199; &#x5199;&#x7B2C;&#x4E00;&#x6B21;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53D1;&#x73B0;&#x4E0D;&#x80FD;&#x7EC4;&#x6210;&#x6C49;&#x5B57;&#x7684;&#x7559;&#x4E0B;&#x6765;&#xFF0C;&#x5199;&#x7B2C;&#x4E8C;&#x6B21;&#x7684;&#x65F6;&#x5019;&#x5728;&#x62FC;&#x63A5;&#x4E0A;&#x3002;</p>
+<p>Buffer.concat(); //&#x5408;&#x5E76;buffer
+a.copy(b,3);//&#x62F7;&#x8D1D;&#xFF0C;&#x628A;a&#x62F7;&#x8D1D;&#x5230;b&#x4E2D;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x4ECE;&#x539F;buffer&#x7684;&#x5F00;&#x59CB;&#x8003;&#x5230;&#x7ED3;&#x675F;</p>
+<pre><code>&#x5C01;&#x88C5;buffer&#x4E2D;&#x7684;concat&#x65B9;&#x6CD5;:
+</code></pre><p>Buffer.myConcat = function (list,totalLength) {//&#x628A;buffer&#x62FC;&#x6210;&#x4E00;&#x4E2A;  buffer.copy&#x8003;&#x5165;&#x5230;&#x5927;buffer&#x4E2D;&#x4E4B;&#x540E;&#x8FD4;&#x56DE;
+    //&#x5148;&#x5224;&#x65AD;&#x5F53;&#x524D;list&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;
+    if(list.length==1){return list[0];}
+    //&#x6211;&#x4EEC;&#x8981;&#x5224;&#x65AD;totalLength&#x6709;&#x6CA1;&#x6709;&#x4F20;&#x9012;
+    if(typeof totalLength==&apos;undefined&apos;){
+        totalLength  = 0;
+        list.forEach(function (item) { //&#x904D;&#x5386;&#x6570;&#x7EC4;&#x62FF;&#x5230;&#x6BCF;&#x4E00;&#x9879;&#x7684;&#x957F;&#x5EA6;
+            totalLength+=item.length;//&#x8BA1;&#x7B97;&#x51FA;&#x603B;&#x957F;&#x5EA6;
+        });
+    }
+    var buffer = new Buffer(totalLength); //&#x8981;&#x628A;&#x6BCF;&#x4E00;&#x4E2A;&#x5C0F;&#x7684;buffer copy&#x5230;&#x5927;buffer&#x91CC;&#x9762;
+    var index = 0;
+    list.forEach(function (item) {
+        item.copy(buffer,index);//&#x5C06;&#x6BCF;&#x4E00;&#x4E2A;item&#x653E;&#x5165;&#x5230;buffer&#x4E2D;
+        index+= item.length;
+    });
+    return buffer.slice(0,index);//&#x9632;&#x6B62;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;totalLength&#x8FC7;&#x957F;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x81EA;&#x5DF1;&#x7EF4;&#x62A4;&#x7684;&#x7D22;&#x5F15;&#x8FDB;&#x884C;&#x622A;&#x53D6;
+};</p>
+<pre><code>5. &#x6700;&#x540E;&#x8BE6;&#x89E3;base64&#x95EE;&#x9898;&#xFF1A;
+&gt; base64&#x662F;&#x4E00;&#x6BB5;&#x7F16;&#x7801;&#xFF0C;&#x4E0D;&#x7528;&#x4E09;&#x6B21;&#x63E1;&#x624B;&#xFF0C;&#x56DB;&#x6B21;&#x5206;&#x624B;&#xFF0C;&#x4E0D;&#x7528;&#x8BF7;&#x6C42;&#xFF0C;&#x6709;&#x5229;&#x4E8E;&#x4F18;&#x5316;&#x3002;&#x4E3B;&#x8981;&#x6B65;&#x9AA4;&#x4E3A;&#xFF1A;
+1&#xFF0C;16&#x8FDB;&#x5236;&#x8F6C;10 &#xFF0C;&#x7136;&#x540E;&#x8F6C;2&#xFF0C;Base64&#x7F16;&#x7801;&#x53EF;&#x7528;&#x4E8E;&#x5728;HTTP&#x73AF;&#x5883;&#x4E0B;&#x4F20;&#x9012;&#x8F83;&#x957F;&#x7684;&#x6807;&#x8BC6;&#x4FE1;&#x606F;&#x3002;&#x3001;&#x7801;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x88AB;&#x4EBA;&#x7528;&#x8089;&#x773C;&#x6240;&#x76F4;&#x63A5;&#x770B;&#x5230;&#x3002;&#x201C;&#x9632;&#x541B;&#x5B50;&#x4E0D;&#x9632;&#x5C0F;&#x4EBA;&#x201D;
+2,2&#x8FDB;&#x5236;&#x8FDE;&#x5230;&#x4E00;&#x8D77;&#xFF0C;&#x6BCF;&#x9694;6&#x4F4D;&#x5206;&#x5272;&#x5F00;&#xFF0C;&#x524D;&#x9762;&#x8865;2&#x4E2A;0&#xFF0C;
+3&#xFF0C;&#x5728;&#x8F6C;&#x6210;10&#x8FDB;&#x5236;&#x3002;&#x5728;64&#x4F4D;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x62FF;&#x5230;&#x3002;
+&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x8F6C;&#x6362;&#x4E00;&#x4E2A;&#x2018;&#x7C73;&#x2019;&#x5B57;&#x6765;&#x7B80;&#x5355;&#x770B;&#x4E00;&#x4E0B;base64&#x7684;&#x8F6C;&#x6362;&#x539F;&#x7406;&#xFF1A;
+</code></pre><p>var buffer=new Buffer(&apos;&#x7C73;&apos;);
+console.log(buffer);//e7 b1 b3
+console.log(parseInt(&apos;e7&apos;,16));//&#x6B65;&#x9AA4;1&#xFF1A;16&#x8FDB;&#x5236;&#x8F6C;10 &#xFF0C;&#x7136;&#x540E;&#x8F6C;2&#xFF0C;Base64&#x7F16;&#x7801;&#x53EF;&#x7528;&#x4E8E;&#x5728;HTTP&#x73AF;&#x5883;&#x4E0B;&#x4F20;&#x9012;&#x8F83;&#x957F;&#x7684;&#x6807;&#x8BC6;&#x4FE1;&#x606F;&#x3002;&#x3001;&#x7801;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x88AB;&#x4EBA;&#x7528;&#x8089;&#x773C;&#x6240;&#x76F4;&#x63A5;&#x770B;&#x5230;&#x3002;&#x201C;&#x9632;&#x541B;&#x5B50;&#x4E0D;&#x9632;&#x5C0F;&#x4EBA;&#x201D;
+console.log(parseInt(&apos;b1&apos;,16));
+console.log(parseInt(&apos;b3&apos;,16));</p>
+<p>console.log((231).toString(2));
+console.log((177).toString(2));
+console.log((179).toString(2));//11100111 10110001 10110011//&#x6B65;&#x9AA4;2&#xFF1A;2&#x8FDB;&#x5236;&#x8FDE;&#x5230;&#x4E00;&#x8D77;&#xFF0C;&#x6BCF;&#x9694;6&#x4F4D;&#x5206;&#x5272;&#x5F00;&#xFF0C;&#x524D;&#x9762;&#x8865;2&#x4E2A;0&#xFF0C;</p>
+<p>console.log(parseInt(&apos;00111001&apos;,2));//&#x518D;&#x8F6C;&#x6210;10&#x8FDB;&#x5236;&#x3002;&#x5728;64&#x4F4D;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x62FF;&#x5230;&#x3002;
+console.log(parseInt(&apos;00111011&apos;,2));
+console.log(parseInt(&apos;00000110&apos;,2));
+console.log(parseInt(&apos;00110011&apos;,2));</p>
+<p>//57 59 7 35
+var str=&apos;ABCDEFGHIJKLMNOPQRSTUVWXYZ&apos;
+        +&apos;abcedfghigklmnopqrstuvwxyz&apos;
+        +&apos;0123456789&apos;
+        +&apos;+/&apos;;
+console.log(&apos;str.length: &apos;+str.length);
+var res=str[57]+str[59]+str[6]+str[51];
+console.log(res);
+console.log(new Buffer(res,&apos;base64&apos;).toString());//&#x6700;&#x540E;&#x8F6C;&#x4F1A;&#x6C49;&#x5B57;&#x67E5;&#x770B;&#x662F;&#x5426;&#x8F6C;&#x6362;&#x6210;&#x529F;&#x3002;
+```</p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

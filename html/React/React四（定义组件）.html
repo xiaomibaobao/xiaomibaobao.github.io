@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li class="active"><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0React第四讲课堂笔记（定义组件）">React第四讲课堂笔记（定义组件）</a><ul><li><a href="#t11. 组件初始定义">1. 组件初始定义</a></li><li><a href="#t22. 初次创建组件时调用">2. 初次创建组件时调用</a></li><li><a href="#t33. 组件的属性值改变时调用">3. 组件的属性值改变时调用</a></li><li><a href="#t44. 销毁组件">4. 销毁组件</a></li><li><a href="#t55. 示例">5. 示例</a></li><li><a href="#t66. 回顾组件的渲染过程">6. 回顾组件的渲染过程</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0React&#x7B2C;&#x56DB;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#xFF09;">React&#x7B2C;&#x56DB;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#xFF09; <a href="#t0React&#x7B2C;&#x56DB;&#x8BB2;&#x8BFE;&#x5802;&#x7B14;&#x8BB0;&#xFF08;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#xFF09;"> # </a></h1>
+<p>&#x7528; <code>React.createClass</code> &#x6216;&#x8005; <code>React.Component</code> &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x65F6;&#x5141;&#x8BB8;&#x4F20;&#x5165;&#x76F8;&#x5E94;&#x7684;&#x914D;&#x7F6E;&#x53CA;&#x7EC4;&#x4EF6; <code>API</code> &#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x5305;&#x62EC;&#x7EC4;&#x4EF6;&#x751F;&#x547D;&#x5468;&#x671F;&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x3002;</p>
+<h2 id="t11. &#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5B9A;&#x4E49;">1. &#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5B9A;&#x4E49; <a href="#t11. &#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5B9A;&#x4E49;"> # </a></h2>
+<ul>
+<li>getDefaultProps &#x5F97;&#x5230;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5728;ES6&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x5B9A;&#x4E49;</li>
+<li>propTypes &#x5C5E;&#x6027;&#x68C0;&#x9A8C;&#x89C4;&#x5219;</li>
+<li>mixins &#x7EC4;&#x4EF6;&#x95F4;&#x516C;&#x7528;&#x65B9;&#x6CD5;</li>
+</ul>
+<h2 id="t22. &#x521D;&#x6B21;&#x521B;&#x5EFA;&#x7EC4;&#x4EF6;&#x65F6;&#x8C03;&#x7528;">2. &#x521D;&#x6B21;&#x521B;&#x5EFA;&#x7EC4;&#x4EF6;&#x65F6;&#x8C03;&#x7528; <a href="#t22. &#x521D;&#x6B21;&#x521B;&#x5EFA;&#x7EC4;&#x4EF6;&#x65F6;&#x8C03;&#x7528;"> # </a></h2>
+<ul>
+<li>getInitialState &#x5F97;&#x5230;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x5BF9;&#x8C61;</li>
+<li>render &#x8FD4;&#x56DE;&#x7EC4;&#x4EF6;&#x6811;. &#x5FC5;&#x987B;&#x8BBE;&#x7F6E;</li>
+<li>componentDidMount &#x6E32;&#x67D3;&#x5230; dom &#x6811;&#x4E2D;&#x662F;&#x8C03;&#x7528;&#xFF0C;&#x53EA;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x539F;&#x751F;&#x8282;&#x70B9;</li>
+</ul>
+<h2 id="t33. &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x6539;&#x53D8;&#x65F6;&#x8C03;&#x7528;">3. &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x6539;&#x53D8;&#x65F6;&#x8C03;&#x7528; <a href="#t33. &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x6539;&#x53D8;&#x65F6;&#x8C03;&#x7528;"> # </a></h2>
+<ul>
+<li>componentWillReceiveProps &#x5C5E;&#x6027;&#x6539;&#x53D8;&#x8C03;&#x7528;</li>
+<li>shouldComponentUpdate &#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x6E32;&#x67D3;</li>
+<li>render &#x8FD4;&#x56DE;&#x7EC4;&#x4EF6;&#x6811;. &#x5FC5;&#x987B;&#x8BBE;&#x7F6E;</li>
+<li>componentDidUpdate &#x6E32;&#x67D3;&#x5230; dom &#x6811;&#x4E2D;&#x662F;&#x8C03;&#x7528;, &#x53EF;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x539F;&#x751F;&#x8282;&#x70B9;</li>
+</ul>
+<h2 id="t44. &#x9500;&#x6BC1;&#x7EC4;&#x4EF6;">4. &#x9500;&#x6BC1;&#x7EC4;&#x4EF6; <a href="#t44. &#x9500;&#x6BC1;&#x7EC4;&#x4EF6;"> # </a></h2>
+<ul>
+<li>componentWillUnmount &#x7EC4;&#x4EF6;&#x4ECE; dom &#x9500;&#x6BC1;&#x524D;&#x8C03;&#x7528;</li>
+</ul>
+<h2 id="t55. &#x793A;&#x4F8B;">5. &#x793A;&#x4F8B; <a href="#t55. &#x793A;&#x4F8B;"> # </a></h2>
+<pre><code>import React, { Component } from &apos;react&apos;;
+
+class LifeCycle extends Component {
+
+  props = {
+    value: &apos;&#x5F00;&#x59CB;&#x6E32;&#x67D3;&apos;
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.log(&apos;componentWillReceiveProps&apos;);
+    this.setState({
+        value: nextProps.value
+    });
+  }
+
+  shouldComponentUpdate(nextProps,nextState){
+    console.log(&apos;shouldComponentUpdate&apos;);
+    return true;
+  }
+
+  componentWillUpdate(nextProps,nextState){
+    console.log(&apos;componentWillUpdate&apos;);
+  }
+
+  componentWillMount(){
+    console.log(&apos;componentWillMount&apos;);
+  }
+
+  render() {
+    console.log(&apos;render&apos;);
+    return &lt;span&gt;{this.props.value}&lt;/span&gt;
+  }
+
+  componentDidMount() {
+      console.log(&apos;componentDidMount&apos;);
+  }
+
+  componentDidUpdate(prevProps,prevState) {
+      console.log(&apos;componentDidUpdate&apos;);
+  }
+
+  componentWillUnmount(prevProps,prevState) {
+      console.log(&apos;componentWillUnmount&apos;);
+  }
+}
+
+export default LifeCycle;
+</code></pre><p>&#x8C03;&#x7528;&#x7EC4;&#x4EF6;&#x5E76;&#x9500;&#x6BC1;&#x7EC4;&#x4EF6;&#x793A;&#x4F8B;</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import LifeCycleDemo from &apos;./LifeCycleDemo&apos;;
+
+class DestroyComponent extends Component {
+
+  state = {
+    value:1,
+    destroyed:false
+  }
+
+  increase = () =&gt; {
+    this.setState({
+      value: this.state.value + 1
+    });
+  }
+
+  destroy = () =&gt; {
+    this.setState({
+      destroyed: true
+    });
+  }
+
+  render() {
+    if(this.state.destroyed){
+        return null;
+    }
+
+    return &lt;div&gt;
+      &lt;p&gt;
+        &lt;button onClick={this.increase}&gt;&#x6BCF;&#x6B21;&#x52A0;1&lt;/button&gt;
+        &lt;button onClick={this.destroy}&gt;&#x5E72;&#x6389;&#x8FD9;&#x4E24;&#x4E2A;&#x6309;&#x94AE;&lt;/button&gt;
+      &lt;/p&gt;
+      &lt;LifeCycleDemo value={this.state.value}/&gt;
+    &lt;/div&gt;;
+  }
+}
+
+export default DestroyComponent;
+</code></pre><h2 id="t66. &#x56DE;&#x987E;&#x7EC4;&#x4EF6;&#x7684;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;">6. &#x56DE;&#x987E;&#x7EC4;&#x4EF6;&#x7684;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B; <a href="#t66. &#x56DE;&#x987E;&#x7EC4;&#x4EF6;&#x7684;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;"> # </a></h2>
+<pre><code># &#x521B;&#x5EFA; -&gt; &#x6E32;&#x67D3; -&gt; &#x9500;&#x6BC1;
+
+getDefaultProps()
+getInitialState()
+componentWillMount()
+render()
+componentDidMount()
+componentWillUnmount()
+
+# &#x66F4;&#x65B0;&#x7EC4;&#x4EF6;
+
+componentWillReceiveProps()
+shouldComponentUpdate()
+componentWillUpdate()
+render()
+componentDidUpdate()
+</code></pre>
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xiaomi-Blog</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        
+            xiaomi-Blog
+        
+    </div>
+<ul><li><a href="../../index.html">index</a></li><li><a href="#"><span></span>React</a><ul><li><a href="../../html/React/React一（初识React）.html">React一（初识React）</a></li><li><a href="../../html/React/React七（组件嵌套）.html">React七（组件嵌套）</a></li><li><a href="../../html/React/React三（数据流）.html">React三（数据流）</a></li><li><a href="../../html/React/React九（mixin）.html">React九（mixin）</a></li><li><a href="../../html/React/React二（JSX语法）.html">React二（JSX语法）</a></li><li><a href="../../html/React/React五（DOM操作）.html">React五（DOM操作）</a></li><li><a href="../../html/React/React八（表单操作）.html">React八（表单操作）</a></li><li><a href="../../html/React/React六（事件）.html">React六（事件）</a></li><li><a href="../../html/React/React十（编码规范）.html">React十（编码规范）</a></li><li><a href="../../html/React/React四（定义组件）.html">React四（定义组件）</a></li></ul></li><li><a href="#"><span></span>Node.js</a><ul><li><a href="../../html/Node.js/MongoDB.html">MongoDB</a></li><li><a href="../../html/Node.js/node 1.html">node 1</a></li><li><a href="../../html/Node.js/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/Node.js/node入门(2).html">node入门(2)</a></li></ul></li><li><a href="#"><span></span>Angular</a><ul><li><a href="../../html/Angular/AngularJS 2.html">AngularJS 2</a></li><li><a href="../../html/Angular/AngularJS.html">AngularJS</a></li></ul></li><li><a href="#"><span></span>原生JavaScript</a><ul><li><a href="../../html/原生JavaScript/AJAX.html">AJAX</a></li><li><a href="../../html/原生JavaScript/DOM.html">DOM</a></li><li><a href="../../html/原生JavaScript/ES6.html">ES6</a></li><li><a href="../../html/原生JavaScript/HTTP.html">HTTP</a></li><li><a href="../../html/原生JavaScript/JS 基础知识拾遗.html">JS 基础知识拾遗</a></li><li><a href="../../html/原生JavaScript/Promise.html">Promise</a></li><li><a href="../../html/原生JavaScript/事件.html">事件</a></li><li><a href="../../html/原生JavaScript/函数.html">函数</a></li><li><a href="../../html/原生JavaScript/面向对象.html">面向对象</a></li><li><a href="../../html/原生JavaScript/CORS详解.html">CORS详解</a></li><li><a href="../../html/原生JavaScript/数组详谈.html">数组详谈</a></li><li><a href="../../html/原生JavaScript/正则表达式.html">正则表达式</a></li><li><a href="../../html/原生JavaScript/面向对象OOP.html">面向对象OOP</a></li></ul></li><li><a href="#"><span></span>设计、算法和思考</a><ul><li><a href="../../html/设计、算法和思考/学习Git.html">学习Git</a></li><li><a href="../../html/设计、算法和思考/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/设计、算法和思考/性能优化点总结.html">性能优化点总结</a></li><li><a href="../../html/设计、算法和思考/订阅发布模式详解.html">订阅发布模式详解</a></li><li><a href="../../html/设计、算法和思考/BOM之 History对象.html">BOM之 History对象</a></li><li><a href="../../html/设计、算法和思考/BOM之window对象.html">BOM之window对象</a></li><li class="active"><a href="../../html/设计、算法和思考/Web离线存储的几种方式.html">Web离线存储的几种方式</a></li><li><a href="../../html/设计、算法和思考/缓存作用（304）.html">缓存作用（304）</a></li></ul></li><li><a href="#"><span></span>前端工程</a><ul><li><a href="../../html/前端工程/Git.html">Git</a></li><li><a href="../../html/前端工程/Gulp.html">Gulp</a></li><li><a href="../../html/前端工程/HTTP缓存.html">HTTP缓存</a></li><li><a href="../../html/前端工程/jade.html">jade</a></li><li><a href="../../html/前端工程/less.html">less</a></li><li><a href="../../html/前端工程/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程/Cookie & Session.html">Cookie & Session</a></li><li><a href="../../html/前端工程/Express.html">Express</a></li><li><a href="../../html/前端工程/前端模块化之requireJS.html">前端模块化之requireJS</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/xiaomibaobao"></a></div>
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0Web离线存储的几种方式">Web离线存储的几种方式</a><ul><li><a href="#t11、Application Cache">1、Application Cache</a></li><li><a href="#t22、Local Storage">2、Local Storage</a></li><li><a href="#t33、Web SQL">3、Web SQL</a></li><li><a href="#t44、IndexedDB">4、IndexedDB</a></li><li><a href="#t5其他">其他</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0Web&#x79BB;&#x7EBF;&#x5B58;&#x50A8;&#x7684;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;">Web&#x79BB;&#x7EBF;&#x5B58;&#x50A8;&#x7684;&#x51E0;&#x79CD;&#x65B9;&#x5F0F; <a href="#t0Web&#x79BB;&#x7EBF;&#x5B58;&#x50A8;&#x7684;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;"> # </a></h1>
+<h3 id="t11&#x3001;Application Cache">1&#x3001;Application Cache <a href="#t11&#x3001;Application Cache"> # </a></h3>
+<p><a href="http://www.w3schools.com/html/html5_app_cache.asp">Application Cache</a> &#x53EF;&#x4EE5;&#x5F88;&#x7B80;&#x5355;&#x8BA9;&#x6211;&#x4EEC;&#x7684;WebApp&#x5177;&#x6709;&#x79BB;&#x7EBF;&#x7684;&#x80FD;&#x529B;&#x3002;</p>
+<p><strong>&#x652F;&#x6301;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#xFF1A;</strong>IE10+&#xFF0C;FireFox&#xFF0C;Chrome&#xFF0C;Safari&#xFF0C;Opera</p>
+<p><strong>&#x4F18;&#x70B9;&#xFF1A;</strong></p>
+<ol>
+<li>&#x79BB;&#x7EBF;&#x6D4F;&#x89C8; -- &#x7528;&#x6237;&#x53EF;&#x4EE5;&#x518D;&#x79BB;&#x7EBF;&#x65F6;&#x4F7F;&#x7528;Application</li>
+<li>&#x901F;&#x5EA6; -- &#x7531;&#x4E8E;&#x7F13;&#x5B58;&#x4E86;&#x8D44;&#x6E90;&#xFF0C;&#x5982;&#x679C;&#x52A0;&#x8F7D;&#x5F88;&#x5FEB;</li>
+<li>&#x51CF;&#x5C11;&#x670D;&#x52A1;&#x7AEF;&#x6570;&#x636E;&#x52A0;&#x8F7D; -- &#x6D4F;&#x89C8;&#x5668;&#x53EA;&#x9700;&#x8981;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x52A0;&#x8F7D;&#x66F4;&#x65B0;&#x8FC7;&#x7684;&#x6570;&#x636E;</li>
+</ol>
+<p><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong></p>
+<ol>
+<li>Manifest&#x6587;&#x4EF6;&#x6709;&#x53D8;&#x5316;&#x65F6;&#x624D;&#x66F4;&#x65B0;</li>
+<li>&#x4E00;&#x6B21;&#x5FC5;&#x987B;&#x66F4;&#x65B0;Manifest&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#xFF0C;&#x4E0B;&#x6B21;&#x624D;&#x751F;&#x6548;</li>
+</ol>
+<p><strong>&#x5982;&#x4F55;&#x4F7F;&#x7528;&#xFF1F;</strong></p>
+<p>Step1:&#x5728;html&#x4E0A;&#x6307;&#x5B9A;manifest&#x6587;&#x4EF6; (index.html)</p>
+<pre><code>&lt;html manifest=&quot;appCacheList.manifest&quot;&gt;
+&lt;/html&gt;
+</code></pre><p>Step2:&#x8BBE;&#x5B9A;manifest&#x6587;&#x4EF6;&#x5185;&#x5BB9; (appCache.manifest)</p>
+<pre><code>CACHE MANIFEST
+
+# &#x79BB;&#x7EBF;&#x7F13;&#x5B58;&#x7684;&#x5185;&#x5BB9;
+./all.css
+./1.jpg
+./index.js
+
+# NETWORK:*&#xFF0C;&#x8868;&#x793A;&#x5176;&#x4ED6;&#x5185;&#x5BB9;&#x4ECE;&#x7F51;&#x7EDC;&#x83B7;&#x53D6;
+NETWORK:
+*
+
+# &#x7B2C;&#x4E00;&#x4E2A;uri&#x662F;&#x8D44;&#x6E90;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x662F;fallback
+FALLBACK:
+/html/ /offline.html
+</code></pre><p>&#x624B;&#x52A8;&#x66F4;&#x65B0;&#x7F13;&#x5B58;&#xFF1A;</p>
+<pre><code>if ( window.applicationCache.status == window.applicationCache.UPDATEREADY ){
+    window.applicationCache.update();
+}
+</code></pre><p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong></p>
+<ol>
+<li>&#x4E0D;&#x540C;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x5BF9;Application Cache&#x7684;&#x5927;&#x5C0F;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x8BF7;&#x6CE8;&#x610F;&#x3002;</li>
+<li>&#x66F4;&#x591A;&#x7EC6;&#x8282;&#x53EF;&#x53C2;&#x8003;<a href="http://kayosite.com/web-app-by-jquery-mobile-and-html5-offline-web-applications.html">http://kayosite.com/web-app-by-jquery-mobile-and-html5-offline-web-applications.html</a></li>
+</ol>
+<h3 id="t22&#x3001;Local Storage">2&#x3001;Local Storage <a href="#t22&#x3001;Local Storage"> # </a></h3>
+<p><a href="http://www.w3schools.com/html/html5_webstorage.asp">Local Storage</a>&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4FDD;&#x5B58;&#x6570;&#x636E;&#x3002;</p>
+<p><strong>&#x652F;&#x6301;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#xFF1A;</strong>IE10+&#xFF0C;FireFox&#xFF0C;Chrome&#xFF0C;Safari&#xFF0C;Opera</p>
+<p><strong>&#x4F18;&#x70B9;&#xFF1A;</strong></p>
+<ol>
+<li>&#x5BB9;&#x91CF;&#x5927;</li>
+<li>&#x6613;&#x7528;</li>
+<li>&#x5F3A;&#x5927;</li>
+<li>&#x539F;&#x751F;&#x652F;&#x6301;</li>
+<li>&#x4EC5;&#x5B58;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x4E0D;&#x4F1A;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x751F;&#x4EA4;&#x4E92;</li>
+</ol>
+<p><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong></p>
+<ol>
+<li>&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#x5DEE;</li>
+<li>&#x5B89;&#x5168;&#x6027;&#x5DEE;&#xFF08;&#x4E0D;&#x8981;&#x5B58;&#x50A8;&#x654F;&#x611F;&#x6570;&#x636E;&#xFF09;</li>
+</ol>
+<p><strong>&#x5982;&#x4F55;&#x4F7F;&#x7528;&#xFF1F;</strong></p>
+<p>&#x9996;&#x5148;&#x901A;&#x8FC7; <code>window.localStorage</code> &#x6765;&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x5426;&#x652F;&#x6301;Local Storage&#x3002;&#x7136;&#x540E;&#x7531;&#x4E8E;&#x8BE5;&#x65B9;&#x5F0F;&#x5177;&#x6709;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#xFF0C;&#x5EFA;&#x8BAE;&#x7528;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;&#x5E93;&#xFF0C;&#x6765;&#x5C4F;&#x853D;&#x517C;&#x5BB9;&#x6027;&#x3002;</p>
+<pre><code>// &#x5BF9;&#x57FA;&#x672C;&#x65B9;&#x6CD5;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x9700;&#x8981;&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x5C4F;&#x853D;&#x5B83;&#x4EEC;&#x7684;&#x7EC6;&#x8282;&#x5DEE;&#x5F02;&#x3002;
+(function(window){
+  if(!window.localStorage){
+    throw new Error(&apos;Your brower can\&apos;t support local storage!&apos;);
+  }
+  var ls = window.localStorage;
+  var localStorageKit = {
+    getLength: function(){
+      return ls.length;
+    },
+    clear: function(){
+      ls.clear();
+      return true;
+    },
+    set: function(k, v){
+      ls.setItem(k, v);
+    },
+    get: function(k){
+      return ls.getItem(k);
+    },
+    remove: function(k){
+      ls.removeItem(k);
+    },
+    getKeyByIndex: function(index){
+      return ls.key(index);
+    }
+  };
+  window.lsKit = localStorageKit;
+})(window);
+</code></pre><p>&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#x4E0E;cookie&#x65E0;&#x592A;&#x591A;&#x5DEE;&#x5F02;&#x3002;</p>
+<p><strong>Session Storage&#xFF1A;</strong>
+Session Storage&#x548C;Local Storage&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#xFF0C;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#x4E5F;&#x4E00;&#x81F4;&#x3002;&#x7531;&#x4E8E;&#x5176;&#x4E2D;&#x4FDD;&#x5B58;&#x7684;&#x5B58;&#x53EA;&#x662F;&#x5F53;&#x524D;&#x4F1A;&#x8BDD;&#x6709;&#x6548;&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x5904;&#x5C31;&#x4E0D;&#x7EC6;&#x8BF4;&#x3002;</p>
+<h3 id="t33&#x3001;Web SQL">3&#x3001;Web SQL <a href="#t33&#x3001;Web SQL"> # </a></h3>
+<p><a href="http://en.wikipedia.org/wiki/Web_SQL_Database">Web Sql Database</a>&#xFF0C;&#x662F;html5&#x73AF;&#x5883;&#x4E0B;&#x53EF;&#x4EE5;&#x7528;js&#x6267;&#x884C;CRUD&#x7684;web&#x6570;&#x636E;&#x5E93;&#x3002;&#x6570;&#x636E;&#x5E93;&#x6838;&#x5FC3;&#x662F;SQLite&#x3002;</p>
+<p><strong>&#x4F18;&#x70B9;&#xFF1A;</strong></p>
+<ol>
+<li>&#x672C;&#x5730;&#x6570;&#x636E;&#x5E93;</li>
+<li>&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x590D;&#x6742;&#x7684;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;</li>
+</ol>
+<p><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong></p>
+<ol>
+<li>&#x6682;&#x65F6;&#x53EA;&#x6709;chrome&#x624D;&#x652F;&#x6301;&#xFF0C;&#x5BF9;&#x4E8E;Android&#x5927;&#x884C;&#x5176;&#x9053;&#x7684;&#x79FB;&#x52A8;&#x7AEF;&#xFF0C;&#x8FD9;&#x5E94;&#x8BE5;&#x662F;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x7684;&#x7F3A;&#x70B9;(&#x8C8C;&#x4F3C;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;Opera&#x548C;Safari&#x4E5F;&#x652F;&#x6301;&#x4E86;)</li>
+</ol>
+<p><strong>&#x5982;&#x4F55;&#x4F7F;&#x7528;&#xFF1F;</strong></p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5148;&#x4ECB;&#x7ECD;Web sql&#x7684;&#x4E09;&#x4E2A;&#x6838;&#x5FC3;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>openDatabase&#xFF1A;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x73B0;&#x6709;&#x6570;&#x636E;&#x5E93;&#x6216;&#x521B;&#x5EFA;&#x65B0;&#x6570;&#x636E;&#x5E93;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x5BF9;&#x8C61;&#x3002;</li>
+<li>transaction&#xFF1A;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x6839;&#x636E;&#x60C5;&#x51B5;&#x63A7;&#x5236;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x6216;&#x56DE;&#x6EDA;&#x3002;</li>
+<li><p>executeSql&#xFF1A;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x771F;&#x5B9E;&#x7684;SQL&#x67E5;&#x8BE2;&#x3002;</p>
+<p> var db = openDatabase(&apos;mydb&apos;, &apos;1.0&apos;, &apos;Test DB&apos;, 2 <em> 1024 </em> 1024);
+ var msg;
+ db.transaction(function (tx) {
+   tx.executeSql(&apos;CREATE TABLE IF NOT EXISTS LOGS (id unique, log)&apos;);
+   tx.executeSql(&apos;INSERT INTO LOGS (id, log) VALUES (1, &quot;foobar&quot;)&apos;);
+   tx.executeSql(&apos;INSERT INTO LOGS (id, log) VALUES (2, &quot;logmsg&quot;)&apos;);
+   console.log(&apos;Log message created and row inserted.&apos;);
+ });
+ db.transaction(function (tx) {
+   tx.executeSql(&apos;SELECT * FROM LOGS&apos;, [], function (tx, results) {</p>
+<pre><code> var len = results.rows.length, i;
+ console.log(&apos;Found rows: &apos; + len);
+ for (i = 0; i &lt; len; i++){
+   console.log(results.rows.item(i).log)
+ }
+</code></pre><p>   }, null);
+ });</p>
+</li>
+</ol>
+<p>&#x5F53;&#x6210;&#x6570;&#x636E;&#x5E93;&#x7528;&#xFF0C;&#x5C31;&#x884C;&#x3002;</p>
+<h3 id="t44&#x3001;IndexedDB">4&#x3001;IndexedDB <a href="#t44&#x3001;IndexedDB"> # </a></h3>
+<p><a href="http://www.w3.org/TR/IndexedDB/">IndexedDB</a>&#x662F;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x672C;&#x5730;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x3002;&#x662F;&#x57FA;&#x4E8E;&#x5E73;&#x9762;&#x6587;&#x4EF6;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x91C7;&#x7528;&#x4E86;&#x5206;&#x5C42;&#x7684;&#x952E;&#x503C;&#x5B58;&#x50A8;&#x548C;&#x57FA;&#x672C;&#x7684;&#x7D22;&#x5F15;&#x3002;</p>
+<p><strong>&#x4F18;&#x70B9;&#xFF1A;</strong></p>
+<ol>
+<li>&#x6807;&#x51C6;&#x5316;</li>
+<li>&#x5B58;&#x50A8;&#x590D;&#x6742;&#x6570;&#x636E;</li>
+<li>&#x652F;&#x6301;&#x7D22;&#x5F15;</li>
+</ol>
+<p><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong></p>
+<ol>
+<li>&#x4E0D;&#x652F;&#x6301;SQL</li>
+<li>&#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#xFF0C;&#x64CD;&#x4F5C;&#x8F83;&#x590D;&#x6742;</li>
+</ol>
+<p><strong>&#x5982;&#x4F55;&#x4F7F;&#x7528;&#xFF1F;</strong></p>
+<pre><code>// &#x6253;&#x5F00;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x6570;&#x636E;&#x5E93;&#x540D;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x4E3A;&#x6570;&#x636E;&#x5E93;&#x7248;&#x672C;&#x53F7;
+var dbRequest = window.indexedDB.open(&apos;testDb&apos;, 2);
+
+dbRequest.onupgradeneeded=function(e){
+    // &#x521B;&#x5EFA;&#x6570;&#x636E;&#x4ED3;&#x5E93;
+    var db=e.target.result;
+    if(!db.objectStoreNames.contains(&apos;users&apos;)){
+        var store=db.createObjectStore(&apos;users&apos;,{keyPath: &apos;id&apos;});
+        store.createIndex(&apos;nameIndex&apos;,&apos;name&apos;,{unique:true}); 
+        store.createIndex(&apos;ageIndex&apos;,&apos;age&apos;,{unique:false}); 
+    }
+    console.log(&apos;upgrade successfully!&apos;);
+};
+
+dbRequest.onsuccess = function(e){
+  console.log(&apos;Open database successfully!&apos;);
+  // &#x8FD9;&#x91CC;&#x62FF;&#x5230;&#x4E86;&#x6570;&#x636E;&#x5E93;
+  var db = e.target.result;
+  var storeName = &apos;users&apos;;
+  // &#x5199;&#x5165;&#x6570;&#x636E;
+  var tran = db.transaction(storeName, &apos;readwrite&apos;);
+  var users = tran.objectStore(storeName);
+  for(var i = 0; i &lt; 5; i++){
+    users.add({
+      id: i,
+      name: &apos;user&apos; + i,
+      age: Math.floor(Math.random() * 10) + 18
+    });
+  }
+
+  //&#x67E5;&#x8BE2;&#x6570;&#x636E;
+  var userStore = db.transaction(storeName).objectStore(storeName);
+  var request = userStore.openCursor();
+  request.onsuccess = function(e){
+    var cursor = e.target.result;
+    if(cursor){
+      console.log(cursor.key);
+      console.log(cursor.value);
+      cursor.continue();
+    }
+  }
+}
+</code></pre><h3 id="t5&#x5176;&#x4ED6;">&#x5176;&#x4ED6; <a href="#t5&#x5176;&#x4ED6;"> # </a></h3>
+<p><a href="http://html5online.com.cn/articles/2012080901.html">HTML 5&#x4E2D;&#x51E0;&#x79CD;&#x7528;&#x4E8E;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x672C;&#x5730;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x7684;API&#x4E4B;&#x95F4;&#x7684;&#x6BD4;&#x8F83;</a></p>
+<p><a href="http://www.cnblogs.com/dolphinX/p/3415761.html">HTML5&#x672C;&#x5730;&#x5B58;&#x50A8;&#x2014;&#x2014;IndexedDB&#xFF08;&#x4E00;&#xFF1A;&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF09;</a></p>
+<p><a href="http://www.cnblogs.com/dolphinX/p/3416889.html">HTML5&#x672C;&#x5730;&#x5B58;&#x50A8;&#x2014;&#x2014;IndexedDB&#xFF08;&#x4E8C;&#xFF1A;&#x7D22;&#x5F15;&#xFF09;</a></p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>
